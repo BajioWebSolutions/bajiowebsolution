@@ -53,7 +53,7 @@ export const Services = () => {
             <Link
               to={service.path}
               key={index}
-              className="group p-6 rounded-lg bg-neutral-dark/20 hover:bg-neutral-dark/30 transition-all duration-300 animate-fade-up"
+              className="group p-6 rounded-lg bg-neutral-dark/20 hover:bg-neutral-dark/30 transition-all duration-300 animate-fade-up hover:scale-[1.02]"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
@@ -63,8 +63,22 @@ export const Services = () => {
                 {service.title}
               </h3>
               <p className="text-neutral mb-4">{service.description}</p>
-              <span className="text-primary group-hover:underline">
+              <span className="text-primary inline-flex items-center group-hover:underline transform transition-transform group-hover:translate-x-1">
                 Learn More
+                <svg
+                  className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
               </span>
             </Link>
           ))}
