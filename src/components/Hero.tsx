@@ -1,20 +1,34 @@
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 export const Hero = () => {
   return (
-    <div className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary-dark to-accent animate-gradient-x"></div>
-      <div className="relative z-10 container mx-auto px-4 text-center text-white animate-fade-in">
-        <h1 className="text-5xl md:text-7xl font-bold mb-6">
-          Transforming Ideas into
-          <span className="block text-accent-dark">Digital Excellence</span>
+    <div className="relative min-h-[80vh] flex items-center justify-center bg-background text-foreground">
+      <div className="container mx-auto px-4 py-20 text-center">
+        <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
+          Boost Your Business Growth With{" "}
+          <span className="text-primary">Bajio Web Solutions</span>
         </h1>
-        <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
-          Bajio Web Solutions LLC delivers cutting-edge web development solutions that drive your business forward.
+        <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto text-neutral animate-fade-up">
+          We specialize in creating stunning, high-performance websites tailored to
+          our clients' unique needs. Transform your online presence with our
+          comprehensive digital solutions.
         </p>
-        <Button className="bg-white text-primary hover:bg-primary hover:text-white transition-all text-lg px-8 py-6">
-          Get Started
-        </Button>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up">
+          <Button
+            asChild
+            className="bg-primary hover:bg-primary-dark text-background text-lg px-8 py-6"
+          >
+            <Link to="/contact">Schedule a Consultation</Link>
+          </Button>
+          <Button
+            asChild
+            variant="outline"
+            className="text-foreground border-foreground hover:bg-foreground/10 text-lg px-8 py-6"
+          >
+            <Link to="/services">View Our Services</Link>
+          </Button>
+        </div>
       </div>
     </div>
   );

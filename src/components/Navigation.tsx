@@ -9,58 +9,65 @@ export const Navigation = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const menuItems = [
-    { title: "About Us", path: "/about" },
     { title: "Services", path: "/services" },
+    { title: "About", path: "/about" },
     { title: "Contact", path: "/contact" },
-    { title: "Blog", path: "/blog" },
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 bg-background/80 backdrop-blur-md z-50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="text-2xl font-bold text-primary">
             Bajio Web Solutions
           </Link>
 
-          {/* Mobile menu button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            onClick={toggleMenu}
-          >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </Button>
-
           {/* Desktop menu */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
             {menuItems.map((item) => (
               <Link
                 key={item.title}
                 to={item.path}
-                className="text-neutral-dark hover:text-primary transition-colors"
+                className="text-foreground hover:text-primary transition-colors"
               >
                 {item.title}
               </Link>
             ))}
+            <Button className="bg-primary hover:bg-primary-dark text-background">
+              Get Started
+            </Button>
           </div>
+
+          {/* Mobile menu button */}
+          <Button
+            variant="ghost"
+            size="icon"
+            className="md:hidden text-foreground"
+            onClick={toggleMenu}
+          >
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </Button>
         </div>
 
         {/* Mobile menu */}
         {isOpen && (
-          <div className="md:hidden py-4 animate-fade-in">
+          <div className="md:hidden py-4 animate-fade-in bg-background/95">
             <div className="flex flex-col space-y-4">
               {menuItems.map((item) => (
                 <Link
                   key={item.title}
                   to={item.path}
-                  className="text-neutral-dark hover:text-primary transition-colors px-4 py-2"
+                  className="text-foreground hover:text-primary transition-colors px-4 py-2"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.title}
                 </Link>
               ))}
+              <div className="px-4 pt-2">
+                <Button className="w-full bg-primary hover:bg-primary-dark text-background">
+                  Get Started
+                </Button>
+              </div>
             </div>
           </div>
         )}
