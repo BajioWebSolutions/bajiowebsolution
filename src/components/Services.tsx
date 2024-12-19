@@ -58,8 +58,9 @@ export const Services = () => {
   const [selectedService, setSelectedService] = useState<(typeof services)[0] | null>(null);
 
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-gradient-to-br from-background via-neutral-dark/40 to-primary/5 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-accent/10 via-primary/5 to-transparent opacity-30"></div>
+      <div className="container mx-auto px-4 relative z-10">
         <h2 className="text-4xl font-bold text-center mb-4 text-foreground">
           Comprehensive{" "}
           <span className="text-primary">Digital Solutions</span>
@@ -68,7 +69,7 @@ export const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group p-6 rounded-lg bg-neutral-dark/20 hover:bg-neutral-dark/30 transition-all duration-300 animate-fade-up cursor-pointer"
+              className="group p-6 rounded-lg bg-neutral-dark/20 hover:bg-neutral-dark/30 transition-all duration-300 animate-fade-up backdrop-blur-sm cursor-pointer"
               style={{ animationDelay: `${index * 100}ms` }}
               onClick={() => setSelectedService(service)}
             >
