@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Navigation } from "./components/Navigation";
 import Index from "./pages/Index";
 import { ServicePage } from "./pages/ServicePage";
+import { AboutPage } from "./pages/AboutPage";
+import { ContactPage } from "./pages/ContactPage";
 
 const queryClient = new QueryClient();
 
@@ -19,10 +21,10 @@ const App = () => (
         <div className="pt-16">
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/about" element={<div className="p-8">About Us Page (Coming Soon)</div>} />
+            <Route path="/about" element={<AboutPage />} />
             <Route path="/services" element={<div className="p-8">Services Page (Coming Soon)</div>} />
             <Route path="/services/:serviceId" element={<ServicePage />} />
-            <Route path="/contact" element={<div className="p-8">Contact Page (Coming Soon)</div>} />
+            <Route path="/contact" element={<ContactPage />} />
             <Route path="/blog" element={<div className="p-8">Blog Page (Coming Soon)</div>} />
           </Routes>
         </div>
