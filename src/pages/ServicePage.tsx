@@ -92,6 +92,7 @@ const serviceDetails = {
       "Competition Analysis"
     ]
   }
+};
 
 export const ServicePage = () => {
   const { serviceId } = useParams();
