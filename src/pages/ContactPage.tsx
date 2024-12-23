@@ -86,7 +86,7 @@ export const ContactPage = () => {
                   </label>
                   <Input
                     id="fullName"
-                    className="w-full bg-background/50 border-neutral-dark/30 focus:border-primary transition-colors"
+                    className="w-full bg-background/50 border-neutral-dark/30 focus:border-primary transition-colors text-white placeholder:text-neutral focus:text-primary"
                     required
                   />
                 </div>
@@ -97,7 +97,7 @@ export const ContactPage = () => {
                   <Input
                     id="email"
                     type="email"
-                    className="w-full bg-background/50 border-neutral-dark/30 focus:border-primary transition-colors"
+                    className="w-full bg-background/50 border-neutral-dark/30 focus:border-primary transition-colors text-white placeholder:text-neutral focus:text-primary"
                     required
                   />
                 </div>
@@ -108,7 +108,7 @@ export const ContactPage = () => {
                   <Input
                     id="phone"
                     type="tel"
-                    className="w-full bg-background/50 border-neutral-dark/30 focus:border-primary transition-colors"
+                    className="w-full bg-background/50 border-neutral-dark/30 focus:border-primary transition-colors text-white placeholder:text-neutral focus:text-primary"
                   />
                 </div>
                 <div>
@@ -117,7 +117,7 @@ export const ContactPage = () => {
                   </label>
                   <Input
                     id="company"
-                    className="w-full bg-background/50 border-neutral-dark/30 focus:border-primary transition-colors"
+                    className="w-full bg-background/50 border-neutral-dark/30 focus:border-primary transition-colors text-white placeholder:text-neutral focus:text-primary"
                   />
                 </div>
                 <div>
@@ -126,7 +126,7 @@ export const ContactPage = () => {
                   </label>
                   <Textarea
                     id="message"
-                    className="w-full min-h-[150px] bg-background/50 border-neutral-dark/30 focus:border-primary transition-colors"
+                    className="w-full min-h-[150px] bg-background/50 border-neutral-dark/30 focus:border-primary transition-colors text-white placeholder:text-neutral focus:text-primary"
                   />
                 </div>
                 <Button className="w-full bg-primary hover:bg-primary-dark text-white transition-all duration-300 hover:scale-105">
