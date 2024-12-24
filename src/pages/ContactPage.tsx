@@ -77,7 +77,7 @@ export const ContactPage = () => {
               </div>
             </div>
 
-            <div className="backdrop-blur-sm bg-neutral-dark/20 p-8 rounded-lg">
+            <div id="start-project" className="backdrop-blur-sm bg-neutral-dark/20 p-8 rounded-lg">
               <h2 className="text-2xl font-bold mb-6">Start Your Project</h2>
               <form className="space-y-6">
                 <div>
@@ -117,6 +117,16 @@ export const ContactPage = () => {
                   </label>
                   <Input
                     id="company"
+                    className="w-full bg-background/50 border-neutral-dark/30 focus:border-primary transition-colors text-white placeholder:text-neutral focus:text-primary"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="projectType" className="block text-sm font-medium text-neutral mb-2">
+                    Project Type
+                  </label>
+                  <Input
+                    id="projectType"
+                    placeholder="e.g., Website Design, E-commerce, Marketing"
                     className="w-full bg-background/50 border-neutral-dark/30 focus:border-primary transition-colors text-white placeholder:text-neutral focus:text-primary"
                   />
                 </div>

@@ -1,12 +1,17 @@
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  const handleGetStarted = () => {
+    navigate('/contact');
+  };
 
   const menuItems = [
     { title: "Services", path: "/services" },
@@ -33,7 +38,10 @@ export const Navigation = () => {
                 {item.title}
               </Link>
             ))}
-            <Button className="bg-primary hover:bg-primary-dark text-background">
+            <Button 
+              onClick={handleGetStarted}
+              className="bg-primary hover:bg-primary-dark text-background transition-all duration-300 hover:scale-105"
+            >
               Get Started
             </Button>
           </div>
@@ -64,7 +72,13 @@ export const Navigation = () => {
                 </Link>
               ))}
               <div className="px-4 pt-2">
-                <Button className="w-full bg-primary hover:bg-primary-dark text-background">
+                <Button 
+                  onClick={() => {
+                    handleGetStarted();
+                    setIsOpen(false);
+                  }}
+                  className="w-full bg-primary hover:bg-primary-dark text-background transition-all duration-300 hover:scale-105"
+                >
                   Get Started
                 </Button>
               </div>
