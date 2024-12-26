@@ -1,7 +1,34 @@
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import { X, Facebook, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export const Footer = () => {
+  const socialLinks = [
+    {
+      name: 'X',
+      icon: X,
+      url: 'https://x.com/bajiosolutions',
+      hoverColor: 'hover:text-neutral'
+    },
+    {
+      name: 'Facebook',
+      icon: Facebook,
+      url: 'https://www.facebook.com/bajiowebsolutions',
+      hoverColor: 'hover:text-primary'
+    },
+    {
+      name: 'Instagram',
+      icon: Instagram,
+      url: 'https://www.instagram.com/bajiowebsolutions',
+      hoverColor: 'hover:text-primary'
+    },
+    {
+      name: 'LinkedIn',
+      icon: Linkedin,
+      url: 'https://linkedin.com/in/BajioWebSolutions',
+      hoverColor: 'hover:text-primary'
+    }
+  ];
+
   return (
     <footer className="bg-neutral-dark/30 backdrop-blur-sm pt-16 pb-8">
       <div className="container mx-auto px-4">
@@ -12,18 +39,21 @@ export const Footer = () => {
               Transforming businesses through innovative digital solutions and exceptional web experiences.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-neutral hover:text-primary transition-colors">
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-neutral hover:text-primary transition-colors">
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-neutral hover:text-primary transition-colors">
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-neutral hover:text-primary transition-colors">
-                <Linkedin className="h-5 w-5" />
-              </a>
+              {socialLinks.map((social) => {
+                const Icon = social.icon;
+                return (
+                  <a
+                    key={social.name}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`transform transition-all duration-300 ${social.hoverColor} hover:scale-110`}
+                    aria-label={`Visit our ${social.name} page`}
+                  >
+                    <Icon className="h-5 w-5 text-neutral" />
+                  </a>
+                );
+              })}
             </div>
           </div>
           
