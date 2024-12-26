@@ -118,7 +118,7 @@ export const Footer = () => {
               </li>
               <li className="flex items-center text-neutral">
                 <Mail className="h-5 w-5 mr-2 text-primary" />
-                info@bajioweb.solutions
+                info@bajiowebsolutions.com
               </li>
               <li className="flex items-center text-neutral">
                 <MapPin className="h-5 w-5 mr-2 text-primary" />
