@@ -118,7 +118,9 @@ export const Footer = () => {
               </li>
               <li className="flex items-center text-neutral">
                 <Mail className="h-5 w-5 mr-2 text-primary" />
-                info@bajiowebsolutions.com
+                <a href="mailto:info@bajiowebsolutions.com" className="hover:text-primary transition-colors">
+                  info@bajiowebsolutions.com
+                </a>
               </li>
               <li className="flex items-center text-neutral">
                 <MapPin className="h-5 w-5 mr-2 text-primary" />
