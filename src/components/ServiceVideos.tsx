@@ -2,12 +2,12 @@ const serviceVideos = [
   {
     title: "Web Design Process",
     description: "Watch how we transform ideas into beautiful, functional websites",
-    embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    embedUrl: "https://www.youtube.com/embed/QuWsZsEaLZQ"
   },
   {
     title: "Digital Marketing Strategy",
     description: "Learn about our comprehensive digital marketing approach",
-    embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    embedUrl: "https://www.youtube.com/embed/S4IPPLONbQM"
   },
   {
     title: "SEO Optimization",
