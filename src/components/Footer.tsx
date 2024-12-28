@@ -29,6 +29,13 @@ export const Footer = () => {
     }
   ];
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <footer className="bg-neutral-dark/30 backdrop-blur-sm pt-16 pb-8">
       <div className="container mx-auto px-4">
@@ -61,22 +68,22 @@ export const Footer = () => {
             <h3 className="text-xl font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-neutral hover:text-primary transition-colors">
+                <Link to="/" onClick={scrollToTop} className="text-neutral hover:text-primary transition-colors">
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-neutral hover:text-primary transition-colors">
+                <Link to="/about" onClick={scrollToTop} className="text-neutral hover:text-primary transition-colors">
                   About
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="text-neutral hover:text-primary transition-colors">
+                <Link to="/services" onClick={scrollToTop} className="text-neutral hover:text-primary transition-colors">
                   Services
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-neutral hover:text-primary transition-colors">
+                <Link to="/contact" onClick={scrollToTop} className="text-neutral hover:text-primary transition-colors">
                   Contact
                 </Link>
               </li>
@@ -87,22 +94,22 @@ export const Footer = () => {
             <h3 className="text-xl font-bold mb-4">Services</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/services/web-design" className="text-neutral hover:text-primary transition-colors">
+                <Link to="/services/web-design" onClick={scrollToTop} className="text-neutral hover:text-primary transition-colors">
                   Web Design
                 </Link>
               </li>
               <li>
-                <Link to="/services/seo" className="text-neutral hover:text-primary transition-colors">
+                <Link to="/services/seo" onClick={scrollToTop} className="text-neutral hover:text-primary transition-colors">
                   SEO Services
                 </Link>
               </li>
               <li>
-                <Link to="/services/marketing" className="text-neutral hover:text-primary transition-colors">
+                <Link to="/services/marketing" onClick={scrollToTop} className="text-neutral hover:text-primary transition-colors">
                   Digital Marketing
                 </Link>
               </li>
               <li>
-                <Link to="/services/development" className="text-neutral hover:text-primary transition-colors">
+                <Link to="/services/development" onClick={scrollToTop} className="text-neutral hover:text-primary transition-colors">
                   Web Development
                 </Link>
               </li>
