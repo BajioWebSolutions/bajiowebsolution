@@ -12,7 +12,7 @@ const serviceVideos = [
   {
     title: "SEO Optimization",
     description: "Discover how we improve your search engine rankings",
-    embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    embedUrl: "https://www.youtube.com/embed/jOkgUQNalCc"
   }
 ];
 
