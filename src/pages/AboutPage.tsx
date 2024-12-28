@@ -36,11 +36,11 @@ export const AboutPage = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <Card className="p-6 text-center bg-neutral-dark/20 backdrop-blur-sm">
-              <div className="text-4xl font-bold text-primary mb-2">100+</div>
+              <div className="text-4xl font-bold text-primary mb-2">10+</div>
               <div className="text-neutral">Happy Clients</div>
             </Card>
             <Card className="p-6 text-center bg-neutral-dark/20 backdrop-blur-sm">
-              <div className="text-4xl font-bold text-primary mb-2">50+</div>
+              <div className="text-4xl font-bold text-primary mb-2">5+</div>
               <div className="text-neutral">Projects Completed</div>
             </Card>
             <Card className="p-6 text-center bg-neutral-dark/20 backdrop-blur-sm">
@@ -48,7 +48,7 @@ export const AboutPage = () => {
               <div className="text-neutral">Support</div>
             </Card>
             <Card className="p-6 text-center bg-neutral-dark/20 backdrop-blur-sm">
-              <div className="text-4xl font-bold text-primary mb-2">5+</div>
+              <div className="text-4xl font-bold text-primary mb-2">1+</div>
               <div className="text-neutral">Years Experience</div>
             </Card>
           </div>
