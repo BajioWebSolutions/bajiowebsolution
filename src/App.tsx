@@ -31,7 +31,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Navigation />
-        <div className="pt-16">
+        <div className="pt-20"> {/* Increased padding from pt-16 to pt-20 */}
           <Suspense fallback={
             <div className="flex items-center justify-center min-h-[60vh]">
               <div className="animate-pulse text-primary">Loading...</div>
