@@ -58,25 +58,31 @@ export const Services = () => {
   const [selectedService, setSelectedService] = useState<(typeof services)[0] | null>(null);
 
   return (
-    <section className="py-20 bg-gradient-to-br from-background via-neutral-dark/40 to-primary/5 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-accent/10 via-primary/5 to-transparent opacity-30"></div>
+    <section className="py-12 sm:py-20 bg-gradient-to-br from-background via-neutral-dark/40 to-primary/5 relative overflow-hidden">
+      <div 
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-accent/10 via-primary/5 to-transparent opacity-30"
+        aria-hidden="true"
+      ></div>
       <div className="container mx-auto px-4 relative z-10">
-        <h2 className="text-4xl font-bold text-center mb-4 text-foreground">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 text-foreground">
           Comprehensive{" "}
           <span className="text-primary">Digital Solutions</span>
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-8 sm:mt-12">
           {services.map((service, index) => (
             <div
               key={index}
-              className="group p-6 rounded-lg bg-neutral-dark/20 hover:bg-neutral-dark/30 transition-all duration-300 animate-fade-up backdrop-blur-sm cursor-pointer"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="group p-4 sm:p-6 rounded-lg bg-neutral-dark/20 hover:bg-neutral-dark/30 transition-all duration-300 animate-fade-up backdrop-blur-sm cursor-pointer"
+              style={{ 
+                animationDelay: `${index * 100}ms`,
+                willChange: 'transform, opacity'
+              }}
               onClick={() => setSelectedService(service)}
             >
               <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                 <service.icon className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-bold mb-2 text-foreground">
+              <h3 className="text-lg sm:text-xl font-bold mb-2 text-foreground">
                 {service.title}
               </h3>
               <p className="text-neutral mb-4">{service.description}</p>
