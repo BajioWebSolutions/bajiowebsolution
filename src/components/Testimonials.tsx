@@ -40,7 +40,7 @@ export const Testimonials = () => {
                   <img 
                     src={testimonial.image} 
                     alt={testimonial.name}
-                    className="object-cover w-full h-full"
+                    className="object-cover w-full h-full rounded-full"
                   />
                 </Avatar>
                 <div className="ml-4">
