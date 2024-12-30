@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Footer } from "@/components/Footer";
 
-export const AboutPage = () => {
+const AboutPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <div className="py-20">
@@ -58,3 +58,5 @@ export const AboutPage = () => {
     </div>
   );
 };
+
+export default AboutPage;

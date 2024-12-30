@@ -4,7 +4,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { Footer } from "@/components/Footer";
 
-export const ContactPage = () => {
+const ContactPage = () => {
   const businessHours = [
     { day: "Monday", hours: "9:00 AM–6:00 PM" },
     { day: "Tuesday", hours: "9:00 AM–6:00 PM" },
@@ -151,3 +151,5 @@ export const ContactPage = () => {
     </div>
   );
 };
+
+export default ContactPage;
