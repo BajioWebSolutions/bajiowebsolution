@@ -23,12 +23,12 @@ export const Navigation = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 bg-background/80 backdrop-blur-md z-50">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20"> {/* Increased height from h-16 to h-20 */}
+        <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center">
             <img 
-              src="/lovable-uploads/a5a365bf-6e5a-4613-8ed5-86333ec0c931.png" 
+              src="/lovable-uploads/39f3556e-6b12-4ffc-b1d0-ad03448bd1af.png" 
               alt="Bajio Web Solutions" 
-              className="h-16 w-auto" /* Increased height from h-12 to h-16 */
+              className="h-16 w-auto"
             />
           </Link>
 
