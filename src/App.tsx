@@ -26,16 +26,30 @@ const queryClient = new QueryClient({
   },
 });
 
-// Animated page wrapper
+// Enhanced page transition wrapper
 const PageWrapper = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
+  
   return (
     <motion.div
       key={location.pathname}
       initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 20 }}
-      transition={{ duration: 0.3 }}
+      animate={{ 
+        opacity: 1, 
+        y: 0,
+        transition: {
+          duration: 0.5,
+          ease: [0.43, 0.13, 0.23, 0.96] // Custom easing for smooth motion
+        }
+      }}
+      exit={{ 
+        opacity: 0, 
+        y: 20,
+        transition: {
+          duration: 0.3,
+          ease: [0.43, 0.13, 0.23, 0.96]
+        }
+      }}
     >
       {children}
     </motion.div>
@@ -51,9 +65,14 @@ const App = () => (
         <Navigation />
         <div className="pt-20">
           <Suspense fallback={
-            <div className="flex items-center justify-center min-h-[60vh]">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="flex items-center justify-center min-h-[60vh]"
+            >
               <div className="animate-pulse text-primary">Loading...</div>
-            </div>
+            </motion.div>
           }>
             <AnimatePresence mode="wait">
               <Routes>
