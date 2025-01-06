@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
+import { toast } from "sonner";
+import { useState } from "react";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -27,6 +29,47 @@ const itemVariants = {
 };
 
 export const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Basic validation
+    if (!formData.name || !formData.email || !formData.message) {
+      toast.error("Please fill in all fields");
+      return;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      toast.error("Please enter a valid email address");
+      return;
+    }
+
+    // Show success message
+    toast.success("Message sent successfully!");
+    
+    // Reset form
+    setFormData({
+      name: '',
+      email: '',
+      message: ''
+    });
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
   return (
     <section className="py-20 bg-gradient-to-br from-background via-neutral-dark/40 to-primary/5 relative overflow-hidden">
       <motion.div 
@@ -57,22 +100,32 @@ export const Contact = () => {
           <motion.form 
             className="space-y-6 backdrop-blur-sm bg-neutral-dark/20 p-8 rounded-lg"
             variants={itemVariants}
+            onSubmit={handleSubmit}
           >
             <motion.div variants={itemVariants}>
               <Input 
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
                 placeholder="Your Name" 
                 className="w-full bg-background/50 border-neutral-dark/30 focus:border-primary transition-colors"
               />
             </motion.div>
             <motion.div variants={itemVariants}>
               <Input 
-                type="email" 
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 placeholder="Your Email" 
                 className="w-full bg-background/50 border-neutral-dark/30 focus:border-primary transition-colors"
               />
             </motion.div>
             <motion.div variants={itemVariants}>
               <Textarea 
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
                 placeholder="Your Message" 
                 className="w-full min-h-[150px] bg-background/50 border-neutral-dark/30 focus:border-primary transition-colors"
               />
@@ -82,7 +135,7 @@ export const Contact = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <Button className="w-full bg-primary hover:bg-primary-dark text-white transition-all duration-300">
+              <Button type="submit" className="w-full bg-primary hover:bg-primary-dark text-white transition-all duration-300">
                 Send Message
               </Button>
             </motion.div>
