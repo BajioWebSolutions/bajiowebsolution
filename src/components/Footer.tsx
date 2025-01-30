@@ -1,5 +1,6 @@
 import { X, Facebook, Instagram, Linkedin, Mail, Phone, MapPin, Twitch, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
+import { TikTokIcon } from "./icons/TikTokIcon";
 
 export const Footer = () => {
   const socialLinks = [
@@ -32,6 +33,12 @@ export const Footer = () => {
       icon: Twitch,
       url: 'https://www.twitch.tv/BajioWebSolutions',
       hoverColor: 'hover:text-[#6441a5]'
+    },
+    {
+      name: 'TikTok',
+      icon: TikTokIcon,
+      url: 'https://www.tiktok.com/@bajiowebsolutions',
+      hoverColor: 'hover:text-black'
     },
     {
       name: 'YouTube',
