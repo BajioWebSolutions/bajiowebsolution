@@ -4,34 +4,28 @@ import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
 import { useState } from "react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
-    }
-  }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: [0.43, 0.13, 0.23, 0.96]
-    }
-  }
-};
+const budgetRanges = [
+  { value: "5k-10k", label: "$5,000 - $10,000" },
+  { value: "10k-20k", label: "$10,000 - $20,000" },
+  { value: "20k-50k", label: "$20,000 - $50,000" },
+  { value: "50k+", label: "$50,000+" },
+];
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    company: '',
+    phone: '',
+    budget: '',
     message: ''
   });
 
@@ -40,7 +34,7 @@ export const Contact = () => {
     
     // Basic validation
     if (!formData.name || !formData.email || !formData.message) {
-      toast.error("Please fill in all fields");
+      toast.error("Please fill in all required fields");
       return;
     }
 
@@ -58,6 +52,9 @@ export const Contact = () => {
     setFormData({
       name: '',
       email: '',
+      company: '',
+      phone: '',
+      budget: '',
       message: ''
     });
   };
@@ -67,6 +64,13 @@ export const Contact = () => {
     setFormData(prev => ({
       ...prev,
       [name]: value
+    }));
+  };
+
+  const handleBudgetChange = (value: string) => {
+    setFormData(prev => ({
+      ...prev,
+      budget: value
     }));
   };
 
@@ -107,8 +111,9 @@ export const Contact = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="Your Name" 
+                placeholder="Your Name *" 
                 className="w-full bg-background/50 border-neutral-dark/30 focus:border-primary transition-colors"
+                required
               />
             </motion.div>
             <motion.div variants={itemVariants}>
@@ -117,17 +122,55 @@ export const Contact = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="Your Email" 
+                placeholder="Your Email *" 
+                className="w-full bg-background/50 border-neutral-dark/30 focus:border-primary transition-colors"
+                required
+              />
+            </motion.div>
+            <motion.div variants={itemVariants}>
+              <Input 
+                name="company"
+                value={formData.company}
+                onChange={handleChange}
+                placeholder="Company Name" 
                 className="w-full bg-background/50 border-neutral-dark/30 focus:border-primary transition-colors"
               />
+            </motion.div>
+            <motion.div variants={itemVariants}>
+              <Input 
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder="Phone Number" 
+                className="w-full bg-background/50 border-neutral-dark/30 focus:border-primary transition-colors"
+              />
+            </motion.div>
+            <motion.div variants={itemVariants}>
+              <Select
+                value={formData.budget}
+                onValueChange={handleBudgetChange}
+              >
+                <SelectTrigger className="w-full bg-background/50 border-neutral-dark/30 focus:border-primary transition-colors">
+                  <SelectValue placeholder="Monthly Marketing Budget" />
+                </SelectTrigger>
+                <SelectContent>
+                  {budgetRanges.map((range) => (
+                    <SelectItem key={range.value} value={range.value}>
+                      {range.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </motion.div>
             <motion.div variants={itemVariants}>
               <Textarea 
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                placeholder="Your Message" 
+                placeholder="Your Message *" 
                 className="w-full min-h-[150px] bg-background/50 border-neutral-dark/30 focus:border-primary transition-colors"
+                required
               />
             </motion.div>
             <motion.div 
@@ -144,4 +187,27 @@ export const Contact = () => {
       </motion.div>
     </section>
   );
+};
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.43, 0.13, 0.23, 0.96]
+    }
+  }
 };

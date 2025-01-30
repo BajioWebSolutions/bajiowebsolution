@@ -8,47 +8,54 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { motion } from "framer-motion";
 
 const services = [
   {
     title: "Web Design",
-    description: "Custom web design solutions that bring results.",
-    detailedDescription: "Bajio Web Solutions specializes in creating custom web designs that are both visually appealing and results-driven. Our approach focuses on developing websites that not only look stunning but also function effectively to meet business objectives. Our team employs responsive design techniques to ensure that websites perform well across various devices and screen sizes. By combining aesthetics with user experience (UX) principles, we aim to create engaging online platforms that represent their clients' brands effectively and drive conversions.",
+    description: "Custom web design solutions that convert visitors into customers.",
+    kpi: "Average 40% increase in conversion rates",
+    detailedDescription: "Our web design service creates stunning, user-friendly websites that capture your brand's essence and drive results. We focus on conversion-optimized designs that engage visitors and turn them into customers.",
     icon: Globe,
     path: "/services/web-design",
   },
   {
     title: "SEO Services",
-    description: "Boost your search engine rankings and visibility.",
-    detailedDescription: "Our agency offers search engine optimization (SEO) services to improve clients' visibility in search engine results pages. This service is crucial for businesses looking to increase their organic traffic and online presence. Bajio Web Solutions employs a combination of on-page and off-page SEO techniques, including keyword optimization, content strategy, link building, and technical SEO improvements. Our goal is to boost search engine rankings, making it easier for potential customers to find their clients' websites.",
+    description: "Dominate search rankings with data-driven SEO strategies.",
+    kpi: "200% average increase in organic traffic",
+    detailedDescription: "Our SEO services use advanced analytics and proven strategies to improve your search engine rankings and drive qualified organic traffic to your website.",
     icon: Search,
     path: "/services/seo",
   },
   {
-    title: "Marketing",
-    description: "Data-driven marketing strategies that grow your business.",
-    detailedDescription: "Bajio Web Solutions provides data-driven marketing strategies designed to foster business growth. This comprehensive approach involves analyzing market trends, customer behavior, and competitive landscapes to develop tailored marketing plans. Our services include email marketing campaigns, content marketing, conversion rate optimization, and analytics reporting. By leveraging data insights, we aim to create marketing solutions that effectively target the right audience and drive measurable results for their clients.",
+    title: "Digital Marketing",
+    description: "Results-driven marketing campaigns that grow your business.",
+    kpi: "3X average return on ad spend",
+    detailedDescription: "We create and execute comprehensive digital marketing strategies that combine multiple channels to maximize your ROI and achieve sustainable growth.",
     icon: BarChart3,
     path: "/services/marketing",
   },
   {
     title: "Web Development",
-    description: "Professional web development for your unique needs.",
-    detailedDescription: "The agency offers professional web development services to meet unique client needs. This service encompasses both front-end and back-end development, creating robust and scalable websites and web applications. Our development process involves using the latest technologies and frameworks to build custom functionalities, e-commerce solutions, content management systems, and integrations with third-party services. Our focus is on creating high-performance, secure, and user-friendly web solutions that align with clients' business requirements.",
+    description: "Custom web solutions built for performance and scale.",
+    kpi: "99.9% uptime guarantee",
+    detailedDescription: "Our development team builds robust, scalable web applications using cutting-edge technologies that ensure optimal performance and user experience.",
     icon: Code2,
     path: "/services/development",
   },
   {
     title: "Social Media Marketing",
-    description: "Engage your audience across social platforms.",
-    detailedDescription: "Bajio Web Solutions helps businesses engage their audience across various social media platforms. This service includes developing social media strategies, creating and curating content, managing social media accounts, and running social media advertising campaigns. The agency aims to build brand awareness, increase follower engagement, and drive traffic to clients' websites through effective social media management. We also provide social media analytics to measure the performance of their campaigns and adjust strategies accordingly.",
+    description: "Build brand awareness and engage your target audience.",
+    kpi: "150% average increase in engagement",
+    detailedDescription: "We help businesses build and maintain a strong social media presence through strategic content creation and community management.",
     icon: Share2,
     path: "/services/social-media",
   },
   {
     title: "PPC Advertising",
-    description: "Targeted advertising campaigns that convert.",
-    detailedDescription: "Our PPC advertising service focuses on creating and managing targeted advertising campaigns that drive conversions. We develop comprehensive strategies for platforms like Google Ads and social media advertising networks. Our approach includes detailed keyword research, ad copy optimization, landing page development, and continuous performance monitoring. We use data-driven insights to optimize campaigns for maximum ROI, ensuring that advertising budgets are spent effectively to reach and convert the right audience.",
+    description: "Targeted campaigns that deliver measurable results.",
+    kpi: "25% average reduction in cost per lead",
+    detailedDescription: "Our PPC experts create and optimize advertising campaigns that target your ideal customers and maximize your advertising budget.",
     icon: Target,
     path: "/services/ppc",
   },
@@ -64,46 +71,46 @@ export const Services = () => {
         aria-hidden="true"
       ></div>
       <div className="container mx-auto px-4 relative z-10">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 text-foreground">
-          Comprehensive{" "}
-          <span className="text-primary">Digital Solutions</span>
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-8 sm:mt-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 text-foreground">
+            Comprehensive{" "}
+            <span className="text-primary">Digital Solutions</span>
+          </h2>
+          <p className="text-neutral text-center max-w-2xl mx-auto mb-12">
+            We deliver measurable results through data-driven strategies and cutting-edge technology.
+            Our services are tailored to help your business grow and succeed online.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={index}
-              className="group p-4 sm:p-6 rounded-lg bg-neutral-dark/20 hover:bg-neutral-dark/30 transition-all duration-300 animate-fade-up backdrop-blur-sm cursor-pointer"
-              style={{ 
-                animationDelay: `${index * 100}ms`,
-                willChange: 'transform, opacity'
-              }}
+              className="group p-6 rounded-lg bg-neutral-dark/20 hover:bg-neutral-dark/30 transition-all duration-300 backdrop-blur-sm cursor-pointer animate-fade-up relative overflow-hidden"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
               onClick={() => setSelectedService(service)}
             >
               <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                 <service.icon className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-lg sm:text-xl font-bold mb-2 text-foreground">
+              <h3 className="text-xl font-bold mb-2 text-foreground">
                 {service.title}
               </h3>
               <p className="text-neutral mb-4">{service.description}</p>
-              <span className="text-primary inline-flex items-center group-hover:underline transform transition-all duration-300 hover:translate-x-1">
-                Learn More
-                <svg
-                  className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </span>
-            </div>
+              
+              {/* KPI Badge */}
+              <div className="absolute bottom-0 left-0 w-full p-4 bg-primary/10 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <p className="text-sm font-medium text-primary">{service.kpi}</p>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -124,7 +131,7 @@ export const Services = () => {
               to={selectedService?.path || "#"}
               className="inline-flex items-center justify-center px-6 py-3 bg-primary hover:bg-primary-dark text-white font-medium rounded-md transition-colors"
             >
-              Get Started
+              Learn More
             </Link>
           </div>
         </DialogContent>

@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Award, BarChart, Users } from "lucide-react";
 
 export const Hero = () => {
   return (
@@ -25,12 +26,13 @@ export const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
+          Data-driven marketing solutions that deliver <span className="text-primary font-semibold">3X ROI</span>. 
           We specialize in creating stunning, high-performance websites and implementing 
-          effective digital marketing strategies that drive real business growth. 
-          Let's work together to achieve your online goals.
+          effective digital marketing strategies that drive real business growth.
         </motion.p>
+        
         <motion.div 
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
@@ -48,6 +50,26 @@ export const Hero = () => {
           >
             <Link to="/services">Explore Our Services</Link>
           </Button>
+        </motion.div>
+
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+        >
+          <div className="flex items-center justify-center gap-2 text-neutral">
+            <Users className="h-5 w-5 text-primary" />
+            <span>Trusted by 150+ brands</span>
+          </div>
+          <div className="flex items-center justify-center gap-2 text-neutral">
+            <Award className="h-5 w-5 text-primary" />
+            <span>Award-winning agency</span>
+          </div>
+          <div className="flex items-center justify-center gap-2 text-neutral">
+            <BarChart className="h-5 w-5 text-primary" />
+            <span>Data-driven results</span>
+          </div>
         </motion.div>
       </div>
     </section>
