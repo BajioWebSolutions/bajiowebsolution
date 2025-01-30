@@ -1,4 +1,4 @@
-import { X, Facebook, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import { X, Facebook, Instagram, Linkedin, Mail, Phone, MapPin, Twitch, Youtube, Tiktok } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export const Footer = () => {
@@ -26,6 +26,24 @@ export const Footer = () => {
       icon: Linkedin,
       url: 'https://linkedin.com/in/BajioWebSolutions',
       hoverColor: 'hover:text-primary'
+    },
+    {
+      name: 'Twitch',
+      icon: Twitch,
+      url: 'https://www.twitch.tv/BajioWebSolutions',
+      hoverColor: 'hover:text-[#6441a5]'
+    },
+    {
+      name: 'TikTok',
+      icon: Tiktok,
+      url: 'https://www.tiktok.com/@bajiowebsolutions',
+      hoverColor: 'hover:text-black'
+    },
+    {
+      name: 'YouTube',
+      icon: Youtube,
+      url: 'https://www.youtube.com/@bajiowebsolutions',
+      hoverColor: 'hover:text-red-600'
     }
   ];
 
@@ -45,7 +63,7 @@ export const Footer = () => {
             <p className="text-neutral mb-4">
               Transforming businesses through innovative digital solutions and exceptional web experiences.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex flex-wrap gap-4">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
                 return (
