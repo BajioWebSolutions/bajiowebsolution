@@ -113,6 +113,16 @@ export const Footer = () => {
                   Web Development
                 </Link>
               </li>
+              <li>
+                <Link to="/services/social-media" onClick={scrollToTop} className="text-neutral hover:text-primary transition-colors">
+                  Social Media Marketing
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/ppc" onClick={scrollToTop} className="text-neutral hover:text-primary transition-colors">
+                  PPC Advertising
+                </Link>
+              </li>
             </ul>
           </div>
           
