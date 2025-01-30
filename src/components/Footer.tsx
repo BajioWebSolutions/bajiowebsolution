@@ -1,4 +1,4 @@
-import { X, Facebook, Instagram, Linkedin, Mail, Phone, MapPin, Twitch, Youtube, Tiktok } from "lucide-react";
+import { X, Facebook, Instagram, Linkedin, Mail, Phone, MapPin, Twitch, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export const Footer = () => {
@@ -32,12 +32,6 @@ export const Footer = () => {
       icon: Twitch,
       url: 'https://www.twitch.tv/BajioWebSolutions',
       hoverColor: 'hover:text-[#6441a5]'
-    },
-    {
-      name: 'TikTok',
-      icon: Tiktok,
-      url: 'https://www.tiktok.com/@bajiowebsolutions',
-      hoverColor: 'hover:text-black'
     },
     {
       name: 'YouTube',
