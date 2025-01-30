@@ -91,7 +91,7 @@ export const Services = () => {
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className="group p-6 rounded-lg bg-neutral-dark/20 hover:bg-neutral-dark/30 transition-all duration-300 backdrop-blur-sm cursor-pointer animate-fade-up relative overflow-hidden"
+              className="group p-6 rounded-lg bg-neutral-dark/20 hover:bg-neutral-dark/30 transition-all duration-300 backdrop-blur-sm cursor-pointer animate-fade-up relative overflow-hidden transform hover:-translate-y-1 hover:shadow-xl"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
