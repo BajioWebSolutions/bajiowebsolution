@@ -22,8 +22,14 @@ export default {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "#FFFFFF",
-        foreground: "#111827",
+        background: {
+          DEFAULT: "#FFFFFF",
+          dark: "#1A1F2C",
+        },
+        foreground: {
+          DEFAULT: "#111827",
+          dark: "#FFFFFF",
+        },
         primary: {
           DEFAULT: "#0EA5E9",
           dark: "#0284C7",

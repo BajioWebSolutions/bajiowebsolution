@@ -5,8 +5,8 @@ import { ArrowRight, CheckCircle } from "lucide-react";
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-[90vh] flex items-center bg-gradient-radial from-primary/5 via-background to-background">
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0)_0%,rgba(255,255,255,1)_100%)]" />
+    <section className="relative min-h-[90vh] flex items-center bg-gradient-radial from-primary/5 via-background to-background dark:from-primary/10 dark:via-background dark:to-background">
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0)_0%,rgba(255,255,255,1)_100%)] dark:bg-[linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_100%)]" />
       <div className="container mx-auto px-4 py-12 sm:py-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div 
@@ -15,7 +15,7 @@ export const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium">
+            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium dark:bg-primary/20">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
@@ -23,12 +23,12 @@ export const Hero = () => {
               Now offering 24/7 support
             </div>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-              Transform Your Digital <br />
-              <span className="text-primary">Presence Today</span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">
+              <span className="bg-gradient-to-r from-foreground to-foreground/70 dark:from-white dark:to-white/70 bg-clip-text text-transparent">Transform Your Digital</span><br />
+              <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">Presence Today</span>
             </h1>
             
-            <p className="text-lg sm:text-xl text-neutral-dark max-w-xl">
+            <p className="text-lg sm:text-xl text-neutral-dark dark:text-neutral-light max-w-xl">
               We create stunning, high-performance websites and implement effective digital 
               marketing strategies that drive real business growth.
             </p>
@@ -49,7 +49,7 @@ export const Hero = () => {
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-neutral hover:bg-neutral-light/50 text-lg px-8 h-12"
+                className="border-neutral hover:bg-neutral-light/50 text-lg px-8 h-12 dark:border-neutral-light dark:hover:bg-neutral-dark/50"
               >
                 <Link to="/services">View Services</Link>
               </Button>
@@ -60,7 +60,7 @@ export const Hero = () => {
                 {['Custom Solutions', 'Expert Support', '100% Satisfaction'].map((feature, index) => (
                   <div key={index} className="flex items-center gap-2">
                     <CheckCircle className="h-5 w-5 text-primary" />
-                    <span className="text-neutral-dark">{feature}</span>
+                    <span className="text-neutral-dark dark:text-neutral-light">{feature}</span>
                   </div>
                 ))}
               </div>
@@ -82,14 +82,14 @@ export const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </div>
             
-            <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl p-6 max-w-xs">
+            <div className="absolute -bottom-6 -right-6 bg-white dark:bg-neutral-dark rounded-2xl shadow-xl p-6 max-w-xs">
               <div className="flex items-start gap-4">
-                <div className="p-3 bg-primary/10 rounded-xl">
+                <div className="p-3 bg-primary/10 rounded-xl dark:bg-primary/20">
                   <CheckCircle className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground">Trusted by 150+ Brands</h3>
-                  <p className="text-sm text-neutral">Join our satisfied clients today</p>
+                  <h3 className="font-semibold text-foreground dark:text-white">Trusted by 150+ Brands</h3>
+                  <p className="text-sm text-neutral dark:text-neutral-light">Join our satisfied clients today</p>
                 </div>
               </div>
             </div>
