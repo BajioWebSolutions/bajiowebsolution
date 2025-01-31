@@ -31,18 +31,18 @@ export default {
           dark: "#FFFFFF",
         },
         primary: {
-          DEFAULT: "#9b87f5",
-          dark: "#7E69AB",
-          light: "#D6BCFA",
+          DEFAULT: "#00E5B0",
+          dark: "#00C49A",
+          light: "#33EBC2",
         },
         accent: {
-          DEFAULT: "#6366F1",
-          dark: "#4F46E5",
+          DEFAULT: "#00E5B0",
+          dark: "#00C49A",
         },
         neutral: {
-          DEFAULT: "#8E9196",
-          dark: "#403E43",
-          light: "#F1F0FB",
+          DEFAULT: "#94A3B8",
+          dark: "#1E293B",
+          light: "#F8FAFC",
         },
       },
       animation: {
