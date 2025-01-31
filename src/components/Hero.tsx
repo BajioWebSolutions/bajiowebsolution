@@ -1,76 +1,100 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Award, BarChart, Users } from "lucide-react";
+import { ArrowRight, CheckCircle } from "lucide-react";
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-background via-neutral-dark/40 to-primary/10">
-      <div 
-        className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-primary/10 via-accent/5 to-transparent opacity-50"
-        aria-hidden="true"
-      ></div>
-      <div className="container mx-auto px-4 py-12 sm:py-20 text-center relative z-10">
-        <motion.h1 
-          className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          Transform Your Online Presence With{" "}
-          <span className="text-primary">Bajio Web Solutions</span>
-        </motion.h1>
-        <motion.p 
-          className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 max-w-2xl mx-auto text-neutral"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          Data-driven marketing solutions that deliver <span className="text-primary font-semibold">3X ROI</span>. 
-          We specialize in creating stunning, high-performance websites and implementing 
-          effective digital marketing strategies that drive real business growth.
-        </motion.p>
-        
-        <motion.div 
-          className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          <Button
-            asChild
-            className="bg-primary hover:bg-primary-dark text-background text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 transition-all duration-300 hover:scale-105"
+    <section className="relative min-h-[90vh] flex items-center bg-gradient-radial from-primary/5 via-background to-background">
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0)_0%,rgba(255,255,255,1)_100%)]" />
+      <div className="container mx-auto px-4 py-12 sm:py-20 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <motion.div 
+            className="text-left space-y-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
           >
-            <Link to="/contact">Schedule a Free Consultation</Link>
-          </Button>
-          <Button
-            asChild
-            variant="outline"
-            className="text-foreground border-foreground hover:bg-foreground/10 text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 transition-all duration-300 hover:scale-105"
-          >
-            <Link to="/services">Explore Our Services</Link>
-          </Button>
-        </motion.div>
+            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+              </span>
+              Now offering 24/7 support
+            </div>
+            
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
+              Transform Your Digital <br />
+              <span className="text-primary">Presence Today</span>
+            </h1>
+            
+            <p className="text-lg sm:text-xl text-neutral-dark max-w-xl">
+              We create stunning, high-performance websites and implement effective digital 
+              marketing strategies that drive real business growth.
+            </p>
 
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-        >
-          <div className="flex items-center justify-center gap-2 text-neutral">
-            <Users className="h-5 w-5 text-primary" />
-            <span>Trusted by 150+ brands</span>
-          </div>
-          <div className="flex items-center justify-center gap-2 text-neutral">
-            <Award className="h-5 w-5 text-primary" />
-            <span>Award-winning agency</span>
-          </div>
-          <div className="flex items-center justify-center gap-2 text-neutral">
-            <BarChart className="h-5 w-5 text-primary" />
-            <span>Data-driven results</span>
-          </div>
-        </motion.div>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button
+                asChild
+                size="lg"
+                className="bg-primary hover:bg-primary-dark text-white text-lg px-8 h-12"
+              >
+                <Link to="/contact">
+                  Get Started
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+              
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="border-neutral hover:bg-neutral-light/50 text-lg px-8 h-12"
+              >
+                <Link to="/services">View Services</Link>
+              </Button>
+            </div>
+
+            <div className="pt-8 space-y-4">
+              <div className="flex gap-6">
+                {['Custom Solutions', 'Expert Support', '100% Satisfaction'].map((feature, index) => (
+                  <div key={index} className="flex items-center gap-2">
+                    <CheckCircle className="h-5 w-5 text-primary" />
+                    <span className="text-neutral-dark">{feature}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="relative"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <img 
+                src="/lovable-uploads/2f6e7cf6-911a-4a70-9f70-629277e1048d.png"
+                alt="Web Development"
+                className="w-full h-auto rounded-2xl"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+            </div>
+            
+            <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl p-6 max-w-xs">
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-primary/10 rounded-xl">
+                  <CheckCircle className="h-6 w-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground">Trusted by 150+ Brands</h3>
+                  <p className="text-sm text-neutral">Join our satisfied clients today</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

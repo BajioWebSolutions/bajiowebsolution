@@ -22,20 +22,21 @@ export default {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "#0D1117",
-        foreground: "#ffffff",
+        background: "#FFFFFF",
+        foreground: "#111827",
         primary: {
-          DEFAULT: "#00D084",
-          dark: "#00B371",
-          light: "#33D89F",
-        },
-        accent: {
           DEFAULT: "#0EA5E9",
           dark: "#0284C7",
+          light: "#38BDF8",
+        },
+        accent: {
+          DEFAULT: "#6366F1",
+          dark: "#4F46E5",
         },
         neutral: {
-          DEFAULT: "#8E9196",
-          dark: "#1A1F2C",
+          DEFAULT: "#6B7280",
+          dark: "#374151",
+          light: "#F3F4F6",
         },
       },
       animation: {
@@ -72,6 +73,10 @@ export default {
             transform: "translateY(0)",
           },
         },
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
     },
   },

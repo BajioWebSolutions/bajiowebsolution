@@ -65,23 +65,19 @@ export const Services = () => {
   const [selectedService, setSelectedService] = useState<(typeof services)[0] | null>(null);
 
   return (
-    <section className="py-12 sm:py-20 bg-gradient-to-br from-background via-neutral-dark/40 to-primary/5 relative overflow-hidden">
-      <div 
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-accent/10 via-primary/5 to-transparent opacity-30"
-        aria-hidden="true"
-      ></div>
-      <div className="container mx-auto px-4 relative z-10">
+    <section className="py-20 bg-neutral-light/50">
+      <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
+          className="text-center max-w-3xl mx-auto mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 text-foreground">
-            Comprehensive{" "}
-            <span className="text-primary">Digital Solutions</span>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+            Comprehensive <span className="text-primary">Digital Solutions</span>
           </h2>
-          <p className="text-neutral text-center max-w-2xl mx-auto mb-12">
+          <p className="text-neutral text-lg">
             We deliver measurable results through data-driven strategies and cutting-edge technology.
             Our services are tailored to help your business grow and succeed online.
           </p>
@@ -91,23 +87,22 @@ export const Services = () => {
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className="group p-6 rounded-lg bg-neutral-dark/20 hover:bg-neutral-dark/30 transition-all duration-300 backdrop-blur-sm cursor-pointer animate-fade-up relative overflow-hidden transform hover:-translate-y-1 hover:shadow-xl"
+              className="group p-6 rounded-xl bg-white border border-neutral-light hover:border-primary/20 transition-all duration-300 shadow-sm hover:shadow-xl cursor-pointer"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               onClick={() => setSelectedService(service)}
             >
-              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+              <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
                 <service.icon className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-bold mb-2 text-foreground">
+              <h3 className="text-xl font-bold mb-3 text-foreground">
                 {service.title}
               </h3>
-              <p className="text-neutral mb-4">{service.description}</p>
+              <p className="text-neutral mb-6">{service.description}</p>
               
-              {/* KPI Badge */}
-              <div className="absolute bottom-0 left-0 w-full p-4 bg-primary/10 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+              <div className="mt-auto">
                 <p className="text-sm font-medium text-primary">{service.kpi}</p>
               </div>
             </motion.div>
@@ -116,9 +111,9 @@ export const Services = () => {
       </div>
 
       <Dialog open={!!selectedService} onOpenChange={() => setSelectedService(null)}>
-        <DialogContent className="max-w-2xl bg-neutral-dark/95 backdrop-blur-xl border-neutral-dark">
+        <DialogContent className="max-w-2xl bg-white">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-bold flex items-center gap-3 text-foreground">
+            <DialogTitle className="text-2xl font-bold flex items-center gap-3">
               {selectedService?.icon && <selectedService.icon className="h-6 w-6 text-primary" />}
               {selectedService?.title}
             </DialogTitle>
@@ -129,7 +124,7 @@ export const Services = () => {
           <div className="mt-6">
             <Link
               to={selectedService?.path || "#"}
-              className="inline-flex items-center justify-center px-6 py-3 bg-primary hover:bg-primary-dark text-white font-medium rounded-md transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 bg-primary hover:bg-primary-dark text-white font-medium rounded-lg transition-colors"
             >
               Learn More
             </Link>
