@@ -40,7 +40,7 @@ export default {
           dark: "#00C49A",
         },
         neutral: {
-          DEFAULT: "#94A3B8",
+          DEFAULT: "#E2E8F0",
           dark: "#1E293B",
           light: "#F8FAFC",
         },

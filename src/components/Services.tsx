@@ -65,7 +65,7 @@ export const Services = () => {
   const [selectedService, setSelectedService] = useState<(typeof services)[0] | null>(null);
 
   return (
-    <section className="py-20 bg-neutral-light/50">
+    <section className="py-20 bg-background-dark">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -74,7 +74,7 @@ export const Services = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-foreground-dark">
             Comprehensive <span className="text-primary">Digital Solutions</span>
           </h2>
           <p className="text-neutral text-lg">
@@ -87,7 +87,7 @@ export const Services = () => {
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className="group p-6 rounded-xl bg-white border border-neutral-light hover:border-primary/20 transition-all duration-300 shadow-sm hover:shadow-xl cursor-pointer"
+              className="group p-6 rounded-xl bg-neutral-dark border border-neutral-light/10 hover:border-primary/20 transition-all duration-300 shadow-sm hover:shadow-xl cursor-pointer"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -97,7 +97,7 @@ export const Services = () => {
               <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
                 <service.icon className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-foreground">
+              <h3 className="text-xl font-bold mb-3 text-foreground-dark">
                 {service.title}
               </h3>
               <p className="text-neutral mb-6">{service.description}</p>
@@ -111,9 +111,9 @@ export const Services = () => {
       </div>
 
       <Dialog open={!!selectedService} onOpenChange={() => setSelectedService(null)}>
-        <DialogContent className="max-w-2xl bg-white">
+        <DialogContent className="max-w-2xl bg-neutral-dark border-neutral-dark">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-bold flex items-center gap-3">
+            <DialogTitle className="text-2xl font-bold flex items-center gap-3 text-foreground-dark">
               {selectedService?.icon && <selectedService.icon className="h-6 w-6 text-primary" />}
               {selectedService?.title}
             </DialogTitle>
@@ -124,7 +124,7 @@ export const Services = () => {
           <div className="mt-6">
             <Link
               to={selectedService?.path || "#"}
-              className="inline-flex items-center justify-center px-6 py-3 bg-primary hover:bg-primary-dark text-white font-medium rounded-lg transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 bg-primary hover:bg-primary-dark text-background-dark font-medium rounded-lg transition-colors"
             >
               Learn More
             </Link>
