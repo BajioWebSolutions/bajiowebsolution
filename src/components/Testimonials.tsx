@@ -1,4 +1,5 @@
 import { Avatar } from "@/components/ui/avatar";
+import { motion } from "framer-motion";
 
 const testimonials = [
   {
@@ -23,17 +24,28 @@ const testimonials = [
 
 export const Testimonials = () => {
   return (
-    <section className="py-16 bg-background-dark">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12 text-foreground-dark">
+    <section className="relative py-16 bg-background-dark">
+      {/* Gradient overlay similar to hero section */}
+      <div className="absolute inset-0 bg-gradient-radial from-primary/5 via-background-dark to-background-dark opacity-50" />
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-3xl font-bold text-center mb-12 text-foreground-dark"
+        >
           What Our <span className="text-primary">Clients Say</span>
-        </h2>
+        </motion.h2>
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-neutral-dark p-6 rounded-lg shadow-lg animate-fade-up"
-              style={{ animationDelay: `${index * 100}ms` }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-neutral-dark/20 backdrop-blur-sm p-6 rounded-lg border border-primary/10 shadow-lg"
             >
               <div className="flex items-center mb-4">
                 <Avatar className="h-12 w-12">
@@ -45,11 +57,11 @@ export const Testimonials = () => {
                 </Avatar>
                 <div className="ml-4">
                   <h4 className="font-semibold text-foreground-dark">{testimonial.name}</h4>
-                  <p className="text-sm text-primary-light">{testimonial.role}</p>
+                  <p className="text-sm text-primary">{testimonial.role}</p>
                 </div>
               </div>
-              <p className="text-foreground-dark leading-relaxed">{testimonial.content}</p>
-            </div>
+              <p className="text-neutral-light leading-relaxed">{testimonial.content}</p>
+            </motion.div>
           ))}
         </div>
       </div>
