@@ -32,23 +32,19 @@ export const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Basic validation
     if (!formData.name || !formData.email || !formData.message) {
       toast.error("Please fill in all required fields");
       return;
     }
 
-    // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
       toast.error("Please enter a valid email address");
       return;
     }
 
-    // Show success message
     toast.success("Message sent successfully!");
     
-    // Reset form
     setFormData({
       name: '',
       email: '',
@@ -75,13 +71,10 @@ export const Contact = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-background via-neutral-dark/40 to-primary/5 relative overflow-hidden">
-      <motion.div 
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-accent/10 via-primary/5 to-transparent opacity-30"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.3 }}
-        transition={{ duration: 1 }}
-      />
+    <section className="relative min-h-screen bg-background-dark py-20">
+      {/* Gradient overlay similar to hero section */}
+      <div className="absolute inset-0 bg-gradient-radial from-primary/5 via-background-dark to-background-dark opacity-50" />
+      
       <motion.div 
         className="container mx-auto px-4 relative z-10"
         variants={containerVariants}
@@ -90,19 +83,19 @@ export const Contact = () => {
       >
         <div className="max-w-xl mx-auto">
           <motion.h2 
-            className="text-4xl font-bold mb-4 text-foreground text-center"
+            className="text-4xl font-bold mb-4 text-foreground-dark text-center"
             variants={itemVariants}
           >
             Get In <span className="text-primary">Touch</span>
           </motion.h2>
           <motion.p 
-            className="text-neutral mb-8 text-center"
+            className="text-gray-300 mb-8 text-center"
             variants={itemVariants}
           >
             Ready to start your next project? Contact us today!
           </motion.p>
           <motion.form 
-            className="space-y-6 backdrop-blur-sm bg-neutral-dark/20 p-8 rounded-lg"
+            className="space-y-6 bg-neutral-dark/40 backdrop-blur-lg p-8 rounded-lg shadow-xl border border-primary/10"
             variants={itemVariants}
             onSubmit={handleSubmit}
           >
@@ -112,7 +105,7 @@ export const Contact = () => {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Your Name *" 
-                className="w-full bg-background/50 border-neutral-dark/30 focus:border-primary transition-colors"
+                className="w-full bg-background-dark/60 border-primary/20 focus:border-primary text-foreground-dark placeholder:text-gray-400"
                 required
               />
             </motion.div>
@@ -123,7 +116,7 @@ export const Contact = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Your Email *" 
-                className="w-full bg-background/50 border-neutral-dark/30 focus:border-primary transition-colors"
+                className="w-full bg-background-dark/60 border-primary/20 focus:border-primary text-foreground-dark placeholder:text-gray-400"
                 required
               />
             </motion.div>
@@ -133,7 +126,7 @@ export const Contact = () => {
                 value={formData.company}
                 onChange={handleChange}
                 placeholder="Company Name" 
-                className="w-full bg-background/50 border-neutral-dark/30 focus:border-primary transition-colors"
+                className="w-full bg-background-dark/60 border-primary/20 focus:border-primary text-foreground-dark placeholder:text-gray-400"
               />
             </motion.div>
             <motion.div variants={itemVariants}>
@@ -143,7 +136,7 @@ export const Contact = () => {
                 value={formData.phone}
                 onChange={handleChange}
                 placeholder="Phone Number" 
-                className="w-full bg-background/50 border-neutral-dark/30 focus:border-primary transition-colors"
+                className="w-full bg-background-dark/60 border-primary/20 focus:border-primary text-foreground-dark placeholder:text-gray-400"
               />
             </motion.div>
             <motion.div variants={itemVariants}>
@@ -151,12 +144,16 @@ export const Contact = () => {
                 value={formData.budget}
                 onValueChange={handleBudgetChange}
               >
-                <SelectTrigger className="w-full bg-background/50 border-neutral-dark/30 focus:border-primary transition-colors">
+                <SelectTrigger className="w-full bg-background-dark/60 border-primary/20 focus:border-primary text-foreground-dark">
                   <SelectValue placeholder="Monthly Marketing Budget" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="bg-background-dark border-primary/20">
                   {budgetRanges.map((range) => (
-                    <SelectItem key={range.value} value={range.value}>
+                    <SelectItem 
+                      key={range.value} 
+                      value={range.value}
+                      className="text-foreground-dark hover:bg-primary/10"
+                    >
                       {range.label}
                     </SelectItem>
                   ))}
@@ -169,7 +166,7 @@ export const Contact = () => {
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Your Message *" 
-                className="w-full min-h-[150px] bg-background/50 border-neutral-dark/30 focus:border-primary transition-colors"
+                className="w-full min-h-[150px] bg-background-dark/60 border-primary/20 focus:border-primary text-foreground-dark placeholder:text-gray-400"
                 required
               />
             </motion.div>
@@ -178,7 +175,7 @@ export const Contact = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <Button type="submit" className="w-full bg-primary hover:bg-primary-dark text-white transition-all duration-300">
+              <Button type="submit" className="w-full bg-primary hover:bg-primary-dark text-background-dark font-medium transition-all duration-300">
                 Send Message
               </Button>
             </motion.div>

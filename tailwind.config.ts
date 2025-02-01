@@ -22,21 +22,27 @@ export default {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "#FFFFFF",
-        foreground: "#111827",
+        background: {
+          DEFAULT: "#FFFFFF",
+          dark: "#1A1F2C",
+        },
+        foreground: {
+          DEFAULT: "#111827",
+          dark: "#FFFFFF",
+        },
         primary: {
-          DEFAULT: "#0EA5E9",
-          dark: "#0284C7",
-          light: "#38BDF8",
+          DEFAULT: "#00E5B0",
+          dark: "#00C49A",
+          light: "#33EBC2",
         },
         accent: {
-          DEFAULT: "#6366F1",
-          dark: "#4F46E5",
+          DEFAULT: "#00E5B0",
+          dark: "#00C49A",
         },
         neutral: {
-          DEFAULT: "#6B7280",
-          dark: "#374151",
-          light: "#F3F4F6",
+          DEFAULT: "#E2E8F0",
+          dark: "#1E293B",
+          light: "#F8FAFC",
         },
       },
       animation: {
