@@ -23,16 +23,16 @@ const testimonials = [
 
 export const Testimonials = () => {
   return (
-    <section className="py-16 bg-neutral-dark/20 backdrop-blur-sm">
+    <section className="py-16 bg-background-dark">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">
+        <h2 className="text-3xl font-bold text-center mb-12 text-foreground-dark">
           What Our <span className="text-primary">Clients Say</span>
         </h2>
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-background/40 p-6 rounded-lg backdrop-blur-sm animate-fade-up"
+              className="bg-neutral-dark p-6 rounded-lg shadow-lg animate-fade-up"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="flex items-center mb-4">
@@ -44,11 +44,11 @@ export const Testimonials = () => {
                   />
                 </Avatar>
                 <div className="ml-4">
-                  <h4 className="font-semibold text-foreground">{testimonial.name}</h4>
-                  <p className="text-sm text-neutral">{testimonial.role}</p>
+                  <h4 className="font-semibold text-foreground-dark">{testimonial.name}</h4>
+                  <p className="text-sm text-primary-light">{testimonial.role}</p>
                 </div>
               </div>
-              <p className="text-neutral leading-relaxed">{testimonial.content}</p>
+              <p className="text-foreground-dark leading-relaxed">{testimonial.content}</p>
             </div>
           ))}
         </div>

@@ -75,7 +75,7 @@ export const Contact = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-background via-neutral-dark/40 to-primary/5 relative overflow-hidden">
+    <section className="py-20 bg-background-dark relative overflow-hidden">
       <motion.div 
         className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-accent/10 via-primary/5 to-transparent opacity-30"
         initial={{ opacity: 0 }}
@@ -90,19 +90,19 @@ export const Contact = () => {
       >
         <div className="max-w-xl mx-auto">
           <motion.h2 
-            className="text-4xl font-bold mb-4 text-foreground text-center"
+            className="text-4xl font-bold mb-4 text-foreground-dark text-center"
             variants={itemVariants}
           >
             Get In <span className="text-primary">Touch</span>
           </motion.h2>
           <motion.p 
-            className="text-neutral mb-8 text-center"
+            className="text-foreground-dark mb-8 text-center"
             variants={itemVariants}
           >
             Ready to start your next project? Contact us today!
           </motion.p>
           <motion.form 
-            className="space-y-6 backdrop-blur-sm bg-neutral-dark/20 p-8 rounded-lg"
+            className="space-y-6 bg-neutral-dark p-8 rounded-lg shadow-lg"
             variants={itemVariants}
             onSubmit={handleSubmit}
           >
@@ -112,7 +112,7 @@ export const Contact = () => {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Your Name *" 
-                className="w-full bg-background/50 border-neutral-dark/30 focus:border-primary transition-colors"
+                className="w-full bg-background-dark border-primary/30 focus:border-primary transition-colors text-foreground-dark placeholder:text-foreground-dark/50"
                 required
               />
             </motion.div>
@@ -123,7 +123,7 @@ export const Contact = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Your Email *" 
-                className="w-full bg-background/50 border-neutral-dark/30 focus:border-primary transition-colors"
+                className="w-full bg-background-dark border-primary/30 focus:border-primary transition-colors text-foreground-dark placeholder:text-foreground-dark/50"
                 required
               />
             </motion.div>
@@ -133,7 +133,7 @@ export const Contact = () => {
                 value={formData.company}
                 onChange={handleChange}
                 placeholder="Company Name" 
-                className="w-full bg-background/50 border-neutral-dark/30 focus:border-primary transition-colors"
+                className="w-full bg-background-dark border-primary/30 focus:border-primary transition-colors text-foreground-dark placeholder:text-foreground-dark/50"
               />
             </motion.div>
             <motion.div variants={itemVariants}>
@@ -143,7 +143,7 @@ export const Contact = () => {
                 value={formData.phone}
                 onChange={handleChange}
                 placeholder="Phone Number" 
-                className="w-full bg-background/50 border-neutral-dark/30 focus:border-primary transition-colors"
+                className="w-full bg-background-dark border-primary/30 focus:border-primary transition-colors text-foreground-dark placeholder:text-foreground-dark/50"
               />
             </motion.div>
             <motion.div variants={itemVariants}>
@@ -151,12 +151,16 @@ export const Contact = () => {
                 value={formData.budget}
                 onValueChange={handleBudgetChange}
               >
-                <SelectTrigger className="w-full bg-background/50 border-neutral-dark/30 focus:border-primary transition-colors">
+                <SelectTrigger className="w-full bg-background-dark border-primary/30 focus:border-primary transition-colors text-foreground-dark">
                   <SelectValue placeholder="Monthly Marketing Budget" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="bg-background-dark border-primary/30">
                   {budgetRanges.map((range) => (
-                    <SelectItem key={range.value} value={range.value}>
+                    <SelectItem 
+                      key={range.value} 
+                      value={range.value}
+                      className="text-foreground-dark hover:bg-primary/10"
+                    >
                       {range.label}
                     </SelectItem>
                   ))}
@@ -169,7 +173,7 @@ export const Contact = () => {
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Your Message *" 
-                className="w-full min-h-[150px] bg-background/50 border-neutral-dark/30 focus:border-primary transition-colors"
+                className="w-full min-h-[150px] bg-background-dark border-primary/30 focus:border-primary transition-colors text-foreground-dark placeholder:text-foreground-dark/50"
                 required
               />
             </motion.div>
@@ -178,7 +182,7 @@ export const Contact = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <Button type="submit" className="w-full bg-primary hover:bg-primary-dark text-white transition-all duration-300">
+              <Button type="submit" className="w-full bg-primary hover:bg-primary-dark text-background transition-all duration-300">
                 Send Message
               </Button>
             </motion.div>
