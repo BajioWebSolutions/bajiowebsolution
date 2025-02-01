@@ -36,7 +36,7 @@ const blogPosts: BlogPost[] = [
 
 export const BlogSection = () => {
   return (
-    <section className="py-20 bg-background-dark">
+    <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -44,7 +44,7 @@ export const BlogSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold mb-4 text-foreground-dark">
+          <h2 className="text-4xl font-bold mb-4">
             Latest <span className="text-primary">Insights</span>
           </h2>
           <p className="text-neutral max-w-2xl mx-auto">
@@ -59,11 +59,11 @@ export const BlogSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-neutral-dark rounded-lg overflow-hidden backdrop-blur-sm hover:shadow-lg transition-all duration-300"
+              className="bg-neutral-dark/20 rounded-lg overflow-hidden backdrop-blur-sm hover:shadow-lg transition-all duration-300"
             >
               <div className="p-6">
                 <div className="text-sm text-neutral mb-2">{post.date}</div>
-                <h3 className="text-xl font-bold mb-3 text-foreground-dark">{post.title}</h3>
+                <h3 className="text-xl font-bold mb-3 text-foreground">{post.title}</h3>
                 <p className="text-neutral mb-4">{post.excerpt}</p>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-primary">{post.category}</span>

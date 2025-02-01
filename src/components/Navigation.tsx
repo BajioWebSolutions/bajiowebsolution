@@ -21,7 +21,7 @@ export const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-background-dark/80 backdrop-blur-md z-50">
+    <nav className="fixed top-0 left-0 right-0 bg-background/80 backdrop-blur-md z-50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center">
@@ -38,14 +38,14 @@ export const Navigation = () => {
               <Link
                 key={item.title}
                 to={item.path}
-                className="text-foreground-dark hover:text-primary transition-colors"
+                className="text-foreground hover:text-primary transition-colors"
               >
                 {item.title}
               </Link>
             ))}
             <Button 
               onClick={handleGetStarted}
-              className="bg-primary hover:bg-primary-dark text-background-dark transition-all duration-300 hover:scale-105"
+              className="bg-primary hover:bg-primary-dark text-background transition-all duration-300 hover:scale-105"
             >
               Get Started
             </Button>
@@ -55,7 +55,7 @@ export const Navigation = () => {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden text-foreground-dark"
+            className="md:hidden text-foreground"
             onClick={toggleMenu}
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -64,13 +64,13 @@ export const Navigation = () => {
 
         {/* Mobile menu */}
         {isOpen && (
-          <div className="md:hidden py-4 animate-fade-in bg-background-dark/95">
+          <div className="md:hidden py-4 animate-fade-in bg-background/95">
             <div className="flex flex-col space-y-4">
               {menuItems.map((item) => (
                 <Link
                   key={item.title}
                   to={item.path}
-                  className="text-foreground-dark hover:text-primary transition-colors px-4 py-2"
+                  className="text-foreground hover:text-primary transition-colors px-4 py-2"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.title}
@@ -82,7 +82,7 @@ export const Navigation = () => {
                     handleGetStarted();
                     setIsOpen(false);
                   }}
-                  className="w-full bg-primary hover:bg-primary-dark text-background-dark transition-all duration-300 hover:scale-105"
+                  className="w-full bg-primary hover:bg-primary-dark text-background transition-all duration-300 hover:scale-105"
                 >
                   Get Started
                 </Button>
