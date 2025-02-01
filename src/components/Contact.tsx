@@ -72,7 +72,7 @@ export const Contact = () => {
 
   return (
     <section className="relative min-h-screen bg-background-dark py-20">
-      {/* Gradient overlay similar to hero section */}
+      {/* Gradient overlay similar to services page */}
       <div className="absolute inset-0 bg-gradient-radial from-primary/5 via-background-dark to-background-dark opacity-50" />
       
       <motion.div 

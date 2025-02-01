@@ -6,7 +6,7 @@ const AboutPage = () => {
   return (
     <div className="min-h-screen bg-background-dark">
       <div className="relative py-20">
-        {/* Gradient overlay similar to hero section */}
+        {/* Gradient overlay similar to services page */}
         <div className="absolute inset-0 bg-gradient-radial from-primary/5 via-background-dark to-background-dark opacity-50" />
         
         <div className="container mx-auto px-4 relative z-10">
