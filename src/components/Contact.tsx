@@ -71,13 +71,10 @@ export const Contact = () => {
   };
 
   return (
-    <section className="py-20 bg-background-dark text-foreground-dark relative overflow-hidden">
-      <motion.div 
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-primary/20 via-primary/10 to-background-dark opacity-30"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.3 }}
-        transition={{ duration: 1 }}
-      />
+    <section className="relative min-h-screen bg-background-dark py-20">
+      {/* Gradient overlay similar to hero section */}
+      <div className="absolute inset-0 bg-gradient-radial from-primary/5 via-background-dark to-background-dark opacity-50" />
+      
       <motion.div 
         className="container mx-auto px-4 relative z-10"
         variants={containerVariants}
@@ -86,7 +83,7 @@ export const Contact = () => {
       >
         <div className="max-w-xl mx-auto">
           <motion.h2 
-            className="text-4xl font-bold mb-4 text-white text-center"
+            className="text-4xl font-bold mb-4 text-foreground-dark text-center"
             variants={itemVariants}
           >
             Get In <span className="text-primary">Touch</span>
@@ -108,7 +105,7 @@ export const Contact = () => {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Your Name *" 
-                className="w-full bg-background-dark/60 border-primary/20 focus:border-primary text-white placeholder:text-gray-400"
+                className="w-full bg-background-dark/60 border-primary/20 focus:border-primary text-foreground-dark placeholder:text-gray-400"
                 required
               />
             </motion.div>
@@ -119,7 +116,7 @@ export const Contact = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Your Email *" 
-                className="w-full bg-background-dark/60 border-primary/20 focus:border-primary text-white placeholder:text-gray-400"
+                className="w-full bg-background-dark/60 border-primary/20 focus:border-primary text-foreground-dark placeholder:text-gray-400"
                 required
               />
             </motion.div>
@@ -129,7 +126,7 @@ export const Contact = () => {
                 value={formData.company}
                 onChange={handleChange}
                 placeholder="Company Name" 
-                className="w-full bg-background-dark/60 border-primary/20 focus:border-primary text-white placeholder:text-gray-400"
+                className="w-full bg-background-dark/60 border-primary/20 focus:border-primary text-foreground-dark placeholder:text-gray-400"
               />
             </motion.div>
             <motion.div variants={itemVariants}>
@@ -139,7 +136,7 @@ export const Contact = () => {
                 value={formData.phone}
                 onChange={handleChange}
                 placeholder="Phone Number" 
-                className="w-full bg-background-dark/60 border-primary/20 focus:border-primary text-white placeholder:text-gray-400"
+                className="w-full bg-background-dark/60 border-primary/20 focus:border-primary text-foreground-dark placeholder:text-gray-400"
               />
             </motion.div>
             <motion.div variants={itemVariants}>
@@ -147,7 +144,7 @@ export const Contact = () => {
                 value={formData.budget}
                 onValueChange={handleBudgetChange}
               >
-                <SelectTrigger className="w-full bg-background-dark/60 border-primary/20 focus:border-primary text-white">
+                <SelectTrigger className="w-full bg-background-dark/60 border-primary/20 focus:border-primary text-foreground-dark">
                   <SelectValue placeholder="Monthly Marketing Budget" />
                 </SelectTrigger>
                 <SelectContent className="bg-background-dark border-primary/20">
@@ -155,7 +152,7 @@ export const Contact = () => {
                     <SelectItem 
                       key={range.value} 
                       value={range.value}
-                      className="text-white hover:bg-primary/10"
+                      className="text-foreground-dark hover:bg-primary/10"
                     >
                       {range.label}
                     </SelectItem>
@@ -169,7 +166,7 @@ export const Contact = () => {
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Your Message *" 
-                className="w-full min-h-[150px] bg-background-dark/60 border-primary/20 focus:border-primary text-white placeholder:text-gray-400"
+                className="w-full min-h-[150px] bg-background-dark/60 border-primary/20 focus:border-primary text-foreground-dark placeholder:text-gray-400"
                 required
               />
             </motion.div>
