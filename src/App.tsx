@@ -68,7 +68,7 @@ const App = () => {
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
+        <BrowserRouter basename="/">
           <Navigation />
           <div className="pt-20">
             <Suspense fallback={
