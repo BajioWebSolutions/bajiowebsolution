@@ -56,11 +56,13 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="bg-neutral-dark/30 backdrop-blur-sm pt-16 pb-8">
-      <div className="container mx-auto px-4">
+    <footer className="bg-neutral-dark/30 backdrop-blur-sm border-t border-primary/10">
+      <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">Bajio Web Solutions</h3>
+            <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">
+              Bajio Web Solutions
+            </h3>
             <p className="text-neutral mb-4">
               Transforming businesses through innovative digital solutions and exceptional web experiences.
             </p>
@@ -76,7 +78,7 @@ export const Footer = () => {
                     className={`transform transition-all duration-300 ${social.hoverColor} hover:scale-110`}
                     aria-label={`Visit our ${social.name} page`}
                   >
-                    <Icon className="h-5 w-5 text-neutral" />
+                    <Icon className="h-5 w-5 text-neutral hover:text-primary transition-colors" />
                   </a>
                 );
               })}
@@ -84,25 +86,43 @@ export const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-xl font-bold mb-4">Quick Links</h3>
+            <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">
+              Quick Links
+            </h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/" onClick={scrollToTop} className="text-neutral hover:text-primary transition-colors">
+                <Link 
+                  to="/" 
+                  onClick={scrollToTop} 
+                  className="text-neutral hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all"
+                >
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/about" onClick={scrollToTop} className="text-neutral hover:text-primary transition-colors">
+                <Link 
+                  to="/about" 
+                  onClick={scrollToTop} 
+                  className="text-neutral hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all"
+                >
                   About
                 </Link>
               </li>
               <li>
-                <Link to="/services" onClick={scrollToTop} className="text-neutral hover:text-primary transition-colors">
+                <Link 
+                  to="/services" 
+                  onClick={scrollToTop} 
+                  className="text-neutral hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all"
+                >
                   Services
                 </Link>
               </li>
               <li>
-                <Link to="/contact" onClick={scrollToTop} className="text-neutral hover:text-primary transition-colors">
+                <Link 
+                  to="/contact" 
+                  onClick={scrollToTop} 
+                  className="text-neutral hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all"
+                >
                   Contact
                 </Link>
               </li>
@@ -110,64 +130,72 @@ export const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-xl font-bold mb-4">Services</h3>
+            <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">
+              Services
+            </h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/services/web-design" onClick={scrollToTop} className="text-neutral hover:text-primary transition-colors">
+                <Link 
+                  to="/services/web-design" 
+                  onClick={scrollToTop} 
+                  className="text-neutral hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all"
+                >
                   Web Design
                 </Link>
               </li>
               <li>
-                <Link to="/services/seo" onClick={scrollToTop} className="text-neutral hover:text-primary transition-colors">
+                <Link 
+                  to="/services/seo" 
+                  onClick={scrollToTop} 
+                  className="text-neutral hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all"
+                >
                   SEO Services
                 </Link>
               </li>
               <li>
-                <Link to="/services/marketing" onClick={scrollToTop} className="text-neutral hover:text-primary transition-colors">
+                <Link 
+                  to="/services/marketing" 
+                  onClick={scrollToTop} 
+                  className="text-neutral hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all"
+                >
                   Digital Marketing
-                </Link>
-              </li>
-              <li>
-                <Link to="/services/development" onClick={scrollToTop} className="text-neutral hover:text-primary transition-colors">
-                  Web Development
-                </Link>
-              </li>
-              <li>
-                <Link to="/services/social-media" onClick={scrollToTop} className="text-neutral hover:text-primary transition-colors">
-                  Social Media Marketing
-                </Link>
-              </li>
-              <li>
-                <Link to="/services/ppc" onClick={scrollToTop} className="text-neutral hover:text-primary transition-colors">
-                  PPC Advertising
                 </Link>
               </li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-xl font-bold mb-4">Contact Info</h3>
+            <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">
+              Contact Info
+            </h3>
             <ul className="space-y-4">
-              <li className="flex items-center text-neutral">
-                <Phone className="h-5 w-5 mr-2 text-primary" />
-                (860) 468-9221
+              <li className="flex items-center text-neutral group hover:text-primary transition-colors">
+                <Phone className="h-5 w-5 mr-2 text-primary group-hover:scale-110 transition-transform" />
+                <a href="tel:+18604689221" className="hover:text-primary transition-colors">
+                  (860) 468-9221
+                </a>
               </li>
-              <li className="flex items-center text-neutral">
-                <Mail className="h-5 w-5 mr-2 text-primary" />
-                <a href="mailto:info@bajiowebsolutions.com" className="hover:text-primary transition-colors">
+              <li className="flex items-center text-neutral group hover:text-primary transition-colors">
+                <Mail className="h-5 w-5 mr-2 text-primary group-hover:scale-110 transition-transform" />
+                <a 
+                  href="mailto:info@bajiowebsolutions.com" 
+                  className="hover:text-primary transition-colors"
+                >
                   info@bajiowebsolutions.com
                 </a>
               </li>
-              <li className="flex items-center text-neutral">
-                <MapPin className="h-5 w-5 mr-2 text-primary" />
-                902 Trumbull Hwy, Lebanon, CT 06249
+              <li className="flex items-center text-neutral group hover:text-primary transition-colors">
+                <MapPin className="h-5 w-5 mr-2 text-primary group-hover:scale-110 transition-transform" />
+                <span>902 Trumbull Hwy, Lebanon, CT 06249</span>
               </li>
             </ul>
           </div>
         </div>
         
-        <div className="border-t border-neutral-dark/50 pt-8 text-center text-neutral">
-          <p>&copy; {new Date().getFullYear()} Bajio Web Solutions. All rights reserved.</p>
+        <div className="border-t border-neutral-dark/50 pt-8 text-center">
+          <p className="text-neutral">
+            &copy; {new Date().getFullYear()} Bajio Web Solutions. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
