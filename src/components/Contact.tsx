@@ -71,8 +71,7 @@ export const Contact = () => {
   };
 
   return (
-    <section className="relative min-h-screen bg-background-dark py-20">
-      {/* Gradient overlay similar to hero section */}
+    <section className="relative min-h-screen bg-background-dark py-section">
       <div className="absolute inset-0 bg-gradient-radial from-primary/5 via-background-dark to-background-dark opacity-50" />
       
       <motion.div 
@@ -83,10 +82,10 @@ export const Contact = () => {
       >
         <div className="max-w-xl mx-auto">
           <motion.h2 
-            className="text-4xl font-bold mb-4 text-foreground-dark text-center"
+            className="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent text-center"
             variants={itemVariants}
           >
-            Get In <span className="text-primary">Touch</span>
+            Get In Touch
           </motion.h2>
           <motion.p 
             className="text-gray-300 mb-8 text-center"
@@ -95,7 +94,7 @@ export const Contact = () => {
             Ready to start your next project? Contact us today!
           </motion.p>
           <motion.form 
-            className="space-y-6 bg-neutral-dark/40 backdrop-blur-lg p-8 rounded-lg shadow-xl border border-primary/10"
+            className="space-y-6 bg-neutral-dark/40 backdrop-blur-lg p-8 rounded-card shadow-xl border border-primary/10"
             variants={itemVariants}
             onSubmit={handleSubmit}
           >
@@ -175,7 +174,7 @@ export const Contact = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <Button type="submit" className="w-full bg-primary hover:bg-primary-dark text-background-dark font-medium transition-all duration-300">
+              <Button type="submit" className="w-full bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white font-medium transition-all duration-300">
                 Send Message
               </Button>
             </motion.div>

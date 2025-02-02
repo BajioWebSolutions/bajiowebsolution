@@ -39,23 +39,23 @@ export const FAQ = () => {
   const [selectedQuestion, setSelectedQuestion] = useState<(typeof faqData)[0] | null>(null);
 
   return (
-    <section className="py-16 px-8">
+    <section className="py-section px-8 bg-background-dark">
       <div className="max-w-[800px] mx-auto">
-        <h2 className="text-center text-3xl font-bold text-foreground mb-12">
+        <h2 className="text-center text-3xl font-bold mb-12 bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">
           Frequently Asked Questions
         </h2>
         <div className="space-y-4">
           {faqData.map((item, index) => (
             <div
               key={index}
-              className="border-b border-neutral/20 last:border-b-0"
+              className="border border-primary/20 rounded-card bg-neutral-dark/20 backdrop-blur-sm shadow-lg"
             >
               <button
-                className="w-full py-6 px-4 flex justify-between items-center text-left focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-lg hover:bg-neutral-dark/10 transition-colors"
+                className="w-full py-6 px-4 flex justify-between items-center text-left focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-lg hover:bg-primary/5 transition-colors"
                 onClick={() => setSelectedQuestion(item)}
                 aria-expanded={selectedQuestion === item}
               >
-                <span className="font-bold text-foreground">{item.question}</span>
+                <span className="font-bold text-foreground-dark">{item.question}</span>
                 <ChevronDown
                   className="w-5 h-5 text-primary transition-transform duration-200"
                 />
@@ -66,9 +66,9 @@ export const FAQ = () => {
       </div>
 
       <Dialog open={!!selectedQuestion} onOpenChange={() => setSelectedQuestion(null)}>
-        <DialogContent className="max-w-2xl bg-neutral-dark/95 backdrop-blur-xl border-neutral-dark">
+        <DialogContent className="max-w-2xl bg-neutral-dark/95 backdrop-blur-xl border-neutral-dark rounded-card">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-bold text-foreground">
+            <DialogTitle className="text-2xl font-bold text-foreground-dark">
               {selectedQuestion?.question}
             </DialogTitle>
             <DialogDescription className="text-neutral text-base leading-relaxed mt-4">

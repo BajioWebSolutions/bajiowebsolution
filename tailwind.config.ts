@@ -31,14 +31,14 @@ export default {
           dark: "#FFFFFF",
         },
         primary: {
-          DEFAULT: "#8B5CF6",
-          dark: "#7C3AED",
-          light: "#A78BFA",
+          DEFAULT: "#2DD4BF",
+          dark: "#10B981",
+          light: "#34D399",
         },
         accent: {
-          DEFAULT: "#F97316",
-          dark: "#EA580C",
-          gradient: "linear-gradient(135deg, #F97316 0%, #D946EF 100%)",
+          DEFAULT: "#2DD4BF",
+          dark: "#10B981",
+          gradient: "linear-gradient(135deg, #2DD4BF 0%, #10B981 100%)",
         },
         neutral: {
           DEFAULT: "#E2E8F0",
@@ -100,7 +100,7 @@ export default {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'hero-gradient': 'linear-gradient(135deg, #0EA5E9 0%, #8B5CF6 100%)',
+        'hero-gradient': 'linear-gradient(135deg, #2DD4BF 0%, #10B981 100%)',
       },
     },
   },
