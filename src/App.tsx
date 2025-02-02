@@ -50,6 +50,7 @@ const PageWrapper = ({ children }: { children: React.ReactNode }) => {
           ease: [0.43, 0.13, 0.23, 0.96]
         }
       }}
+      className="min-h-screen bg-gradient-to-br from-background-dark via-neutral-dark/40 to-primary/5"
     >
       {children}
     </motion.div>
@@ -69,7 +70,7 @@ const App = () => {
         <Sonner />
         <BrowserRouter>
           <Navigation />
-          <div className="pt-20 dark:bg-background-dark dark:text-foreground-dark">
+          <div className="pt-20">
             <Suspense fallback={
               <motion.div 
                 initial={{ opacity: 0 }}

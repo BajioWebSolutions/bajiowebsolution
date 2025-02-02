@@ -31,13 +31,14 @@ export default {
           dark: "#FFFFFF",
         },
         primary: {
-          DEFAULT: "#00E5B0",
-          dark: "#00C49A",
-          light: "#33EBC2",
+          DEFAULT: "#8B5CF6",
+          dark: "#7C3AED",
+          light: "#A78BFA",
         },
         accent: {
-          DEFAULT: "#00E5B0",
-          dark: "#00C49A",
+          DEFAULT: "#F97316",
+          dark: "#EA580C",
+          gradient: "linear-gradient(135deg, #F97316 0%, #D946EF 100%)",
         },
         neutral: {
           DEFAULT: "#E2E8F0",
@@ -45,10 +46,18 @@ export default {
           light: "#F8FAFC",
         },
       },
+      spacing: {
+        'section': '60px',
+        'card-gap': '30px',
+      },
+      borderRadius: {
+        'card': '8px',
+      },
       animation: {
         "gradient-x": "gradient-x 15s ease infinite",
         "fade-in": "fade-in 0.5s ease-out",
         "fade-up": "fade-up 0.5s ease-out",
+        "scale": "scale 0.2s ease-out",
       },
       keyframes: {
         "gradient-x": {
@@ -79,10 +88,19 @@ export default {
             transform: "translateY(0)",
           },
         },
+        "scale": {
+          "0%": {
+            transform: "scale(1)",
+          },
+          "100%": {
+            transform: "scale(1.05)",
+          },
+        },
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'hero-gradient': 'linear-gradient(135deg, #0EA5E9 0%, #8B5CF6 100%)',
       },
     },
   },
