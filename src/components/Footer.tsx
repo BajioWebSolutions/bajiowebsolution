@@ -65,14 +65,17 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="bg-white border-t border-primary/20 shadow-lg">
-      <div className="container mx-auto px-4 py-16">
+    <footer className="relative bg-neutral-dark/95 border-t border-primary/20 shadow-lg">
+      {/* Dark overlay for better contrast */}
+      <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(0,0,0,0.8)_0%,rgba(0,0,0,0.7)_100%)]" />
+      
+      <div className="container mx-auto px-4 py-16 relative z-10">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
             <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">
               Bajio Web Solutions
             </h3>
-            <p className="text-neutral-600 mb-4">
+            <p className="text-white mb-4">
               Transforming businesses through innovative digital solutions and exceptional web experiences.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -87,7 +90,7 @@ export const Footer = () => {
                     className={`transform transition-all duration-300 ${social.hoverColor} hover:scale-110`}
                     aria-label={`Visit our ${social.name} page`}
                   >
-                    <Icon className="h-5 w-5 text-neutral-600 hover:text-primary transition-colors" />
+                    <Icon className="h-5 w-5 text-white hover:text-primary transition-colors" />
                   </a>
                 );
               })}
@@ -104,7 +107,7 @@ export const Footer = () => {
                   <Link 
                     to={link === 'Home' ? '/' : `/${link.toLowerCase()}`}
                     onClick={scrollToTop} 
-                    className="text-neutral-600 hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all"
+                    className="text-white hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all"
                   >
                     {link}
                   </Link>
@@ -123,7 +126,7 @@ export const Footer = () => {
                   <Link 
                     to={service.path}
                     onClick={scrollToTop} 
-                    className="text-neutral-600 hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all"
+                    className="text-white hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all"
                   >
                     {service.name}
                   </Link>
@@ -137,13 +140,13 @@ export const Footer = () => {
               Contact Info
             </h3>
             <ul className="space-y-4">
-              <li className="flex items-center text-neutral-600 group hover:text-primary transition-colors">
+              <li className="flex items-center text-white group hover:text-primary transition-colors">
                 <Phone className="h-5 w-5 mr-2 text-primary group-hover:scale-110 transition-transform" />
                 <a href="tel:+18604689221" className="hover:text-primary transition-colors">
                   1 (860) 468-9221
                 </a>
               </li>
-              <li className="flex items-center text-neutral-600 group hover:text-primary transition-colors">
+              <li className="flex items-center text-white group hover:text-primary transition-colors">
                 <Mail className="h-5 w-5 mr-2 text-primary group-hover:scale-110 transition-transform" />
                 <a 
                   href="mailto:info@bajiowebsolutions.com" 
@@ -152,7 +155,7 @@ export const Footer = () => {
                   info@bajiowebsolutions.com
                 </a>
               </li>
-              <li className="flex items-center text-neutral-600 group hover:text-primary transition-colors">
+              <li className="flex items-center text-white group hover:text-primary transition-colors">
                 <MapPin className="h-5 w-5 mr-2 text-primary group-hover:scale-110 transition-transform" />
                 <span>902 Trumbull Hwy, Lebanon, CT 06249</span>
               </li>
@@ -161,7 +164,7 @@ export const Footer = () => {
         </div>
         
         <div className="border-t border-neutral-200 pt-8 text-center">
-          <p className="text-neutral-600">
+          <p className="text-white">
             &copy; {new Date().getFullYear()} Bajio Web Solutions. All rights reserved.
           </p>
         </div>

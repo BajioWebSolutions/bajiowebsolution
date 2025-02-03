@@ -73,7 +73,8 @@ export const Contact = () => {
 
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-background via-neutral-dark/40 to-primary/5 py-section">
-      <div className="absolute inset-0 bg-gradient-radial from-primary/10 via-background-dark to-background-dark opacity-50" />
+      {/* Dark overlay for better contrast */}
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.7)_0%,rgba(0,0,0,0.8)_100%)]" />
       
       <motion.div 
         className="container mx-auto px-4 relative z-10"
@@ -83,7 +84,7 @@ export const Contact = () => {
       >
         <div className="max-w-4xl mx-auto">
           <motion.h2 
-            className="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent text-center"
+            className="text-4xl font-bold mb-4 text-white text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -91,7 +92,7 @@ export const Contact = () => {
             Get In Touch
           </motion.h2>
           <motion.p 
-            className="text-neutral-light mb-12 text-center"
+            className="text-[#CCFBF1] mb-12 text-center font-medium"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}

@@ -6,7 +6,9 @@ import { ArrowRight, CheckCircle } from "lucide-react";
 export const Hero = () => {
   return (
     <section className="relative min-h-[90vh] flex items-center bg-gradient-radial from-primary/5 via-background to-background dark:from-primary/10 dark:via-background dark:to-background">
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0)_0%,rgba(255,255,255,1)_100%)] dark:bg-[linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_100%)]" />
+      {/* Dark overlay for better contrast */}
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.7)_0%,rgba(0,0,0,0.8)_100%)]" />
+      
       <div className="container mx-auto px-4 py-12 sm:py-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div 
@@ -15,7 +17,7 @@ export const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium dark:bg-primary/20">
+            <div className="inline-flex items-center gap-2 bg-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
@@ -24,11 +26,11 @@ export const Hero = () => {
             </div>
             
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">
-              <span className="bg-gradient-to-r from-foreground to-foreground/70 dark:from-white dark:to-white/70 bg-clip-text text-transparent">Transform Your Digital</span><br />
+              <span className="text-white">Transform Your Digital</span><br />
               <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">Presence Today</span>
             </h1>
             
-            <p className="text-lg sm:text-xl text-neutral-dark dark:text-neutral-light max-w-xl">
+            <p className="text-lg sm:text-xl text-[#CCFBF1] font-medium">
               We create stunning, high-performance websites and implement effective digital 
               marketing strategies that drive real business growth.
             </p>
@@ -49,7 +51,7 @@ export const Hero = () => {
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-neutral hover:bg-neutral-light/50 text-lg px-8 h-12 dark:border-neutral-light dark:hover:bg-neutral-dark/50"
+                className="border-2 border-white/20 hover:bg-white/10 text-white text-lg px-8 h-12"
               >
                 <Link to="/services">View Services</Link>
               </Button>
@@ -60,7 +62,7 @@ export const Hero = () => {
                 {['Custom Solutions', 'Expert Support', '100% Satisfaction'].map((feature, index) => (
                   <div key={index} className="flex items-center gap-2">
                     <CheckCircle className="h-5 w-5 text-primary" />
-                    <span className="text-neutral-dark dark:text-neutral-light">{feature}</span>
+                    <span className="text-white">{feature}</span>
                   </div>
                 ))}
               </div>
