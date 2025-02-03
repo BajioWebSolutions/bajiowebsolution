@@ -101,13 +101,18 @@ export const ServicePage = () => {
     return (
       <div className="min-h-screen bg-gradient-to-br from-background via-neutral-dark/40 to-primary/5">
         <div className="container mx-auto px-4 py-20">
-          <h1 className="text-4xl md:text-5xl font-bold mb-8 text-center">
-            Our <span className="text-primary">Services</span>
-          </h1>
-          <p className="text-lg text-neutral text-center max-w-3xl mx-auto mb-16">
-            We specialize in creating stunning, high-performance websites tailored to our clients' unique needs. 
-            Transform your online presence with our comprehensive digital solutions.
-          </p>
+          <div className="relative">
+            <div className="absolute inset-0 bg-neutral-dark/60 rounded-lg" />
+            <div className="relative z-10 text-center py-16 px-4">
+              <h1 className="text-4xl md:text-5xl font-bold mb-8 text-white">
+                Our <span className="text-primary">Services</span>
+              </h1>
+              <p className="text-lg text-[#CCFBF1] font-medium max-w-3xl mx-auto mb-16">
+                We specialize in creating stunning, high-performance websites tailored to our clients' unique needs. 
+                Transform your online presence with our comprehensive digital solutions.
+              </p>
+            </div>
+          </div>
           <Services />
           <ServiceVideos />
           <Testimonials />

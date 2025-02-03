@@ -72,8 +72,8 @@ export const Contact = () => {
   };
 
   return (
-    <section className="relative min-h-screen bg-background-dark py-section">
-      <div className="absolute inset-0 bg-gradient-radial from-primary/5 via-background-dark to-background-dark opacity-50" />
+    <section className="relative min-h-screen bg-gradient-to-br from-background via-neutral-dark/40 to-primary/5 py-section">
+      <div className="absolute inset-0 bg-gradient-radial from-primary/10 via-background-dark to-background-dark opacity-50" />
       
       <motion.div 
         className="container mx-auto px-4 relative z-10"
@@ -106,31 +106,31 @@ export const Contact = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              <div className="bg-neutral-dark/20 backdrop-blur-sm p-6 rounded-lg border border-primary/10 shadow-lg">
+              <div className="bg-neutral-dark/20 backdrop-blur-sm p-6 rounded-lg border border-primary/10 shadow-lg hover:shadow-xl transition-all duration-300">
                 <h3 className="text-xl font-bold mb-6 bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">
                   Contact Information
                 </h3>
                 <div className="space-y-4">
-                  <div className="flex items-center gap-3 text-neutral-light">
-                    <Phone className="h-5 w-5 text-primary" />
+                  <div className="flex items-center gap-3 text-neutral-light group hover:text-primary transition-colors">
+                    <Phone className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
                     <a href="tel:+18604689221" className="hover:text-primary transition-colors">
                       1 (860) 468-9221
                     </a>
                   </div>
-                  <div className="flex items-center gap-3 text-neutral-light">
-                    <Mail className="h-5 w-5 text-primary" />
+                  <div className="flex items-center gap-3 text-neutral-light group hover:text-primary transition-colors">
+                    <Mail className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
                     <a href="mailto:info@bajiowebsolutions.com" className="hover:text-primary transition-colors">
                       info@bajiowebsolutions.com
                     </a>
                   </div>
-                  <div className="flex items-center gap-3 text-neutral-light">
-                    <MapPin className="h-5 w-5 text-primary" />
+                  <div className="flex items-center gap-3 text-neutral-light group hover:text-primary transition-colors">
+                    <MapPin className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
                     <span>902 Trumbull Hwy, Lebanon, CT 06249</span>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-neutral-dark/20 backdrop-blur-sm p-6 rounded-lg border border-primary/10 shadow-lg">
+              <div className="bg-neutral-dark/20 backdrop-blur-sm p-6 rounded-lg border border-primary/10 shadow-lg hover:shadow-xl transition-all duration-300">
                 <div className="flex items-center gap-2 mb-4">
                   <Clock className="h-5 w-5 text-primary" />
                   <h3 className="text-xl font-bold bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">
@@ -151,7 +151,7 @@ export const Contact = () => {
             </motion.div>
 
             <motion.form 
-              className="bg-neutral-dark/20 backdrop-blur-sm p-8 rounded-lg border border-primary/10 shadow-lg"
+              className="bg-neutral-dark/20 backdrop-blur-sm p-8 rounded-lg border border-primary/10 shadow-lg hover:shadow-xl transition-all duration-300"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}

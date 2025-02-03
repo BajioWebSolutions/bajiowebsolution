@@ -2,6 +2,15 @@ import { X, Facebook, Instagram, Linkedin, Mail, Phone, MapPin, Twitch, Youtube 
 import { Link } from "react-router-dom";
 import { TikTokIcon } from "./icons/TikTokIcon";
 
+const services = [
+  { name: 'Web Design', path: '/services/web-design' },
+  { name: 'Web Development', path: '/services/development' },
+  { name: 'SEO Services', path: '/services/seo' },
+  { name: 'Social Media Marketing', path: '/services/social-media' },
+  { name: 'Digital Marketing', path: '/services/marketing' },
+  { name: 'PPC Advertising', path: '/services/ppc' }
+];
+
 export const Footer = () => {
   const socialLinks = [
     {
@@ -90,42 +99,17 @@ export const Footer = () => {
               Quick Links
             </h3>
             <ul className="space-y-2">
-              <li>
-                <Link 
-                  to="/" 
-                  onClick={scrollToTop} 
-                  className="text-neutral-600 hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all"
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/about" 
-                  onClick={scrollToTop} 
-                  className="text-neutral-600 hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all"
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/services" 
-                  onClick={scrollToTop} 
-                  className="text-neutral-600 hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all"
-                >
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/contact" 
-                  onClick={scrollToTop} 
-                  className="text-neutral-600 hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all"
-                >
-                  Contact
-                </Link>
-              </li>
+              {['Home', 'About', 'Services', 'Contact'].map((link) => (
+                <li key={link}>
+                  <Link 
+                    to={link === 'Home' ? '/' : `/${link.toLowerCase()}`}
+                    onClick={scrollToTop} 
+                    className="text-neutral-600 hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all"
+                  >
+                    {link}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           
@@ -134,33 +118,17 @@ export const Footer = () => {
               Services
             </h3>
             <ul className="space-y-2">
-              <li>
-                <Link 
-                  to="/services/web-design" 
-                  onClick={scrollToTop} 
-                  className="text-neutral-600 hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all"
-                >
-                  Web Design
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/services/seo" 
-                  onClick={scrollToTop} 
-                  className="text-neutral-600 hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all"
-                >
-                  SEO Services
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/services/marketing" 
-                  onClick={scrollToTop} 
-                  className="text-neutral-600 hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all"
-                >
-                  Digital Marketing
-                </Link>
-              </li>
+              {services.map((service) => (
+                <li key={service.name}>
+                  <Link 
+                    to={service.path}
+                    onClick={scrollToTop} 
+                    className="text-neutral-600 hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all"
+                  >
+                    {service.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           
