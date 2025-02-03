@@ -72,9 +72,9 @@ export const Contact = () => {
   };
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-background via-neutral-dark/40 to-primary/5 py-section">
+    <section className="relative min-h-screen bg-gradient-to-br from-background-dark via-neutral-dark/40 to-primary/5 py-section">
       {/* Dark overlay for better contrast */}
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.7)_0%,rgba(0,0,0,0.8)_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.8)_0%,rgba(0,0,0,0.7)_100%)]" />
       
       <motion.div 
         className="container mx-auto px-4 relative z-10"

@@ -5,9 +5,9 @@ import { ArrowRight, CheckCircle } from "lucide-react";
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-[90vh] flex items-center bg-gradient-radial from-primary/5 via-background to-background dark:from-primary/10 dark:via-background dark:to-background">
+    <section className="relative min-h-[90vh] flex items-center bg-gradient-to-br from-background-dark via-neutral-dark/40 to-primary/5">
       {/* Dark overlay for better contrast */}
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.7)_0%,rgba(0,0,0,0.8)_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.8)_0%,rgba(0,0,0,0.7)_100%)]" />
       
       <div className="container mx-auto px-4 py-12 sm:py-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -27,7 +27,7 @@ export const Hero = () => {
             
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">
               <span className="text-white">Transform Your Digital</span><br />
-              <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">Presence Today</span>
+              <span className="text-primary">Presence Today</span>
             </h1>
             
             <p className="text-lg sm:text-xl text-[#CCFBF1] font-medium">
@@ -39,7 +39,7 @@ export const Hero = () => {
               <Button
                 asChild
                 size="lg"
-                className="bg-primary hover:bg-primary-dark text-white text-lg px-8 h-12"
+                className="bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white font-bold text-lg px-8 h-12 transition-all duration-300 hover:scale-105"
               >
                 <Link to="/contact">
                   Get Started
@@ -51,7 +51,7 @@ export const Hero = () => {
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-2 border-white/20 hover:bg-white/10 text-white text-lg px-8 h-12"
+                className="border-2 border-white hover:bg-white/10 text-white font-bold text-lg px-8 h-12 transition-all duration-300"
               >
                 <Link to="/services">View Services</Link>
               </Button>
@@ -62,7 +62,7 @@ export const Hero = () => {
                 {['Custom Solutions', 'Expert Support', '100% Satisfaction'].map((feature, index) => (
                   <div key={index} className="flex items-center gap-2">
                     <CheckCircle className="h-5 w-5 text-primary" />
-                    <span className="text-white">{feature}</span>
+                    <span className="text-white font-medium">{feature}</span>
                   </div>
                 ))}
               </div>
