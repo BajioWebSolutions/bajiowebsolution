@@ -1,11 +1,21 @@
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -21,7 +31,7 @@ export const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-background-dark/80 backdrop-blur-md z-50">
+    <nav className={`fixed top-0 left-0 right-0 bg-background-dark/80 backdrop-blur-md z-50 transition-all duration-300 ${isScrolled ? 'shadow-lg' : ''}`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center">
@@ -45,9 +55,9 @@ export const Navigation = () => {
             ))}
             <Button 
               onClick={handleGetStarted}
-              className="bg-primary hover:bg-primary-dark text-background-dark transition-all duration-300 hover:scale-105"
+              className="bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white font-medium transition-all duration-300 hover:scale-105"
             >
-              Get Started
+              Book a Free Website Audit ➔
             </Button>
           </div>
 
@@ -82,9 +92,9 @@ export const Navigation = () => {
                     handleGetStarted();
                     setIsOpen(false);
                   }}
-                  className="w-full bg-primary hover:bg-primary-dark text-background-dark transition-all duration-300 hover:scale-105"
+                  className="w-full bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white font-medium transition-all duration-300 hover:scale-105"
                 >
-                  Get Started
+                  Book a Free Website Audit ➔
                 </Button>
               </div>
             </div>
