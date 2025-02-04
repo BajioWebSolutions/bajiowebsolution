@@ -39,7 +39,7 @@ export const Hero = () => {
               <Button
                 asChild
                 size="lg"
-                className="bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white font-bold text-lg px-8 h-12 transition-all duration-300 hover:scale-105"
+                className="bg-gradient-to-r from-[#10B981] to-[#2DD4BF] hover:from-[#2DD4BF] hover:to-[#10B981] text-white font-bold text-lg px-8 h-12 transition-all duration-300 hover:scale-105 rounded-lg shadow-lg hover:shadow-xl"
               >
                 <Link to="/contact">
                   Get Started
@@ -51,7 +51,7 @@ export const Hero = () => {
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-2 border-white hover:bg-white/10 text-white font-bold text-lg px-8 h-12 transition-all duration-300"
+                className="bg-gradient-to-r from-[#10B981] to-[#2DD4BF] hover:from-[#2DD4BF] hover:to-[#10B981] text-white font-bold text-lg px-8 h-12 transition-all duration-300 hover:scale-105 rounded-lg shadow-lg hover:shadow-xl border-none"
               >
                 <Link to="/services">View Services</Link>
               </Button>
