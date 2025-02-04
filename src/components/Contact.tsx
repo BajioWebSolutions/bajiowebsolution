@@ -4,30 +4,18 @@ import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
 import { useState } from "react";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
-
-const budgetRanges = [
-  { value: "5k-10k", label: "$5,000 - $10,000" },
-  { value: "10k-20k", label: "$10,000 - $20,000" },
-  { value: "20k-50k", label: "$20,000 - $50,000" },
-  { value: "50k+", label: "$50,000+" },
-];
+import { Mail, Phone, MapPin } from "lucide-react";
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    company: '',
     phone: '',
-    budget: '',
-    message: ''
+    message: '',
+    contactPreference: {
+      email: false,
+      phone: false
+    }
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -49,10 +37,12 @@ export const Contact = () => {
     setFormData({
       name: '',
       email: '',
-      company: '',
       phone: '',
-      budget: '',
-      message: ''
+      message: '',
+      contactPreference: {
+        email: false,
+        phone: false
+      }
     });
   };
 
@@ -64,17 +54,20 @@ export const Contact = () => {
     }));
   };
 
-  const handleBudgetChange = (value: string) => {
+  const handleCheckboxChange = (type: 'email' | 'phone') => {
     setFormData(prev => ({
       ...prev,
-      budget: value
+      contactPreference: {
+        ...prev.contactPreference,
+        [type]: !prev.contactPreference[type]
+      }
     }));
   };
 
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-[#10B981] via-[#2DD4BF]/40 to-[#10B981]/5 py-section">
       {/* Dark overlay for better contrast */}
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.8)_0%,rgba(0,0,0,0.7)_100%)]" />
+      <div className="absolute inset-0 bg-black/50" />
       
       <motion.div 
         className="container mx-auto px-4 relative z-10"
@@ -107,52 +100,33 @@ export const Contact = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              <div className="bg-neutral-dark/20 backdrop-blur-sm p-6 rounded-lg border border-[#2DD4BF]/10 shadow-lg hover:shadow-xl transition-all duration-300">
-                <h3 className="text-xl font-bold mb-6 bg-gradient-to-r from-[#2DD4BF] to-[#10B981] bg-clip-text text-transparent">
+              <div className="bg-white/10 backdrop-blur-sm p-8 rounded-lg border border-[#2DD4BF]/20 shadow-xl hover:shadow-2xl transition-all duration-300">
+                <h3 className="text-xl font-bold mb-6 text-[#CCFBF1]">
                   Contact Information
                 </h3>
                 <div className="space-y-4">
-                  <div className="flex items-center gap-3 text-[#CCFBF1] group hover:text-[#2DD4BF] transition-colors">
+                  <div className="flex items-center gap-3 text-[#CCFBF1] group">
                     <Phone className="h-5 w-5 text-[#2DD4BF] group-hover:scale-110 transition-transform" />
                     <a href="tel:+18604689221" className="hover:text-[#2DD4BF] transition-colors">
                       1 (860) 468-9221
                     </a>
                   </div>
-                  <div className="flex items-center gap-3 text-[#CCFBF1] group hover:text-[#2DD4BF] transition-colors">
+                  <div className="flex items-center gap-3 text-[#CCFBF1] group">
                     <Mail className="h-5 w-5 text-[#2DD4BF] group-hover:scale-110 transition-transform" />
                     <a href="mailto:info@bajiowebsolutions.com" className="hover:text-[#2DD4BF] transition-colors">
                       info@bajiowebsolutions.com
                     </a>
                   </div>
-                  <div className="flex items-center gap-3 text-[#CCFBF1] group hover:text-[#2DD4BF] transition-colors">
+                  <div className="flex items-center gap-3 text-[#CCFBF1] group">
                     <MapPin className="h-5 w-5 text-[#2DD4BF] group-hover:scale-110 transition-transform" />
                     <span>902 Trumbull Hwy, Lebanon, CT 06249</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-neutral-dark/20 backdrop-blur-sm p-6 rounded-lg border border-[#2DD4BF]/10 shadow-lg hover:shadow-xl transition-all duration-300">
-                <div className="flex items-center gap-2 mb-4">
-                  <Clock className="h-5 w-5 text-[#2DD4BF]" />
-                  <h3 className="text-xl font-bold bg-gradient-to-r from-[#2DD4BF] to-[#10B981] bg-clip-text text-transparent">
-                    Business Hours
-                  </h3>
-                </div>
-                <div className="space-y-2 text-[#CCFBF1]">
-                  <div className="flex justify-between">
-                    <span>Monday - Friday</span>
-                    <span>9:00 AM – 6:00 PM</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Saturday - Sunday</span>
-                    <span>9:00 AM – 6:00 PM</span>
                   </div>
                 </div>
               </div>
             </motion.div>
 
             <motion.form 
-              className="bg-neutral-dark/20 backdrop-blur-sm p-8 rounded-lg border border-[#2DD4BF]/10 shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-white/10 backdrop-blur-sm p-8 rounded-lg border border-[#2DD4BF]/20 shadow-xl hover:shadow-2xl transition-all duration-300"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
@@ -164,69 +138,60 @@ export const Contact = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="Your Name *"
-                    className="w-full bg-background-dark/60 border-primary/20 focus:border-primary text-foreground-dark placeholder:text-neutral-400"
+                    placeholder="Name*"
+                    className="w-full bg-white/20 border-[#2DD4BF]/20 focus:border-[#2DD4BF] text-white placeholder:text-white/60"
                     required
                   />
                 </div>
-                <div>
+                <div className="grid grid-cols-2 gap-4">
                   <Input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="Your Email *"
-                    className="w-full bg-background-dark/60 border-primary/20 focus:border-primary text-foreground-dark placeholder:text-neutral-400"
+                    placeholder="Email*"
+                    className="w-full bg-white/20 border-[#2DD4BF]/20 focus:border-[#2DD4BF] text-white placeholder:text-white/60"
                     required
                   />
-                </div>
-                <div>
-                  <Input
-                    name="company"
-                    value={formData.company}
-                    onChange={handleChange}
-                    placeholder="Company Name"
-                    className="w-full bg-background-dark/60 border-primary/20 focus:border-primary text-foreground-dark placeholder:text-neutral-400"
-                  />
-                </div>
-                <div>
                   <Input
                     type="tel"
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="Phone Number"
-                    className="w-full bg-background-dark/60 border-primary/20 focus:border-primary text-foreground-dark placeholder:text-neutral-400"
+                    placeholder="Phone"
+                    className="w-full bg-white/20 border-[#2DD4BF]/20 focus:border-[#2DD4BF] text-white placeholder:text-white/60"
                   />
                 </div>
-                <div>
-                  <Select
-                    value={formData.budget}
-                    onValueChange={handleBudgetChange}
-                  >
-                    <SelectTrigger className="w-full bg-background-dark/60 border-primary/20 focus:border-primary text-foreground-dark">
-                      <SelectValue placeholder="Project Budget" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-background-dark border-primary/20">
-                      {budgetRanges.map((range) => (
-                        <SelectItem 
-                          key={range.value} 
-                          value={range.value}
-                          className="text-foreground-dark hover:bg-primary/10"
-                        >
-                          {range.label}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
+                <div className="space-y-2">
+                  <p className="text-[#CCFBF1] text-sm font-medium">Contact Preference</p>
+                  <div className="flex gap-4">
+                    <label className="flex items-center gap-2 text-[#CCFBF1] cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={formData.contactPreference.email}
+                        onChange={() => handleCheckboxChange('email')}
+                        className="rounded border-[#2DD4BF]/20 bg-white/20"
+                      />
+                      <span>Email</span>
+                    </label>
+                    <label className="flex items-center gap-2 text-[#CCFBF1] cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={formData.contactPreference.phone}
+                        onChange={() => handleCheckboxChange('phone')}
+                        className="rounded border-[#2DD4BF]/20 bg-white/20"
+                      />
+                      <span>Phone</span>
+                    </label>
+                  </div>
                 </div>
                 <div>
                   <Textarea
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Your Message *"
-                    className="w-full min-h-[150px] bg-background-dark/60 border-primary/20 focus:border-primary text-foreground-dark placeholder:text-neutral-400"
+                    placeholder="Message*"
+                    className="w-full min-h-[150px] bg-white/20 border-[#2DD4BF]/20 focus:border-[#2DD4BF] text-white placeholder:text-white/60"
                     required
                   />
                 </div>
@@ -234,7 +199,7 @@ export const Contact = () => {
                   type="submit"
                   className="w-full bg-gradient-to-r from-[#10B981] to-[#2DD4BF] hover:from-[#2DD4BF] hover:to-[#10B981] text-white font-medium transition-all duration-300 hover:scale-105 rounded-lg"
                 >
-                  Send Message
+                  Submit
                 </Button>
               </div>
             </motion.form>
