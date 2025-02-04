@@ -72,7 +72,7 @@ export const Contact = () => {
   };
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-background-dark via-neutral-dark/40 to-primary/5 py-section">
+    <section className="relative min-h-screen bg-gradient-to-br from-[#10B981] via-[#2DD4BF]/40 to-[#10B981]/5 py-section">
       {/* Dark overlay for better contrast */}
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.8)_0%,rgba(0,0,0,0.7)_100%)]" />
       
@@ -84,7 +84,7 @@ export const Contact = () => {
       >
         <div className="max-w-4xl mx-auto">
           <motion.h2 
-            className="text-4xl font-bold mb-4 text-white text-center"
+            className="text-4xl font-bold mb-4 text-[#CCFBF1] text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -107,38 +107,38 @@ export const Contact = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              <div className="bg-neutral-dark/20 backdrop-blur-sm p-6 rounded-lg border border-primary/10 shadow-lg hover:shadow-xl transition-all duration-300">
-                <h3 className="text-xl font-bold mb-6 bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">
+              <div className="bg-neutral-dark/20 backdrop-blur-sm p-6 rounded-lg border border-[#2DD4BF]/10 shadow-lg hover:shadow-xl transition-all duration-300">
+                <h3 className="text-xl font-bold mb-6 bg-gradient-to-r from-[#2DD4BF] to-[#10B981] bg-clip-text text-transparent">
                   Contact Information
                 </h3>
                 <div className="space-y-4">
-                  <div className="flex items-center gap-3 text-neutral-light group hover:text-primary transition-colors">
-                    <Phone className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
-                    <a href="tel:+18604689221" className="hover:text-primary transition-colors">
+                  <div className="flex items-center gap-3 text-[#CCFBF1] group hover:text-[#2DD4BF] transition-colors">
+                    <Phone className="h-5 w-5 text-[#2DD4BF] group-hover:scale-110 transition-transform" />
+                    <a href="tel:+18604689221" className="hover:text-[#2DD4BF] transition-colors">
                       1 (860) 468-9221
                     </a>
                   </div>
-                  <div className="flex items-center gap-3 text-neutral-light group hover:text-primary transition-colors">
-                    <Mail className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
-                    <a href="mailto:info@bajiowebsolutions.com" className="hover:text-primary transition-colors">
+                  <div className="flex items-center gap-3 text-[#CCFBF1] group hover:text-[#2DD4BF] transition-colors">
+                    <Mail className="h-5 w-5 text-[#2DD4BF] group-hover:scale-110 transition-transform" />
+                    <a href="mailto:info@bajiowebsolutions.com" className="hover:text-[#2DD4BF] transition-colors">
                       info@bajiowebsolutions.com
                     </a>
                   </div>
-                  <div className="flex items-center gap-3 text-neutral-light group hover:text-primary transition-colors">
-                    <MapPin className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
+                  <div className="flex items-center gap-3 text-[#CCFBF1] group hover:text-[#2DD4BF] transition-colors">
+                    <MapPin className="h-5 w-5 text-[#2DD4BF] group-hover:scale-110 transition-transform" />
                     <span>902 Trumbull Hwy, Lebanon, CT 06249</span>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-neutral-dark/20 backdrop-blur-sm p-6 rounded-lg border border-primary/10 shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="bg-neutral-dark/20 backdrop-blur-sm p-6 rounded-lg border border-[#2DD4BF]/10 shadow-lg hover:shadow-xl transition-all duration-300">
                 <div className="flex items-center gap-2 mb-4">
-                  <Clock className="h-5 w-5 text-primary" />
-                  <h3 className="text-xl font-bold bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">
+                  <Clock className="h-5 w-5 text-[#2DD4BF]" />
+                  <h3 className="text-xl font-bold bg-gradient-to-r from-[#2DD4BF] to-[#10B981] bg-clip-text text-transparent">
                     Business Hours
                   </h3>
                 </div>
-                <div className="space-y-2 text-neutral-light">
+                <div className="space-y-2 text-[#CCFBF1]">
                   <div className="flex justify-between">
                     <span>Monday - Friday</span>
                     <span>9:00 AM – 6:00 PM</span>
@@ -152,7 +152,7 @@ export const Contact = () => {
             </motion.div>
 
             <motion.form 
-              className="bg-neutral-dark/20 backdrop-blur-sm p-8 rounded-lg border border-primary/10 shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-neutral-dark/20 backdrop-blur-sm p-8 rounded-lg border border-[#2DD4BF]/10 shadow-lg hover:shadow-xl transition-all duration-300"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
@@ -232,7 +232,7 @@ export const Contact = () => {
                 </div>
                 <Button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white font-medium transition-all duration-300 hover:scale-105"
+                  className="w-full bg-gradient-to-r from-[#10B981] to-[#2DD4BF] hover:from-[#2DD4BF] hover:to-[#10B981] text-white font-medium transition-all duration-300 hover:scale-105 rounded-lg"
                 >
                   Send Message
                 </Button>
