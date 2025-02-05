@@ -1,4 +1,3 @@
-```typescript
 import { X, Facebook, Instagram, Linkedin, Mail, Phone, MapPin, Twitch, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
 import { TikTokIcon } from "./icons/TikTokIcon";
@@ -170,4 +169,3 @@ export const Footer = () => {
     </footer>
   );
 };
-```

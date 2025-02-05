@@ -45,8 +45,8 @@ export const ContactInfo = () => {
           </div>
           <div className="flex items-center gap-3 text-white/90 group">
             <Mail className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
-            <a href="mailto:info@bajiowebsolutions.com" className="hover:text-primary transition-colors">
-              info@bajiowebsolutions.com
+            <a href="mailto:info@bajioweb.solutions" className="hover:text-primary transition-colors">
+              info@bajioweb.solutions
             </a>
           </div>
           <div className="flex items-center gap-3 text-white/90 group">
