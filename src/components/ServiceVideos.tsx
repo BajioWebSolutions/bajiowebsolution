@@ -1,39 +1,39 @@
 
 const serviceVideos = [
   {
-    title: "Web Design Process Explained",
-    description: "A detailed walkthrough of our professional web design process",
-    embedUrl: "https://www.youtube.com/embed/FmrOLNyPPOk",
+    title: "Web Design Solutions",
+    description: "Stunning web design solutions that enhance user experience",
+    embedUrl: "https://www.youtube.com/embed/ycgxVirLuFY",
     bgColor: "bg-[#8B5CF6]/10" // Vivid Purple
   },
   {
-    title: "SEO Strategy Guide",
+    title: "SEO Services Guide",
     description: "Learn about effective SEO strategies for your business",
-    embedUrl: "https://www.youtube.com/embed/h3RglfBb1As",
+    embedUrl: "https://www.youtube.com/embed/JAqMroYPvkI",
     bgColor: "bg-[#D946EF]/10" // Magenta Pink
   },
   {
-    title: "Marketing Solutions Overview",
-    description: "Discover our comprehensive marketing solutions",
+    title: "Digital Marketing Solutions",
+    description: "Discover our comprehensive digital marketing solutions",
     embedUrl: "https://www.youtube.com/embed/iQ6rqgLoLdA",
     bgColor: "bg-[#F97316]/10" // Bright Orange
   },
   {
-    title: "Social Media Marketing Tips",
-    description: "Expert tips for successful social media marketing",
-    embedUrl: "https://www.youtube.com/embed/RWU8nKUCfEw",
+    title: "Web Development Expertise",
+    description: "Understanding modern web development practices",
+    embedUrl: "https://www.youtube.com/embed/h3RglfBb1As",
     bgColor: "bg-[#0EA5E9]/10" // Ocean Blue
   },
   {
-    title: "Digital Marketing Essentials",
-    description: "Essential strategies for digital marketing success",
-    embedUrl: "https://www.youtube.com/embed/JAqMroYPvkI",
+    title: "Social Media Marketing",
+    description: "Expert tips for successful social media marketing",
+    embedUrl: "https://www.youtube.com/embed/RWU8nKUCfEw",
     bgColor: "bg-[#1EAEDB]/10" // Bright Blue
   },
   {
-    title: "Web Development Insights",
-    description: "Understanding modern web development practices",
-    embedUrl: "https://www.youtube.com/embed/ycgxVirLuFY",
+    title: "PPC Advertising Strategies",
+    description: "Learn about effective PPC advertising campaigns",
+    embedUrl: "https://www.youtube.com/embed/FmrOLNyPPOk",
     bgColor: "bg-[#0FA0CE]/10" // Bright Blue variant
   }
 ];
