@@ -1,18 +1,34 @@
+
 const serviceVideos = [
   {
-    title: "Web Design Process",
-    description: "Watch how we transform ideas into beautiful, functional websites",
-    embedUrl: "https://www.youtube.com/embed/QuWsZsEaLZQ"
+    title: "Web Design Process Explained",
+    description: "A detailed walkthrough of our professional web design process",
+    embedUrl: "https://www.youtube.com/embed/FmrOLNyPPOk"
   },
   {
-    title: "Digital Marketing Strategy",
-    description: "Learn about our comprehensive digital marketing approach",
-    embedUrl: "https://www.youtube.com/embed/S4IPPLONbQM"
+    title: "SEO Strategy Guide",
+    description: "Learn about effective SEO strategies for your business",
+    embedUrl: "https://www.youtube.com/embed/h3RglfBb1As"
   },
   {
-    title: "SEO Optimization",
-    description: "Discover how we improve your search engine rankings",
-    embedUrl: "https://www.youtube.com/embed/jOkgUQNalCc"
+    title: "Marketing Solutions Overview",
+    description: "Discover our comprehensive marketing solutions",
+    embedUrl: "https://www.youtube.com/embed/iQ6rqgLoLdA"
+  },
+  {
+    title: "Social Media Marketing Tips",
+    description: "Expert tips for successful social media marketing",
+    embedUrl: "https://www.youtube.com/embed/RWU8nKUCfEw"
+  },
+  {
+    title: "Digital Marketing Essentials",
+    description: "Essential strategies for digital marketing success",
+    embedUrl: "https://www.youtube.com/embed/JAqMroYPvkI"
+  },
+  {
+    title: "Web Development Insights",
+    description: "Understanding modern web development practices",
+    embedUrl: "https://www.youtube.com/embed/ycgxVirLuFY"
   }
 ];
 
@@ -23,7 +39,7 @@ export const ServiceVideos = () => {
         <h2 className="text-3xl font-bold text-center mb-12">
           Our Services in <span className="text-primary">Action</span>
         </h2>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {serviceVideos.map((video, index) => (
             <div
               key={index}
