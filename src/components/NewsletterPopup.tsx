@@ -1,13 +1,16 @@
+
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+import { Loader2, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 export const NewsletterPopup = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -20,11 +23,33 @@ export const NewsletterPopup = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    localStorage.setItem("hasSeenPopup", "true");
-    toast.success("Thank you for subscribing! Check your email for the SEO checklist.");
-    setIsOpen(false);
+    setLoading(true);
+    
+    try {
+      // Email validation
+      if (!email || !/\S+@\S+\.\S+/.test(email)) {
+        throw new Error("Please enter a valid email address");
+      }
+      
+      // Call the Edge Function to subscribe and send the checklist
+      const { data, error } = await supabase.functions.invoke('subscribe-newsletter', {
+        body: { email },
+      });
+      
+      if (error) throw error;
+      
+      // Mark as seen and close popup
+      localStorage.setItem("hasSeenPopup", "true");
+      toast.success("Thank you for subscribing! Check your email for the SEO checklist.");
+      setIsOpen(false);
+    } catch (error: any) {
+      console.error("Error subscribing to newsletter:", error);
+      toast.error(error.message || "Failed to subscribe. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleClose = () => {
@@ -76,9 +101,16 @@ export const NewsletterPopup = () => {
               
               <Button
                 type="submit"
+                disabled={loading}
                 className="w-full bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white font-medium transition-all duration-300 hover:scale-105"
               >
-                Get Your Free Checklist
+                {loading ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Sending...
+                  </>
+                ) : (
+                  "Get Your Free Checklist"
+                )}
               </Button>
             </form>
           </motion.div>
