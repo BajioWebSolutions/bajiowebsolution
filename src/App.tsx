@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -14,6 +15,8 @@ const ServicePage = lazy(() => import("./pages/ServicePage"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const BlogPage = lazy(() => import("./pages/BlogPage"));
+const Auth = lazy(() => import("./pages/Auth"));
+const Profile = lazy(() => import("./pages/Profile"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -90,6 +93,8 @@ const App = () => {
                   <Route path="/contact" element={<PageWrapper><ContactPage /></PageWrapper>} />
                   <Route path="/blog" element={<PageWrapper><BlogPage /></PageWrapper>} />
                   <Route path="/blog/:slug" element={<PageWrapper><BlogPage /></PageWrapper>} />
+                  <Route path="/auth" element={<PageWrapper><Auth /></PageWrapper>} />
+                  <Route path="/profile" element={<PageWrapper><Profile /></PageWrapper>} />
                 </Routes>
               </AnimatePresence>
             </Suspense>

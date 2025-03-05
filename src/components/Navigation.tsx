@@ -1,7 +1,9 @@
+
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { AuthButton } from "@/components/AuthButton";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,23 +55,29 @@ export const Navigation = () => {
                 {item.title}
               </Link>
             ))}
-            <Button 
-              onClick={handleGetStarted}
-              className="bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white font-medium transition-all duration-300 hover:scale-105"
-            >
-              Book a Free Website Audit ➔
-            </Button>
+            <div className="flex items-center space-x-4">
+              <Button 
+                onClick={handleGetStarted}
+                className="bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white font-medium transition-all duration-300 hover:scale-105"
+              >
+                Book a Free Website Audit ➔
+              </Button>
+              <AuthButton />
+            </div>
           </div>
 
           {/* Mobile menu button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden text-foreground-dark"
-            onClick={toggleMenu}
-          >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </Button>
+          <div className="md:hidden flex items-center space-x-4">
+            <AuthButton />
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-foreground-dark"
+              onClick={toggleMenu}
+            >
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </Button>
+          </div>
         </div>
 
         {/* Mobile menu */}
