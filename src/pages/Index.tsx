@@ -1,4 +1,5 @@
-import { Hero } from "@/components/Hero";
+
+import { ShapeLandingHero } from "@/components/ShapeLandingHero";
 import { Services } from "@/components/Services";
 import { WhyChooseUs } from "@/components/WhyChooseUs";
 import { FAQ } from "@/components/FAQ";
@@ -6,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import { Testimonials } from "@/components/Testimonials";
 import { NewsletterPopup } from "@/components/NewsletterPopup";
 import { motion } from "framer-motion";
+import { ServiceVideos } from "@/components/ServiceVideos";
 
 const Index = () => {
   return (
@@ -18,9 +20,10 @@ const Index = () => {
     >
       <NewsletterPopup />
       <main>
-        <Hero />
+        <ShapeLandingHero />
         <WhyChooseUs />
         <Services />
+        <ServiceVideos />
         <Testimonials />
         <section className="relative py-16 bg-background-dark">
           {/* Gradient overlay similar to hero section */}
