@@ -6,9 +6,9 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
+import { sendWelcomeEmail } from "@/utils/profile";
 
 const Auth = () => {
   const navigate = useNavigate();
@@ -39,7 +39,7 @@ const Auth = () => {
     setLoading(true);
     
     try {
-      const { error } = await supabase.auth.signUp({
+      const { data, error } = await supabase.auth.signUp({
         email,
         password,
         options: {
@@ -50,6 +50,11 @@ const Auth = () => {
       });
 
       if (error) throw error;
+      
+      // If we successfully signed up and have a user, send welcome email
+      if (data.user) {
+        await sendWelcomeEmail(email, fullName);
+      }
       
       toast.success("Registration successful! Please check your email for verification.");
     } catch (error: any) {
