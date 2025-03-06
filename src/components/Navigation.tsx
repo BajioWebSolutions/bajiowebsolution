@@ -1,114 +1,152 @@
-
-import { Menu, X } from "lucide-react";
+import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { useAuth } from "@/hooks/use-auth";
 import { Button } from "@/components/ui/button";
-import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import AuthButton from "@/components/AuthButton";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { cn } from "@/lib/utils";
+import { Menu, X } from "lucide-react";
+import { motion as m } from "framer-motion";
 
 export const Navigation = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const navigate = useNavigate();
+  const { user, signOut } = useAuth();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const toggleMenu = () => setIsOpen(!isOpen);
-
-  const handleGetStarted = () => {
-    navigate('/contact');
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const menuItems = [
-    { title: "Home", path: "/" },
-    { title: "Services", path: "/services" },
-    { title: "About", path: "/about" },
-    { title: "Contact", path: "/contact" },
-  ];
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 bg-background-dark/80 backdrop-blur-md z-50 transition-all duration-300 ${isScrolled ? 'shadow-lg' : ''}`}>
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center">
-            <img 
-              src="/lovable-uploads/39f3556e-6b12-4ffc-b1d0-ad03448bd1af.png" 
-              alt="Bajio Web Solutions" 
-              className="h-16 w-auto"
-            />
+    <header className="bg-background sticky top-0 z-50 w-full border-b">
+      <div className="container relative flex items-center justify-between h-20">
+        {/* Logo section */}
+        <div className="flex items-center">
+          <Link to="/" className="flex items-center font-semibold">
+            <span className="mr-2">🚀</span>
+            Shape
           </Link>
-
-          {/* Desktop menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            {menuItems.map((item) => (
-              <Link
-                key={item.title}
-                to={item.path}
-                className="text-foreground-dark hover:text-primary transition-colors"
-              >
-                {item.title}
-              </Link>
-            ))}
-            <div className="flex items-center space-x-4">
-              <Button 
-                onClick={handleGetStarted}
-                className="bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white font-medium transition-all duration-300 hover:scale-105"
-              >
-                Book a Free Website Audit ➔
-              </Button>
-              <AuthButton />
-            </div>
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center space-x-4">
-            <AuthButton />
-            <Button
-              variant="ghost"
-              size="icon"
-              className="text-foreground-dark"
-              onClick={toggleMenu}
-            >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
-          </div>
         </div>
 
-        {/* Mobile menu */}
-        {isOpen && (
-          <div className="md:hidden py-4 animate-fade-in bg-background-dark/95">
-            <div className="flex flex-col space-y-4">
-              {menuItems.map((item) => (
-                <Link
-                  key={item.title}
-                  to={item.path}
-                  className="text-foreground-dark hover:text-primary transition-colors px-4 py-2"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.title}
-                </Link>
-              ))}
-              <div className="px-4 pt-2">
-                <Button 
-                  onClick={() => {
-                    handleGetStarted();
-                    setIsOpen(false);
-                  }}
-                  className="w-full bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white font-medium transition-all duration-300 hover:scale-105"
-                >
-                  Book a Free Website Audit ➔
+        {/* Main navigation */}
+        <nav className={cn(
+          "hidden lg:flex space-x-6 text-sm font-medium",
+        )}>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/about">About</NavLink>
+          <NavLink to="/services">Services</NavLink>
+          <NavLink to="/projects">Projects</NavLink>
+          <NavLink to="/blog">Blog</NavLink>
+          <NavLink to="/contact">Contact</NavLink>
+        </nav>
+
+        {/* Authentication button / user profile */}
+        <div className="hidden lg:flex items-center space-x-4">
+          {user ? (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="relative h-8 w-8 rounded-full">
+                  <Avatar className="h-8 w-8">
+                    <AvatarImage src={user?.user_metadata?.avatar_url} alt={user?.user_metadata?.full_name || "Avatar"} />
+                    <AvatarFallback>{user?.user_metadata?.full_name?.charAt(0).toUpperCase() || "U"}</AvatarFallback>
+                  </Avatar>
                 </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56" align="end" forceMount>
+                <DropdownMenuItem className="font-medium">
+                  {user?.user_metadata?.full_name || "Profile"}
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem asChild>
+                  <Link to="/profile">Profile</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  onClick={() => {
+                    signOut();
+                  }}
+                >
+                  Sign Out
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          ) : (
+            <Button asChild variant="outline">
+              <Link to="/auth">Sign In</Link>
+            </Button>
+          )}
+        </div>
+
+        {/* Mobile navigation button */}
+        <Sheet>
+          <SheetTrigger className="lg:hidden">
+            <Button variant="ghost" size="icon" onClick={toggleMobileMenu}>
+              {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              <span className="sr-only">Toggle Menu</span>
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="right" className="pr-0">
+            <m.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="flex flex-col h-full justify-between"
+            >
+              {/* Mobile navigation menu */}
+              <m.nav
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.3 }}
+                className="flex flex-col space-y-6 text-sm font-medium"
+              >
+                <div className="flex justify-end pt-4">
+                  <Button variant="ghost" size="icon" onClick={closeMobileMenu}>
+                    <X className="h-5 w-5" />
+                    <span className="sr-only">Close Menu</span>
+                  </Button>
+                </div>
+                <div className="flex flex-col space-y-4 py-4">
+                  <NavLink to="/" onClick={closeMobileMenu}>Home</NavLink>
+                  <NavLink to="/about" onClick={closeMobileMenu}>About</NavLink>
+                  <NavLink to="/services" onClick={closeMobileMenu}>Services</NavLink>
+                  <NavLink to="/projects" onClick={closeMobileMenu}>Projects</NavLink>
+                  <NavLink to="/blog" onClick={closeMobileMenu}>Blog</NavLink>
+                  <NavLink to="/contact" onClick={closeMobileMenu}>Contact</NavLink>
+                </div>
+              </m.nav>
+
+              {/* Mobile authentication button */}
+              <div className="flex flex-col space-y-4 py-4">
+                {user ? (
+                  <Button
+                    onClick={() => {
+                      signOut();
+                      closeMobileMenu();
+                    }}
+                    variant="outline"
+                  >
+                    Sign Out
+                  </Button>
+                ) : (
+                  <Button asChild variant="outline" onClick={closeMobileMenu}>
+                    <Link to="/auth">Sign In</Link>
+                  </Button>
+                )}
               </div>
-            </div>
-          </div>
-        )}
+            </m.div>
+          </SheetContent>
+        </Sheet>
       </div>
-    </nav>
+    </header>
   );
 };
