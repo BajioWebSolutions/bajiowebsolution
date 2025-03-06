@@ -55,8 +55,7 @@ export async function fetchBlogPosts(options: {
         is_published,
         category_id,
         blog_categories(id, name, slug),
-        author_id,
-        profiles(id, full_name, avatar_url)
+        author_id
       `)
       .order('published_at', { ascending: false })
       .limit(limit);
@@ -72,6 +71,27 @@ export async function fetchBlogPosts(options: {
     const { data, error } = await query;
     
     if (error) throw error;
+    
+    // Get author information separately
+    const authorIds = data
+      .filter(post => post.author_id)
+      .map(post => post.author_id);
+    
+    let authorData: Record<string, { id: string; full_name?: string; avatar_url?: string }> = {};
+    
+    if (authorIds.length > 0) {
+      const { data: profiles, error: profilesError } = await supabase
+        .from('profiles')
+        .select('id, full_name, avatar_url')
+        .in('id', authorIds);
+      
+      if (!profilesError && profiles) {
+        authorData = profiles.reduce((acc, profile) => {
+          acc[profile.id] = profile;
+          return acc;
+        }, {} as Record<string, { id: string; full_name?: string; avatar_url?: string }>);
+      }
+    }
     
     return data.map(post => ({
       id: post.id,
@@ -89,10 +109,10 @@ export async function fetchBlogPosts(options: {
         name: post.blog_categories.name,
         slug: post.blog_categories.slug
       } : undefined,
-      author: post.profiles ? {
-        id: post.profiles.id,
-        full_name: post.profiles.full_name,
-        avatar_url: post.profiles.avatar_url
+      author: post.author_id && authorData[post.author_id] ? {
+        id: authorData[post.author_id].id,
+        full_name: authorData[post.author_id].full_name,
+        avatar_url: authorData[post.author_id].avatar_url
       } : undefined
     }));
   } catch (error) {
@@ -117,14 +137,32 @@ export async function fetchBlogPost(slug: string): Promise<BlogPost | null> {
         is_published,
         category_id,
         blog_categories(id, name, slug),
-        author_id,
-        profiles(id, full_name, avatar_url)
+        author_id
       `)
       .eq('slug', slug)
       .maybeSingle();
     
     if (error) throw error;
     if (!data) return null;
+    
+    // Fetch author information if available
+    let author = undefined;
+    
+    if (data.author_id) {
+      const { data: authorData, error: authorError } = await supabase
+        .from('profiles')
+        .select('id, full_name, avatar_url')
+        .eq('id', data.author_id)
+        .maybeSingle();
+      
+      if (!authorError && authorData) {
+        author = {
+          id: authorData.id,
+          full_name: authorData.full_name,
+          avatar_url: authorData.avatar_url
+        };
+      }
+    }
     
     return {
       id: data.id,
@@ -142,11 +180,7 @@ export async function fetchBlogPost(slug: string): Promise<BlogPost | null> {
         name: data.blog_categories.name,
         slug: data.blog_categories.slug
       } : undefined,
-      author: data.profiles ? {
-        id: data.profiles.id,
-        full_name: data.profiles.full_name,
-        avatar_url: data.profiles.avatar_url
-      } : undefined
+      author
     };
   } catch (error) {
     return handleSupabaseError(error as Error, "Failed to fetch blog post");
