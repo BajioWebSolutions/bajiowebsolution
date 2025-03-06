@@ -10,6 +10,8 @@ import { motion } from "framer-motion";
 import { ServiceVideos } from "@/components/ServiceVideos";
 import { BlogSection } from "@/components/BlogSection";
 import { CompanyStats } from "@/components/CompanyStats";
+import { TeamMembers } from "@/components/TeamMembers";
+import { ClientShowcase } from "@/components/ClientShowcase";
 
 const Index = () => {
   return (
@@ -27,6 +29,8 @@ const Index = () => {
         <Services />
         <CompanyStats />
         <ServiceVideos />
+        <TeamMembers />
+        <ClientShowcase />
         <Testimonials />
         <BlogSection />
         <FAQ />

@@ -1,44 +1,27 @@
 
 import { useState, useEffect } from 'react';
-import { supabase, handleSupabaseError } from '@/integrations/supabase/client';
+import { fetchTeamMembers, TeamMember } from '@/lib/supabase/team';
 import { motion } from 'framer-motion';
 import { Linkedin, Twitter, Github } from 'lucide-react';
-
-type TeamMember = {
-  id: string;
-  name: string;
-  position: string;
-  bio?: string;
-  avatar_url?: string;
-  linkedin_url?: string;
-  twitter_url?: string;
-  github_url?: string;
-};
 
 export const TeamMembers = () => {
   const [members, setMembers] = useState<TeamMember[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetchTeamMembers = async () => {
+    const loadTeamMembers = async () => {
       try {
         setIsLoading(true);
-        const { data, error } = await supabase
-          .from('team_members')
-          .select('*')
-          .eq('is_active', true)
-          .order('order_index');
-
-        if (error) throw error;
+        const data = await fetchTeamMembers({ activeOnly: true });
         setMembers(data);
       } catch (error) {
-        handleSupabaseError(error as Error, "Failed to load team members");
+        console.error("Error loading team members:", error);
       } finally {
         setIsLoading(false);
       }
     };
 
-    fetchTeamMembers();
+    loadTeamMembers();
   }, []);
 
   return (

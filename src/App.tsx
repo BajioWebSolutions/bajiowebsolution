@@ -15,6 +15,8 @@ const ServicePage = lazy(() => import("./pages/ServicePage"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const BlogPage = lazy(() => import("./pages/BlogPage"));
+const ProjectsPage = lazy(() => import("./pages/ProjectsPage"));
+const ProjectPage = lazy(() => import("./pages/ProjectPage"));
 const Auth = lazy(() => import("./pages/Auth"));
 const Profile = lazy(() => import("./pages/Profile"));
 
@@ -93,6 +95,8 @@ const App = () => {
                   <Route path="/contact" element={<PageWrapper><ContactPage /></PageWrapper>} />
                   <Route path="/blog" element={<PageWrapper><BlogPage /></PageWrapper>} />
                   <Route path="/blog/:slug" element={<PageWrapper><BlogPage /></PageWrapper>} />
+                  <Route path="/projects" element={<PageWrapper><ProjectsPage /></PageWrapper>} />
+                  <Route path="/projects/:slug" element={<PageWrapper><ProjectPage /></PageWrapper>} />
                   <Route path="/auth" element={<PageWrapper><Auth /></PageWrapper>} />
                   <Route path="/profile" element={<PageWrapper><Profile /></PageWrapper>} />
                 </Routes>
