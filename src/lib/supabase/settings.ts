@@ -15,7 +15,16 @@ export async function fetchSiteSettings(id: string = 'general'): Promise<SiteSet
     
     if (error) throw error;
     
-    return data?.value || null;
+    // Make sure the value is an object before returning it
+    // If it's not an object, wrap it in an object with a default key
+    const value = data?.value;
+    if (value && typeof value === 'object' && !Array.isArray(value)) {
+      return value as SiteSettings;
+    } else if (value !== null && value !== undefined) {
+      return { value } as SiteSettings;
+    }
+    
+    return null;
   } catch (error) {
     return handleSupabaseError(error as Error, "Failed to fetch site settings");
   }
