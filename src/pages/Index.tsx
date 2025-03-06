@@ -12,6 +12,7 @@ import { BlogSection } from "@/components/BlogSection";
 import { CompanyStats } from "@/components/CompanyStats";
 import { TeamMembers } from "@/components/TeamMembers";
 import { ClientShowcase } from "@/components/ClientShowcase";
+import { useToast } from "@/hooks/use-toast";
 
 const Index = () => {
   return (
