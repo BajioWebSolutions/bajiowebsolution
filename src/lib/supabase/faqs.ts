@@ -12,16 +12,25 @@ export interface FAQItem {
 export const fetchFAQs = async (): Promise<FAQItem[]> => {
   try {
     const { data, error } = await supabase
-      .from("faqs")
+      .from("faq_items")
       .select("*")
-      .order("order", { ascending: true });
+      .order("order_index", { ascending: true });
 
     if (error) {
       console.error("Error fetching FAQs:", error);
       return mockFAQs;
     }
 
-    return data || mockFAQs;
+    // Transform the data to match our FAQItem interface
+    const faqs: FAQItem[] = data.map(item => ({
+      id: item.id,
+      question: item.question,
+      answer: item.answer,
+      category: item.category || undefined,
+      order: item.order_index || undefined
+    }));
+
+    return faqs.length > 0 ? faqs : mockFAQs;
   } catch (error) {
     handleSupabaseError(error as Error, "Failed to fetch FAQs");
     return mockFAQs;
