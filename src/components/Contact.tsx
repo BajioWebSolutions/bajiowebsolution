@@ -65,9 +65,9 @@ export const Contact = () => {
   };
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-[#10B981] via-[#2DD4BF]/40 to-[#10B981]/5 py-section">
+    <section className="relative min-h-screen bg-gradient-to-br from-background-dark via-neutral-dark to-primary/5 dark:from-neutral-dark dark:via-background-dark dark:to-primary/10 py-section">
       {/* Dark overlay for better contrast */}
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-black/30 dark:bg-black/60" />
       
       <motion.div 
         className="container mx-auto px-4 relative z-10"
@@ -77,7 +77,7 @@ export const Contact = () => {
       >
         <div className="max-w-4xl mx-auto">
           <motion.h2 
-            className="text-4xl font-bold mb-4 text-[#CCFBF1] text-center"
+            className="text-4xl font-bold mb-4 text-foreground dark:text-white text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -85,7 +85,7 @@ export const Contact = () => {
             Get In Touch
           </motion.h2>
           <motion.p 
-            className="text-[#CCFBF1] mb-12 text-center font-medium"
+            className="text-foreground/80 dark:text-white/90 mb-12 text-center font-medium"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -100,25 +100,25 @@ export const Contact = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              <div className="bg-white/10 backdrop-blur-sm p-8 rounded-lg border border-[#2DD4BF]/20 shadow-xl hover:shadow-2xl transition-all duration-300">
-                <h3 className="text-xl font-bold mb-6 text-[#CCFBF1]">
+              <div className="bg-white/5 dark:bg-black/20 backdrop-blur-sm p-8 rounded-lg border border-primary/20 shadow-xl hover:shadow-2xl transition-all duration-300">
+                <h3 className="text-xl font-bold mb-6 text-foreground dark:text-white">
                   Contact Information
                 </h3>
                 <div className="space-y-4">
-                  <div className="flex items-center gap-3 text-[#CCFBF1] group">
-                    <Phone className="h-5 w-5 text-[#2DD4BF] group-hover:scale-110 transition-transform" />
-                    <a href="tel:+18604689221" className="hover:text-[#2DD4BF] transition-colors">
+                  <div className="flex items-center gap-3 text-foreground/80 dark:text-white/80 group">
+                    <Phone className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
+                    <a href="tel:+18604689221" className="hover:text-primary transition-colors">
                       1 (860) 468-9221
                     </a>
                   </div>
-                  <div className="flex items-center gap-3 text-[#CCFBF1] group">
-                    <Mail className="h-5 w-5 text-[#2DD4BF] group-hover:scale-110 transition-transform" />
-                    <a href="mailto:info@bajiowebsolutions.com" className="hover:text-[#2DD4BF] transition-colors">
+                  <div className="flex items-center gap-3 text-foreground/80 dark:text-white/80 group">
+                    <Mail className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
+                    <a href="mailto:info@bajiowebsolutions.com" className="hover:text-primary transition-colors">
                       info@bajiowebsolutions.com
                     </a>
                   </div>
-                  <div className="flex items-center gap-3 text-[#CCFBF1] group">
-                    <MapPin className="h-5 w-5 text-[#2DD4BF] group-hover:scale-110 transition-transform" />
+                  <div className="flex items-center gap-3 text-foreground/80 dark:text-white/80 group">
+                    <MapPin className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
                     <span>902 Trumbull Hwy, Lebanon, CT 06249</span>
                   </div>
                 </div>
@@ -126,7 +126,7 @@ export const Contact = () => {
             </motion.div>
 
             <motion.form 
-              className="bg-white/10 backdrop-blur-sm p-8 rounded-lg border border-[#2DD4BF]/20 shadow-xl hover:shadow-2xl transition-all duration-300"
+              className="bg-white/5 dark:bg-black/20 backdrop-blur-sm p-8 rounded-lg border border-primary/20 shadow-xl hover:shadow-2xl transition-all duration-300"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
@@ -139,7 +139,7 @@ export const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Name*"
-                    className="w-full bg-white/20 border-[#2DD4BF]/20 focus:border-[#2DD4BF] text-white placeholder:text-white/60"
+                    className="w-full bg-white/10 dark:bg-black/30 border-primary/20 focus:border-primary text-foreground dark:text-white placeholder:text-foreground/60 dark:placeholder:text-white/60"
                     required
                   />
                 </div>
@@ -150,7 +150,7 @@ export const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="Email*"
-                    className="w-full bg-white/20 border-[#2DD4BF]/20 focus:border-[#2DD4BF] text-white placeholder:text-white/60"
+                    className="w-full bg-white/10 dark:bg-black/30 border-primary/20 focus:border-primary text-foreground dark:text-white placeholder:text-foreground/60 dark:placeholder:text-white/60"
                     required
                   />
                   <Input
@@ -159,27 +159,27 @@ export const Contact = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="Phone"
-                    className="w-full bg-white/20 border-[#2DD4BF]/20 focus:border-[#2DD4BF] text-white placeholder:text-white/60"
+                    className="w-full bg-white/10 dark:bg-black/30 border-primary/20 focus:border-primary text-foreground dark:text-white placeholder:text-foreground/60 dark:placeholder:text-white/60"
                   />
                 </div>
                 <div className="space-y-2">
-                  <p className="text-[#CCFBF1] text-sm font-medium">Contact Preference</p>
+                  <p className="text-foreground dark:text-white text-sm font-medium">Contact Preference</p>
                   <div className="flex gap-4">
-                    <label className="flex items-center gap-2 text-[#CCFBF1] cursor-pointer">
+                    <label className="flex items-center gap-2 text-foreground dark:text-white cursor-pointer">
                       <input
                         type="checkbox"
                         checked={formData.contactPreference.email}
                         onChange={() => handleCheckboxChange('email')}
-                        className="rounded border-[#2DD4BF]/20 bg-white/20"
+                        className="rounded border-primary/20 bg-white/10 dark:bg-black/30"
                       />
                       <span>Email</span>
                     </label>
-                    <label className="flex items-center gap-2 text-[#CCFBF1] cursor-pointer">
+                    <label className="flex items-center gap-2 text-foreground dark:text-white cursor-pointer">
                       <input
                         type="checkbox"
                         checked={formData.contactPreference.phone}
                         onChange={() => handleCheckboxChange('phone')}
-                        className="rounded border-[#2DD4BF]/20 bg-white/20"
+                        className="rounded border-primary/20 bg-white/10 dark:bg-black/30"
                       />
                       <span>Phone</span>
                     </label>
@@ -191,13 +191,13 @@ export const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Message*"
-                    className="w-full min-h-[150px] bg-white/20 border-[#2DD4BF]/20 focus:border-[#2DD4BF] text-white placeholder:text-white/60"
+                    className="w-full min-h-[150px] bg-white/10 dark:bg-black/30 border-primary/20 focus:border-primary text-foreground dark:text-white placeholder:text-foreground/60 dark:placeholder:text-white/60"
                     required
                   />
                 </div>
                 <Button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-[#10B981] to-[#2DD4BF] hover:from-[#2DD4BF] hover:to-[#10B981] text-white font-medium transition-all duration-300 hover:scale-105 rounded-lg"
+                  className="w-full bg-gradient-to-r from-primary to-primary-light dark:from-primary-dark dark:to-primary hover:from-primary-light hover:to-primary dark:hover:from-primary dark:hover:to-primary-light text-white font-medium transition-all duration-300 hover:scale-105 rounded-lg"
                 >
                   Submit
                 </Button>
