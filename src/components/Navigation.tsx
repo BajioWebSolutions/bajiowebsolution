@@ -1,3 +1,4 @@
+
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
@@ -27,6 +28,7 @@ export const Navigation = () => {
     { title: "Home", path: "/" },
     { title: "Services", path: "/services" },
     { title: "About", path: "/about" },
+    { title: "Blog", path: "/blog" },
     { title: "Contact", path: "/contact" },
   ];
 
