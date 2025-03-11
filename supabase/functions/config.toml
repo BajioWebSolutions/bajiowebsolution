@@ -1,8 +1,0 @@
-
-project_id = "xsqrbhbompqssogjriya"
-
-[global.env_variables]
-# Add environment variables here
-
-[functions.send-welcome-email]
-verify_jwt = false

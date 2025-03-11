@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -17,7 +16,15 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-          >            
+          >
+            <div className="inline-flex items-center gap-2 bg-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+              </span>
+              Now offering 24/7 support
+            </div>
+            
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">
               <span className="text-white">Transform Your Digital</span><br />
               <span className="text-primary">Presence Today</span>
@@ -32,7 +39,7 @@ export const Hero = () => {
               <Button
                 asChild
                 size="lg"
-                className="bg-gradient-to-r from-[#10B981] to-[#2DD4BF] hover:from-[#2DD4BF] hover:to-[#10B981] text-white font-bold text-lg px-8 h-12 transition-all duration-300 hover:scale-105 rounded-lg shadow-lg hover:shadow-xl"
+                className="bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white font-bold text-lg px-8 h-12 transition-all duration-300 hover:scale-105"
               >
                 <Link to="/contact">
                   Get Started
@@ -44,7 +51,7 @@ export const Hero = () => {
                 asChild
                 variant="outline"
                 size="lg"
-                className="bg-gradient-to-r from-[#10B981] to-[#2DD4BF] hover:from-[#2DD4BF] hover:to-[#10B981] text-white font-bold text-lg px-8 h-12 transition-all duration-300 hover:scale-105 rounded-lg shadow-lg hover:shadow-xl border-none"
+                className="border-2 border-white hover:bg-white/10 text-white font-bold text-lg px-8 h-12 transition-all duration-300"
               >
                 <Link to="/services">View Services</Link>
               </Button>
