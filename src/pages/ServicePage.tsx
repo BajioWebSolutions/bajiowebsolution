@@ -101,11 +101,11 @@ export const ServicePage = () => {
     return (
       <div className="min-h-screen bg-gradient-to-br from-background via-neutral-dark/40 to-primary/5">
         <div className="container mx-auto px-4 py-20">
-          <div className="relative">
-            <div className="absolute inset-0 bg-neutral-dark/60 rounded-lg" />
+          <div className="relative overflow-hidden rounded-lg">
+            <div className="absolute inset-0 bg-gradient-to-br from-background-dark/90 via-background-dark/80 to-primary/20" />
             <div className="relative z-10 text-center py-16 px-4">
-              <h1 className="text-4xl md:text-5xl font-bold mb-8 text-white">
-                Our <span className="text-primary">Services</span>
+              <h1 className="text-4xl md:text-5xl font-bold mb-8 text-[#CCFBF1]">
+                Our <span className="text-[#2DD4BF]">Services</span>
               </h1>
               <p className="text-lg text-[#CCFBF1] font-medium max-w-3xl mx-auto mb-16">
                 We specialize in creating stunning, high-performance websites tailored to our clients' unique needs. 
