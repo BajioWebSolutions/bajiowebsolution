@@ -3,17 +3,32 @@ const serviceVideos = [
   {
     title: "Web Design Process",
     description: "Watch how we transform ideas into beautiful, functional websites",
-    embedUrl: "https://www.youtube.com/embed/h3RglfBb1As" // First video link
+    embedUrl: "https://www.youtube.com/embed/h3RglfBb1As" 
   },
   {
     title: "Digital Marketing Strategy",
     description: "Learn about our comprehensive digital marketing approach",
-    embedUrl: "https://www.youtube.com/embed/JAqMroYPvkI" // Second video link
+    embedUrl: "https://www.youtube.com/embed/JAqMroYPvkI"
   },
   {
     title: "SEO Optimization",
     description: "Discover how we improve your search engine rankings",
-    embedUrl: "https://www.youtube.com/embed/FmrOLNyPPOk" // Third video link
+    embedUrl: "https://www.youtube.com/embed/FmrOLNyPPOk"
+  },
+  {
+    title: "Content Creation",
+    description: "Learn about effective content strategies for your business",
+    embedUrl: "https://www.youtube.com/embed/ycgxVirLuFY"
+  },
+  {
+    title: "Social Media Growth",
+    description: "Strategies to grow your business through social media",
+    embedUrl: "https://www.youtube.com/embed/RWU8nKUCfEw"
+  },
+  {
+    title: "E-commerce Solutions",
+    description: "Build and optimize your online store for maximum sales",
+    embedUrl: "https://www.youtube.com/embed/iQ6rqgLoLdA"
   }
 ];
 
@@ -24,7 +39,7 @@ export const ServiceVideos = () => {
         <h2 className="text-3xl font-bold text-center mb-12">
           Our Services in <span className="text-primary">Action</span>
         </h2>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {serviceVideos.map((video, index) => (
             <div
               key={index}
