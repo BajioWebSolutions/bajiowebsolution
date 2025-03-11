@@ -1,18 +1,19 @@
+
 const serviceVideos = [
   {
     title: "Web Design Process",
     description: "Watch how we transform ideas into beautiful, functional websites",
-    embedUrl: "https://www.youtube.com/embed/QuWsZsEaLZQ"
+    embedUrl: "https://www.youtube.com/embed/gSVvxOchT8Y" // Updated to a public video about web design
   },
   {
     title: "Digital Marketing Strategy",
     description: "Learn about our comprehensive digital marketing approach",
-    embedUrl: "https://www.youtube.com/embed/S4IPPLONbQM"
+    embedUrl: "https://www.youtube.com/embed/sJXYldjXKA8" // Updated to a public video about digital marketing
   },
   {
     title: "SEO Optimization",
     description: "Discover how we improve your search engine rankings",
-    embedUrl: "https://www.youtube.com/embed/jOkgUQNalCc"
+    embedUrl: "https://www.youtube.com/embed/DvwS7cV9GmQ" // Updated to a public video about SEO
   }
 ];
 
