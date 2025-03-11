@@ -1,3 +1,4 @@
+
 import { X, Facebook, Instagram, Linkedin, Mail, Phone, MapPin, Twitch, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
 import { TikTokIcon } from "./icons/TikTokIcon";
@@ -99,7 +100,7 @@ export const Footer = () => {
               Quick Links
             </h3>
             <ul className="space-y-2">
-              {['Home', 'About', 'Services', 'Contact'].map((link) => (
+              {['Home', 'About', 'Services', 'Blog', 'Contact'].map((link) => (
                 <li key={link}>
                   <Link 
                     to={link === 'Home' ? '/' : `/${link.toLowerCase()}`}
