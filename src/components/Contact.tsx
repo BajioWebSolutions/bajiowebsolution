@@ -65,9 +65,9 @@ export const Contact = () => {
   };
 
   return (
-    <section className="relative min-h-screen bg-cover bg-center py-section" style={{ backgroundImage: 'url("/lovable-uploads/04899484-bd95-4369-9349-8bb80a1e781a.png")' }}>
+    <section className="relative min-h-screen bg-gradient-to-br from-[#10B981] via-[#2DD4BF]/40 to-[#10B981]/5 py-section">
       {/* Dark overlay for better contrast */}
-      <div className="absolute inset-0 bg-black/70" />
+      <div className="absolute inset-0 bg-black/50" />
       
       <motion.div 
         className="container mx-auto px-4 relative z-10"
