@@ -3,17 +3,17 @@ const serviceVideos = [
   {
     title: "Web Design Process",
     description: "Watch how we transform ideas into beautiful, functional websites",
-    embedUrl: "https://www.youtube.com/embed/gSVvxOchT8Y" // Updated to a public video about web design
+    embedUrl: "https://www.youtube.com/embed/h3RglfBb1As" // First video link
   },
   {
     title: "Digital Marketing Strategy",
     description: "Learn about our comprehensive digital marketing approach",
-    embedUrl: "https://www.youtube.com/embed/sJXYldjXKA8" // Updated to a public video about digital marketing
+    embedUrl: "https://www.youtube.com/embed/JAqMroYPvkI" // Second video link
   },
   {
     title: "SEO Optimization",
     description: "Discover how we improve your search engine rankings",
-    embedUrl: "https://www.youtube.com/embed/DvwS7cV9GmQ" // Updated to a public video about SEO
+    embedUrl: "https://www.youtube.com/embed/FmrOLNyPPOk" // Third video link
   }
 ];
 
