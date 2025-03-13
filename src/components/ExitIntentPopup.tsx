@@ -93,7 +93,7 @@ export const ExitIntentPopup = () => {
               onChange={(e) => setName(e.target.value)}
               placeholder="John Doe"
               required
-              className="bg-background/50 border-neutral-dark/30 focus:border-primary"
+              className="bg-background/50 border-neutral-dark/30 focus:border-primary text-foreground-dark placeholder:text-neutral-light/70"
             />
           </div>
           
@@ -108,7 +108,7 @@ export const ExitIntentPopup = () => {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="you@example.com"
               required
-              className="bg-background/50 border-neutral-dark/30 focus:border-primary"
+              className="bg-background/50 border-neutral-dark/30 focus:border-primary text-foreground-dark placeholder:text-neutral-light/70"
             />
           </div>
           
@@ -123,7 +123,7 @@ export const ExitIntentPopup = () => {
               onChange={(e) => setWebsite(e.target.value)}
               placeholder="https://yourwebsite.com"
               required
-              className="bg-background/50 border-neutral-dark/30 focus:border-primary"
+              className="bg-background/50 border-neutral-dark/30 focus:border-primary text-foreground-dark placeholder:text-neutral-light/70"
             />
           </div>
           
