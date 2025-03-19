@@ -1,3 +1,4 @@
+
 import { ArrowUp } from "lucide-react";
 import { Button } from "./ui/button";
 import { useState, useEffect } from "react";
@@ -21,18 +22,21 @@ export const ScrollToTop = () => {
   };
 
   useEffect(() => {
+    // Add event listener when component mounts
     window.addEventListener("scroll", toggleVisibility);
+    
+    // Clean up the event listener when component unmounts
     return () => {
       window.removeEventListener("scroll", toggleVisibility);
     };
   }, []);
 
   return (
-    <>
+    <div className="fixed bottom-8 right-8 z-50">
       {isVisible && (
         <Button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 bg-primary hover:bg-primary-dark text-background transition-all duration-300 hover:scale-105 group"
+          className="bg-primary hover:bg-primary-dark text-background transition-all duration-300 hover:scale-105 group"
           size="lg"
           aria-label="Scroll to top"
         >
@@ -40,6 +44,6 @@ export const ScrollToTop = () => {
           <span className="hidden group-hover:inline">Back to Top</span>
         </Button>
       )}
-    </>
+    </div>
   );
 };
