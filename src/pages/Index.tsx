@@ -1,3 +1,4 @@
+
 import { Hero } from "@/components/Hero";
 import { Services } from "@/components/Services";
 import { WhyChooseUs } from "@/components/WhyChooseUs";
@@ -5,7 +6,33 @@ import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
 import { Testimonials } from "@/components/Testimonials";
 import { NewsletterPopup } from "@/components/NewsletterPopup";
+import { Impact } from "@/components/Impact";
 import { motion } from "framer-motion";
+import { BlogPost } from "@/components/BlogPost";
+
+const blogPosts = [
+  {
+    title: "Web Design Trends 2024",
+    excerpt: "Discover the latest web design trends shaping the digital landscape...",
+    date: "March 15, 2024",
+    category: "Web Design",
+    slug: "web-design-trends-2024"
+  },
+  {
+    title: "SEO Best Practices",
+    excerpt: "Learn how to optimize your website for better search engine rankings...",
+    date: "March 10, 2024",
+    category: "SEO",
+    slug: "seo-best-practices"
+  },
+  {
+    title: "Digital Marketing Guide",
+    excerpt: "A comprehensive guide to digital marketing strategies...",
+    date: "March 5, 2024",
+    category: "Digital Marketing",
+    slug: "digital-marketing-guide"
+  }
+];
 
 const Index = () => {
   return (
@@ -21,71 +48,32 @@ const Index = () => {
         <Hero />
         <WhyChooseUs />
         <Services />
+        <Impact />
         <Testimonials />
-        <section className="relative py-16 bg-background-dark">
-          {/* Gradient overlay similar to hero section */}
+        <section className="py-20 bg-background-dark relative">
+          {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-radial from-primary/5 via-background-dark to-background-dark opacity-50" />
           
           <div className="container mx-auto px-4 relative z-10">
-            <motion.h2 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="text-3xl font-bold text-center mb-8 text-foreground-dark"
+              className="text-center mb-12"
             >
-              Latest <span className="text-primary">Insights</span>
-            </motion.h2>
+              <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-foreground-dark">
+                Latest <span className="text-primary">Insights</span>
+              </h2>
+              <p className="text-neutral text-lg max-w-3xl mx-auto">
+                Stay updated with the latest trends, tips, and insights in web development, 
+                design, and digital marketing.
+              </p>
+            </motion.div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Blog preview cards */}
-              <motion.article 
-                className="bg-neutral-dark/20 backdrop-blur-sm p-6 rounded-lg border border-primary/10 shadow-lg"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                whileHover={{ scale: 1.02 }}
-              >
-                <h3 className="text-xl font-semibold mb-3 text-foreground-dark">Web Design Trends 2024</h3>
-                <p className="text-neutral-light mb-4">
-                  Discover the latest web design trends shaping the digital landscape...
-                </p>
-                <a href="/blog/web-design-trends-2024" className="text-primary hover:text-primary-light transition-colors">
-                  Read More →
-                </a>
-              </motion.article>
-              <motion.article 
-                className="bg-neutral-dark/20 backdrop-blur-sm p-6 rounded-lg border border-primary/10 shadow-lg"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                whileHover={{ scale: 1.02 }}
-              >
-                <h3 className="text-xl font-semibold mb-3 text-foreground-dark">SEO Best Practices</h3>
-                <p className="text-neutral-light mb-4">
-                  Learn how to optimize your website for better search engine rankings...
-                </p>
-                <a href="/blog/seo-best-practices" className="text-primary hover:text-primary-light transition-colors">
-                  Read More →
-                </a>
-              </motion.article>
-              <motion.article 
-                className="bg-neutral-dark/20 backdrop-blur-sm p-6 rounded-lg border border-primary/10 shadow-lg"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                whileHover={{ scale: 1.02 }}
-              >
-                <h3 className="text-xl font-semibold mb-3 text-foreground-dark">Digital Marketing Guide</h3>
-                <p className="text-neutral-light mb-4">
-                  A comprehensive guide to digital marketing strategies...
-                </p>
-                <a href="/blog/digital-marketing-guide" className="text-primary hover:text-primary-light transition-colors">
-                  Read More →
-                </a>
-              </motion.article>
+              {blogPosts.map((post, index) => (
+                <BlogPost key={post.slug} post={post} index={index} />
+              ))}
             </div>
           </div>
         </section>
