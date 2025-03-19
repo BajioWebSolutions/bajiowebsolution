@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
-import { CalendarIcon } from "lucide-react";
+import { CalendarIcon, BookOpenIcon } from "lucide-react";
 
 interface BlogPostProps {
   post: {
@@ -36,7 +36,10 @@ export const BlogPost = ({ post, index }: BlogPostProps) => {
           <p className="text-neutral">{post.excerpt}</p>
         </CardContent>
         <CardFooter className="flex items-center justify-between pt-2">
-          <span className="text-sm text-primary">{post.category}</span>
+          <span className="flex items-center text-sm text-primary">
+            <BookOpenIcon className="h-4 w-4 mr-1" />
+            {post.category}
+          </span>
           <Button 
             variant="link" 
             asChild

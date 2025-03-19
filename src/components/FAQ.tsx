@@ -38,7 +38,11 @@ const faqData = [
 ];
 
 export const FAQ = () => {
-  const [selectedQuestion, setSelectedQuestion] = useState<(typeof faqData)[0] | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
 
   return (
     <section className="py-20 bg-background-dark relative">
@@ -74,31 +78,29 @@ export const FAQ = () => {
             >
               <button
                 className="w-full py-4 px-6 flex justify-between items-center text-left focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-lg hover:bg-primary/5 transition-colors"
-                onClick={() => setSelectedQuestion(item)}
-                aria-expanded={selectedQuestion === item}
+                onClick={() => toggleFAQ(index)}
+                aria-expanded={openIndex === index}
               >
                 <span className="font-semibold text-foreground-dark">{item.question}</span>
-                <ChevronDown
-                  className="w-5 h-5 text-primary transition-transform duration-200 flex-shrink-0"
-                />
+                {openIndex === index ? (
+                  <ChevronUp
+                    className="w-5 h-5 text-primary transition-transform duration-200 flex-shrink-0"
+                  />
+                ) : (
+                  <ChevronDown
+                    className="w-5 h-5 text-primary transition-transform duration-200 flex-shrink-0"
+                  />
+                )}
               </button>
+              {openIndex === index && (
+                <div className="px-6 py-4 text-neutral bg-neutral-dark/30">
+                  <p>{item.answer}</p>
+                </div>
+              )}
             </motion.div>
           ))}
         </div>
       </div>
-
-      <Dialog open={!!selectedQuestion} onOpenChange={() => setSelectedQuestion(null)}>
-        <DialogContent className="max-w-2xl bg-neutral-dark/95 backdrop-blur-xl border-neutral-dark rounded-lg">
-          <DialogHeader>
-            <DialogTitle className="text-2xl font-bold text-foreground-dark">
-              {selectedQuestion?.question}
-            </DialogTitle>
-            <DialogDescription className="text-neutral-light text-base leading-relaxed mt-4">
-              {selectedQuestion?.answer}
-            </DialogDescription>
-          </DialogHeader>
-        </DialogContent>
-      </Dialog>
     </section>
   );
 };
