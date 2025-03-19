@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -51,7 +52,7 @@ export const Hero = () => {
                 asChild
                 variant="outline"
                 size="lg"
-                className="bg-gradient-to-r from-[#10B981] to-[#2DD4BF] hover:from-[#2DD4BF] hover:to-[#10B981] text-white font-bold text-lg px-8 h-12 transition-all duration-300 hover:scale-105 rounded-lg shadow-lg hover:shadow-xl border-none"
+                className="bg-white hover:bg-gray-100 text-primary border-primary font-bold text-lg px-8 h-12 transition-all duration-300 hover:scale-105 rounded-lg shadow-lg hover:shadow-xl border"
               >
                 <Link to="/services">View Services</Link>
               </Button>
@@ -90,7 +91,7 @@ export const Hero = () => {
                   <CheckCircle className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground dark:text-white">Trusted by 150+ Brands</h3>
+                  <h3 className="font-semibold text-foreground dark:text-white">Trusted by 15+ Brands</h3>
                   <p className="text-sm text-neutral dark:text-neutral-light">Join our satisfied clients today</p>
                 </div>
               </div>
