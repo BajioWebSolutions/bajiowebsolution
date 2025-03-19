@@ -1,6 +1,8 @@
+
 import { Card } from "@/components/ui/card";
 import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
+import { Impact } from "@/components/Impact";
 
 const AboutPage = () => {
   return (
@@ -53,7 +55,7 @@ const AboutPage = () => {
             </motion.div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -97,6 +99,10 @@ const AboutPage = () => {
           </div>
         </div>
       </div>
+      
+      {/* Add the Impact component here */}
+      <Impact />
+      
       <Footer />
     </div>
   );

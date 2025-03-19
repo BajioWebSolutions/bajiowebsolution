@@ -47,7 +47,7 @@ export const Impact = () => {
             Our <span className="text-primary">Impact</span>
           </h2>
           <p className="text-neutral text-lg max-w-3xl mx-auto">
-            We measure our success by the results we deliver for our clients. 
+            We're proud of the results we've achieved and the relationships we've built with our clients.
             Here's the impact we've made through our strategic digital solutions.
           </p>
         </motion.div>
