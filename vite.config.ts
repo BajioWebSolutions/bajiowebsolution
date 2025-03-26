@@ -24,4 +24,6 @@ export default defineConfig(({ mode }) => ({
     sourcemap: true,
     outDir: "dist",
   },
+  // Adding base configuration to handle different deployment environments
+  base: './'
 }));
