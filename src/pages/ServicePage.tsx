@@ -1,3 +1,4 @@
+
 import { useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
@@ -99,7 +100,7 @@ export const ServicePage = () => {
 
   if (!serviceId) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-background via-neutral-dark/40 to-primary/5">
+      <div className="min-h-screen bg-background-dark">
         <div className="container mx-auto px-4 py-20">
           <div className="relative overflow-hidden rounded-lg">
             <div className="absolute inset-0 bg-gradient-to-br from-background-dark/90 via-background-dark/80 to-primary/20" />
@@ -126,7 +127,7 @@ export const ServicePage = () => {
 
   if (!service) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-background via-neutral-dark/40 to-primary/5 py-20 px-4">
+      <div className="min-h-screen bg-background-dark py-20 px-4">
         <div className="container mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Service not found</h2>
           <p className="text-neutral mb-8">The requested service could not be found.</p>
@@ -140,7 +141,7 @@ export const ServicePage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-neutral-dark/40 to-primary/5">
+    <div className="min-h-screen bg-background-dark">
       <div className="container mx-auto max-w-4xl px-4 py-20">
         <Link to="/services" className="inline-flex items-center text-primary hover:text-primary-light mb-8 group">
           <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />
@@ -148,7 +149,7 @@ export const ServicePage = () => {
         </Link>
         
         <div className="bg-neutral-dark/20 rounded-lg p-8 backdrop-blur-sm mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground-dark">
             {service.title}
           </h1>
           
@@ -158,7 +159,7 @@ export const ServicePage = () => {
           
           <div className="space-y-8">
             <div>
-              <h2 className="text-2xl font-semibold mb-4 text-foreground">Key Features</h2>
+              <h2 className="text-2xl font-semibold mb-4 text-foreground-dark">Key Features</h2>
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {service.features.map((feature, index) => (
                   <li key={index} className="flex items-center text-neutral">
