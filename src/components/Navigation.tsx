@@ -1,14 +1,13 @@
 
-import { Menu, X, LogIn } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,48 +20,46 @@ export const Navigation = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  const handleLogin = () => {
+  const handleGetStarted = () => {
     navigate('/contact');
   };
 
   const menuItems = [
-    { title: "PROFESSIONS", path: "/services" },
-    { title: "ABOUT", path: "/about" },
-    { title: "FAQ", path: "/blog" },
+    { title: "Home", path: "/" },
+    { title: "Services", path: "/services" },
+    { title: "About", path: "/about" },
+    { title: "Blog", path: "/blog" },
+    { title: "Contact", path: "/contact" },
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 bg-background-dark/90 backdrop-blur-md z-50 transition-all duration-300 ${isScrolled ? 'shadow-lg' : ''}`}>
+    <nav className={`fixed top-0 left-0 right-0 bg-background-dark/80 backdrop-blur-md z-50 transition-all duration-300 ${isScrolled ? 'shadow-lg' : ''}`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center">
-            <div className="flex items-center">
-              <span className="text-2xl font-bold text-white">Furny</span>
-            </div>
+            <img 
+              src="/lovable-uploads/39f3556e-6b12-4ffc-b1d0-ad03448bd1af.png" 
+              alt="Bajio Web Solutions" 
+              className="h-16 w-auto"
+            />
           </Link>
 
           {/* Desktop menu */}
-          <div className="hidden md:flex items-center space-x-12">
+          <div className="hidden md:flex items-center space-x-8">
             {menuItems.map((item) => (
               <Link
                 key={item.title}
                 to={item.path}
-                className={`text-sm font-medium tracking-wide hover:text-primary transition-colors ${
-                  location.pathname === item.path ? 'text-primary' : 'text-foreground-dark'
-                }`}
+                className="text-foreground-dark hover:text-primary transition-colors"
               >
                 {item.title}
               </Link>
             ))}
-          </div>
-
-          <div className="hidden md:block">
             <Button 
-              onClick={handleLogin}
-              className="flex items-center gap-2 text-sm font-medium tracking-wide bg-transparent hover:bg-transparent text-white"
-              variant="ghost"
+              onClick={handleGetStarted}
+              className="bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white font-medium transition-all duration-300 hover:scale-105"
             >
-              LOG IN <LogIn className="w-4 h-4" />
+              Book a Free Website Audit ➔
             </Button>
           </div>
 
@@ -94,13 +91,12 @@ export const Navigation = () => {
               <div className="px-4 pt-2">
                 <Button 
                   onClick={() => {
-                    handleLogin();
+                    handleGetStarted();
                     setIsOpen(false);
                   }}
-                  className="w-full flex items-center justify-center gap-2 bg-transparent hover:bg-transparent text-white"
-                  variant="ghost"
+                  className="w-full bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white font-medium transition-all duration-300 hover:scale-105"
                 >
-                  LOG IN <LogIn className="w-4 h-4" />
+                  Book a Free Website Audit ➔
                 </Button>
               </div>
             </div>

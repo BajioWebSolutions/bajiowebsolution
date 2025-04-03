@@ -54,16 +54,12 @@
     @apply border-border;
   }
 
-  html {
-    @apply scroll-smooth;
-  }
-
   body {
-    @apply bg-background-dark text-foreground-dark font-sans antialiased;
+    @apply bg-background text-foreground dark:bg-background-dark dark:text-foreground-dark;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-bold tracking-tight text-foreground-dark;
+    @apply font-bold tracking-tight;
   }
 
   h1 {
@@ -92,54 +88,5 @@
 
   .gradient-button {
     @apply bg-gradient-to-r from-accent to-primary hover:from-accent-dark hover:to-primary-dark text-white font-medium px-6 py-3 rounded-full transition-all duration-300 hover:scale-105;
-  }
-  
-  /* Modern Hover Effects for 2025 */
-  .cta-button {
-    @apply transition-all duration-300 relative overflow-hidden;
-  }
-
-  .cta-button:hover {
-    @apply transform translate-y-[3px] scale-[0.98] shadow-[0_4px_15px_rgba(0,255,255,0.3)];
-  }
-
-  .split-button {
-    @apply bg-[length:200%_100%] bg-left transition-all duration-500;
-  }
-
-  .split-button:hover {
-    @apply bg-right -translate-y-[2px];
-  }
-
-  .card {
-    @apply transform-gpu transition-all duration-500;
-  }
-
-  .card:hover {
-    @apply transform shadow-[0_30px_60px_rgba(0,0,0,0.12)];
-    transform: rotateX(5deg) rotateY(5deg);
-  }
-
-  .glass-card {
-    @apply transition-all duration-500;
-  }
-
-  .glass-card:hover {
-    @apply backdrop-blur-md bg-white/10 border border-white/20;
-  }
-
-  /* Accessibility */
-  @media (prefers-reduced-motion) {
-    .cta-button:hover,
-    .split-button:hover,
-    .card:hover,
-    .glass-card:hover {
-      @apply transform-none transition-shadow duration-300;
-    }
-  }
-
-  /* 3D perspective container */
-  .perspective-1000 {
-    @apply perspective-[1000px];
   }
 }

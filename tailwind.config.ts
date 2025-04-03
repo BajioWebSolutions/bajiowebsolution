@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -25,14 +24,14 @@ export default {
         ring: "hsl(var(--ring))",
         background: {
           DEFAULT: "#FFFFFF",
-          dark: "#0A0E14", // Darker background color
+          dark: "#1A1F2C",
         },
         foreground: {
           DEFAULT: "#111827",
           dark: "#FFFFFF",
         },
         primary: {
-          DEFAULT: "#2DD4BF", // Bright teal/cyan color
+          DEFAULT: "#2DD4BF",
           dark: "#10B981",
           light: "#34D399",
         },
@@ -53,16 +52,6 @@ export default {
       },
       borderRadius: {
         'card': '8px',
-      },
-      transitionDuration: {
-        '400': '400ms',
-      },
-      rotate: {
-        // Custom rotation degrees
-      },
-      transform: {
-        // Adding 3D rotation utilities
-        'perspective': 'perspective(1000px)',
       },
       animation: {
         "gradient-x": "gradient-x 15s ease infinite",
@@ -111,29 +100,9 @@ export default {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'hero-gradient': 'linear-gradient(to right, #0A0E14, #162032)',
-      },
-      fontFamily: {
-        'sans': ['Inter', 'system-ui', 'sans-serif'],
-        'heading': ['Montserrat', 'sans-serif'],
+        'hero-gradient': 'linear-gradient(135deg, #2DD4BF 0%, #10B981 100%)',
       },
     },
   },
-  plugins: [
-    require("tailwindcss-animate"),
-    function({ addUtilities }) {
-      const newUtilities = {
-        '.rotate-x-\\[5deg\\]': {
-          transform: 'rotateX(5deg)',
-        },
-        '.rotate-y-\\[5deg\\]': {
-          transform: 'rotateY(5deg)',
-        },
-        '.perspective-\\[1000px\\]': {
-          perspective: '1000px',
-        },
-      }
-      addUtilities(newUtilities)
-    }
-  ],
+  plugins: [require("tailwindcss-animate")],
 } satisfies Config;

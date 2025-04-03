@@ -9,7 +9,6 @@ import { ScrollToTop } from "./components/ScrollToTop";
 import { ExitIntentPopup } from "./components/ExitIntentPopup";
 import { Suspense, lazy, useEffect } from 'react';
 import { AnimatePresence, motion } from "framer-motion";
-import "./App.css";
 
 // Lazy load pages
 const Index = lazy(() => import("./pages/Index"));
@@ -53,7 +52,7 @@ const PageWrapper = ({ children }: { children: React.ReactNode }) => {
           ease: [0.43, 0.13, 0.23, 0.96]
         }
       }}
-      className="min-h-screen bg-background-dark"
+      className="min-h-screen bg-gradient-to-br from-background-dark via-neutral-dark/40 to-primary/5"
     >
       {children}
     </motion.div>
@@ -62,10 +61,8 @@ const PageWrapper = ({ children }: { children: React.ReactNode }) => {
 
 const App = () => {
   useEffect(() => {
-    // Enable dark mode by default for all pages
+    // Enable dark mode by default
     document.documentElement.classList.add('dark');
-    // Add a dark background to the entire page
-    document.body.classList.add('bg-background-dark');
   }, []);
 
   return (
@@ -75,13 +72,14 @@ const App = () => {
         <Sonner />
         <BrowserRouter basename="/">
           <Navigation />
+          <ExitIntentPopup />
           <div className="pt-20">
             <Suspense fallback={
               <motion.div 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="flex items-center justify-center min-h-[60vh] bg-background-dark"
+                className="flex items-center justify-center min-h-[60vh]"
               >
                 <div className="animate-pulse text-primary">Loading...</div>
               </motion.div>
