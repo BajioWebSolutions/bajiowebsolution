@@ -148,7 +148,7 @@ export const ServicePage = () => {
           Back to Services
         </Link>
         
-        <div className="bg-neutral-dark/20 rounded-lg p-8 backdrop-blur-sm mb-16">
+        <div className="bg-white/10 rounded-lg p-8 shadow-lg border border-primary/10 mb-16 backdrop-blur-sm">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground-dark">
             {service.title}
           </h1>

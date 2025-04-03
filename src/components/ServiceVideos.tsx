@@ -43,7 +43,7 @@ export const ServiceVideos = () => {
           {serviceVideos.map((video, index) => (
             <div
               key={index}
-              className="bg-neutral-dark/20 rounded-lg overflow-hidden animate-fade-up"
+              className="bg-white/10 rounded-lg overflow-hidden shadow-lg border border-primary/10 animate-fade-up"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="aspect-video">
@@ -56,7 +56,7 @@ export const ServiceVideos = () => {
                 ></iframe>
               </div>
               <div className="p-4">
-                <h3 className="font-semibold text-lg mb-2 text-foreground">{video.title}</h3>
+                <h3 className="font-semibold text-lg mb-2 text-foreground-dark">{video.title}</h3>
                 <p className="text-neutral">{video.description}</p>
               </div>
             </div>
