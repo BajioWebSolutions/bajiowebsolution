@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -24,14 +25,14 @@ export default {
         ring: "hsl(var(--ring))",
         background: {
           DEFAULT: "#FFFFFF",
-          dark: "#1A1F2C",
+          dark: "#0A0E14", // Darker background color
         },
         foreground: {
           DEFAULT: "#111827",
           dark: "#FFFFFF",
         },
         primary: {
-          DEFAULT: "#2DD4BF",
+          DEFAULT: "#2DD4BF", // Bright teal/cyan color
           dark: "#10B981",
           light: "#34D399",
         },
@@ -100,7 +101,11 @@ export default {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'hero-gradient': 'linear-gradient(135deg, #2DD4BF 0%, #10B981 100%)',
+        'hero-gradient': 'linear-gradient(to right, #0A0E14, #162032)',
+      },
+      fontFamily: {
+        'sans': ['Inter', 'system-ui', 'sans-serif'],
+        'heading': ['Montserrat', 'sans-serif'],
       },
     },
   },
