@@ -40,11 +40,11 @@ export const Hero = () => {
               <Button
                 asChild
                 size="lg"
-                className="bg-gradient-to-r from-[#10B981] to-[#2DD4BF] hover:from-[#2DD4BF] hover:to-[#10B981] text-white font-bold text-lg px-8 h-12 transition-all duration-300 hover:scale-105 rounded-lg shadow-lg hover:shadow-xl"
+                className="split-button bg-gradient-to-r from-[#10B981] to-[#2DD4BF] hover:from-[#2DD4BF] hover:to-[#10B981] text-white font-bold text-lg px-8 h-12 transition-all duration-300 hover:scale-105 rounded-lg shadow-lg hover:shadow-xl overflow-hidden relative before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/30 before:to-transparent before:-translate-x-full hover:before:translate-x-full before:transition-transform before:duration-700 before:ease-in-out"
               >
                 <Link to="/contact">
                   Get Started
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
               </Button>
               
@@ -52,7 +52,7 @@ export const Hero = () => {
                 asChild
                 variant="outline"
                 size="lg"
-                className="bg-white hover:bg-gray-100 text-primary border-primary font-bold text-lg px-8 h-12 transition-all duration-300 hover:scale-105 rounded-lg shadow-lg hover:shadow-xl border"
+                className="bg-white hover:bg-gray-100 text-primary border-primary font-bold text-lg px-8 h-12 transition-all duration-300 hover:scale-105 rounded-lg shadow-lg hover:shadow-xl border relative overflow-hidden after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
               >
                 <Link to="/services">View Services</Link>
               </Button>
@@ -61,9 +61,9 @@ export const Hero = () => {
             <div className="pt-8 space-y-4">
               <div className="flex gap-6">
                 {['Custom Solutions', 'Expert Support', '100% Satisfaction'].map((feature, index) => (
-                  <div key={index} className="flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 text-primary" />
-                    <span className="text-white font-medium">{feature}</span>
+                  <div key={index} className="flex items-center gap-2 group">
+                    <CheckCircle className="h-5 w-5 text-primary transition-transform duration-300 group-hover:scale-125 group-hover:rotate-3" />
+                    <span className="text-white font-medium transition-transform duration-300 group-hover:translate-x-1">{feature}</span>
                   </div>
                 ))}
               </div>
@@ -76,7 +76,7 @@ export const Hero = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-700 hover:scale-[1.02] hover:-rotate-2 hover:shadow-primary/20">
               <img 
                 src="/lovable-uploads/2f6e7cf6-911a-4a70-9f70-629277e1048d.png"
                 alt="Web Development"
@@ -85,9 +85,9 @@ export const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </div>
             
-            <div className="absolute -bottom-6 -right-6 bg-white dark:bg-neutral-dark rounded-2xl shadow-xl p-6 max-w-xs">
+            <div className="absolute -bottom-6 -right-6 bg-white dark:bg-neutral-dark rounded-2xl shadow-xl p-6 max-w-xs transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 hover:scale-105 card">
               <div className="flex items-start gap-4">
-                <div className="p-3 bg-primary/10 rounded-xl dark:bg-primary/20">
+                <div className="p-3 bg-primary/10 rounded-xl dark:bg-primary/20 transition-all duration-500 group-hover:bg-primary/30">
                   <CheckCircle className="h-6 w-6 text-primary" />
                 </div>
                 <div>

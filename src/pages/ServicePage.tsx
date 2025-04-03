@@ -131,7 +131,7 @@ export const ServicePage = () => {
         <div className="container mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Service not found</h2>
           <p className="text-neutral mb-8">The requested service could not be found.</p>
-          <Button asChild>
+          <Button asChild className="cta-button">
             <Link to="/services">Back to Services</Link>
           </Button>
         </div>
@@ -143,12 +143,12 @@ export const ServicePage = () => {
   return (
     <div className="min-h-screen bg-background-dark">
       <div className="container mx-auto max-w-4xl px-4 py-20">
-        <Link to="/services" className="inline-flex items-center text-primary hover:text-primary-light mb-8 group">
-          <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />
+        <Link to="/services" className="inline-flex items-center text-primary hover:text-primary-light mb-8 group transition-all duration-300">
+          <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-2" />
           Back to Services
         </Link>
         
-        <div className="bg-white/10 rounded-lg p-8 shadow-lg border border-primary/10 mb-16 backdrop-blur-sm">
+        <div className="bg-white/10 rounded-lg p-8 shadow-lg border border-primary/10 mb-16 backdrop-blur-sm hover:shadow-xl hover:shadow-primary/20 transition-all duration-500 transform perspective-1000 hover:-rotate-1 hover:scale-[1.01]">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground-dark">
             {service.title}
           </h1>
@@ -162,8 +162,8 @@ export const ServicePage = () => {
               <h2 className="text-2xl font-semibold mb-4 text-foreground-dark">Key Features</h2>
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {service.features.map((feature, index) => (
-                  <li key={index} className="flex items-center text-neutral">
-                    <span className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0" />
+                  <li key={index} className="flex items-center text-neutral group transition-all duration-300 hover:translate-x-1">
+                    <span className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0 transition-all duration-300 group-hover:scale-150 group-hover:bg-primary-light" />
                     {feature}
                   </li>
                 ))}
@@ -171,7 +171,7 @@ export const ServicePage = () => {
             </div>
             
             <div className="pt-4">
-              <Button asChild size="lg" className="bg-primary hover:bg-primary-dark text-white">
+              <Button asChild size="lg" className="bg-primary hover:bg-primary-dark text-white transition-all duration-300 transform hover:translate-y-[-2px] hover:shadow-lg hover:shadow-primary/30 active:translate-y-[1px] relative overflow-hidden before:absolute before:inset-0 before:w-full before:h-full before:bg-gradient-to-r before:from-primary/0 before:via-white/30 before:to-primary/0 before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700">
                 <Link to="/contact">Get Started</Link>
               </Button>
             </div>

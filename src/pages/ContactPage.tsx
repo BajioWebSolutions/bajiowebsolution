@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
 import { ContactInfo } from "@/components/contact/ContactInfo";
 import { ContactForm } from "@/components/contact/ContactForm";
+import { ScrollObserver } from "@/components/ScrollObserver";
 
 const ContactPage = () => {
   return (
@@ -15,6 +16,9 @@ const ContactPage = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
+      {/* Enable scroll-triggered hover effects */}
+      <ScrollObserver />
+    
       {/* Blur overlay */}
       <div className="absolute inset-0 backdrop-blur-sm bg-black/50" />
       

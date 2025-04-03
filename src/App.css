@@ -1,3 +1,4 @@
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -16,6 +17,65 @@
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+/* Modern Hover Effects for 2025 */
+.cta-button {
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button:hover {
+  transform: translateY(3px) scale(0.98);
+  box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+}
+
+.split-button {
+  background-size: 200% 100%;
+  background-position: 0;
+  transition: background-position 0.4s, transform 0.3s;
+}
+
+.split-button:hover {
+  background-position: -100%;
+  transform: translateY(-2px);
+}
+
+.card {
+  transform-style: preserve-3d;
+  transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.card:hover {
+  transform: rotateX(5deg) rotateY(5deg);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+}
+
+.glass-card {
+  transition: backdrop-filter 0.5s, background 0.5s, border 0.5s;
+}
+
+.glass-card:hover {
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion) {
+  .cta-button:hover,
+  .split-button:hover,
+  .card:hover,
+  .glass-card:hover {
+    transform: none;
+    transition: box-shadow 0.3s;
+  }
+}
+
+/* 3D perspective container */
+.perspective-1000 {
+  perspective: 1000px;
 }
 
 @keyframes logo-spin {
