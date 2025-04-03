@@ -57,6 +57,13 @@ export default {
       transitionDuration: {
         '400': '400ms',
       },
+      rotate: {
+        // Custom rotation degrees
+      },
+      transform: {
+        // Adding 3D rotation utilities
+        'perspective': 'perspective(1000px)',
+      },
       animation: {
         "gradient-x": "gradient-x 15s ease infinite",
         "fade-in": "fade-in 0.5s ease-out",
@@ -112,5 +119,21 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    function({ addUtilities }) {
+      const newUtilities = {
+        '.rotate-x-\\[5deg\\]': {
+          transform: 'rotateX(5deg)',
+        },
+        '.rotate-y-\\[5deg\\]': {
+          transform: 'rotateY(5deg)',
+        },
+        '.perspective-\\[1000px\\]': {
+          perspective: '1000px',
+        },
+      }
+      addUtilities(newUtilities)
+    }
+  ],
 } satisfies Config;
