@@ -105,7 +105,7 @@
   }
 
   .split-button {
-    @apply bg-[length:200%_100%] bg-left transition-all duration-400;
+    @apply bg-[length:200%_100%] bg-left transition-all duration-500;
   }
 
   .split-button:hover {

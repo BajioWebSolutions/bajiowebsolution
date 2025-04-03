@@ -54,6 +54,9 @@ export default {
       borderRadius: {
         'card': '8px',
       },
+      transitionDuration: {
+        '400': '400ms',
+      },
       animation: {
         "gradient-x": "gradient-x 15s ease infinite",
         "fade-in": "fade-in 0.5s ease-out",
