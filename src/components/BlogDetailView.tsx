@@ -18,7 +18,7 @@ export const BlogDetailView = ({ slug }: BlogDetailViewProps) => {
     category: "Web Design",
     content: `
       <div class="mb-8">
-        <img src="/lovable-uploads/71ec8783-94a4-4291-87cd-daacab2de674.png" alt="Web design trends 2024" class="w-full h-auto rounded-lg shadow-lg mb-6" />
+        <img src="/lovable-uploads/c4fae138-32fa-4834-a235-e94f2007b1b4.png" alt="Responsive web design showcase" class="w-full h-auto rounded-lg shadow-lg mb-6" />
       </div>
 
       <h2>The Evolution of Web Design in the AI Era</h2>
@@ -51,8 +51,8 @@ export const BlogDetailView = ({ slug }: BlogDetailViewProps) => {
       </ul>
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
-        <img src="/lovable-uploads/32ab0d6f-3302-40d8-a6a0-a34caffd4b1d.png" alt="Responsive web design" class="w-full h-auto rounded-lg shadow-lg" />
-        <img src="/lovable-uploads/5ac7c156-7d86-457a-8ef7-8262a73aa279.png" alt="Advanced web design tools" class="w-full h-auto rounded-lg shadow-lg" />
+        <img src="/lovable-uploads/63a67f26-62b3-4af1-97b8-aa95b274da59.png" alt="Modern web design across devices" class="w-full h-auto rounded-lg shadow-lg" />
+        <img src="/lovable-uploads/d0915659-020f-406a-92dc-76e1844693a0.png" alt="Advanced web design visualization" class="w-full h-auto rounded-lg shadow-lg" />
       </div>
       
       <h2>The Advantages of AI-Powered Web Design</h2>
@@ -70,7 +70,7 @@ export const BlogDetailView = ({ slug }: BlogDetailViewProps) => {
       <p>This automation accelerates the development timeline while maintaining high design standards. The result is a cost-effective design process that delivers superior results in less time.</p>
       
       <div class="my-8">
-        <img src="/lovable-uploads/85cfab4b-a045-48d5-b2ec-4312ae6552a6.png" alt="Modern web design example" class="w-full h-auto rounded-lg shadow-lg" />
+        <img src="/lovable-uploads/c4fae138-32fa-4834-a235-e94f2007b1b4.png" alt="Modern responsive web design" class="w-full h-auto rounded-lg shadow-lg" />
       </div>
       
       <h3>Data-Driven Decision Making</h3>
