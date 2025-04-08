@@ -17,12 +17,28 @@ export const BlogDetailView = ({ slug }: BlogDetailViewProps) => {
     date: "April 8, 2024",
     category: "Web Design",
     content: `
+      <div class="mb-8">
+        <img src="/lovable-uploads/71ec8783-94a4-4291-87cd-daacab2de674.png" alt="Web design trends 2024" class="w-full h-auto rounded-lg shadow-lg mb-6" />
+      </div>
+
       <h2>The Evolution of Web Design in the AI Era</h2>
       
       <p>In today's rapidly evolving digital landscape, artificial intelligence is revolutionizing how websites are designed and developed. At <a href="https://www.bajiowebsolutions.com" class="text-primary hover:text-primary-light">Bajio Web Solutions</a>, we're pioneering the integration of AI technologies into our <a href="https://www.bajiowebsolutions.com/services" class="text-primary hover:text-primary-light">web development services</a>, creating smarter, more efficient, and highly personalized digital experiences.</p>
       
       <p>The web design landscape has undergone significant transformation since the early days of static HTML pages. Today's websites are dynamic, responsive, and increasingly intelligent—adapting to user behavior and preferences in real-time.</p>
       
+      <div class="my-8 aspect-video">
+        <iframe 
+          class="w-full h-full rounded-lg shadow-lg" 
+          src="https://www.youtube.com/embed/6jqvG3SZyv0" 
+          title="AI-Powered Web Design" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerpolicy="strict-origin-when-cross-origin" 
+          allowfullscreen>
+        </iframe>
+      </div>
+
       <h3>Key AI Technologies Transforming Web Design</h3>
       
       <p>Several AI technologies are at the forefront of this revolution:</p>
@@ -33,6 +49,11 @@ export const BlogDetailView = ({ slug }: BlogDetailViewProps) => {
         <li><strong>Computer Vision:</strong> Enables advanced image recognition and processing, facilitating dynamic visual content personalization.</li>
         <li><strong>Generative AI:</strong> Creates unique design elements, from graphics to complete layouts, based on specific parameters and brand guidelines.</li>
       </ul>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+        <img src="/lovable-uploads/32ab0d6f-3302-40d8-a6a0-a34caffd4b1d.png" alt="Responsive web design" class="w-full h-auto rounded-lg shadow-lg" />
+        <img src="/lovable-uploads/5ac7c156-7d86-457a-8ef7-8262a73aa279.png" alt="Advanced web design tools" class="w-full h-auto rounded-lg shadow-lg" />
+      </div>
       
       <h2>The Advantages of AI-Powered Web Design</h2>
       
@@ -47,6 +68,10 @@ export const BlogDetailView = ({ slug }: BlogDetailViewProps) => {
       <p>Our <a href="https://www.bajiowebsolutions.com/services" class="text-primary hover:text-primary-light">web development team</a> leverages AI design assistants to streamline the creation process. These tools can generate multiple design variations based on your brand guidelines and target audience, allowing for rapid prototyping and testing.</p>
       
       <p>This automation accelerates the development timeline while maintaining high design standards. The result is a cost-effective design process that delivers superior results in less time.</p>
+      
+      <div class="my-8">
+        <img src="/lovable-uploads/85cfab4b-a045-48d5-b2ec-4312ae6552a6.png" alt="Modern web design example" class="w-full h-auto rounded-lg shadow-lg" />
+      </div>
       
       <h3>Data-Driven Decision Making</h3>
       
