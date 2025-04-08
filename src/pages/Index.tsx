@@ -1,4 +1,3 @@
-
 import { Hero } from "@/components/Hero";
 import { Services } from "@/components/Services";
 import { WhyChooseUs } from "@/components/WhyChooseUs";
@@ -12,6 +11,13 @@ import { BlogPost } from "@/components/BlogPost";
 
 const blogPosts = [
   {
+    title: "AI-Powered Web Design: The Future of Digital Marketing",
+    excerpt: "Discover how artificial intelligence is revolutionizing web design and digital marketing strategies...",
+    date: "April 8, 2024",
+    category: "Web Design",
+    slug: "ai-powered-web-design"
+  },
+  {
     title: "Web Design Trends 2024",
     excerpt: "Discover the latest web design trends shaping the digital landscape...",
     date: "March 15, 2024",
@@ -24,13 +30,6 @@ const blogPosts = [
     date: "March 10, 2024",
     category: "SEO",
     slug: "seo-best-practices"
-  },
-  {
-    title: "Digital Marketing Guide",
-    excerpt: "A comprehensive guide to digital marketing strategies...",
-    date: "March 5, 2024",
-    category: "Digital Marketing",
-    slug: "digital-marketing-guide"
   }
 ];
 

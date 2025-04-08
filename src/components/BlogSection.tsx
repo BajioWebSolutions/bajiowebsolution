@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
@@ -11,6 +12,13 @@ interface BlogPost {
 }
 
 const blogPosts: BlogPost[] = [
+  {
+    title: "AI-Powered Web Design: The Future of Digital Marketing",
+    excerpt: "Discover how artificial intelligence is revolutionizing web design and digital marketing strategies...",
+    date: "April 8, 2024",
+    category: "Web Design",
+    slug: "ai-powered-web-design"
+  },
   {
     title: "Web Design Trends 2024",
     excerpt: "Discover the latest web design trends shaping the digital landscape...",
