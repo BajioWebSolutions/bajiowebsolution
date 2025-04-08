@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { useEffect, useRef } from "react";
@@ -21,15 +21,32 @@ export const BlogDetailView = ({ slug }: BlogDetailViewProps) => {
       const links = contentRef.current.querySelectorAll('a');
       links.forEach(link => {
         const href = link.getAttribute('href');
-        if (href && (href.startsWith('http://') || href.startsWith('https://'))) {
-          // External link - add target and rel attributes
-          link.setAttribute('target', '_blank');
-          link.setAttribute('rel', 'noopener noreferrer');
-          
-          // Add icon to indicate external link
-          const icon = document.createElement('span');
-          icon.innerHTML = ' <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block ml-1"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>';
-          link.appendChild(icon);
+        if (href) {
+          // Check if it's a Bajio Web Solutions link
+          if (href.includes('bajiowebsolutions.com/services')) {
+            // Replace with internal link to services page
+            link.setAttribute('href', '/services');
+            // Remove target and rel attributes if they exist
+            link.removeAttribute('target');
+            link.removeAttribute('rel');
+          } else if (href.includes('bajiowebsolutions.com/contact')) {
+            // Replace with internal link to contact page
+            link.setAttribute('href', '/contact');
+            // Remove target and rel attributes if they exist
+            link.removeAttribute('target');
+            link.removeAttribute('rel');
+          } else if (href.startsWith('http://') || href.startsWith('https://')) {
+            // External link - add target and rel attributes (but not for Bajio links)
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
+            
+            // Only add icon for non-Bajio external links
+            if (!href.includes('bajiowebsolutions.com')) {
+              const icon = document.createElement('span');
+              icon.innerHTML = ' <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block ml-1"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>';
+              link.appendChild(icon);
+            }
+          }
         }
       });
     }
@@ -46,7 +63,7 @@ export const BlogDetailView = ({ slug }: BlogDetailViewProps) => {
 
       <h2>The Evolution of Web Design in the AI Era</h2>
       
-      <p>In today's rapidly evolving digital landscape, artificial intelligence is revolutionizing how websites are designed and developed. At <a href="https://www.bajiowebsolutions.com" class="text-primary hover:text-primary-light">Bajio Web Solutions</a>, we're pioneering the integration of AI technologies into our <a href="https://www.bajiowebsolutions.com/services" class="text-primary hover:text-primary-light">web development services</a>, creating smarter, more efficient, and highly personalized digital experiences.</p>
+      <p>In today's rapidly evolving digital landscape, artificial intelligence is revolutionizing how websites are designed and developed. At <a href="/services">Bajio Web Solutions</a>, we're pioneering the integration of AI technologies into our <a href="/services">web development services</a>, creating smarter, more efficient, and highly personalized digital experiences.</p>
       
       <p>The web design landscape has undergone significant transformation since the early days of static HTML pages. Today's websites are dynamic, responsive, and increasingly intelligent—adapting to user behavior and preferences in real-time.</p>
       
@@ -74,21 +91,21 @@ export const BlogDetailView = ({ slug }: BlogDetailViewProps) => {
       </ul>
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
-        <img src="/lovable-uploads/63a67f26-62b3-4af1-97b8-aa95b274da59.png" alt="Modern web design across devices" class="w-full h-auto rounded-lg shadow-lg" />
-        <img src="/lovable-uploads/d0915659-020f-406a-92dc-76e1844693a0.png" alt="Advanced web design visualization" class="w-full h-auto rounded-lg shadow-lg" />
+        <img src="/lovable-uploads/d76711c8-33e7-47f5-ba1a-12373352cea6.png" alt="Modern web design across devices" class="w-full h-auto rounded-lg shadow-lg" />
+        <img src="/lovable-uploads/4dfb770d-776f-4272-9124-2f4d882eba40.png" alt="Advanced web design visualization" class="w-full h-auto rounded-lg shadow-lg" />
       </div>
       
       <h2>The Advantages of AI-Powered Web Design</h2>
       
       <h3>Enhanced User Experience</h3>
       
-      <p>AI enables websites to deliver truly personalized experiences by analyzing user behavior patterns. At <a href="https://www.bajiowebsolutions.com" class="text-primary hover:text-primary-light">Bajio Web Solutions</a>, we implement AI-driven recommendation systems that present content, products, or services most relevant to each visitor's interests and browsing history.</p>
+      <p>AI enables websites to deliver truly personalized experiences by analyzing user behavior patterns. At <a href="/services">Bajio Web Solutions</a>, we implement AI-driven recommendation systems that present content, products, or services most relevant to each visitor's interests and browsing history.</p>
       
       <p>This level of personalization was previously impossible with traditional web design approaches. Now, your website can function as a digital concierge, guiding users through a customized journey that maximizes engagement and conversion potential.</p>
       
       <h3>Automated Design Processes</h3>
       
-      <p>Our <a href="https://www.bajiowebsolutions.com/services" class="text-primary hover:text-primary-light">web development team</a> leverages AI design assistants to streamline the creation process. These tools can generate multiple design variations based on your brand guidelines and target audience, allowing for rapid prototyping and testing.</p>
+      <p>Our <a href="/services">web development team</a> leverages AI design assistants to streamline the creation process. These tools can generate multiple design variations based on your brand guidelines and target audience, allowing for rapid prototyping and testing.</p>
       
       <p>This automation accelerates the development timeline while maintaining high design standards. The result is a cost-effective design process that delivers superior results in less time.</p>
       
@@ -106,7 +123,7 @@ export const BlogDetailView = ({ slug }: BlogDetailViewProps) => {
       
       <h3>Smart Chatbots and Virtual Assistants</h3>
       
-      <p>Modern AI-powered chatbots go beyond simple script-based interactions. Our <a href="https://www.bajiowebsolutions.com/services" class="text-primary hover:text-primary-light">development services</a> include implementing sophisticated conversational interfaces that can:</p>
+      <p>Modern AI-powered chatbots go beyond simple script-based interactions. Our <a href="/services">development services</a> include implementing sophisticated conversational interfaces that can:</p>
       
       <ul>
         <li>Provide personalized product recommendations</li>
@@ -119,7 +136,7 @@ export const BlogDetailView = ({ slug }: BlogDetailViewProps) => {
       
       <h3>Dynamic Content Generation</h3>
       
-      <p>Content creation is another area where AI is making significant inroads. At <a href="https://www.bajiowebsolutions.com" class="text-primary hover:text-primary-light">Bajio Web Solutions</a>, we implement systems that can:</p>
+      <p>Content creation is another area where AI is making significant inroads. At <a href="/services">Bajio Web Solutions</a>, we implement systems that can:</p>
       
       <ul>
         <li>Generate product descriptions at scale</li>
@@ -132,7 +149,7 @@ export const BlogDetailView = ({ slug }: BlogDetailViewProps) => {
       
       <h3>Accessibility Improvements</h3>
       
-      <p>AI tools can analyze websites for accessibility issues and automatically implement fixes or suggest improvements. Our <a href="https://www.bajiowebsolutions.com/services" class="text-primary hover:text-primary-light">web development services</a> prioritize inclusivity, using AI to ensure websites are usable by people with diverse abilities and needs.</p>
+      <p>AI tools can analyze websites for accessibility issues and automatically implement fixes or suggest improvements. Our <a href="/services">web development services</a> prioritize inclusivity, using AI to ensure websites are usable by people with diverse abilities and needs.</p>
       
       <p>From automatically generating alt text for images to suggesting color contrast adjustments, these tools help make the web more accessible to everyone.</p>
       
@@ -140,7 +157,7 @@ export const BlogDetailView = ({ slug }: BlogDetailViewProps) => {
       
       <h3>Start with Clear Objectives</h3>
       
-      <p>Before incorporating AI into your web design, define what you hope to achieve. Are you looking to improve conversion rates? Enhance user experience? Streamline content creation? Our team at <a href="https://www.bajiowebsolutions.com" class="text-primary hover:text-primary-light">Bajio Web Solutions</a> can help you identify the most impactful applications of AI for your specific business goals.</p>
+      <p>Before incorporating AI into your web design, define what you hope to achieve. Are you looking to improve conversion rates? Enhance user experience? Streamline content creation? Our team at <a href="/services">Bajio Web Solutions</a> can help you identify the most impactful applications of AI for your specific business goals.</p>
       
       <h3>Balance Automation with Human Creativity</h3>
       
@@ -148,7 +165,7 @@ export const BlogDetailView = ({ slug }: BlogDetailViewProps) => {
       
       <h3>Plan for Continuous Learning and Optimization</h3>
       
-      <p>AI systems improve over time as they process more data. Implementing an AI-powered website isn't a one-time project but the beginning of a continuous optimization process. Our <a href="https://www.bajiowebsolutions.com/services" class="text-primary hover:text-primary-light">ongoing support services</a> ensure your website keeps learning and evolving to meet changing user needs and business objectives.</p>
+      <p>AI systems improve over time as they process more data. Implementing an AI-powered website isn't a one-time project but the beginning of a continuous optimization process. Our <a href="/services">ongoing support services</a> ensure your website keeps learning and evolving to meet changing user needs and business objectives.</p>
       
       <h2>The Future of Web Design with AI</h2>
       
@@ -160,13 +177,13 @@ export const BlogDetailView = ({ slug }: BlogDetailViewProps) => {
         <li><strong>Emotion Recognition:</strong> Advanced AI may soon interpret users' emotional responses to different design elements, allowing for real-time adjustments to maximize positive engagement.</li>
       </ul>
       
-      <p>At <a href="https://www.bajiowebsolutions.com" class="text-primary hover:text-primary-light">Bajio Web Solutions</a>, we're committed to staying at the forefront of these innovations, helping our clients leverage emerging technologies to maintain competitive advantages.</p>
+      <p>At <a href="/services">Bajio Web Solutions</a>, we're committed to staying at the forefront of these innovations, helping our clients leverage emerging technologies to maintain competitive advantages.</p>
       
       <h2>Conclusion: Embracing the AI Revolution in Web Design</h2>
       
       <p>AI-powered web design isn't just a futuristic concept—it's a present reality that's reshaping how businesses connect with their audiences online. By embracing these technologies now, forward-thinking companies can create more engaging, efficient, and effective web experiences.</p>
       
-      <p>Ready to explore how AI can transform your web presence? <a href="https://www.bajiowebsolutions.com/contact" class="text-primary hover:text-primary-light">Contact our team</a> for a consultation about integrating these cutting-edge approaches into your digital strategy. Our expertise in both traditional web design principles and emerging AI technologies positions us uniquely to guide your business into the future of digital marketing.</p>
+      <p>Ready to explore how AI can transform your web presence? <a href="/contact">Contact our team</a> for a consultation about integrating these cutting-edge approaches into your digital strategy. Our expertise in both traditional web design principles and emerging AI technologies positions us uniquely to guide your business into the future of digital marketing.</p>
     `,
     author: "Bajio Web Solutions Team",
     tags: ["AI", "Web Design", "Digital Marketing", "User Experience"]
