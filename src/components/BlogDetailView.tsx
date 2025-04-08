@@ -1,8 +1,9 @@
 
 import { motion } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
+import { useEffect, useRef } from "react";
 
 interface BlogDetailViewProps {
   slug?: string;
@@ -11,6 +12,28 @@ interface BlogDetailViewProps {
 export const BlogDetailView = ({ slug }: BlogDetailViewProps) => {
   // This would normally fetch data based on the slug
   // For now we'll just use a hardcoded post since we only have one detailed post
+  
+  const contentRef = useRef<HTMLDivElement>(null);
+  
+  // Handle external links in the blog content
+  useEffect(() => {
+    if (contentRef.current) {
+      const links = contentRef.current.querySelectorAll('a');
+      links.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && (href.startsWith('http://') || href.startsWith('https://'))) {
+          // External link - add target and rel attributes
+          link.setAttribute('target', '_blank');
+          link.setAttribute('rel', 'noopener noreferrer');
+          
+          // Add icon to indicate external link
+          const icon = document.createElement('span');
+          icon.innerHTML = ' <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block ml-1"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>';
+          link.appendChild(icon);
+        }
+      });
+    }
+  }, []);
   
   const post = {
     title: "AI-Powered Web Design: The Future of Digital Marketing",
@@ -180,6 +203,7 @@ export const BlogDetailView = ({ slug }: BlogDetailViewProps) => {
           
           <div className="bg-neutral-dark/30 backdrop-blur-sm border border-primary/10 rounded-lg p-8 shadow-lg">
             <div 
+              ref={contentRef}
               className="prose prose-invert max-w-none prose-headings:text-foreground-dark prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3 prose-p:text-gray-300 prose-a:text-primary prose-a:no-underline hover:prose-a:text-primary-light prose-li:text-gray-300"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
