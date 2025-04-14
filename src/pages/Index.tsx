@@ -20,7 +20,7 @@ const blogPosts = [
   },
   {
     title: "Revolutionizing Digital Marketing with AI: A Comprehensive Guide",
-    excerpt: "Learn how artificial intelligence is transforming the digital marketing landscape with innovative approaches to customer engagement...",
+    excerpt: "For small local businesses struggling to compete against corporate giants, artificial intelligence is becoming the great equalizer in digital marketing...",
     date: "April 2, 2024",
     category: "Digital Marketing",
     slug: "revolutionizing-digital-marketing-with-ai"
