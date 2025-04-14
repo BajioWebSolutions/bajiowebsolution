@@ -1,3 +1,4 @@
+
 import { Hero } from "@/components/Hero";
 import { Services } from "@/components/Services";
 import { WhyChooseUs } from "@/components/WhyChooseUs";
@@ -12,24 +13,24 @@ import { BlogPost } from "@/components/BlogPost";
 const blogPosts = [
   {
     title: "AI-Powered Web Design: The Future of Digital Marketing",
-    excerpt: "Discover how artificial intelligence is revolutionizing web design and digital marketing strategies...",
+    excerpt: "Discover how artificial intelligence is revolutionizing web design and digital marketing strategies for businesses of all sizes...",
     date: "April 8, 2024",
     category: "Web Design",
     slug: "ai-powered-web-design"
   },
   {
-    title: "Web Design Trends 2024",
-    excerpt: "Discover the latest web design trends shaping the digital landscape...",
-    date: "March 15, 2024",
-    category: "Web Design",
-    slug: "web-design-trends-2024"
+    title: "Revolutionizing Digital Marketing with AI: A Comprehensive Guide",
+    excerpt: "Learn how artificial intelligence is transforming the digital marketing landscape with innovative approaches to customer engagement...",
+    date: "April 2, 2024",
+    category: "Digital Marketing",
+    slug: "revolutionizing-digital-marketing-with-ai"
   },
   {
-    title: "SEO Best Practices",
-    excerpt: "Learn how to optimize your website for better search engine rankings...",
-    date: "March 10, 2024",
+    title: "Smart SEO Strategies: Harnessing AI for Enhanced Visibility",
+    excerpt: "Explore cutting-edge SEO techniques powered by artificial intelligence to improve your website's search engine rankings...",
+    date: "March 25, 2024",
     category: "SEO",
-    slug: "seo-best-practices"
+    slug: "smart-seo-strategies"
   }
 ];
 

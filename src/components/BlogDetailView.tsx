@@ -1,7 +1,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
 import { useEffect, useRef } from "react";
 
@@ -9,53 +9,24 @@ interface BlogDetailViewProps {
   slug?: string;
 }
 
-export const BlogDetailView = ({ slug }: BlogDetailViewProps) => {
-  // This would normally fetch data based on the slug
-  // For now we'll just use a hardcoded post since we only have one detailed post
-  
-  const contentRef = useRef<HTMLDivElement>(null);
-  
-  // Handle external links in the blog content
-  useEffect(() => {
-    if (contentRef.current) {
-      const links = contentRef.current.querySelectorAll('a');
-      links.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href) {
-          // Check if it's a Bajio Web Solutions link
-          if (href.includes('bajiowebsolutions.com/services')) {
-            // Replace with internal link to services page
-            link.setAttribute('href', '/services');
-            // Remove target and rel attributes if they exist
-            link.removeAttribute('target');
-            link.removeAttribute('rel');
-          } else if (href.includes('bajiowebsolutions.com/contact')) {
-            // Replace with internal link to contact page
-            link.setAttribute('href', '/contact');
-            // Remove target and rel attributes if they exist
-            link.removeAttribute('target');
-            link.removeAttribute('rel');
-          } else if (href.startsWith('http://') || href.startsWith('https://')) {
-            // External link - add target and rel attributes (but not for Bajio links)
-            link.setAttribute('target', '_blank');
-            link.setAttribute('rel', 'noopener noreferrer');
-            
-            // Only add icon for non-Bajio external links
-            if (!href.includes('bajiowebsolutions.com')) {
-              const icon = document.createElement('span');
-              icon.innerHTML = ' <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block ml-1"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>';
-              link.appendChild(icon);
-            }
-          }
-        }
-      });
-    }
-  }, []);
-  
-  const post = {
+// Define blog post data
+interface BlogPost {
+  title: string;
+  date: string;
+  category: string;
+  content: string;
+  author: string;
+  tags: string[];
+}
+
+// Blog posts database
+const blogPostsData: Record<string, BlogPost> = {
+  "ai-powered-web-design": {
     title: "AI-Powered Web Design: The Future of Digital Marketing",
     date: "April 8, 2024",
     category: "Web Design",
+    author: "Bajio Web Solutions Team",
+    tags: ["AI", "Web Design", "Digital Marketing", "User Experience"],
     content: `
       <div class="mb-8">
         <img src="/lovable-uploads/c4fae138-32fa-4834-a235-e94f2007b1b4.png" alt="Responsive web design showcase" class="w-full h-auto rounded-lg shadow-lg mb-6" />
@@ -102,92 +73,199 @@ export const BlogDetailView = ({ slug }: BlogDetailViewProps) => {
       <p>AI enables websites to deliver truly personalized experiences by analyzing user behavior patterns. At <a href="/services">Bajio Web Solutions</a>, we implement AI-driven recommendation systems that present content, products, or services most relevant to each visitor's interests and browsing history.</p>
       
       <p>This level of personalization was previously impossible with traditional web design approaches. Now, your website can function as a digital concierge, guiding users through a customized journey that maximizes engagement and conversion potential.</p>
+    `
+  },
+  "revolutionizing-digital-marketing-with-ai": {
+    title: "Revolutionizing Digital Marketing with AI: A Comprehensive Guide",
+    date: "April 2, 2024",
+    category: "Digital Marketing",
+    author: "Bajio Web Solutions Team",
+    tags: ["AI", "Digital Marketing", "Automation", "Data Analytics"],
+    content: `
+      <div class="mb-8">
+        <img src="/lovable-uploads/d76711c8-33e7-47f5-ba1a-12373352cea6.png" alt="Digital marketing visualization" class="w-full h-auto rounded-lg shadow-lg mb-6" />
+      </div>
+
+      <h2>The Digital Marketing Revolution</h2>
       
-      <h3>Automated Design Processes</h3>
+      <p>Artificial intelligence has fundamentally transformed how businesses approach digital marketing. At <a href="/services">Bajio Web Solutions</a>, we're leveraging cutting-edge AI technologies to create more effective, targeted, and measurable marketing campaigns for our clients.</p>
       
-      <p>Our <a href="/services">web development team</a> leverages AI design assistants to streamline the creation process. These tools can generate multiple design variations based on your brand guidelines and target audience, allowing for rapid prototyping and testing.</p>
+      <p>Traditional marketing approaches are rapidly being augmented or replaced by AI-driven strategies that optimize every aspect of the customer journey.</p>
       
-      <p>This automation accelerates the development timeline while maintaining high design standards. The result is a cost-effective design process that delivers superior results in less time.</p>
+      <h3>How AI is Transforming Marketing Strategies</h3>
       
-      <div class="my-8">
-        <img src="/lovable-uploads/c4fae138-32fa-4834-a235-e94f2007b1b4.png" alt="Modern responsive web design" class="w-full h-auto rounded-lg shadow-lg" />
+      <p>Several key areas of digital marketing are being revolutionized by AI:</p>
+      
+      <ul>
+        <li><strong>Customer Segmentation:</strong> AI algorithms can identify patterns in customer data that humans might miss, creating more precise audience segments.</li>
+        <li><strong>Content Personalization:</strong> Dynamic content that adapts to individual user preferences and behaviors.</li>
+        <li><strong>Predictive Analytics:</strong> Forecasting customer behaviors and market trends with unprecedented accuracy.</li>
+        <li><strong>Marketing Automation:</strong> Streamlining repetitive tasks while increasing relevance and timing of customer communications.</li>
+      </ul>
+      
+      <div class="my-8 aspect-video">
+        <iframe 
+          class="w-full h-full rounded-lg shadow-lg" 
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+          title="AI in Digital Marketing" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerpolicy="strict-origin-when-cross-origin" 
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <h2>Practical Applications of AI in Marketing</h2>
+      
+      <h3>Chatbots and Conversational Marketing</h3>
+      
+      <p>Modern AI-powered chatbots are transforming customer service and engagement. Our <a href="/services">development team</a> implements sophisticated conversational interfaces that can:</p>
+      
+      <ul>
+        <li>Answer product questions instantly</li>
+        <li>Guide users through complex purchasing decisions</li>
+        <li>Collect valuable customer feedback</li>
+        <li>Qualify leads before human follow-up</li>
+      </ul>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+        <img src="/lovable-uploads/c4fae138-32fa-4834-a235-e94f2007b1b4.png" alt="Marketing analytics dashboard" class="w-full h-auto rounded-lg shadow-lg" />
+        <img src="/lovable-uploads/4dfb770d-776f-4272-9124-2f4d882eba40.png" alt="AI-powered content creation" class="w-full h-auto rounded-lg shadow-lg" />
       </div>
       
-      <h3>Data-Driven Decision Making</h3>
-      
-      <p>AI systems excel at processing vast amounts of user data to extract meaningful insights. By implementing these technologies, we help businesses make informed decisions about their website's design, content, and functionality.</p>
-      
-      <p>From heat maps showing where users focus their attention to sophisticated A/B testing algorithms that optimize conversion paths, AI provides concrete data to guide design evolution rather than relying on subjective opinions.</p>
-      
-      <h2>Practical Applications of AI in Web Design</h2>
-      
-      <h3>Smart Chatbots and Virtual Assistants</h3>
-      
-      <p>Modern AI-powered chatbots go beyond simple script-based interactions. Our <a href="/services">development services</a> include implementing sophisticated conversational interfaces that can:</p>
-      
-      <ul>
-        <li>Provide personalized product recommendations</li>
-        <li>Answer complex customer queries in natural language</li>
-        <li>Process transactions and appointment bookings</li>
-        <li>Gather customer feedback for continuous improvement</li>
-      </ul>
-      
-      <p>These virtual assistants function as 24/7 customer service representatives, improving user satisfaction while reducing operational costs.</p>
-      
-      <h3>Dynamic Content Generation</h3>
-      
-      <p>Content creation is another area where AI is making significant inroads. At <a href="/services">Bajio Web Solutions</a>, we implement systems that can:</p>
-      
-      <ul>
-        <li>Generate product descriptions at scale</li>
-        <li>Create personalized email content</li>
-        <li>Optimize headlines and CTAs through continuous testing</li>
-        <li>Produce localized content for different geographical markets</li>
-      </ul>
-      
-      <p>This capability ensures your website remains fresh and relevant without the continuous manual effort traditionally required.</p>
-      
-      <h3>Accessibility Improvements</h3>
-      
-      <p>AI tools can analyze websites for accessibility issues and automatically implement fixes or suggest improvements. Our <a href="/services">web development services</a> prioritize inclusivity, using AI to ensure websites are usable by people with diverse abilities and needs.</p>
-      
-      <p>From automatically generating alt text for images to suggesting color contrast adjustments, these tools help make the web more accessible to everyone.</p>
-      
-      <h2>Implementing AI in Your Web Design Strategy</h2>
-      
-      <h3>Start with Clear Objectives</h3>
-      
-      <p>Before incorporating AI into your web design, define what you hope to achieve. Are you looking to improve conversion rates? Enhance user experience? Streamline content creation? Our team at <a href="/services">Bajio Web Solutions</a> can help you identify the most impactful applications of AI for your specific business goals.</p>
-      
-      <h3>Balance Automation with Human Creativity</h3>
-      
-      <p>While AI offers powerful automation capabilities, the most effective web designs combine these technologies with human creativity and strategic thinking. Our approach blends data-driven AI insights with creative expertise to create websites that are both technically sophisticated and emotionally resonant.</p>
-      
-      <h3>Plan for Continuous Learning and Optimization</h3>
-      
-      <p>AI systems improve over time as they process more data. Implementing an AI-powered website isn't a one-time project but the beginning of a continuous optimization process. Our <a href="/services">ongoing support services</a> ensure your website keeps learning and evolving to meet changing user needs and business objectives.</p>
-      
-      <h2>The Future of Web Design with AI</h2>
-      
-      <p>As AI technologies continue to advance, we anticipate several emerging trends in web design:</p>
-      
-      <ul>
-        <li><strong>Voice-Activated Interfaces:</strong> As voice search grows in popularity, websites will increasingly incorporate voice navigation and interaction capabilities.</li>
-        <li><strong>Predictive Design:</strong> Websites will anticipate user needs and preferences before they're expressed, creating ultra-personalized experiences.</li>
-        <li><strong>Emotion Recognition:</strong> Advanced AI may soon interpret users' emotional responses to different design elements, allowing for real-time adjustments to maximize positive engagement.</li>
-      </ul>
-      
-      <p>At <a href="/services">Bajio Web Solutions</a>, we're committed to staying at the forefront of these innovations, helping our clients leverage emerging technologies to maintain competitive advantages.</p>
-      
-      <h2>Conclusion: Embracing the AI Revolution in Web Design</h2>
-      
-      <p>AI-powered web design isn't just a futuristic concept—it's a present reality that's reshaping how businesses connect with their audiences online. By embracing these technologies now, forward-thinking companies can create more engaging, efficient, and effective web experiences.</p>
-      
-      <p>Ready to explore how AI can transform your web presence? <a href="/contact">Contact our team</a> for a consultation about integrating these cutting-edge approaches into your digital strategy. Our expertise in both traditional web design principles and emerging AI technologies positions us uniquely to guide your business into the future of digital marketing.</p>
-    `,
+      <p>Ready to transform your digital marketing strategy with AI? <a href="/contact">Contact our team</a> for a personalized consultation.</p>
+    `
+  },
+  "smart-seo-strategies": {
+    title: "Smart SEO Strategies: Harnessing AI for Enhanced Visibility",
+    date: "March 25, 2024",
+    category: "SEO",
     author: "Bajio Web Solutions Team",
-    tags: ["AI", "Web Design", "Digital Marketing", "User Experience"]
-  };
+    tags: ["SEO", "Search Engine Optimization", "AI", "Digital Marketing"],
+    content: `
+      <div class="mb-8">
+        <img src="/lovable-uploads/4dfb770d-776f-4272-9124-2f4d882eba40.png" alt="SEO visualization" class="w-full h-auto rounded-lg shadow-lg mb-6" />
+      </div>
+
+      <h2>The New Era of Intelligent SEO</h2>
+      
+      <p>Search engine optimization has evolved dramatically with the integration of AI technologies. At <a href="/services">Bajio Web Solutions</a>, we're implementing advanced AI-powered SEO strategies that go far beyond traditional keyword targeting.</p>
+      
+      <p>Today's search algorithms use machine learning to understand user intent, content quality, and relevance in ways that transform how we approach SEO.</p>
+      
+      <h3>Key AI Applications in Modern SEO</h3>
+      
+      <p>AI is revolutionizing several critical aspects of SEO:</p>
+      
+      <ul>
+        <li><strong>Content Optimization:</strong> AI tools analyze top-performing content to identify patterns and suggest improvements.</li>
+        <li><strong>Predictive Keyword Analysis:</strong> Identifying emerging search trends before they become competitive.</li>
+        <li><strong>User Intent Mapping:</strong> Understanding the true purpose behind search queries to deliver more relevant content.</li>
+        <li><strong>Technical SEO Automation:</strong> Identifying and resolving technical issues that impact search performance.</li>
+      </ul>
+      
+      <div class="my-8 aspect-video">
+        <iframe 
+          class="w-full h-full rounded-lg shadow-lg" 
+          src="https://www.youtube.com/embed/Y9HIfNGMEIY" 
+          title="AI-Powered SEO Strategies" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerpolicy="strict-origin-when-cross-origin" 
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <h2>Implementing AI-Driven SEO Strategies</h2>
+      
+      <h3>Content Creation and Optimization</h3>
+      
+      <p>Our <a href="/services">development services</a> include implementing sophisticated content optimization tools that:</p>
+      
+      <ul>
+        <li>Analyze competitors' top-performing content</li>
+        <li>Identify content gaps and opportunities</li>
+        <li>Suggest optimal content structures</li>
+        <li>Recommend semantic keywords and related topics</li>
+      </ul>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+        <img src="/lovable-uploads/c4fae138-32fa-4834-a235-e94f2007b1b4.png" alt="SEO performance dashboard" class="w-full h-auto rounded-lg shadow-lg" />
+        <img src="/lovable-uploads/d76711c8-33e7-47f5-ba1a-12373352cea6.png" alt="Content optimization tools" class="w-full h-auto rounded-lg shadow-lg" />
+      </div>
+      
+      <h3>Technical SEO Automation</h3>
+      
+      <p>AI tools can continuously monitor your website's technical health, identifying issues that might impact search performance. Our <a href="/services">ongoing support services</a> ensure your website maintains optimal technical SEO performance through:</p>
+      
+      <ul>
+        <li>Automated site crawling and issue detection</li>
+        <li>Schema markup recommendations</li>
+        <li>Page speed optimization</li>
+        <li>Mobile usability monitoring</li>
+      </ul>
+      
+      <p>Ready to elevate your search visibility with AI-powered SEO strategies? <a href="/contact">Contact our team</a> for a comprehensive SEO audit.</p>
+    `
+  }
+};
+
+export const BlogDetailView = ({ slug }: BlogDetailViewProps) => {
+  const contentRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
+  
+  // Get post data based on slug
+  const post = slug ? blogPostsData[slug] : null;
+  
+  // Handle external links and internal links in the blog content
+  useEffect(() => {
+    if (contentRef.current) {
+      const links = contentRef.current.querySelectorAll('a');
+      links.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href) {
+          // Check if it's an internal link (starts with /)
+          if (href.startsWith('/')) {
+            // It's an internal link, use client-side navigation
+            link.addEventListener('click', (e) => {
+              e.preventDefault();
+              navigate(href);
+            });
+            
+            // Remove target and rel attributes if they exist
+            link.removeAttribute('target');
+            link.removeAttribute('rel');
+          } else if (href.startsWith('http://') || href.startsWith('https://')) {
+            // External link - add target and rel attributes
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
+            
+            // Add external link icon for non-internal links
+            const icon = document.createElement('span');
+            icon.innerHTML = ' <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block ml-1"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>';
+            link.appendChild(icon);
+          }
+        }
+      });
+    }
+  }, [navigate, slug]);
+  
+  // If post not found
+  if (!post && slug) {
+    return (
+      <section className="py-20 bg-background-dark">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-3xl font-bold mb-6">Blog post not found</h1>
+            <p className="mb-8">The blog post you're looking for doesn't exist or has been moved.</p>
+            <Button asChild>
+              <Link to="/blog">Return to Blog</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="py-20 bg-background-dark">
@@ -209,36 +287,40 @@ export const BlogDetailView = ({ slug }: BlogDetailViewProps) => {
             </Link>
           </Button>
           
-          <div className="text-sm text-neutral mb-2">{post.date}</div>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-foreground-dark">{post.title}</h1>
-          <div className="flex items-center mb-8">
-            <div className="flex items-center">
-              <span className="text-primary text-sm mr-6">{post.category}</span>
-              <span className="text-neutral text-sm">By {post.author}</span>
-            </div>
-          </div>
-          
-          <div className="bg-neutral-dark/30 backdrop-blur-sm border border-primary/10 rounded-lg p-8 shadow-lg">
-            <div 
-              ref={contentRef}
-              className="prose prose-invert max-w-none prose-headings:text-foreground-dark prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3 prose-p:text-gray-300 prose-a:text-primary prose-a:no-underline hover:prose-a:text-primary-light prose-li:text-gray-300"
-              dangerouslySetInnerHTML={{ __html: post.content }}
-            />
-            
-            <div className="mt-12 pt-8 border-t border-neutral-dark">
-              <p className="text-neutral mb-4">Tags:</p>
-              <div className="flex flex-wrap gap-2">
-                {post.tags.map((tag) => (
-                  <span 
-                    key={tag} 
-                    className="px-3 py-1 text-xs bg-primary/10 text-primary rounded-full"
-                  >
-                    {tag}
-                  </span>
-                ))}
+          {post && (
+            <>
+              <div className="text-sm text-neutral mb-2">{post.date}</div>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-foreground-dark">{post.title}</h1>
+              <div className="flex items-center mb-8">
+                <div className="flex items-center">
+                  <span className="text-primary text-sm mr-6">{post.category}</span>
+                  <span className="text-neutral text-sm">By {post.author}</span>
+                </div>
               </div>
-            </div>
-          </div>
+              
+              <div className="bg-neutral-dark/30 backdrop-blur-sm border border-primary/10 rounded-lg p-8 shadow-lg">
+                <div 
+                  ref={contentRef}
+                  className="prose prose-invert max-w-none prose-headings:text-foreground-dark prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3 prose-p:text-gray-300 prose-a:text-primary prose-a:no-underline hover:prose-a:text-primary-light prose-li:text-gray-300"
+                  dangerouslySetInnerHTML={{ __html: post.content }}
+                />
+                
+                <div className="mt-12 pt-8 border-t border-neutral-dark">
+                  <p className="text-neutral mb-4">Tags:</p>
+                  <div className="flex flex-wrap gap-2">
+                    {post.tags.map((tag) => (
+                      <span 
+                        key={tag} 
+                        className="px-3 py-1 text-xs bg-primary/10 text-primary rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
         </motion.div>
       </div>
     </section>
