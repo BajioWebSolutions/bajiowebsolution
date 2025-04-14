@@ -28,7 +28,7 @@ const blogPosts: BlogPost[] = [
   },
   {
     title: "Smart SEO Strategies: Harnessing AI for Enhanced Visibility",
-    excerpt: "Explore cutting-edge SEO techniques powered by artificial intelligence to improve your website's search engine rankings...",
+    excerpt: "Have you ever wondered why some local businesses consistently appear at the top of search results while others remain buried on page ten? In 2025, the difference often comes down to AI-powered SEO strategies...",
     date: "March 25, 2024",
     category: "SEO",
     slug: "smart-seo-strategies"
