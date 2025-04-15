@@ -3,12 +3,11 @@ import { Footer } from "@/components/Footer";
 import { BlogSection } from "@/components/BlogSection";
 import { motion } from "framer-motion";
 import { BlogDetailView } from "@/components/BlogDetailView";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 
 const BlogPage = () => {
   const { slug } = useParams();
-  const location = useLocation();
   
   // Effect to scroll to top when route changes
   useEffect(() => {
