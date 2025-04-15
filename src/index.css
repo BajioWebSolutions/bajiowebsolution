@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -88,5 +89,27 @@
 
   .gradient-button {
     @apply bg-gradient-to-r from-accent to-primary hover:from-accent-dark hover:to-primary-dark text-white font-medium px-6 py-3 rounded-full transition-all duration-300 hover:scale-105;
+  }
+  
+  /* Improved blog post styling for better readability */
+  .prose p {
+    @apply text-neutral-light !important;
+  }
+  
+  .prose ul li, .prose ol li {
+    @apply text-neutral-light mb-2 !important;
+  }
+  
+  .prose h2, .prose h3, .prose h4 {
+    @apply text-foreground-dark mt-8 mb-4 !important;
+  }
+  
+  .prose a {
+    @apply text-primary hover:text-primary-light font-medium !important;
+  }
+  
+  /* YouTube video container fixes */
+  .aspect-video iframe {
+    @apply w-full h-full rounded-lg shadow-xl border border-primary/20 !important;
   }
 }

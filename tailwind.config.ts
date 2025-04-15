@@ -107,7 +107,7 @@ export default {
         DEFAULT: {
           css: {
             maxWidth: '100%',
-            color: '#E2E8F0',
+            color: '#F8FAFC', // Increased contrast for standard text
             h1: {
               color: '#FFFFFF',
             },
@@ -128,6 +128,12 @@ export default {
             },
             code: {
               color: '#FFFFFF',
+            },
+            p: {
+              color: '#F1F5F9', // Lighter, higher contrast text
+            },
+            li: {
+              color: '#F1F5F9', // Lighter, higher contrast text
             },
           },
         },

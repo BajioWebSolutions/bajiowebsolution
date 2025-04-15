@@ -17,7 +17,7 @@ const BlogPage = () => {
   
   return (
     <motion.div 
-      className="min-h-screen bg-background"
+      className="min-h-screen bg-background-dark"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
