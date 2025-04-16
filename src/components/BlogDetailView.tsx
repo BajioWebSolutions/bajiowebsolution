@@ -1,17 +1,13 @@
 
 import { useNavigate } from "react-router-dom";
-import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { useEffect } from "react";
 import { BlogHeader } from "./blog/BlogHeader";
+import { BlogContent } from "./blog/BlogContent";
 import { blogPostsData } from "../data/blogPosts";
-
-interface BlogDetailViewProps {
-  slug?: string;
-}
+import { BlogDetailViewProps } from "@/types/blog";
 
 export const BlogDetailView = ({ slug = "" }: BlogDetailViewProps) => {
   const navigate = useNavigate();
-  const contentRef = useRef<HTMLDivElement>(null);
   const blogPost = blogPostsData[slug];
   
   useEffect(() => {
@@ -35,18 +31,7 @@ export const BlogDetailView = ({ slug = "" }: BlogDetailViewProps) => {
             author={blogPost.author}
             tags={blogPost.tags}
           />
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div 
-              ref={contentRef}
-              className="prose prose-lg max-w-none"
-              dangerouslySetInnerHTML={{ __html: blogPost.content }} 
-            />
-          </motion.div>
+          <BlogContent content={blogPost.content} />
         </div>
       </div>
     </section>

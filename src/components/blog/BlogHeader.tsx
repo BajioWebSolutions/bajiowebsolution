@@ -1,16 +1,8 @@
-
 import { Button } from "../ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-
-interface BlogHeaderProps {
-  title: string;
-  date: string;
-  category: string;
-  author: string;
-  tags: string[];
-}
+import { BlogHeaderProps } from "@/types/blog";
 
 export const BlogHeader = ({ title, date, category, author, tags }: BlogHeaderProps) => {
   return (

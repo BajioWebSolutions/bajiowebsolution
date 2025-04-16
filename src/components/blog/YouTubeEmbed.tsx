@@ -1,8 +1,5 @@
 
-interface YouTubeEmbedProps {
-  videoId: string;
-  title: string;
-}
+import { YouTubeEmbedProps } from "@/types/blog";
 
 export const YouTubeEmbed = ({ videoId, title }: YouTubeEmbedProps) => {
   return (
@@ -11,6 +8,7 @@ export const YouTubeEmbed = ({ videoId, title }: YouTubeEmbedProps) => {
         src={`https://www.youtube.com/embed/${videoId}`}
         title={title}
         allowFullScreen
+        className="w-full aspect-video rounded-lg shadow-lg"
       />
     </div>
   );

@@ -1,11 +1,4 @@
-export interface BlogPost {
-  title: string;
-  date: string;
-  category: string;
-  content: string;
-  author: string;
-  tags: string[];
-}
+import { BlogPost } from "@/types/blog";
 
 export const blogPostsData: Record<string, BlogPost> = {
   "ai-powered-web-design": {
