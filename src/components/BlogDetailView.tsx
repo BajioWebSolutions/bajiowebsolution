@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
@@ -49,8 +48,8 @@ const blogPostsData: Record<string, BlogPost> = {
 
       <div class="my-8 youtube-embed">
         <iframe 
-          src="https://www.youtube.com/embed/YdtZNKGTDPY" 
-          title="AI-Powered Web Design" 
+          src="https://www.youtube.com/embed/JVr_xqKaRy8" 
+          title="AI-Powered Web Design: Revolutionizing Marketing Digital"
           allowfullscreen>
         </iframe>
       </div>
@@ -142,8 +141,8 @@ const blogPostsData: Record<string, BlogPost> = {
 
       <div class="my-8 youtube-embed">
         <iframe 
-          src="https://www.youtube.com/embed/BgOPsPmDJBY" 
-          title="AI in Digital Marketing" 
+          src="https://www.youtube.com/embed/lryHh3L6nrQ" 
+          title="AI for Small Business Marketing: How to Compete with Big Brands in 2025"
           allowfullscreen>
         </iframe>
       </div>
