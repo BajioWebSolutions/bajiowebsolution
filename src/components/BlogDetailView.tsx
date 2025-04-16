@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
@@ -72,7 +73,7 @@ const blogPostsData: Record<string, BlogPost> = {
 
       <div class="my-8 youtube-embed">
         <iframe 
-          src="https://www.youtube.com/embed/ORrYEEH_KPc" 
+          src="https://www.youtube.com/embed/vIxiRZVXsMY" 
           title="AI Chatbots for Business" 
           allowfullscreen>
         </iframe>
@@ -92,7 +93,7 @@ const blogPostsData: Record<string, BlogPost> = {
 
       <div class="my-8 youtube-embed">
         <iframe 
-          src="https://www.youtube.com/embed/NT_yw6TcQ8I" 
+          src="https://www.youtube.com/embed/KVtsSJ-kLRo" 
           title="Implementing AI for Small Business Websites" 
           allowfullscreen>
         </iframe>
@@ -161,7 +162,7 @@ const blogPostsData: Record<string, BlogPost> = {
 
       <div class="my-8 youtube-embed">
         <iframe 
-          src="https://www.youtube.com/embed/VtPD-eFp8T8" 
+          src="https://www.youtube.com/embed/f-QWEax0Cmo" 
           title="AI SEO Strategies" 
           allowfullscreen>
         </iframe>
@@ -213,7 +214,7 @@ const blogPostsData: Record<string, BlogPost> = {
 
       <div class="my-8 youtube-embed">
         <iframe 
-          src="https://www.youtube.com/embed/OCteNw0gzIA" 
+          src="https://www.youtube.com/embed/9P1rB2MY4ZA" 
           title="Smart SEO Strategies with AI" 
           allowfullscreen>
         </iframe>
@@ -242,7 +243,7 @@ const blogPostsData: Record<string, BlogPost> = {
       
       <div class="my-8 youtube-embed">
         <iframe 
-          src="https://www.youtube.com/embed/k5OxqtxXZbQ" 
+          src="https://www.youtube.com/embed/AQvH7QFuKsQ" 
           title="Core Web Vitals Explained" 
           allowfullscreen>
         </iframe>
@@ -289,7 +290,7 @@ const blogPostsData: Record<string, BlogPost> = {
       
       <div class="my-8 youtube-embed">
         <iframe 
-          src="https://www.youtube.com/embed/OzWXok9FuCM" 
+          src="https://www.youtube.com/embed/dP-2NVUgh50" 
           title="AI Content Creation for SEO" 
           allowfullscreen>
         </iframe>
@@ -359,7 +360,7 @@ const blogPostsData: Record<string, BlogPost> = {
       
       <div class="my-8 youtube-embed">
         <iframe 
-          src="https://www.youtube.com/embed/FBRbyA6h-UY" 
+          src="https://www.youtube.com/embed/BNHR6IQJGZs" 
           title="AI SEO Tools on a Budget" 
           allowfullscreen>
         </iframe>
@@ -415,7 +416,7 @@ const blogPostsData: Record<string, BlogPost> = {
       
       <div class="my-8 youtube-embed">
         <iframe 
-          src="https://www.youtube.com/embed/3bGMNYaXMrQ" 
+          src="https://www.youtube.com/embed/uubLYwqOEm4" 
           title="Measuring SEO Success" 
           allowfullscreen>
         </iframe>
