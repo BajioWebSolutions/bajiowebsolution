@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
@@ -48,11 +49,8 @@ const blogPostsData: Record<string, BlogPost> = {
 
       <div class="my-8 youtube-embed">
         <iframe 
-          src="https://www.youtube.com/embed/6jqvG3SZyv0" 
+          src="https://www.youtube.com/embed/YdtZNKGTDPY" 
           title="AI-Powered Web Design" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          referrerpolicy="strict-origin-when-cross-origin" 
           allowfullscreen>
         </iframe>
       </div>
@@ -75,11 +73,8 @@ const blogPostsData: Record<string, BlogPost> = {
 
       <div class="my-8 youtube-embed">
         <iframe 
-          src="https://www.youtube.com/embed/J5bXOOmkopc" 
+          src="https://www.youtube.com/embed/ORrYEEH_KPc" 
           title="AI Chatbots for Business" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          referrerpolicy="strict-origin-when-cross-origin" 
           allowfullscreen>
         </iframe>
       </div>
@@ -98,11 +93,8 @@ const blogPostsData: Record<string, BlogPost> = {
 
       <div class="my-8 youtube-embed">
         <iframe 
-          src="https://www.youtube.com/embed/LqRfQVcn3FY" 
+          src="https://www.youtube.com/embed/NT_yw6TcQ8I" 
           title="Implementing AI for Small Business Websites" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          referrerpolicy="strict-origin-when-cross-origin" 
           allowfullscreen>
         </iframe>
       </div>
@@ -150,11 +142,8 @@ const blogPostsData: Record<string, BlogPost> = {
 
       <div class="my-8 youtube-embed">
         <iframe 
-          src="https://www.youtube.com/embed/rS_QU2-iJq4" 
+          src="https://www.youtube.com/embed/BgOPsPmDJBY" 
           title="AI in Digital Marketing" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          referrerpolicy="strict-origin-when-cross-origin" 
           allowfullscreen>
         </iframe>
       </div>
@@ -173,11 +162,8 @@ const blogPostsData: Record<string, BlogPost> = {
 
       <div class="my-8 youtube-embed">
         <iframe 
-          src="https://www.youtube.com/embed/J5bXOOmkopc" 
+          src="https://www.youtube.com/embed/VtPD-eFp8T8" 
           title="AI SEO Strategies" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          referrerpolicy="strict-origin-when-cross-origin" 
           allowfullscreen>
         </iframe>
       </div>
@@ -228,11 +214,8 @@ const blogPostsData: Record<string, BlogPost> = {
 
       <div class="my-8 youtube-embed">
         <iframe 
-          src="https://www.youtube.com/embed/bBFZ1J5nF_k" 
+          src="https://www.youtube.com/embed/OCteNw0gzIA" 
           title="Smart SEO Strategies with AI" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          referrerpolicy="strict-origin-when-cross-origin" 
           allowfullscreen>
         </iframe>
       </div>
@@ -260,11 +243,8 @@ const blogPostsData: Record<string, BlogPost> = {
       
       <div class="my-8 youtube-embed">
         <iframe 
-          src="https://www.youtube.com/embed/kCwHh1jJekE" 
+          src="https://www.youtube.com/embed/k5OxqtxXZbQ" 
           title="Core Web Vitals Explained" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          referrerpolicy="strict-origin-when-cross-origin" 
           allowfullscreen>
         </iframe>
       </div>
@@ -310,11 +290,8 @@ const blogPostsData: Record<string, BlogPost> = {
       
       <div class="my-8 youtube-embed">
         <iframe 
-          src="https://www.youtube.com/embed/Lk0cJvB5Zks" 
+          src="https://www.youtube.com/embed/OzWXok9FuCM" 
           title="AI Content Creation for SEO" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          referrerpolicy="strict-origin-when-cross-origin" 
           allowfullscreen>
         </iframe>
       </div>
@@ -383,11 +360,8 @@ const blogPostsData: Record<string, BlogPost> = {
       
       <div class="my-8 youtube-embed">
         <iframe 
-          src="https://www.youtube.com/embed/Z4C3yn_QH2Y" 
+          src="https://www.youtube.com/embed/FBRbyA6h-UY" 
           title="AI SEO Tools on a Budget" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          referrerpolicy="strict-origin-when-cross-origin" 
           allowfullscreen>
         </iframe>
       </div>
@@ -442,11 +416,8 @@ const blogPostsData: Record<string, BlogPost> = {
       
       <div class="my-8 youtube-embed">
         <iframe 
-          src="https://www.youtube.com/embed/H0NWPZ8EwjI" 
+          src="https://www.youtube.com/embed/3bGMNYaXMrQ" 
           title="Measuring SEO Success" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          referrerpolicy="strict-origin-when-cross-origin" 
           allowfullscreen>
         </iframe>
       </div>
