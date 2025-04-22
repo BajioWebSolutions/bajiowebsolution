@@ -76,7 +76,7 @@ export const Hero = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-700 hover:scale-[1.02] hover:-rotate-2 hover:shadow-primary/20">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-700 hover:scale-[1.22] hover:-rotate-2 hover:shadow-primary/20">
               <img 
                 src="/lovable-uploads/8cbecad2-2102-44f5-8942-42e17c95d52a.png"
                 alt="Bajio Web Solutions"
