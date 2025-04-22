@@ -78,8 +78,8 @@ export const Hero = () => {
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-700 hover:scale-[1.02] hover:-rotate-2 hover:shadow-primary/20">
               <img 
-                src="/lovable-uploads/2f6e7cf6-911a-4a70-9f70-629277e1048d.png"
-                alt="Web Development"
+                src="/lovable-uploads/8cbecad2-2102-44f5-8942-42e17c95d52a.png"
+                alt="Bajio Web Solutions"
                 className="w-full h-auto rounded-2xl"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
