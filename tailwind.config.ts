@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -25,15 +24,15 @@ export default {
         ring: "hsl(var(--ring))",
         background: {
           DEFAULT: "#FFFFFF",
-          dark: "#1A1F2C",
+          dark: "#0f172a",
         },
         foreground: {
           DEFAULT: "#111827",
-          dark: "#FFFFFF",
+          dark: "#e2e8f0",
         },
         primary: {
-          DEFAULT: "#2DD4BF",
-          dark: "#10B981",
+          DEFAULT: "#15B8A6",
+          dark: "#0E8A7D",
           light: "#34D399",
         },
         accent: {
@@ -46,6 +45,10 @@ export default {
           dark: "#1E293B",
           light: "#F8FAFC",
         },
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+        pacifico: ['Pacifico', 'cursive'],
       },
       spacing: {
         'section': '60px',
@@ -107,7 +110,7 @@ export default {
         DEFAULT: {
           css: {
             maxWidth: '100%',
-            color: '#F8FAFC', // Increased contrast for standard text
+            color: '#F8FAFC',
             h1: {
               color: '#FFFFFF',
             },
@@ -130,10 +133,10 @@ export default {
               color: '#FFFFFF',
             },
             p: {
-              color: '#F1F5F9', // Lighter, higher contrast text
+              color: '#F1F5F9',
             },
             li: {
-              color: '#F1F5F9', // Lighter, higher contrast text
+              color: '#F1F5F9',
             },
           },
         },

@@ -8,7 +8,7 @@ export const YouTubeEmbed = ({ videoId, title }: YouTubeEmbedProps) => {
         src={`https://www.youtube.com/embed/${videoId}`}
         title={title}
         allowFullScreen
-        className="w-full aspect-video rounded-lg shadow-lg"
+        className="w-full aspect-video rounded-lg shadow-lg border border-primary/20"
       />
     </div>
   );

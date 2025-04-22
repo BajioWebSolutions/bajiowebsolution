@@ -14,7 +14,7 @@ export const BlogContent = ({ content }: BlogContentProps) => {
     >
       <div 
         ref={contentRef}
-        className="prose prose-lg max-w-none"
+        className="prose prose-lg max-w-none prose-p:text-foreground-dark prose-headings:text-foreground-dark prose-a:text-primary hover:prose-a:text-primary-dark prose-strong:text-foreground-dark"
         dangerouslySetInnerHTML={{ __html: content }} 
       />
     </motion.div>
