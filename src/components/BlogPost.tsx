@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
-import { CalendarIcon, BookOpenIcon } from "lucide-react";
 
 interface BlogPostProps {
   post: {
@@ -24,30 +23,30 @@ export const BlogPost = ({ post, index }: BlogPostProps) => {
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
-      <Card className="h-full bg-neutral-dark/20 backdrop-blur-sm border border-primary/10 shadow-lg hover:shadow-xl transition-all duration-300">
-        <CardHeader className="pb-2">
-          <div className="flex items-center text-sm text-neutral mb-2">
-            <CalendarIcon className="h-4 w-4 mr-2 text-primary/70" />
-            {post.date}
-          </div>
-          <h3 className="text-xl font-bold text-foreground-dark">{post.title}</h3>
-        </CardHeader>
-        <CardContent>
-          <p className="text-neutral">{post.excerpt}</p>
-        </CardContent>
-        <CardFooter className="flex items-center justify-between pt-2">
-          <span className="flex items-center text-sm text-primary">
-            <BookOpenIcon className="h-4 w-4 mr-1" />
+      <Card className="bg-gray-800 rounded-lg overflow-hidden transition-all duration-300 blog-card custom-shadow hover:-translate-y-2">
+        <div className="relative h-48">
+          <img 
+            src={`/lovable-uploads/c4b0c30f-0691-48f5-9946-c293a3908ce1.png`}
+            alt={post.title}
+            className="w-full h-full object-cover object-top"
+          />
+        </div>
+        <div className="p-6">
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary bg-opacity-20 text-primary mb-3">
             {post.category}
           </span>
-          <Button 
-            variant="link" 
-            asChild
-            className="text-primary hover:text-primary-light transition-colors"
-          >
-            <Link to={`/blog/${post.slug}`}>Read More →</Link>
-          </Button>
-        </CardFooter>
+          <h3 className="text-xl font-bold mb-3 text-white">{post.title}</h3>
+          <p className="text-gray-300 mb-4 line-clamp-3">{post.excerpt}</p>
+          <div className="flex items-center justify-between">
+            <span className="text-gray-400 text-sm">{post.date}</span>
+            <Link 
+              to={`/blog/${post.slug}`}
+              className="text-primary hover:text-white transition-colors"
+            >
+              Read more
+            </Link>
+          </div>
+        </div>
       </Card>
     </motion.div>
   );
