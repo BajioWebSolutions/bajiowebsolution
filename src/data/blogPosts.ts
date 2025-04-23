@@ -5,7 +5,7 @@ export const blogPostsData: Record<string, BlogPost> = {
     title: "AI-Powered Web Design: The Future of Digital Marketing",
     date: "April 8, 2024",
     category: "Web Design",
-    author: "Bajio Web Solutions Team",
+    author: "Rigoberto Lopez",
     tags: ["AI", "Web Design", "Digital Marketing", "User Experience"],
     content: `
       <div class="mb-8">
@@ -98,7 +98,7 @@ export const blogPostsData: Record<string, BlogPost> = {
     title: "Revolutionizing Digital Marketing with AI: A Comprehensive Guide",
     date: "April 2, 2024",
     category: "Digital Marketing",
-    author: "Bajio Web Solutions Team",
+    author: "Rigoberto Lopez",
     tags: ["AI", "Digital Marketing", "Automation", "Data Analytics", "Small Business"],
     content: `
       <div class="mb-8">
@@ -179,7 +179,7 @@ export const blogPostsData: Record<string, BlogPost> = {
     title: "Smart SEO Strategies: Harnessing AI for Enhanced Visibility",
     date: "March 25, 2024",
     category: "SEO",
-    author: "Bajio Web Solutions Team",
+    author: "Rigoberto Lopez",
     tags: ["SEO", "AI", "Digital Marketing", "Search Engine Optimization"],
     content: `
       <div class="mb-8">
@@ -457,6 +457,64 @@ export const blogPostsData: Record<string, BlogPost> = {
       <p>As search algorithms continue to evolve toward understanding user intent and delivering personalized results, AI-powered strategies will become not just an advantage but a necessity for businesses seeking to maintain and improve their digital visibility.</p>
       
       <p>Ready to enhance your business's search visibility with AI-powered strategies? <a href="/contact">Contact our team</a> for a personalized consultation on implementing these approaches for your specific needs and budget.</p>
+    `
+  },
+  "digital-marketing-trends-2025": {
+    title: "5 Digital Marketing Trends Reshaping the Industry in 2025",
+    date: "April 18, 2025",
+    category: "Digital Strategy",
+    author: "Rigoberto Lopez",
+    tags: ["Digital Marketing", "Trends", "AI", "Content Strategy", "Social Media"],
+    content: `
+      <div class="mb-8">
+        <img src="/lovable-uploads/c4b0c30f-0691-48f5-9946-c293a3908ce1.png" alt="Digital Marketing Trends visualization" class="w-full h-auto rounded-lg shadow-lg mb-6" />
+      </div>
+
+      <p>In the fast-evolving world of digital marketing, staying ahead of emerging trends is crucial for businesses of all sizes. As we navigate through 2025, several innovative approaches are reshaping how brands connect with their audiences and drive meaningful results. Let's explore the five most impactful digital marketing trends that are defining success in today's landscape.</p>
+      
+      <h2>1. AI-Driven Personalization at Scale</h2>
+      
+      <p>Artificial intelligence has transformed personalization from a nice-to-have feature to an essential component of effective digital marketing strategies. In 2025, brands are leveraging AI to analyze vast datasets and deliver hyper-personalized experiences across all touchpoints.</p>
+      
+      <p>Smart algorithms now predict customer preferences with remarkable accuracy, allowing marketers to create dynamically adaptive content that evolves based on real-time behavior. This level of personalization extends beyond product recommendations to include personalized email sequences, custom landing pages, and even individualized pricing strategies.</p>
+
+      <div class="my-8 youtube-embed">
+        <iframe 
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+          title="AI Personalization in Digital Marketing"
+          allowfullscreen>
+        </iframe>
+      </div>
+      
+      <h2>2. Immersive Content Experiences</h2>
+      
+      <p>The line between digital and physical experiences continues to blur as augmented reality (AR) and virtual reality (VR) technologies become more accessible. Forward-thinking brands are creating immersive content experiences that captivate audiences and drive unprecedented engagement levels.</p>
+      
+      <p>From virtual product try-ons to interactive 3D demonstrations, these technologies allow customers to experience products in context before making purchase decisions. The most innovative companies are also leveraging these technologies for storytelling, creating memorable brand narratives that resonate on a deeper emotional level.</p>
+      
+      <h2>3. Voice Search Optimization</h2>
+      
+      <p>With voice-activated assistants becoming increasingly integrated into daily life, optimizing for voice search is no longer optional. In 2025, successful digital marketing strategies prioritize conversational keywords and natural language patterns that align with how people actually speak.</p>
+      
+      <p>This shift requires a fundamental rethinking of SEO strategies, focusing on question-based queries and featured snippet optimization. Local businesses, in particular, are seeing significant benefits from voice search optimization as users increasingly rely on voice commands for location-based searches.</p>
+
+      <h2>4. Ethical and Sustainable Marketing</h2>
+      
+      <p>Today's consumers are more conscious than ever about the social and environmental impact of their purchasing decisions. Brands that authentically communicate their commitment to sustainability and ethical practices are gaining significant competitive advantages.</p>
+      
+      <p>Successful digital marketing campaigns now highlight eco-friendly initiatives, ethical sourcing, and corporate social responsibility programs. However, authenticity is paramount – consumers are quick to identify and call out "greenwashing" or superficial commitments that aren't backed by meaningful action.</p>
+      
+      <h2>5. First-Party Data Strategies</h2>
+      
+      <p>As privacy regulations tighten and third-party cookies phase out, marketers are pivoting to first-party data strategies. Building direct relationships with customers and collecting data through owned channels has become essential for effective targeting and personalization.</p>
+      
+      <p>Innovative brands are implementing value exchanges that incentivize customers to share their data willingly. From exclusive content and personalized recommendations to enhanced services and loyalty programs, these strategies prioritize transparency and mutual benefit.</p>
+      
+      <h2>Conclusion</h2>
+      
+      <p>The digital marketing landscape continues to evolve at a rapid pace, driven by technological innovation and changing consumer expectations. By embracing these trends and adapting strategies accordingly, brands can create more meaningful connections with their audiences and drive sustainable growth in 2025 and beyond.</p>
+      
+      <p>Ready to implement these cutting-edge strategies for your business? <a href="/contact">Contact our team</a> for a personalized consultation on how to leverage these trends for your specific industry and objectives.</p>
     `
   }
 };

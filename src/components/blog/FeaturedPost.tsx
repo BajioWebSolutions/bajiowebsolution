@@ -26,7 +26,7 @@ export const FeaturedPost = () => {
               className="w-10 h-10 rounded-full mr-3"
             />
             <div>
-              <p className="text-white font-medium">Emily Richardson</p>
+              <p className="text-white font-medium">Rigoberto Lopez</p>
               <p className="text-gray-400 text-sm">April 18, 2025 · 8 min read</p>
             </div>
           </div>

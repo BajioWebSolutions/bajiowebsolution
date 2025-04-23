@@ -10,6 +10,7 @@ import { BlogSidebar } from "@/components/blog/BlogSidebar";
 import { BlogPost } from "@/components/BlogPost";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const blogCards = [
   {
@@ -134,7 +135,7 @@ const BlogPage = () => {
                     <p className="text-gray-300 mb-4 line-clamp-3">{post.excerpt}</p>
                     <div className="flex items-center justify-between mt-auto">
                       <span className="text-gray-400 text-sm">{post.date}</span>
-                      <a href="#" className="text-primary hover:text-white transition-colors text-sm font-medium">Read more</a>
+                      <Link to={`/blog/${post.slug}`} className="text-primary hover:text-white transition-colors text-sm font-medium">Read more</Link>
                     </div>
                   </div>
                 </div>
