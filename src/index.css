@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -167,11 +166,9 @@
 
 /* Cards */
 .blog-card {
-  @apply bg-gray-800 rounded-lg overflow-hidden transition-transform duration-300 custom-shadow hover:-translate-y-1.5 group;
+  @apply bg-gray-800 rounded-lg overflow-hidden transition-transform duration-300 custom-shadow hover:-translate-y-1.5;
 }
-.custom-shadow {
-  @apply shadow-lg shadow-black/5;
-}
+/* The group class needs to be applied directly in HTML, not via @apply */
 .bg-gray-800 {
   background-color: #1e293b;
 }
