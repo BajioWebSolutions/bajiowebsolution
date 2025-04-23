@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -161,4 +160,82 @@
   .glass-card {
     @apply bg-gray-800/20 backdrop-blur-sm border border-white/10;
   }
+}
+
+/* Improved blog post styling for better readability */
+
+// Cards
+.blog-card {
+  @apply bg-gray-800 rounded-lg overflow-hidden transition-transform duration-300 custom-shadow hover:-translate-y-1.5 group;
+}
+.custom-shadow {
+  @apply shadow-lg shadow-black/5;
+}
+.bg-gray-800 {
+  background-color: #1e293b;
+}
+.text-primary {
+  color: #15B8A6 !important;
+}
+.bg-primary {
+  background-color: #15B8A6 !important;
+}
+@media (max-width: 768px) {
+  .blog-card {
+    @apply !rounded-md;
+  }
+  .custom-shadow {
+    @apply shadow-md;
+  }
+}
+
+/* Pagination */
+.rounded-button {
+  border-radius: 12px !important;
+}
+
+nav[aria-label="Pagination"] button,
+nav[aria-label="Pagination"] a {
+  @apply px-4 py-2 font-semibold text-sm mx-1 transition-colors rounded-button;
+}
+
+nav[aria-label="Pagination"] .text-primary {
+  @apply text-primary;
+}
+
+/* Typography enhancements */
+h1, h2, h3, h4 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  line-height: 1.16;
+  letter-spacing: -0.01em;
+}
+.text-foreground-dark {
+  color: #e2e8f0 !important;
+}
+.text-neutral,
+.text-gray-400,
+.text-gray-300 {
+  color: #9ca3af !important;
+}
+
+@media (max-width: 600px) {
+  .blog-card {
+    margin-bottom: 1.5rem;
+  }
+  .text-xl, .text-3xl, .text-4xl {
+    font-size: 1.05rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .blog-card {
+    min-height: 400px;
+  }
+}
+
+/* Focus ring for accessibility */
+*:focus-visible {
+  outline: 2px solid #15B8A6;
+  outline-offset: 2px;
 }

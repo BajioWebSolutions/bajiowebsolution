@@ -1,4 +1,3 @@
-
 import { Hero } from "@/components/Hero";
 import { Services } from "@/components/Services";
 import { WhyChooseUs } from "@/components/WhyChooseUs";
@@ -36,7 +35,7 @@ const blogPosts = [
 
 const Index = () => {
   return (
-    <motion.div 
+    <motion.div
       className="min-h-screen"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -51,9 +50,7 @@ const Index = () => {
         <Impact />
         <Testimonials />
         <section className="py-20 bg-background-dark relative">
-          {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-radial from-primary/5 via-background-dark to-background-dark opacity-50" />
-          
           <div className="container mx-auto px-4 relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -62,11 +59,11 @@ const Index = () => {
               transition={{ duration: 0.5 }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-foreground-dark">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-5 text-foreground-dark leading-tight">
                 Latest <span className="text-primary">Insights</span>
               </h2>
               <p className="text-neutral text-lg max-w-3xl mx-auto">
-                Stay updated with the latest trends, tips, and insights in web development, 
+                Stay updated with the latest trends, tips, and insights in web development,
                 design, and digital marketing.
               </p>
             </motion.div>

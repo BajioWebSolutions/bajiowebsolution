@@ -45,10 +45,10 @@ export const BlogSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold mb-4 text-foreground-dark">
+          <h2 className="text-4xl font-bold mb-5 text-foreground-dark leading-tight">
             Latest <span className="text-primary">Insights</span>
           </h2>
-          <p className="text-neutral max-w-2xl mx-auto">
+          <p className="text-neutral max-w-2xl mx-auto text-lg">
             Stay updated with the latest trends, tips, and insights in web development, design, and digital marketing.
           </p>
         </motion.div>
@@ -59,19 +59,31 @@ export const BlogSection = () => {
               key={post.slug}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-neutral-dark rounded-lg overflow-hidden backdrop-blur-sm hover:shadow-lg transition-all duration-300"
+              transition={{ duration: 0.5, delay: index * 0.07 }}
+              className="bg-gray-800 rounded-lg overflow-hidden custom-shadow transition-transform duration-300 blog-card hover:-translate-y-1.5 group flex flex-col h-full"
             >
-              <div className="p-6">
-                <div className="text-sm text-neutral mb-2">{post.date}</div>
-                <h3 className="text-xl font-bold mb-3 text-foreground-dark">{post.title}</h3>
-                <p className="text-neutral mb-4">{post.excerpt}</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-primary">{post.category}</span>
-                  <Button 
-                    variant="link" 
+              <div className="relative h-48">
+                <img
+                  src={`/lovable-uploads/c4b0c30f-0691-48f5-9946-c293a3908ce1.png`}
+                  alt={post.title}
+                  className="w-full h-full object-cover object-top transition-transform duration-200 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+              <div className="p-6 flex flex-col flex-1">
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary bg-opacity-20 text-primary mb-3">
+                  {post.category}
+                </span>
+                <h3 className="text-xl font-bold mb-3 text-white group-hover:text-primary transition-colors duration-200 leading-snug">
+                  {post.title}
+                </h3>
+                <p className="text-gray-300 mb-4 line-clamp-3">{post.excerpt}</p>
+                <div className="flex items-center justify-between mt-auto">
+                  <span className="text-gray-400 text-sm">{post.date}</span>
+                  <Button
+                    variant="link"
                     asChild
-                    className="text-primary hover:text-primary-light transition-colors"
+                    className="text-primary hover:text-primary-light transition-colors text-sm font-medium"
                   >
                     <Link to={`/blog/${post.slug}`}>Read More →</Link>
                   </Button>
