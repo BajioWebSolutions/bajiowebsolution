@@ -5,7 +5,10 @@ const categories = [
   { id: "all", label: "All Posts" },
   { id: "digital-strategy", label: "Digital Strategy" },
   { id: "seo", label: "SEO" },
-  { id: "social-media", label: "Social Media" }
+  { id: "social-media", label: "Social Media" },
+  { id: "content-marketing", label: "Content Marketing" },
+  { id: "email-marketing", label: "Email Marketing" },
+  { id: "web-development", label: "Web Development" }
 ];
 
 interface BlogFilterProps {

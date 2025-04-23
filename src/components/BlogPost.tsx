@@ -11,6 +11,7 @@ interface BlogPostProps {
     category: string;
     slug: string;
     image?: string;
+    author?: string;
   };
   index: number;
 }

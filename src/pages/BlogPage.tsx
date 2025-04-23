@@ -2,7 +2,7 @@
 import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
 import { BlogDetailView } from "@/components/BlogDetailView";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FeaturedPost } from "@/components/blog/FeaturedPost";
 import { BlogFilter } from "@/components/blog/BlogFilter";
@@ -11,6 +11,7 @@ import { BlogPost } from "@/components/BlogPost";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
 
 const blogCards = [
   {
@@ -19,7 +20,8 @@ const blogCards = [
     date: "April 15, 2025",
     category: "Social Media",
     slug: "post-1",
-    image: "https://readdy.ai/api/search-image?query=social%20media%20marketing%20analytics%20dashboard%20on%20computer%20screen%20with%20colorful%20graphs%20and%20data%20visualizations%2C%20professional%20setting&width=600&height=400&seq=3&orientation=landscape"
+    image: "https://readdy.ai/api/search-image?query=social%20media%20marketing%20analytics%20dashboard%20on%20computer%20screen%20with%20colorful%20graphs%20and%20data%20visualizations%2C%20professional%20setting&width=600&height=400&seq=3&orientation=landscape",
+    author: "Rigoberto Lopez"
   },
   {
     title: "Local SEO Strategies for Connecticut Businesses",
@@ -27,7 +29,8 @@ const blogCards = [
     date: "April 10, 2025",
     category: "SEO",
     slug: "post-2",
-    image: "https://readdy.ai/api/search-image?query=SEO%20optimization%20concept%20with%20keywords%20and%20search%20results%20on%20computer%20screen%2C%20professional%20digital%20marketing%20workspace&width=600&height=400&seq=4&orientation=landscape"
+    image: "https://readdy.ai/api/search-image?query=SEO%20optimization%20concept%20with%20keywords%20and%20search%20results%20on%20computer%20screen%2C%20professional%20digital%20marketing%20workspace&width=600&height=400&seq=4&orientation=landscape",
+    author: "Rigoberto Lopez"
   },
   {
     title: "Creating Content That Converts: A Complete Guide",
@@ -35,7 +38,8 @@ const blogCards = [
     date: "April 5, 2025",
     category: "Content Marketing",
     slug: "post-3",
-    image: "https://readdy.ai/api/search-image?query=content%20marketing%20strategy%20planning%20session%20with%20creative%20team%20brainstorming%20ideas%20on%20whiteboard%2C%20professional%20office%20setting&width=600&height=400&seq=5&orientation=landscape"
+    image: "https://readdy.ai/api/search-image?query=content%20marketing%20strategy%20planning%20session%20with%20creative%20team%20brainstorming%20ideas%20on%20whiteboard%2C%20professional%20office%20setting&width=600&height=400&seq=5&orientation=landscape",
+    author: "Rigoberto Lopez"
   },
   {
     title: "Maximizing ROI with Multi-Channel PPC Campaigns",
@@ -43,7 +47,8 @@ const blogCards = [
     date: "March 30, 2025",
     category: "Paid Advertising",
     slug: "post-4",
-    image: "https://readdy.ai/api/search-image?query=digital%20advertising%20campaign%20planning%20with%20professionals%20analyzing%20ad%20performance%20metrics%20on%20multiple%20screens%2C%20professional%20marketing%20setting&width=600&height=400&seq=6&orientation=landscape"
+    image: "https://readdy.ai/api/search-image?query=digital%20advertising%20campaign%20planning%20with%20professionals%20analyzing%20ad%20performance%20metrics%20on%20multiple%20screens%2C%20professional%20marketing%20setting&width=600&height=400&seq=6&orientation=landscape",
+    author: "Rigoberto Lopez"
   },
   {
     title: "Email Automation Sequences That Drive Sales",
@@ -51,7 +56,8 @@ const blogCards = [
     date: "March 25, 2025",
     category: "Email Marketing",
     slug: "post-5",
-    image: "https://readdy.ai/api/search-image?query=email%20marketing%20campaign%20design%20with%20professional%20team%20reviewing%20newsletter%20templates%20on%20computer%20screens%2C%20modern%20office%20environment&width=600&height=400&seq=7&orientation=landscape"
+    image: "https://readdy.ai/api/search-image?query=email%20marketing%20campaign%20design%20with%20professional%20team%20reviewing%20newsletter%20templates%20on%20computer%20screens%2C%20modern%20office%20environment&width=600&height=400&seq=7&orientation=landscape",
+    author: "Rigoberto Lopez"
   },
   {
     title: "Website Performance Optimization Techniques",
@@ -59,17 +65,68 @@ const blogCards = [
     date: "March 20, 2025",
     category: "Web Development",
     slug: "post-6",
-    image: "https://readdy.ai/api/search-image?query=website%20development%20team%20working%20on%20responsive%20design%20project%20with%20multiple%20devices%20showing%20website%20layouts%2C%20professional%20tech%20environment&width=600&height=400&seq=8&orientation=landscape"
+    image: "https://readdy.ai/api/search-image?query=website%20development%20team%20working%20on%20responsive%20design%20project%20with%20multiple%20devices%20showing%20website%20layouts%2C%20professional%20tech%20environment&width=600&height=400&seq=8&orientation=landscape",
+    author: "Rigoberto Lopez"
   }
 ];
 
 const BlogPage = () => {
   const { slug } = useParams();
   const [activeCategory, setActiveCategory] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredPosts, setFilteredPosts] = useState(blogCards);
+  const location = useLocation();
+
+  const filterPosts = () => {
+    let filtered = [...blogCards];
+    
+    // Apply category filter if not "all"
+    if (activeCategory !== "all") {
+      filtered = filtered.filter(post => 
+        post.category.toLowerCase() === activeCategory.toLowerCase() ||
+        activeCategory === "digital-strategy" && post.category === "Digital Strategy"
+      );
+    }
+    
+    // Apply search filter if query exists
+    if (searchQuery) {
+      const query = searchQuery.toLowerCase();
+      filtered = filtered.filter(post => 
+        post.title.toLowerCase().includes(query) || 
+        post.excerpt.toLowerCase().includes(query) ||
+        post.category.toLowerCase().includes(query)
+      );
+    }
+    
+    setFilteredPosts(filtered);
+  };
+
+  // Handle newsletter subscription
+  const handleSubscribe = (email: string) => {
+    toast.success(`Thank you for subscribing with ${email}! You'll receive our latest insights soon.`);
+  };
+
+  // Handle category click from sidebar
+  const handleCategoryClick = (category: string) => {
+    const categoryMap: Record<string, string> = {
+      "Digital Strategy": "digital-strategy",
+      "SEO": "seo",
+      "Social Media": "social-media",
+      "Content Marketing": "content-marketing",
+      "Email Marketing": "email-marketing",
+      "Web Development": "web-development"
+    };
+    
+    setActiveCategory(categoryMap[category] || category.toLowerCase().replace(' ', '-'));
+  };
+
+  useEffect(() => {
+    filterPosts();
+  }, [activeCategory, searchQuery]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [slug]);
+  }, [slug, location]);
 
   if (slug) {
     return (
@@ -111,36 +168,23 @@ const BlogPage = () => {
         <div className="flex flex-col md:flex-row gap-8">
           {/* Main Content */}
           <div className="md:w-3/4">
-            <BlogFilter activeCategory={activeCategory} onCategoryChange={setActiveCategory} />
+            <BlogFilter 
+              activeCategory={activeCategory} 
+              onCategoryChange={setActiveCategory} 
+            />
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {blogCards.map((post, index) => (
-                <div
-                  key={post.slug}
-                  className="bg-gray-800 rounded-lg overflow-hidden transition-all duration-300 blog-card custom-shadow group flex flex-col h-full"
-                >
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="w-full h-48 object-cover object-top transition-transform duration-300 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  <div className="p-6 flex flex-col flex-1">
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary bg-opacity-20 text-primary mb-3">
-                      {post.category}
-                    </span>
-                    <h3 className="text-xl font-bold mb-3 text-white group-hover:text-primary transition-colors duration-200 leading-snug">
-                      {post.title}
-                    </h3>
-                    <p className="text-gray-300 mb-4 line-clamp-3">{post.excerpt}</p>
-                    <div className="flex items-center justify-between mt-auto">
-                      <span className="text-gray-400 text-sm">{post.date}</span>
-                      <Link to={`/blog/${post.slug}`} className="text-primary hover:text-white transition-colors text-sm font-medium">Read more</Link>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+            {filteredPosts.length > 0 ? (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {filteredPosts.map((post, index) => (
+                  <BlogPost key={post.slug} post={post} index={index} />
+                ))}
+              </div>
+            ) : (
+              <div className="bg-gray-800 rounded-lg p-8 text-center">
+                <h3 className="text-xl text-white mb-2">No posts found</h3>
+                <p className="text-gray-300">Try adjusting your search or filter criteria</p>
+              </div>
+            )}
 
             {/* Pagination */}
             <div className="mt-12 flex justify-center">
@@ -160,7 +204,11 @@ const BlogPage = () => {
             </div>
           </div>
           {/* Sidebar */}
-          <BlogSidebar />
+          <BlogSidebar 
+            onSearch={setSearchQuery} 
+            onSubscribe={handleSubscribe}
+            onCategoryClick={handleCategoryClick}
+          />
         </div>
       </section>
       <Footer />
