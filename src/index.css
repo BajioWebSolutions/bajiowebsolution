@@ -173,10 +173,10 @@
   background-color: #1e293b;
 }
 .text-primary {
-  color: #15B8A6 !important;
+  color: #15B8A6;
 }
 .bg-primary {
-  background-color: #15B8A6 !important;
+  background-color: #15B8A6;
 }
 @media (max-width: 768px) {
   .blog-card {
