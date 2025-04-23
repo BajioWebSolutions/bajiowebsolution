@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -164,7 +165,7 @@
 
 /* Improved blog post styling for better readability */
 
-// Cards
+/* Cards */
 .blog-card {
   @apply bg-gray-800 rounded-lg overflow-hidden transition-transform duration-300 custom-shadow hover:-translate-y-1.5 group;
 }
