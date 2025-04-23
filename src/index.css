@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -168,6 +169,7 @@
 .blog-card {
   @apply bg-gray-800 rounded-lg overflow-hidden transition-transform duration-300 custom-shadow hover:-translate-y-1.5;
 }
+
 /* Explicitly define colors without @apply */
 .text-primary {
   color: #15B8A6;
@@ -191,8 +193,9 @@ nav[aria-label="Pagination"] a {
   @apply px-4 py-2 font-semibold text-sm mx-1 transition-colors rounded-button;
 }
 
+/* Replace the circular dependency with direct color definition */
 nav[aria-label="Pagination"] .text-primary {
-  @apply text-primary;
+  color: #15B8A6;
 }
 
 /* Typography enhancements */
