@@ -168,7 +168,7 @@
 .blog-card {
   @apply bg-gray-800 rounded-lg overflow-hidden transition-transform duration-300 custom-shadow hover:-translate-y-1.5;
 }
-/* The group class needs to be applied directly in HTML, not via @apply */
+/* Explicitly define colors without @apply */
 .bg-gray-800 {
   background-color: #1e293b;
 }
@@ -177,14 +177,6 @@
 }
 .bg-primary {
   background-color: #15B8A6;
-}
-@media (max-width: 768px) {
-  .blog-card {
-    @apply !rounded-md;
-  }
-  .custom-shadow {
-    @apply shadow-md;
-  }
 }
 
 /* Pagination */
