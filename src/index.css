@@ -169,14 +169,16 @@
   @apply bg-gray-800 rounded-lg overflow-hidden transition-transform duration-300 custom-shadow hover:-translate-y-1.5;
 }
 /* Explicitly define colors without @apply */
-.bg-gray-800 {
-  background-color: #1e293b;
-}
 .text-primary {
   color: #15B8A6;
 }
+
 .bg-primary {
   background-color: #15B8A6;
+}
+
+.bg-gray-800 {
+  background-color: #1e293b;
 }
 
 /* Pagination */
