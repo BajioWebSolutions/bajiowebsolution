@@ -27,12 +27,14 @@ export const BlogPost = ({ post, index }: BlogPostProps) => {
     >
       <Card className="bg-gray-800 rounded-lg overflow-hidden custom-shadow transition-transform duration-300 blog-card hover:-translate-y-1.5 group flex flex-col h-full">
         <div className="relative h-48">
-          <img
-            src={post.image || "/lovable-uploads/c4b0c30f-0691-48f5-9946-c293a3908ce1.png"}
-            alt={post.title}
-            className="w-full h-full object-cover object-top transition-transform duration-200 group-hover:scale-105"
-            loading="lazy"
-          />
+          <Link to={`/blog/${post.slug}`} className="block h-full">
+            <img
+              src={post.image || "/lovable-uploads/c4b0c30f-0691-48f5-9946-c293a3908ce1.png"}
+              alt={post.title}
+              className="w-full h-full object-cover object-top transition-transform duration-200 group-hover:scale-105"
+              loading="lazy"
+            />
+          </Link>
         </div>
         <div className="p-6 flex flex-col flex-1">
           <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary bg-opacity-20 text-primary mb-3">
