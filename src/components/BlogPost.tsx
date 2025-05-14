@@ -17,6 +17,9 @@ interface BlogPostProps {
 }
 
 export const BlogPost = ({ post, index }: BlogPostProps) => {
+  // Ensure we have a valid slug for linking
+  const postSlug = post.slug || "";
+  
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -27,7 +30,7 @@ export const BlogPost = ({ post, index }: BlogPostProps) => {
     >
       <Card className="bg-gray-800 rounded-lg overflow-hidden custom-shadow transition-transform duration-300 blog-card hover:-translate-y-1.5 group flex flex-col h-full">
         <div className="relative h-48">
-          <Link to={`/blog/${post.slug}`} className="block h-full">
+          <Link to={`/blog/${postSlug}`} className="block h-full">
             <img
               src={post.image || "/lovable-uploads/c4b0c30f-0691-48f5-9946-c293a3908ce1.png"}
               alt={post.title}
@@ -41,13 +44,13 @@ export const BlogPost = ({ post, index }: BlogPostProps) => {
             {post.category}
           </span>
           <h3 className="text-xl font-bold mb-3 text-white leading-snug group-hover:text-primary transition-colors duration-200">
-            <Link to={`/blog/${post.slug}`}>{post.title}</Link>
+            <Link to={`/blog/${postSlug}`}>{post.title}</Link>
           </h3>
           <p className="text-gray-300 mb-4 line-clamp-3">{post.excerpt}</p>
           <div className="flex items-center justify-between mt-auto">
             <span className="text-gray-400 text-sm">{post.date}</span>
             <Link
-              to={`/blog/${post.slug}`}
+              to={`/blog/${postSlug}`}
               className="text-primary font-medium hover:text-white transition-colors text-sm"
             >
               Read more

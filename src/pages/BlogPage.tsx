@@ -1,3 +1,4 @@
+
 import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
 import { BlogDetailView } from "@/components/BlogDetailView";
@@ -76,6 +77,11 @@ const BlogPage = () => {
   const [filteredPosts, setFilteredPosts] = useState(blogCards);
   const location = useLocation();
 
+  // Force debug logging to understand what's happening
+  console.log("Current slug from params:", slug);
+  console.log("Current location:", location);
+  console.log("Filtered posts:", filteredPosts);
+
   const filterPosts = () => {
     let filtered = [...blogCards];
     
@@ -121,7 +127,9 @@ const BlogPage = () => {
     window.scrollTo(0, 0);
   }, [slug, location]);
 
+  // If we have a slug, render the blog detail view
   if (slug) {
+    console.log("Rendering BlogDetailView for slug:", slug);
     return (
       <motion.div
         className="min-h-screen bg-background-dark"
