@@ -140,8 +140,8 @@ export const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-center text-[#CCFBF1] group hover:text-[#2DD4BF] transition-colors">
                 <Phone className="h-5 w-5 mr-2 text-[#2DD4BF] group-hover:scale-110 transition-transform" />
-                <a href="tel:+18604689221" className="hover:text-[#2DD4BF] transition-colors">
-                  1 (860) 468-9221
+                <a href="tel:+18603836578" className="hover:text-[#2DD4BF] transition-colors">
+                  1 (860) 383-6578
                 </a>
               </li>
               <li className="flex items-center text-[#CCFBF1] group hover:text-[#2DD4BF] transition-colors">

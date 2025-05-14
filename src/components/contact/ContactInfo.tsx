@@ -39,8 +39,8 @@ export const ContactInfo = () => {
         <div className="space-y-4">
           <div className="flex items-center gap-3 text-white/90 group">
             <Phone className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
-            <a href="tel:+18604689221" className="hover:text-primary transition-colors">
-              (860) 468-9221
+            <a href="tel:+18603836578" className="hover:text-primary transition-colors">
+              (860) 383-6578
             </a>
           </div>
           <div className="flex items-center gap-3 text-white/90 group">
