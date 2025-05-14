@@ -39,7 +39,7 @@ export const BlogPost = ({ post, index }: BlogPostProps) => {
             {post.category}
           </span>
           <h3 className="text-xl font-bold mb-3 text-white leading-snug group-hover:text-primary transition-colors duration-200">
-            {post.title}
+            <Link to={`/blog/${post.slug}`}>{post.title}</Link>
           </h3>
           <p className="text-gray-300 mb-4 line-clamp-3">{post.excerpt}</p>
           <div className="flex items-center justify-between mt-auto">
