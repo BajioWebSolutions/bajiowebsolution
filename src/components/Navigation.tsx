@@ -38,7 +38,7 @@ export const Navigation = () => {
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center">
             <img 
-              src="/lovable-uploads/39f3556e-6b12-4ffc-b1d0-ad03448bd1af.png" 
+              src="/lovable-uploads/5a483482-d9db-4a40-8b9e-5b901a1d8fcc.png" 
               alt="Bajio Web Solutions" 
               className="h-16 w-auto"
             />
