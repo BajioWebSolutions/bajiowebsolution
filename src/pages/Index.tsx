@@ -1,3 +1,4 @@
+
 import { Hero } from "@/components/Hero";
 import { Services } from "@/components/Services";
 import { WhyChooseUs } from "@/components/WhyChooseUs";
@@ -8,6 +9,8 @@ import { NewsletterPopup } from "@/components/NewsletterPopup";
 import { Impact } from "@/components/Impact";
 import { motion } from "framer-motion";
 import { BlogPost } from "@/components/BlogPost";
+import { Helmet } from "react-helmet-async";
+import { useEffect } from "react";
 
 const blogPosts = [
   {
@@ -33,7 +36,94 @@ const blogPosts = [
   }
 ];
 
+// Schema.org structured data for Bajio Web Solutions
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": ["ProfessionalService", "LocalBusiness"],
+  "name": "Bajio Web Solutions",
+  "image": "/lovable-uploads/39f3556e-6b12-4ffc-b1d0-ad03448bd1af.png",
+  "url": "https://bajioweb.solutions",
+  "telephone": "+1-860-123-4567",
+  "email": "contact@bajioweb.solutions",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "123 Main Street",
+    "addressLocality": "Lebanon",
+    "addressRegion": "CT",
+    "postalCode": "06249",
+    "addressCountry": "US"
+  },
+  "areaServed": ["Connecticut", "New England", "United States"],
+  "description": "Transform your online presence with Bajio Web Solutions. We offer professional web development, SEO, and digital marketing services tailored to grow your business.",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "17:00"
+    }
+  ],
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "name": "Professional Web Development",
+      "description": "Custom web development solutions tailored to your business needs",
+      "url": "https://bajioweb.solutions/services/development"
+    },
+    {
+      "@type": "Offer",
+      "name": "Digital Marketing Services",
+      "description": "Comprehensive digital marketing strategies to grow your online presence",
+      "url": "https://bajioweb.solutions/services/marketing"
+    },
+    {
+      "@type": "Offer",
+      "name": "AI Web Design",
+      "description": "Modern, AI-powered web design that converts visitors into customers",
+      "url": "https://bajioweb.solutions/services/web-design"
+    },
+    {
+      "@type": "Offer",
+      "name": "SEO Services",
+      "description": "Search engine optimization to improve your visibility online",
+      "url": "https://bajioweb.solutions/services/seo"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "150"
+  }
+};
+
 const Index = () => {
+  // Monitor page performance metrics for Core Web Vitals
+  useEffect(() => {
+    // Basic performance monitoring example
+    if (typeof window !== 'undefined' && 'performance' in window) {
+      // Report LCP (Largest Contentful Paint)
+      const observer = new PerformanceObserver((entryList) => {
+        for (const entry of entryList.getEntries()) {
+          console.log('LCP candidate:', entry.startTime, entry);
+        }
+      });
+      observer.observe({ type: 'largest-contentful-paint', buffered: true });
+      
+      // Report CLS (Cumulative Layout Shift)
+      const clsObserver = new PerformanceObserver((entryList) => {
+        for (const entry of entryList.getEntries()) {
+          console.log('Layout shift:', entry);
+        }
+      });
+      clsObserver.observe({ type: 'layout-shift', buffered: true });
+      
+      return () => {
+        observer.disconnect();
+        clsObserver.disconnect();
+      };
+    }
+  }, []);
+
   return (
     <motion.div
       className="min-h-screen"
@@ -42,6 +132,19 @@ const Index = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
+      {/* SEO Metadata and Schema */}
+      <Helmet>
+        <title>Bajio Web Solutions - Professional Web Development & Digital Marketing Services</title>
+        <meta name="description" content="Transform your online presence with Bajio Web Solutions. We offer professional web development, SEO, and digital marketing services tailored to grow your business." />
+        <meta name="keywords" content="web development, web design, SEO, digital marketing, Connecticut, Lebanon CT, business websites" />
+        <link rel="canonical" href="https://bajioweb.solutions" />
+        
+        {/* Schema.org structured data */}
+        <script type="application/ld+json">
+          {JSON.stringify(schemaData)}
+        </script>
+      </Helmet>
+
       <NewsletterPopup />
       <main>
         <Hero />

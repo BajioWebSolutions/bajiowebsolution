@@ -9,6 +9,7 @@ import { ScrollToTop } from "./components/ScrollToTop";
 import { ExitIntentPopup } from "./components/ExitIntentPopup";
 import { Suspense, lazy, useEffect } from 'react';
 import { AnimatePresence, motion } from "framer-motion";
+import { HelmetProvider } from 'react-helmet-async';
 
 // Lazy load pages
 const Index = lazy(() => import("./pages/Index"));
@@ -63,44 +64,64 @@ const App = () => {
   useEffect(() => {
     // Enable dark mode by default
     document.documentElement.classList.add('dark');
+    
+    // Basic page speed monitoring
+    if (typeof window !== 'undefined') {
+      window.addEventListener('load', () => {
+        // Log performance metrics when page loads
+        if ('performance' in window) {
+          const pageNavigation = performance.getEntriesByType('navigation')[0];
+          console.log('Page load performance:', pageNavigation);
+          
+          // Log resource load times
+          const resources = performance.getEntriesByType('resource');
+          const slowResources = resources.filter((resource) => resource.duration > 1000);
+          if (slowResources.length > 0) {
+            console.log('Slow loading resources:', slowResources);
+          }
+        }
+      });
+    }
   }, []);
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter basename="/">
-          <Navigation />
-          <ExitIntentPopup />
-          <div className="pt-20">
-            <Suspense fallback={
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="flex items-center justify-center min-h-[60vh]"
-              >
-                <div className="animate-pulse text-primary">Loading...</div>
-              </motion.div>
-            }>
-              <AnimatePresence mode="wait">
-                <Routes>
-                  <Route path="/" element={<PageWrapper><Index /></PageWrapper>} />
-                  <Route path="/about" element={<PageWrapper><AboutPage /></PageWrapper>} />
-                  <Route path="/services" element={<PageWrapper><ServicePage /></PageWrapper>} />
-                  <Route path="/services/:serviceId" element={<PageWrapper><ServicePage /></PageWrapper>} />
-                  <Route path="/contact" element={<PageWrapper><ContactPage /></PageWrapper>} />
-                  <Route path="/blog" element={<PageWrapper><BlogPage /></PageWrapper>} />
-                  <Route path="/blog/:slug" element={<PageWrapper><BlogPage /></PageWrapper>} />
-                </Routes>
-              </AnimatePresence>
-            </Suspense>
-          </div>
-          <ScrollToTop />
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter basename="/">
+            <Navigation />
+            <ExitIntentPopup />
+            <div className="pt-20">
+              <Suspense fallback={
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="flex items-center justify-center min-h-[60vh]"
+                >
+                  <div className="animate-pulse text-primary">Loading...</div>
+                </motion.div>
+              }>
+                <AnimatePresence mode="wait">
+                  <Routes>
+                    <Route path="/" element={<PageWrapper><Index /></PageWrapper>} />
+                    <Route path="/about" element={<PageWrapper><AboutPage /></PageWrapper>} />
+                    <Route path="/services" element={<PageWrapper><ServicePage /></PageWrapper>} />
+                    <Route path="/services/:serviceId" element={<PageWrapper><ServicePage /></PageWrapper>} />
+                    <Route path="/contact" element={<PageWrapper><ContactPage /></PageWrapper>} />
+                    <Route path="/blog" element={<PageWrapper><BlogPage /></PageWrapper>} />
+                    <Route path="/blog/:slug" element={<PageWrapper><BlogPage /></PageWrapper>} />
+                  </Routes>
+                </AnimatePresence>
+              </Suspense>
+            </div>
+            <ScrollToTop />
+          </BrowserRouter>
+        </TooltipProvider>
+      </QueryClientProvider>
+    </HelmetProvider>
   );
 };
 
