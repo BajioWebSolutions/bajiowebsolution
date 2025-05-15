@@ -1,7 +1,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 interface BlogPost {
   title: string;
@@ -36,6 +36,14 @@ const blogPosts: BlogPost[] = [
 ];
 
 export const BlogSection = () => {
+  const navigate = useNavigate();
+  
+  const handlePostClick = (slug: string, e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    console.log(`BlogSection - Navigating to: /blog/${slug}`);
+    navigate(`/blog/${slug}`);
+  };
+
   return (
     <section className="py-20 bg-background-dark">
       <div className="container mx-auto px-4">
@@ -54,45 +62,63 @@ export const BlogSection = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.map((post, index) => (
-            <motion.article
-              key={post.slug}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.07 }}
-              className="bg-gray-800 rounded-lg overflow-hidden custom-shadow transition-transform duration-300 blog-card hover:-translate-y-1.5 group flex flex-col h-full"
-            >
-              <div className="relative h-48">
-                <Link to={`/blog/${post.slug}`} className="block h-full">
-                  <img
-                    src={`/lovable-uploads/c4b0c30f-0691-48f5-9946-c293a3908ce1.png`}
-                    alt={post.title}
-                    className="w-full h-full object-cover object-top transition-transform duration-200 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                </Link>
-              </div>
-              <div className="p-6 flex flex-col flex-1">
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary bg-opacity-20 text-primary mb-3">
-                  {post.category}
-                </span>
-                <h3 className="text-xl font-bold mb-3 text-white group-hover:text-primary transition-colors duration-200 leading-snug">
-                  <Link to={`/blog/${post.slug}`}>{post.title}</Link>
-                </h3>
-                <p className="text-gray-300 mb-4 line-clamp-3">{post.excerpt}</p>
-                <div className="flex items-center justify-between mt-auto">
-                  <span className="text-gray-400 text-sm">{post.date}</span>
-                  <Button
-                    variant="link"
-                    asChild
-                    className="text-primary hover:text-primary-light transition-colors text-sm font-medium p-0"
+          {blogPosts.map((post, index) => {
+            // Ensure we have a valid slug
+            const postSlug = post.slug || "";
+            return (
+              <motion.article
+                key={postSlug}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.07 }}
+                className="bg-gray-800 rounded-lg overflow-hidden custom-shadow transition-transform duration-300 blog-card hover:-translate-y-1.5 group flex flex-col h-full"
+              >
+                <div className="relative h-48">
+                  <Link 
+                    to={`/blog/${postSlug}`} 
+                    className="block h-full"
+                    onClick={(e) => handlePostClick(postSlug, e)}
                   >
-                    <Link to={`/blog/${post.slug}`}>Read More →</Link>
-                  </Button>
+                    <img
+                      src={`/lovable-uploads/c4b0c30f-0691-48f5-9946-c293a3908ce1.png`}
+                      alt={post.title}
+                      className="w-full h-full object-cover object-top transition-transform duration-200 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </Link>
                 </div>
-              </div>
-            </motion.article>
-          ))}
+                <div className="p-6 flex flex-col flex-1">
+                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary bg-opacity-20 text-primary mb-3">
+                    {post.category}
+                  </span>
+                  <h3 className="text-xl font-bold mb-3 text-white group-hover:text-primary transition-colors duration-200 leading-snug">
+                    <Link 
+                      to={`/blog/${postSlug}`}
+                      onClick={(e) => handlePostClick(postSlug, e)}
+                    >
+                      {post.title}
+                    </Link>
+                  </h3>
+                  <p className="text-gray-300 mb-4 line-clamp-3">{post.excerpt}</p>
+                  <div className="flex items-center justify-between mt-auto">
+                    <span className="text-gray-400 text-sm">{post.date}</span>
+                    <Button
+                      variant="link"
+                      asChild
+                      className="text-primary hover:text-primary-light transition-colors text-sm font-medium p-0"
+                    >
+                      <Link 
+                        to={`/blog/${postSlug}`}
+                        onClick={(e) => handlePostClick(postSlug, e)}
+                      >
+                        Read More →
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              </motion.article>
+            );
+          })}
         </div>
       </div>
     </section>

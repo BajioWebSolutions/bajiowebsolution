@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 export const FeaturedPost = () => {
+  // Define the featured post slug explicitly
   const featuredPostSlug = "digital-marketing-trends-2025";
+  
+  console.log("FeaturedPost rendering with slug:", featuredPostSlug);
   
   return (
     <div className="bg-gray-800 rounded-lg overflow-hidden mb-16 custom-shadow">
@@ -38,7 +41,11 @@ export const FeaturedPost = () => {
               <p className="text-gray-400 text-sm">April 18, 2025 · 8 min read</p>
             </div>
           </div>
-          <Link to={`/blog/${featuredPostSlug}`} className="inline-flex items-center text-primary font-medium hover:text-white transition-colors">
+          <Link 
+            to={`/blog/${featuredPostSlug}`} 
+            className="inline-flex items-center text-primary font-medium hover:text-white transition-colors"
+            onClick={() => console.log("Featured post link clicked:", featuredPostSlug)}
+          >
             Read Full Article
             <i className="ri-arrow-right-line ml-2" />
           </Link>

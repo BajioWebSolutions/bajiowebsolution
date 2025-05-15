@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
+import { blogPostsData } from "@/data/blogPosts";
 
 const blogCards = [
   {
@@ -77,11 +78,9 @@ const BlogPage = () => {
   const [filteredPosts, setFilteredPosts] = useState(blogCards);
   const location = useLocation();
 
-  // Force debug logging to understand what's happening
   console.log("Current slug from params:", slug);
-  console.log("Current location:", location);
-  console.log("Filtered posts:", filteredPosts);
-
+  console.log("Current location pathname:", location.pathname);
+  
   const filterPosts = () => {
     let filtered = [...blogCards];
     
@@ -129,7 +128,12 @@ const BlogPage = () => {
 
   // If we have a slug, render the blog detail view
   if (slug) {
-    console.log("Rendering BlogDetailView for slug:", slug);
+    console.log("Attempting to render BlogDetailView for slug:", slug);
+    
+    // Check if this slug exists in our data
+    const postExists = slug in blogPostsData;
+    console.log("Post exists in blogPostsData?", postExists);
+    
     return (
       <motion.div
         className="min-h-screen bg-background-dark"
