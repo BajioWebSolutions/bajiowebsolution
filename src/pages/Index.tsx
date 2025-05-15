@@ -9,8 +9,8 @@ import { NewsletterPopup } from "@/components/NewsletterPopup";
 import { Impact } from "@/components/Impact";
 import { motion } from "framer-motion";
 import { BlogPost } from "@/components/BlogPost";
-import { Helmet } from "react-helmet-async";
 import { useEffect } from "react";
+import { SEO } from "@/components/SEO";
 
 const blogPosts = [
   {
@@ -36,15 +36,16 @@ const blogPosts = [
   }
 ];
 
-// Schema.org structured data for Bajio Web Solutions
+// Enhanced Schema.org structured data for Bajio Web Solutions
 const schemaData = {
   "@context": "https://schema.org",
   "@type": ["ProfessionalService", "LocalBusiness"],
   "name": "Bajio Web Solutions",
-  "image": "/lovable-uploads/39f3556e-6b12-4ffc-b1d0-ad03448bd1af.png",
+  "description": "Bajio Web Solutions offers professional web development and digital marketing services, including cutting-edge AI web design, to help businesses grow their online presence and achieve their marketing goals.",
   "url": "https://bajioweb.solutions",
   "telephone": "+1-860-123-4567",
   "email": "contact@bajioweb.solutions",
+  "image": "https://bajioweb.solutions/lovable-uploads/39f3556e-6b12-4ffc-b1d0-ad03448bd1af.png",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "123 Main Street",
@@ -53,8 +54,12 @@ const schemaData = {
     "postalCode": "06249",
     "addressCountry": "US"
   },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "41.6342",
+    "longitude": "-72.2151"
+  },
   "areaServed": ["Connecticut", "New England", "United States"],
-  "description": "Transform your online presence with Bajio Web Solutions. We offer professional web development, SEO, and digital marketing services tailored to grow your business.",
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
@@ -62,6 +67,11 @@ const schemaData = {
       "opens": "09:00",
       "closes": "17:00"
     }
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/company/bajioweb-solutions",
+    "https://www.tiktok.com/@bajiowebsolutions",
+    "https://www.facebook.com/bajiowebsolutions"
   ],
   "makesOffer": [
     {
@@ -133,17 +143,14 @@ const Index = () => {
       transition={{ duration: 0.5 }}
     >
       {/* SEO Metadata and Schema */}
-      <Helmet>
-        <title>Bajio Web Solutions - Professional Web Development & Digital Marketing Services</title>
-        <meta name="description" content="Transform your online presence with Bajio Web Solutions. We offer professional web development, SEO, and digital marketing services tailored to grow your business." />
-        <meta name="keywords" content="web development, web design, SEO, digital marketing, Connecticut, Lebanon CT, business websites" />
-        <link rel="canonical" href="https://bajioweb.solutions" />
-        
-        {/* Schema.org structured data */}
-        <script type="application/ld+json">
-          {JSON.stringify(schemaData)}
-        </script>
-      </Helmet>
+      <SEO 
+        title="Bajio Web Solutions - Professional Web Development & Digital Marketing Services"
+        description="Transform your online presence with Bajio Web Solutions. We offer professional web development, SEO, and digital marketing services tailored to grow your business."
+        keywords="web development, web design, SEO, digital marketing, Connecticut, Lebanon CT, business websites, AI web design"
+        canonical="/"
+        schema={schemaData}
+        image="/lovable-uploads/39f3556e-6b12-4ffc-b1d0-ad03448bd1af.png"
+      />
 
       <NewsletterPopup />
       <main>
