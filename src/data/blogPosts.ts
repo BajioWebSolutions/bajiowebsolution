@@ -459,6 +459,250 @@ export const blogPostsData: Record<string, BlogPost> = {
       <p>Ready to enhance your business's search visibility with AI-powered strategies? <a href="/contact">Contact our team</a> for a personalized consultation on implementing these approaches for your specific needs and budget.</p>
     `
   },
+  "mastering-social-media-algorithms": {
+    title: "Mastering Social Media Algorithms in 2025",
+    date: "April 15, 2025",
+    category: "Social Media",
+    content: `
+      <div class="prose prose-lg max-w-none text-gray-300">
+        <p class="lead text-xl mb-8">Learn how to navigate the ever-changing algorithms across major platforms to maximize your organic reach and engagement.</p>
+        
+        <h2 class="text-2xl font-bold mb-4 text-white">Understanding Algorithm Changes</h2>
+        <p>Social media algorithms are constantly evolving, making it crucial for businesses to stay ahead of the curve. In 2025, platforms are prioritizing authentic engagement and meaningful content more than ever before.</p>
+        
+        <h2 class="text-2xl font-bold mb-4 text-white">Platform-Specific Strategies</h2>
+        <h3 class="text-xl font-semibold mb-3 text-white">Facebook Algorithm</h3>
+        <p>Facebook's algorithm now heavily favors content that sparks conversations and builds communities. Focus on creating posts that encourage comments and meaningful interactions.</p>
+        
+        <h3 class="text-xl font-semibold mb-3 text-white">Instagram Algorithm</h3>
+        <p>Instagram continues to push Reels and Stories. Incorporate these formats into your content strategy while maintaining consistency in your posting schedule.</p>
+        
+        <h2 class="text-2xl font-bold mb-4 text-white">Key Optimization Techniques</h2>
+        <ul class="list-disc pl-6 mb-6">
+          <li>Post consistently during your audience's peak activity hours</li>
+          <li>Use relevant hashtags strategically (5-10 targeted hashtags work better than 30)</li>
+          <li>Engage with your audience within the first hour of posting</li>
+          <li>Create content that encourages saves and shares</li>
+        </ul>
+        
+        <p>By implementing these strategies, you'll see improved organic reach and engagement across all major social media platforms.</p>
+      </div>
+    `,
+    author: "Rigoberto Lopez",
+    tags: ["Social Media", "Marketing", "Algorithms", "Engagement"]
+  },
+  
+  "local-seo-strategies": {
+    title: "Local SEO Strategies for Connecticut Businesses",
+    date: "April 10, 2025",
+    category: "SEO",
+    content: `
+      <div class="prose prose-lg max-w-none text-gray-300">
+        <p class="lead text-xl mb-8">Discover proven techniques to dominate local search results and attract more customers from your community.</p>
+        
+        <h2 class="text-2xl font-bold mb-4 text-white">The Power of Local SEO</h2>
+        <p>For Connecticut businesses, local SEO is the key to competing with larger corporations. When someone searches for "best restaurant near me" or "Connecticut web design," you want your business to appear first.</p>
+        
+        <h2 class="text-2xl font-bold mb-4 text-white">Google My Business Optimization</h2>
+        <p>Your Google My Business profile is your digital storefront. Ensure it's fully optimized with:</p>
+        <ul class="list-disc pl-6 mb-6">
+          <li>Complete business information including hours, phone, and address</li>
+          <li>High-quality photos of your business, products, and team</li>
+          <li>Regular posts and updates</li>
+          <li>Prompt responses to customer reviews</li>
+        </ul>
+        
+        <h2 class="text-2xl font-bold mb-4 text-white">Local Citation Building</h2>
+        <p>Consistent NAP (Name, Address, Phone) information across online directories is crucial. Focus on:</p>
+        <ul class="list-disc pl-6 mb-6">
+          <li>Major directories like Yelp, Yellow Pages, and industry-specific platforms</li>
+          <li>Local Connecticut business directories</li>
+          <li>Chamber of Commerce listings</li>
+        </ul>
+        
+        <h2 class="text-2xl font-bold mb-4 text-white">Content Strategy for Local SEO</h2>
+        <p>Create content that speaks to your local audience. Write about local events, news, and topics relevant to Connecticut residents. This helps establish your business as a local authority.</p>
+        
+        <p>Implementing these strategies will significantly improve your visibility in local search results and drive more qualified traffic to your business.</p>
+      </div>
+    `,
+    author: "Rigoberto Lopez",
+    tags: ["SEO", "Local SEO", "Connecticut", "Google My Business"]
+  },
+  
+  "creating-content-that-converts": {
+    title: "Creating Content That Converts: A Complete Guide",
+    date: "April 5, 2025",
+    category: "Content Marketing",
+    content: `
+      <div class="prose prose-lg max-w-none text-gray-300">
+        <p class="lead text-xl mb-8">Learn how to craft compelling content that not only engages your audience but also drives measurable business results.</p>
+        
+        <h2 class="text-2xl font-bold mb-4 text-white">Understanding Your Audience</h2>
+        <p>Before creating any content, you need to deeply understand your target audience. Create detailed buyer personas that include demographics, pain points, goals, and preferred content formats.</p>
+        
+        <h2 class="text-2xl font-bold mb-4 text-white">The Content Conversion Framework</h2>
+        <h3 class="text-xl font-semibold mb-3 text-white">1. Attention-Grabbing Headlines</h3>
+        <p>Your headline is the first thing people see. Make it compelling, specific, and benefit-focused. Use numbers, questions, or powerful adjectives to increase click-through rates.</p>
+        
+        <h3 class="text-xl font-semibold mb-3 text-white">2. Value-Driven Content</h3>
+        <p>Every piece of content should provide clear value to your audience. Whether it's solving a problem, answering a question, or entertaining them, ensure your content serves a purpose.</p>
+        
+        <h3 class="text-xl font-semibold mb-3 text-white">3. Strategic Calls-to-Action</h3>
+        <p>Guide your readers toward the next step with clear, compelling CTAs. Place them strategically throughout your content, not just at the end.</p>
+        
+        <h2 class="text-2xl font-bold mb-4 text-white">Content Types That Convert</h2>
+        <ul class="list-disc pl-6 mb-6">
+          <li><strong>How-to Guides:</strong> Step-by-step instructions that solve specific problems</li>
+          <li><strong>Case Studies:</strong> Real examples of success stories and results</li>
+          <li><strong>Video Content:</strong> Engaging visual content that builds trust</li>
+          <li><strong>Interactive Content:</strong> Quizzes, polls, and calculators that engage users</li>
+        </ul>
+        
+        <h2 class="text-2xl font-bold mb-4 text-white">Measuring Content Performance</h2>
+        <p>Track metrics that matter: conversion rates, time on page, social shares, and lead generation. Use this data to refine your content strategy continuously.</p>
+        
+        <p>Remember, great content is the foundation of successful digital marketing. Focus on quality over quantity, and always prioritize your audience's needs.</p>
+      </div>
+    `,
+    author: "Rigoberto Lopez",
+    tags: ["Content Marketing", "Conversion", "Strategy", "Digital Marketing"]
+  },
+  
+  "maximizing-roi-with-ppc": {
+    title: "Maximizing ROI with Multi-Channel PPC Campaigns",
+    date: "March 30, 2025",
+    category: "Paid Advertising",
+    content: `
+      <div class="prose prose-lg max-w-none text-gray-300">
+        <p class="lead text-xl mb-8">Explore advanced strategies for optimizing your paid advertising across Google, Meta, and emerging platforms.</p>
+        
+        <h2 class="text-2xl font-bold mb-4 text-white">The Multi-Channel Advantage</h2>
+        <p>Running PPC campaigns across multiple platforms allows you to reach your audience at different touchpoints in their customer journey. Each platform has unique strengths and audience behaviors.</p>
+        
+        <h2 class="text-2xl font-bold mb-4 text-white">Platform-Specific Optimization</h2>
+        <h3 class="text-xl font-semibold mb-3 text-white">Google Ads</h3>
+        <p>Focus on high-intent keywords and use ad extensions to maximize visibility. Implement responsive search ads and leverage automation for bid optimization.</p>
+        
+        <h3 class="text-xl font-semibold mb-3 text-white">Meta Advertising</h3>
+        <p>Utilize detailed targeting options and lookalike audiences. Test video and carousel formats, which typically perform better than static images.</p>
+        
+        <h3 class="text-xl font-semibold mb-3 text-white">LinkedIn Ads</h3>
+        <p>Perfect for B2B campaigns. Use job title and company targeting for precise audience reach, though expect higher costs per click.</p>
+        
+        <h2 class="text-2xl font-bold mb-4 text-white">Advanced ROI Optimization Techniques</h2>
+        <ul class="list-disc pl-6 mb-6">
+          <li>Implement proper conversion tracking across all platforms</li>
+          <li>Use attribution models to understand the customer journey</li>
+          <li>Set up automated rules for bid adjustments</li>
+          <li>Regular A/B testing of ad creatives and landing pages</li>
+          <li>Implement negative keyword lists to reduce wasted spend</li>
+        </ul>
+        
+        <h2 class="text-2xl font-bold mb-4 text-white">Budget Allocation Strategy</h2>
+        <p>Start with a 60/40 split between your best-performing platform and testing new channels. Gradually shift budget based on performance data and ROI metrics.</p>
+        
+        <p>Remember, successful PPC management requires constant monitoring, testing, and optimization. Focus on quality score improvements and landing page relevance to reduce costs while improving performance.</p>
+      </div>
+    `,
+    author: "Rigoberto Lopez",
+    tags: ["PPC", "Google Ads", "Meta Ads", "ROI", "Paid Advertising"]
+  },
+  
+  "email-automation-sequences": {
+    title: "Email Automation Sequences That Drive Sales",
+    date: "March 25, 2025",
+    category: "Email Marketing",
+    content: `
+      <div class="prose prose-lg max-w-none text-gray-300">
+        <p class="lead text-xl mb-8">Discover how to build sophisticated email journeys that nurture leads and convert prospects into loyal customers.</p>
+        
+        <h2 class="text-2xl font-bold mb-4 text-white">The Power of Email Automation</h2>
+        <p>Email automation allows you to deliver the right message at the right time, scaling your marketing efforts while maintaining a personal touch. Well-designed sequences can increase conversion rates by up to 320%.</p>
+        
+        <h2 class="text-2xl font-bold mb-4 text-white">Essential Email Sequences</h2>
+        <h3 class="text-xl font-semibold mb-3 text-white">1. Welcome Series</h3>
+        <p>Set expectations, introduce your brand, and provide immediate value. This 3-5 email sequence should span 1-2 weeks and include:</p>
+        <ul class="list-disc pl-6 mb-4">
+          <li>Warm welcome and expectation setting</li>
+          <li>Brand story and team introduction</li>
+          <li>Best resources or popular content</li>
+          <li>Social proof and testimonials</li>
+        </ul>
+        
+        <h3 class="text-xl font-semibold mb-3 text-white">2. Abandoned Cart Recovery</h3>
+        <p>Recover lost sales with a strategic 3-email sequence sent at 1 hour, 24 hours, and 72 hours after abandonment. Include product images, reviews, and urgency elements.</p>
+        
+        <h3 class="text-xl font-semibold mb-3 text-white">3. Lead Nurturing Sequence</h3>
+        <p>For longer sales cycles, create educational content that moves prospects through the awareness, consideration, and decision stages.</p>
+        
+        <h2 class="text-2xl font-bold mb-4 text-white">Segmentation Strategies</h2>
+        <p>Segment your audience based on:</p>
+        <ul class="list-disc pl-6 mb-6">
+          <li>Behavior and engagement levels</li>
+          <li>Purchase history and preferences</li>
+          <li>Demographics and psychographics</li>
+          <li>Position in the customer journey</li>
+        </ul>
+        
+        <h2 class="text-2xl font-bold mb-4 text-white">Optimization Tips</h2>
+        <p>Test subject lines, send times, and content formats. Monitor open rates, click-through rates, and conversion metrics. Use dynamic content and personalization to increase relevance.</p>
+        
+        <p>Remember, the goal of email automation is to build relationships and provide value, not just to sell. Focus on solving problems and serving your audience's needs.</p>
+      </div>
+    `,
+    author: "Rigoberto Lopez",
+    tags: ["Email Marketing", "Automation", "Lead Nurturing", "Conversion"]
+  },
+  
+  "website-performance-optimization": {
+    title: "Website Performance Optimization Techniques",
+    date: "March 20, 2025",
+    category: "Web Development",
+    content: `
+      <div class="prose prose-lg max-w-none text-gray-300">
+        <p class="lead text-xl mb-8">Learn how to dramatically improve your website's speed, user experience, and conversion rates with these proven methods.</p>
+        
+        <h2 class="text-2xl font-bold mb-4 text-white">Why Performance Matters</h2>
+        <p>Website performance directly impacts user experience, search rankings, and conversion rates. A one-second delay in page load time can reduce conversions by 7% and increase bounce rates significantly.</p>
+        
+        <h2 class="text-2xl font-bold mb-4 text-white">Core Web Vitals Optimization</h2>
+        <h3 class="text-xl font-semibold mb-3 text-white">Largest Contentful Paint (LCP)</h3>
+        <p>Optimize your largest content element to load within 2.5 seconds:</p>
+        <ul class="list-disc pl-6 mb-4">
+          <li>Optimize images with modern formats (WebP, AVIF)</li>
+          <li>Use efficient CSS and eliminate render-blocking resources</li>
+          <li>Implement lazy loading for below-the-fold content</li>
+        </ul>
+        
+        <h3 class="text-xl font-semibold mb-3 text-white">First Input Delay (FID)</h3>
+        <p>Ensure interactivity within 100ms by minimizing JavaScript execution time and using efficient event handlers.</p>
+        
+        <h3 class="text-xl font-semibold mb-3 text-white">Cumulative Layout Shift (CLS)</h3>
+        <p>Prevent unexpected layout shifts by setting dimensions for images and ads, and avoiding inserting content above existing content.</p>
+        
+        <h2 class="text-2xl font-bold mb-4 text-white">Technical Optimization Strategies</h2>
+        <ul class="list-disc pl-6 mb-6">
+          <li><strong>Enable Compression:</strong> Use Gzip or Brotli compression</li>
+          <li><strong>Optimize Images:</strong> Compress, resize, and use appropriate formats</li>
+          <li><strong>Minify Resources:</strong> Reduce CSS, JavaScript, and HTML file sizes</li>
+          <li><strong>Leverage Caching:</strong> Implement browser and server-side caching</li>
+          <li><strong>Use a CDN:</strong> Distribute content globally for faster delivery</li>
+        </ul>
+        
+        <h2 class="text-2xl font-bold mb-4 text-white">Mobile Performance</h2>
+        <p>Mobile optimization is crucial as mobile traffic continues to dominate. Focus on responsive design, touch-friendly interfaces, and accelerated mobile pages (AMP) where appropriate.</p>
+        
+        <h2 class="text-2xl font-bold mb-4 text-white">Monitoring and Testing</h2>
+        <p>Use tools like Google PageSpeed Insights, GTmetrix, and WebPageTest to regularly monitor performance. Set up performance budgets and alerts to maintain optimal speeds.</p>
+        
+        <p>Remember, performance optimization is an ongoing process. Regular monitoring and continuous improvement will ensure your website provides the best possible user experience.</p>
+      </div>
+    `,
+    author: "Rigoberto Lopez",
+    tags: ["Web Development", "Performance", "Core Web Vitals", "Optimization"]
+  },
+  
   "digital-marketing-trends-2025": {
     title: "5 Digital Marketing Trends Reshaping the Industry in 2025",
     date: "April 18, 2025",
