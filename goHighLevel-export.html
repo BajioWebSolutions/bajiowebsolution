@@ -1,0 +1,501 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bajio Web Solutions - Professional Web Development & Digital Marketing Services</title>
+    <meta name="description" content="Transform your online presence with Bajio Web Solutions. We offer professional web development, SEO, and digital marketing services tailored to grow your business.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/lovable-uploads/1df209b2-56a3-4ba2-ae30-8ee0015a8129.png">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Core CSS converted from Tailwind */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #f1f5f9;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            z-index: 50;
+            padding: 1rem 0;
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+        
+        .logo img {
+            height: 64px;
+            width: auto;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-link {
+            color: #f1f5f9;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: #2dd4bf;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #10b981, #2dd4bf);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(45, 212, 191, 0.3);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, rgba(45, 212, 191, 0.05) 100%);
+            padding: 120px 0 80px;
+        }
+        
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+        
+        .text-primary {
+            color: #2dd4bf;
+        }
+        
+        .hero-content p {
+            font-size: 1.25rem;
+            color: #ccfbf1;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #10b981, #2dd4bf);
+            color: white;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.125rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #2dd4bf;
+            padding: 16px 32px;
+            border: 2px solid #2dd4bf;
+            border-radius: 8px;
+            font-size: 1.125rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .hero-features {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            font-weight: 500;
+        }
+        
+        .hero-image {
+            text-align: center;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: #0f172a;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: rgba(30, 41, 59, 0.5);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(45, 212, 191, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover {
+            border-color: rgba(45, 212, 191, 0.3);
+            transform: translateY(-5px);
+        }
+        
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(45, 212, 191, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card p {
+            color: #94a3b8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-kpi {
+            color: #2dd4bf;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background: rgba(30, 41, 59, 0.95);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid rgba(45, 212, 191, 0.2);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer h3 {
+            background: linear-gradient(135deg, #2dd4bf, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .footer p, .footer li {
+            color: #ccfbf1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer ul {
+            list-style: none;
+        }
+        
+        .footer a {
+            color: #ccfbf1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer a:hover {
+            color: #2dd4bf;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(45, 212, 191, 0.1);
+            color: #ccfbf1;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .hero-features {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <img src="/lovable-uploads/1df209b2-56a3-4ba2-ae30-8ee0015a8129.png" alt="Bajio Web Solutions">
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#blog" class="nav-link">Blog</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <a href="#contact" class="cta-button">Book a Free Website Audit ➔</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(45, 212, 191, 0.2); color: #2dd4bf; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.875rem; font-weight: 500; margin-bottom: 1.5rem;">
+                        <span style="position: relative; display: flex; height: 8px; width: 8px;">
+                            <span style="position: absolute; display: inline-flex; height: 100%; width: 100%; border-radius: 50%; background: #2dd4bf; opacity: 0.75; animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;"></span>
+                            <span style="position: relative; display: inline-flex; border-radius: 50%; height: 8px; width: 8px; background: #2dd4bf;"></span>
+                        </span>
+                        Now Offering 7/Wk Support
+                    </div>
+                    
+                    <h1>
+                        <span style="color: white;">Transform Your Digital</span><br>
+                        <span class="text-primary">Presence Today</span>
+                    </h1>
+                    
+                    <p>We create stunning, high-performance websites and implement effective digital marketing strategies that drive real business growth.</p>
+
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn-primary">Get Started ➔</a>
+                        <a href="#services" class="btn-secondary">View Services</a>
+                    </div>
+
+                    <div class="hero-features">
+                        <div class="feature-item">
+                            <span>✓</span>
+                            <span>Custom Solutions</span>
+                        </div>
+                        <div class="feature-item">
+                            <span>✓</span>
+                            <span>Expert Support</span>
+                        </div>
+                        <div class="feature-item">
+                            <span>✓</span>
+                            <span>100% Satisfaction</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-image">
+                    <img src="/lovable-uploads/8cbecad2-2102-44f5-8942-42e17c95d52a.png" alt="Bajio Web Solutions">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Comprehensive <span class="text-primary">Digital Solutions</span></h2>
+                <p style="color: #94a3b8; font-size: 1.125rem; max-width: 768px; margin: 0 auto;">We deliver measurable results through data-driven strategies and cutting-edge technology. Our services are tailored to help your business grow and succeed online.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3>Web Design</h3>
+                    <p>Custom web design solutions that convert visitors into customers.</p>
+                    <p class="service-kpi">Average 40% increase in conversion rates</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3>SEO Services</h3>
+                    <p>Dominate search rankings with data-driven SEO strategies.</p>
+                    <p class="service-kpi">200% average increase in organic traffic</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Digital Marketing</h3>
+                    <p>Results-driven marketing campaigns that grow your business.</p>
+                    <p class="service-kpi">3X average return on ad spend</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3>Web Development</h3>
+                    <p>Custom web solutions built for performance and scale.</p>
+                    <p class="service-kpi">99.9% uptime guarantee</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Social Media Marketing</h3>
+                    <p>Build brand awareness and engage your target audience.</p>
+                    <p class="service-kpi">150% average increase in engagement</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3>PPC Advertising</h3>
+                    <p>Targeted campaigns that deliver measurable results.</p>
+                    <p class="service-kpi">25% average reduction in cost per lead</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>Bajio Web Solutions</h3>
+                    <p>Transforming businesses through innovative digital solutions and exceptional web experiences.</p>
+                </div>
+                
+                <div>
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#services">Web Design</a></li>
+                        <li><a href="#services">Web Development</a></li>
+                        <li><a href="#services">SEO Services</a></li>
+                        <li><a href="#services">Digital Marketing</a></li>
+                        <li><a href="#services">Social Media Marketing</a></li>
+                        <li><a href="#services">PPC Advertising</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li>📞 1 (860) 383-6578</li>
+                        <li>✉️ info@bajiowebsolutions.com</li>
+                        <li>📍 902 Trumbull Hwy, Lebanon, CT 06249</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Bajio Web Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        @keyframes ping {
+            75%, 100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+    </style>
+</body>
+</html>
