@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { X } from "lucide-react";
 
@@ -27,24 +26,38 @@ export const ExitIntentPopup = () => {
     const hasSeenExitPopup = localStorage.getItem("hasSeenExitPopup");
     if (hasSeenExitPopup) return;
     
-    // Only add the listener if user hasn't seen the popup
+    let timeoutId: NodeJS.Timeout;
+    
     const handleMouseLeave = (e: MouseEvent) => {
-      // Detect if mouse is leaving to the top of the page
-      if (e.clientY <= 0) {
+      // Detect if mouse is leaving to the top of the page with more reliable detection
+      if (e.clientY <= 10 && e.relatedTarget === null) {
         setIsOpen(true);
         // Remove event listener after triggering once
         document.removeEventListener("mouseleave", handleMouseLeave);
+        document.removeEventListener("mouseout", handleMouseOut);
+      }
+    };
+    
+    // Additional mouseout handler for better cross-browser support
+    const handleMouseOut = (e: MouseEvent) => {
+      // Check if mouse is moving out of the document
+      if (!e.relatedTarget && e.clientY <= 10) {
+        setIsOpen(true);
+        document.removeEventListener("mouseleave", handleMouseLeave);
+        document.removeEventListener("mouseout", handleMouseOut);
       }
     };
     
     // Set a delay before adding the listener to prevent it from triggering immediately
-    const timer = setTimeout(() => {
+    timeoutId = setTimeout(() => {
       document.addEventListener("mouseleave", handleMouseLeave);
+      document.addEventListener("mouseout", handleMouseOut);
     }, 3000);
     
     return () => {
-      clearTimeout(timer);
+      clearTimeout(timeoutId);
       document.removeEventListener("mouseleave", handleMouseLeave);
+      document.removeEventListener("mouseout", handleMouseOut);
     };
   }, []);
 
