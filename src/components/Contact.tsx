@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -17,8 +18,9 @@ export const Contact = () => {
       phone: false
     }
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!formData.name || !formData.email || !formData.message) {
@@ -32,18 +34,67 @@ export const Contact = () => {
       return;
     }
 
-    toast.success("Message sent successfully!");
-    
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      message: '',
-      contactPreference: {
-        email: false,
-        phone: false
+    setIsSubmitting(true);
+
+    try {
+      // Create a hidden form to submit to Netlify
+      const form = document.createElement('form');
+      form.setAttribute('method', 'POST');
+      form.setAttribute('name', 'contact');
+      form.setAttribute('data-netlify', 'true');
+      form.style.display = 'none';
+
+      // Add form fields
+      const fields = [
+        { name: 'form-name', value: 'contact' },
+        { name: 'name', value: formData.name },
+        { name: 'email', value: formData.email },
+        { name: 'phone', value: formData.phone },
+        { name: 'message', value: formData.message },
+        { name: 'contact-preference', value: JSON.stringify(formData.contactPreference) }
+      ];
+
+      fields.forEach(field => {
+        const input = document.createElement('input');
+        input.setAttribute('type', 'hidden');
+        input.setAttribute('name', field.name);
+        input.setAttribute('value', field.value);
+        form.appendChild(input);
+      });
+
+      document.body.appendChild(form);
+      
+      // Submit the form
+      const formData2 = new FormData(form);
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData2 as any).toString()
+      });
+
+      if (response.ok) {
+        toast.success("Message sent successfully! We'll get back to you soon.");
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          message: '',
+          contactPreference: {
+            email: false,
+            phone: false
+          }
+        });
+      } else {
+        throw new Error('Failed to submit form');
       }
-    });
+
+      document.body.removeChild(form);
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast.error("Failed to send message. Please try again or contact us directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -66,6 +117,15 @@ export const Contact = () => {
 
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-background-dark via-neutral-dark to-primary/5 dark:from-neutral-dark dark:via-background-dark dark:to-primary/10 py-section">
+      {/* Hidden form for Netlify */}
+      <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="tel" name="phone" />
+        <textarea name="message"></textarea>
+        <input type="text" name="contact-preference" />
+      </form>
+
       {/* Dark overlay for better contrast */}
       <div className="absolute inset-0 bg-black/30 dark:bg-black/60" />
       
@@ -141,6 +201,7 @@ export const Contact = () => {
                     placeholder="Name*"
                     className="w-full bg-white/10 dark:bg-black/30 border-primary/20 focus:border-primary text-foreground dark:text-white placeholder:text-foreground/60 dark:placeholder:text-white/60"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
                 <div className="grid grid-cols-2 gap-4">
@@ -152,6 +213,7 @@ export const Contact = () => {
                     placeholder="Email*"
                     className="w-full bg-white/10 dark:bg-black/30 border-primary/20 focus:border-primary text-foreground dark:text-white placeholder:text-foreground/60 dark:placeholder:text-white/60"
                     required
+                    disabled={isSubmitting}
                   />
                   <Input
                     type="tel"
@@ -160,6 +222,7 @@ export const Contact = () => {
                     onChange={handleChange}
                     placeholder="Phone"
                     className="w-full bg-white/10 dark:bg-black/30 border-primary/20 focus:border-primary text-foreground dark:text-white placeholder:text-foreground/60 dark:placeholder:text-white/60"
+                    disabled={isSubmitting}
                   />
                 </div>
                 <div className="space-y-2">
@@ -171,6 +234,7 @@ export const Contact = () => {
                         checked={formData.contactPreference.email}
                         onChange={() => handleCheckboxChange('email')}
                         className="rounded border-primary/20 bg-white/10 dark:bg-black/30"
+                        disabled={isSubmitting}
                       />
                       <span>Email</span>
                     </label>
@@ -180,6 +244,7 @@ export const Contact = () => {
                         checked={formData.contactPreference.phone}
                         onChange={() => handleCheckboxChange('phone')}
                         className="rounded border-primary/20 bg-white/10 dark:bg-black/30"
+                        disabled={isSubmitting}
                       />
                       <span>Phone</span>
                     </label>
@@ -193,13 +258,15 @@ export const Contact = () => {
                     placeholder="Message*"
                     className="w-full min-h-[150px] bg-white/10 dark:bg-black/30 border-primary/20 focus:border-primary text-foreground dark:text-white placeholder:text-foreground/60 dark:placeholder:text-white/60"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
                 <Button
                   type="submit"
                   className="w-full bg-gradient-to-r from-primary to-primary-light dark:from-primary-dark dark:to-primary hover:from-primary-light hover:to-primary dark:hover:from-primary dark:hover:to-primary-light text-white font-medium transition-all duration-300 hover:scale-105 rounded-lg"
+                  disabled={isSubmitting}
                 >
-                  Submit
+                  {isSubmitting ? "Sending..." : "Submit"}
                 </Button>
               </div>
             </motion.form>
