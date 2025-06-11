@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { 
   Dialog,
@@ -27,37 +26,34 @@ export const ExitIntentPopup = () => {
     if (hasSeenExitPopup) return;
     
     let timeoutId: NodeJS.Timeout;
+    let isListenerActive = false;
     
     const handleMouseLeave = (e: MouseEvent) => {
-      // Detect if mouse is leaving to the top of the page with more reliable detection
-      if (e.clientY <= 10 && e.relatedTarget === null) {
+      console.log('Mouse leave detected:', { clientY: e.clientY, pageY: e.pageY });
+      
+      // Detect if mouse is leaving towards the top of the page (exit intent)
+      // Using clientY <= 5 to catch movement towards browser UI
+      if (e.clientY <= 5) {
+        console.log('Exit intent detected - showing popup');
         setIsOpen(true);
-        // Remove event listener after triggering once
+        // Remove event listeners after triggering once
         document.removeEventListener("mouseleave", handleMouseLeave);
-        document.removeEventListener("mouseout", handleMouseOut);
-      }
-    };
-    
-    // Additional mouseout handler for better cross-browser support
-    const handleMouseOut = (e: MouseEvent) => {
-      // Check if mouse is moving out of the document
-      if (!e.relatedTarget && e.clientY <= 10) {
-        setIsOpen(true);
-        document.removeEventListener("mouseleave", handleMouseLeave);
-        document.removeEventListener("mouseout", handleMouseOut);
+        isListenerActive = false;
       }
     };
     
     // Set a delay before adding the listener to prevent it from triggering immediately
     timeoutId = setTimeout(() => {
+      console.log('Adding exit intent listener');
       document.addEventListener("mouseleave", handleMouseLeave);
-      document.addEventListener("mouseout", handleMouseOut);
-    }, 3000);
+      isListenerActive = true;
+    }, 5000); // Increased delay to 5 seconds
     
     return () => {
       clearTimeout(timeoutId);
-      document.removeEventListener("mouseleave", handleMouseLeave);
-      document.removeEventListener("mouseout", handleMouseOut);
+      if (isListenerActive) {
+        document.removeEventListener("mouseleave", handleMouseLeave);
+      }
     };
   }, []);
 
