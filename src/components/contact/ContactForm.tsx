@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -104,7 +103,7 @@ export const ContactForm = () => {
   return (
     <>
       {/* Hidden form for Netlify */}
-      <form name="project-inquiry" netlify netlify-honeypot="bot-field" hidden>
+      <form name="project-inquiry" data-netlify="true" data-netlify-honeypot="bot-field" style={{ display: 'none' }}>
         <input type="text" name="fullName" />
         <input type="email" name="email" />
         <input type="tel" name="phone" />

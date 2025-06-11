@@ -136,7 +136,7 @@ export const ExitIntentPopup = () => {
   return (
     <>
       {/* Hidden form for Netlify */}
-      <form name="website-audit" netlify netlify-honeypot="bot-field" hidden>
+      <form name="website-audit" data-netlify="true" data-netlify-honeypot="bot-field" style={{ display: 'none' }}>
         <input type="text" name="name" />
         <input type="email" name="email" />
         <input type="url" name="website" />

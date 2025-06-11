@@ -118,7 +118,7 @@ export const Contact = () => {
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-background-dark via-neutral-dark to-primary/5 dark:from-neutral-dark dark:via-background-dark dark:to-primary/10 py-section">
       {/* Hidden form for Netlify */}
-      <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" style={{ display: 'none' }}>
         <input type="text" name="name" />
         <input type="email" name="email" />
         <input type="tel" name="phone" />
