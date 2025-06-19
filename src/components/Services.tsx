@@ -1,4 +1,3 @@
-
 import { Globe, Search, BarChart3, Code2, Share2, Target, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -78,6 +77,14 @@ const services = [
 export const Services = () => {
   const [selectedService, setSelectedService] = useState<(typeof services)[0] | null>(null);
 
+  const handleServiceClick = (service: typeof services[0]) => {
+    setSelectedService(service);
+  };
+
+  const handleCloseDialog = () => {
+    setSelectedService(null);
+  };
+
   return (
     <section className="py-20 bg-background-dark relative overflow-hidden">
       {/* Enhanced background with subtle patterns */}
@@ -110,12 +117,12 @@ export const Services = () => {
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className="group glass-card p-8 rounded-2xl cursor-pointer transform-gpu fade-in-up hover:scale-105 transition-all duration-500"
+              className="group glass-card p-8 rounded-2xl cursor-pointer transform-gpu hover:scale-105 transition-all duration-500"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              onClick={() => setSelectedService(service)}
+              onClick={() => handleServiceClick(service)}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               {/* Problem-focused headline */}
@@ -194,8 +201,8 @@ export const Services = () => {
         </motion.div>
       </div>
 
-      <Dialog open={!!selectedService} onOpenChange={() => setSelectedService(null)}>
-        <DialogContent className="max-w-3xl glass-card border-primary/20 backdrop-blur-xl">
+      <Dialog open={!!selectedService} onOpenChange={handleCloseDialog}>
+        <DialogContent className="max-w-3xl glass-card border-primary/20 backdrop-blur-xl fixed left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold flex items-center gap-3 text-foreground-dark">
               {selectedService?.icon && <selectedService.icon className="h-6 w-6 text-primary" />}
@@ -224,7 +231,7 @@ export const Services = () => {
               asChild
               className="flex-1 bg-gradient-to-r from-primary to-primary-light hover:from-primary-light hover:to-primary text-white font-medium transition-all duration-300 hover:scale-105"
             >
-              <Link to="/contact#start-project">
+              <Link to="/contact#start-project" onClick={handleCloseDialog}>
                 Get Started Today
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
@@ -235,7 +242,7 @@ export const Services = () => {
               variant="outline"
               className="flex-1 border-primary/30 text-primary hover:bg-primary/10"
             >
-              <Link to={selectedService?.path || "#"}>
+              <Link to={selectedService?.path || "#"} onClick={handleCloseDialog}>
                 Learn More Details
               </Link>
             </Button>
