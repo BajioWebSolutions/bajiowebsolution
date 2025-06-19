@@ -227,7 +227,7 @@ export const ContactForm = () => {
                 onChange={handleChange}
                 className="w-full bg-white/10 border-white/20 focus:border-primary text-white placeholder:text-white/60 transition-all duration-300 focus:ring-2 focus:ring-primary/30 hover:border-primary/50"
                 placeholder="Your Company LLC"
-                disable={isSubmitting}
+                disabled={isSubmitting}
               />
             </div>
           </div>
