@@ -4,7 +4,7 @@ import { ChartBarIcon, UsersIcon, CheckCircleIcon, TrophyIcon } from "lucide-rea
 
 const impactMetrics = [
   {
-    value: "1.8x",
+    value: "1.5x",
     label: "Average ROI",
     description: "Return on investment for our clients",
     icon: ChartBarIcon,
@@ -22,7 +22,7 @@ const impactMetrics = [
     icon: CheckCircleIcon,
   },
   {
-    value: "6",
+    value: "22",
     label: "Months Active",
     description: "Building digital solutions since launch",
     icon: TrophyIcon,

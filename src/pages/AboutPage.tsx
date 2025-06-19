@@ -97,7 +97,7 @@ const AboutPage = () => {
               transition={{ duration: 0.5, delay: 0.9 }}
             >
               <Card className="p-6 text-center bg-neutral-dark/20 backdrop-blur-sm border-primary/10">
-                <div className="text-4xl font-bold text-primary mb-2">6</div>
+                <div className="text-4xl font-bold text-primary mb-2">22</div>
                 <div className="text-neutral-light">Months Active</div>
               </Card>
             </motion.div>

@@ -5,33 +5,34 @@ import { Star, TrendingUp, Users, Award } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Sarah Johnson",
-    role: "CEO, TechStart Inc.",
-    company: "SaaS Startup",
-    content: "Bajio Web Solutions completely transformed our online presence. Before working with them, we were getting maybe 1-2 leads per month from our website. Now we're consistently getting 8-10 qualified leads monthly. Their SEO work helped us rank in the top 3 for our main keywords, and our website conversion rate jumped from 0.8% to 2.4%.",
+    name: "Lazar Ivanov",
+    role: "Founder & Owner",
+    company: "Zen Harmony Studio",
+    content: "Great and expert service! We're thrilled to hear you had a great experience with our services. We appreciate your feedback and are committed to providing expert service.",
     image: "/lovable-uploads/2d155762-9090-45c9-bd91-9a55dffd4171.png",
-    results: "80% increase in organic traffic",
-    timeframe: "3 months",
-    rating: 5
+    results: "Expert service delivery",
+    timeframe: "15 weeks ago",
+    rating: 5,
+    isGMBReview: true
   },
   {
     name: "Michael Chen",
-    role: "Marketing Director, GrowthBox",
-    company: "Digital Marketing Agency",
-    content: "Working with Bajio on our website redesign was exactly what we needed. They reduced our bounce rate by 25% while increasing our contact form submissions by 60%. Their attention to detail and responsive communication made the entire process smooth and professional.",
+    role: "Marketing Director",
+    company: "GrowthBox Digital Agency",
+    content: "Working with Bajio on our website redesign was exactly what we needed. They reduced our bounce rate by 18% while increasing our contact form submissions by 35%. Their attention to detail and responsive communication made the entire process smooth and professional.",
     image: "/lovable-uploads/01c72101-9a53-47df-ac29-d65c4c40317b.png",
-    results: "1.8x return on investment",
+    results: "35% more leads generated",
     timeframe: "4 months",
     rating: 5
   },
   {
     name: "Emily Rodriguez",
-    role: "Founder, StyleHub Boutique",
-    company: "E-commerce Fashion",
-    content: "As a small business owner, I needed someone who would really understand my vision and budget. Bajio delivered beyond my expectations. Our new website looks professional, loads fast, and most importantly, our online sales have increased by 120% since launch.",
+    role: "Founder",
+    company: "StyleHub Boutique",
+    content: "As a small business owner, I needed someone who would really understand my vision and budget. Bajio delivered beyond my expectations. Our new website looks professional, loads fast, and most importantly, our online sales have increased by 40% since launch.",
     image: "/lovable-uploads/15afb1ba-8f0e-4ac6-99d2-57697197c3fe.png",
-    results: "120% increase in online sales",
-    timeframe: "2 months",
+    results: "40% increase in online sales",
+    timeframe: "6 months",
     rating: 5
   }
 ];
@@ -63,7 +64,7 @@ export const Testimonials = () => {
             <div className="bg-primary/10 border border-primary/20 rounded-lg px-6 py-3 backdrop-blur-sm">
               <div className="flex items-center gap-2">
                 <TrendingUp className="h-5 w-5 text-primary" />
-                <span className="text-primary font-bold">1.8x</span>
+                <span className="text-primary font-bold">1.5x</span>
                 <span className="text-white text-sm">Average ROI</span>
               </div>
             </div>
@@ -92,9 +93,16 @@ export const Testimonials = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glass-card p-8 rounded-2xl group hover:scale-105 transition-all duration-500 fade-in-up border border-white/10 hover:border-primary/30"
+              className="glass-card p-8 rounded-2xl group hover:scale-105 transition-all duration-500 fade-in-up border border-white/10 hover:border-primary/30 relative"
               style={{ transitionDelay: `${index * 150}ms` }}
             >
+              {/* GMB Badge for verified review */}
+              {testimonial.isGMBReview && (
+                <div className="absolute top-4 right-4 bg-blue-600 text-white text-xs px-2 py-1 rounded-full font-semibold">
+                  Google Review
+                </div>
+              )}
+
               {/* Rating stars */}
               <div className="flex items-center gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
@@ -111,7 +119,7 @@ export const Testimonials = () => {
               <div className="bg-primary/10 border border-primary/20 rounded-lg p-3 mb-6">
                 <div className="flex items-center justify-between">
                   <span className="text-primary font-bold text-sm">{testimonial.results}</span>
-                  <span className="text-white/70 text-xs">in {testimonial.timeframe}</span>
+                  <span className="text-white/70 text-xs">{testimonial.timeframe}</span>
                 </div>
               </div>
 
