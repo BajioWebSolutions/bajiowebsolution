@@ -66,19 +66,23 @@ export const Services = () => {
   const [selectedService, setSelectedService] = useState<(typeof services)[0] | null>(null);
 
   return (
-    <section className="py-20 bg-background-dark">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-background-dark relative overflow-hidden">
+      {/* Enhanced background with subtle patterns */}
+      <div className="absolute inset-0 bg-gradient-radial from-primary/3 via-background-dark to-background-dark opacity-80" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(45,212,191,0.05)_0%,transparent_50%)]" />
+      
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-16 fade-in-up"
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-foreground-dark">
             Comprehensive <span className="text-primary">Digital Solutions</span>
           </h2>
-          <p className="text-neutral text-lg">
+          <p className="text-neutral text-lg leading-relaxed">
             We deliver measurable results through data-driven strategies and cutting-edge technology.
             Our services are tailored to help your business grow and succeed online.
           </p>
@@ -88,34 +92,46 @@ export const Services = () => {
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className="group p-6 rounded-xl bg-neutral-dark border border-neutral-light/10 hover:border-primary/20 transition-all duration-500 shadow-sm hover:shadow-xl cursor-pointer perspective-1000 overflow-hidden will-change-transform transform-gpu"
+              className="group glass-card p-8 rounded-2xl cursor-pointer perspective-1000 overflow-hidden will-change-transform transform-gpu fade-in-up"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               onClick={() => setSelectedService(service)}
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
-                <service.icon className="h-6 w-6 text-primary transition-all duration-300 group-hover:filter group-hover:drop-shadow-[0_0_8px_rgba(0,255,242,0.5)]" />
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-foreground-dark transition-transform duration-300 group-hover:translate-y-[-5px]">
-                {service.title}
-              </h3>
-              <p className="text-neutral mb-6 transition-transform duration-300 group-hover:translate-y-[-3px]">{service.description}</p>
+              {/* Subtle glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-2xl" />
               
-              <div className="mt-auto">
-                <p className="text-sm font-medium text-primary relative overflow-hidden before:absolute before:left-0 before:bottom-0 before:h-[1px] before:w-0 before:bg-primary before:transition-all before:duration-300 group-hover:before:w-full">{service.kpi}</p>
+              <div className="relative z-10">
+                <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                  <service.icon className="h-8 w-8 text-primary transition-all duration-300 group-hover:drop-shadow-[0_0_12px_rgba(45,212,191,0.6)]" />
+                </div>
+                
+                <h3 className="text-xl font-bold mb-4 text-foreground-dark transition-all duration-300 group-hover:text-primary">
+                  {service.title}
+                </h3>
+                
+                <p className="text-neutral mb-6 leading-relaxed transition-transform duration-300 group-hover:translate-y-[-2px]">
+                  {service.description}
+                </p>
+                
+                <div className="mt-auto">
+                  <p className="text-sm font-medium text-primary relative overflow-hidden before:absolute before:left-0 before:bottom-0 before:h-[2px] before:w-0 before:bg-primary/60 before:transition-all before:duration-300 group-hover:before:w-full">
+                    {service.kpi}
+                  </p>
+                </div>
               </div>
               
-              {/* Liquid effect background */}
-              <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+              {/* Hover border effect */}
+              <div className="absolute inset-0 rounded-2xl border border-primary/0 group-hover:border-primary/30 transition-all duration-500" />
             </motion.div>
           ))}
         </div>
       </div>
 
       <Dialog open={!!selectedService} onOpenChange={() => setSelectedService(null)}>
-        <DialogContent className="max-w-2xl bg-neutral-dark border-neutral-dark backdrop-blur-lg">
+        <DialogContent className="max-w-2xl glass-card border-primary/20 backdrop-blur-xl">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold flex items-center gap-3 text-foreground-dark">
               {selectedService?.icon && <selectedService.icon className="h-6 w-6 text-primary" />}
@@ -128,7 +144,7 @@ export const Services = () => {
           <div className="mt-6">
             <Link
               to={selectedService?.path || "#"}
-              className="inline-flex items-center justify-center px-6 py-3 bg-primary hover:bg-primary-dark text-background-dark font-medium rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/30 relative overflow-hidden before:absolute before:inset-0 before:w-full before:h-full before:bg-gradient-to-r before:from-primary/0 before:via-white/30 before:to-primary/0 before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700"
+              className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-primary to-primary-dark hover:from-primary-light hover:to-primary text-white font-medium rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/30 relative overflow-hidden before:absolute before:inset-0 before:w-full before:h-full before:bg-gradient-to-r before:from-primary/0 before:via-white/30 before:to-primary/0 before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700"
             >
               Learn More
             </Link>

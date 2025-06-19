@@ -1,3 +1,4 @@
+
 import { Avatar } from "@/components/ui/avatar";
 import { motion } from "framer-motion";
 
@@ -12,7 +13,7 @@ const testimonials = [
     name: "Michael Chen",
     role: "Marketing Director, GrowthBox",
     content: "The PPC campaign management by Bajio Web Solutions delivered exceptional ROI. Their team's expertise in digital marketing is unmatched.",
-    image: "/lovable-uploads/01c72101-9a53-47df-ac29-d65c4c40317b.png"
+    image: "/lov able-uploads/01c72101-9a53-47df-ac29-d65c4c40317b.png"
   },
   {
     name: "Emily Rodriguez",
@@ -24,19 +25,21 @@ const testimonials = [
 
 export const Testimonials = () => {
   return (
-    <section className="relative py-16 bg-background-dark">
-      {/* Gradient overlay similar to hero section */}
-      <div className="absolute inset-0 bg-gradient-radial from-primary/5 via-background-dark to-background-dark opacity-50" />
+    <section className="relative py-20 bg-background-dark overflow-hidden">
+      {/* Enhanced gradient overlay with depth */}
+      <div className="absolute inset-0 bg-gradient-radial from-primary/6 via-background-dark to-background-dark opacity-70" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(45,212,191,0.08)_0%,transparent_60%)]" />
       
       <div className="container mx-auto px-4 relative z-10">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-3xl font-bold text-center mb-12 text-foreground-dark"
+          className="text-3xl sm:text-4xl font-bold text-center mb-12 text-foreground-dark fade-in-up"
         >
           What Our <span className="text-primary">Clients Say</span>
         </motion.h2>
+        
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <motion.div
@@ -45,10 +48,11 @@ export const Testimonials = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-neutral-dark/20 backdrop-blur-sm p-6 rounded-lg border border-primary/10 shadow-lg"
+              className="glass-card p-8 rounded-2xl group hover:scale-105 transition-all duration-500 fade-in-up"
+              style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <div className="flex items-center mb-4">
-                <Avatar className="h-12 w-12">
+              <div className="flex items-center mb-6">
+                <Avatar className="h-16 w-16 ring-2 ring-primary/20 group-hover:ring-primary/40 transition-all duration-300">
                   <img 
                     src={testimonial.image} 
                     alt={testimonial.name}
@@ -56,11 +60,17 @@ export const Testimonials = () => {
                   />
                 </Avatar>
                 <div className="ml-4">
-                  <h4 className="font-semibold text-foreground-dark">{testimonial.name}</h4>
-                  <p className="text-sm text-primary">{testimonial.role}</p>
+                  <h4 className="font-semibold text-foreground-dark text-lg group-hover:text-primary transition-colors duration-300">
+                    {testimonial.name}
+                  </h4>
+                  <p className="text-sm text-primary font-medium">
+                    {testimonial.role}
+                  </p>
                 </div>
               </div>
-              <p className="text-neutral-light leading-relaxed">{testimonial.content}</p>
+              <p className="text-neutral-light leading-relaxed text-base">
+                "{testimonial.content}"
+              </p>
             </motion.div>
           ))}
         </div>

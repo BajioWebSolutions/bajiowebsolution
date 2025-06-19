@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { Navigation } from "./components/Navigation";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { ExitIntentPopup } from "./components/ExitIntentPopup";
+import { ScrollAnimations } from "./components/ScrollAnimations";
 import { Suspense, lazy, useEffect } from 'react';
 import { AnimatePresence, motion } from "framer-motion";
 import { HelmetProvider } from 'react-helmet-async';
@@ -29,7 +30,7 @@ const queryClient = new QueryClient({
   },
 });
 
-// Enhanced page transition wrapper
+// Enhanced page transition wrapper with glassmorphism
 const PageWrapper = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
   
@@ -41,7 +42,7 @@ const PageWrapper = ({ children }: { children: React.ReactNode }) => {
         opacity: 1, 
         y: 0,
         transition: {
-          duration: 0.5,
+          duration: 0.6,
           ease: [0.43, 0.13, 0.23, 0.96]
         }
       }}
@@ -49,7 +50,7 @@ const PageWrapper = ({ children }: { children: React.ReactNode }) => {
         opacity: 0, 
         y: 20,
         transition: {
-          duration: 0.3,
+          duration: 0.4,
           ease: [0.43, 0.13, 0.23, 0.96]
         }
       }}
@@ -93,15 +94,16 @@ const App = () => {
           <BrowserRouter basename="/">
             <Navigation />
             <ExitIntentPopup />
+            <ScrollAnimations />
             <div className="pt-20">
               <Suspense fallback={
                 <motion.div 
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="flex items-center justify-center min-h-[60vh]"
+                  className="flex items-center justify-center min-h-[60vh] glass-card mx-4 mt-8 rounded-2xl"
                 >
-                  <div className="animate-pulse text-primary">Loading...</div>
+                  <div className="animate-pulse text-primary text-lg font-medium">Loading...</div>
                 </motion.div>
               }>
                 <AnimatePresence mode="wait">

@@ -79,8 +79,20 @@
     @apply py-section;
   }
 
+  /* Enhanced Glassmorphism Card Styles */
   .card {
-    @apply rounded-card shadow-lg hover:shadow-xl transition-shadow duration-300 bg-neutral-dark/20 backdrop-blur-sm border border-primary/10;
+    @apply rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500;
+    background: rgba(30, 41, 59, 0.25);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .card:hover {
+    background: rgba(30, 41, 59, 0.35);
+    border: 1px solid rgba(45, 212, 191, 0.2);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 0 20px rgba(45, 212, 191, 0.1);
   }
 
   .gradient-text {
@@ -151,23 +163,106 @@
   }
 
   .blog-card {
-    @apply transition-all duration-300 hover:-translate-y-1;
+    @apply transition-all duration-500 hover:-translate-y-2;
+    background: rgba(30, 41, 59, 0.3);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .blog-card:hover {
+    background: rgba(30, 41, 59, 0.4);
+    border: 1px solid rgba(45, 212, 191, 0.15);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2), 0 0 16px rgba(45, 212, 191, 0.08);
   }
 
   .custom-shadow {
     @apply shadow-lg shadow-black/5;
   }
 
+  /* Enhanced Glass Card with Modern Glassmorphism */
   .glass-card {
-    @apply bg-gray-800/20 backdrop-blur-sm border border-white/10;
+    background: rgba(30, 41, 59, 0.25);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glass-card:hover {
+    background: rgba(30, 41, 59, 0.35);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(45, 212, 191, 0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 0 20px rgba(45, 212, 191, 0.1);
+  }
+
+  /* Scroll Animation Classes */
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .fade-in-up.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fade-in-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .fade-in-left.animate {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .fade-in-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .fade-in-right.animate {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .scale-in {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .scale-in.animate {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
-/* Improved blog post styling for better readability */
+/* Enhanced Typography */
+h1, h2, h3, h4 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  line-height: 1.16;
+  letter-spacing: -0.02em;
+}
+
+.text-foreground-dark {
+  color: #e2e8f0 !important;
+}
+
+.text-neutral,
+.text-gray-400,
+.text-gray-300 {
+  color: #9ca3af !important;
+}
 
 /* Cards */
 .blog-card {
-  @apply bg-gray-800 rounded-lg overflow-hidden transition-transform duration-300 custom-shadow hover:-translate-y-1.5;
+  @apply rounded-2xl overflow-hidden transition-all duration-500 custom-shadow hover:-translate-y-2;
 }
 
 /* Explicitly define colors without @apply */
@@ -193,33 +288,40 @@ nav[aria-label="Pagination"] a {
   @apply px-4 py-2 font-semibold text-sm mx-1 transition-colors rounded-button;
 }
 
-/* Replace the circular dependency with direct color definition */
 nav[aria-label="Pagination"] .text-primary {
   color: #15B8A6;
 }
 
-/* Typography enhancements */
-h1, h2, h3, h4 {
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  line-height: 1.16;
-  letter-spacing: -0.01em;
-}
-.text-foreground-dark {
-  color: #e2e8f0 !important;
-}
-.text-neutral,
-.text-gray-400,
-.text-gray-300 {
-  color: #9ca3af !important;
-}
-
-@media (max-width: 600px) {
+/* Mobile Responsiveness Improvements */
+@media (max-width: 768px) {
   .blog-card {
     margin-bottom: 1.5rem;
   }
+  
   .text-xl, .text-3xl, .text-4xl {
-    font-size: 1.05rem !important;
+    font-size: 1.125rem !important;
+  }
+
+  .glass-card {
+    backdrop-filter: blur(16px);
+  }
+
+  .card {
+    backdrop-filter: blur(12px);
+  }
+}
+
+@media (max-width: 640px) {
+  h1 {
+    @apply text-3xl;
+  }
+
+  h2 {
+    @apply text-2xl;
+  }
+
+  .glass-card {
+    padding: 1rem;
   }
 }
 
@@ -233,4 +335,14 @@ h1, h2, h3, h4 {
 *:focus-visible {
   outline: 2px solid #15B8A6;
   outline-offset: 2px;
+}
+
+/* Modern Shadow System */
+.shadow-3xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 30px rgba(45, 212, 191, 0.05);
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
 }
