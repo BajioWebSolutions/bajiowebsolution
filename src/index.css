@@ -81,7 +81,7 @@
 
   /* Enhanced Glassmorphism Card Styles */
   .card {
-    @apply rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500;
+    @apply rounded-2xl shadow-2xl transition-all duration-500;
     background: rgba(30, 41, 59, 0.25);
     backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -92,7 +92,7 @@
     background: rgba(30, 41, 59, 0.35);
     border: 1px solid rgba(45, 212, 191, 0.2);
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 0 20px rgba(45, 212, 191, 0.1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 30px rgba(45, 212, 191, 0.05);
   }
 
   .gradient-text {
@@ -240,6 +240,11 @@
     opacity: 1;
     transform: scale(1);
   }
+
+  /* Custom shadow utility that can be used with @apply */
+  .shadow-3xl {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 30px rgba(45, 212, 191, 0.05);
+  }
 }
 
 /* Enhanced Typography */
@@ -335,11 +340,6 @@ nav[aria-label="Pagination"] .text-primary {
 *:focus-visible {
   outline: 2px solid #15B8A6;
   outline-offset: 2px;
-}
-
-/* Modern Shadow System */
-.shadow-3xl {
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 30px rgba(45, 212, 191, 0.05);
 }
 
 /* Smooth scroll behavior */
