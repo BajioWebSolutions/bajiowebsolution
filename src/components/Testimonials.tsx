@@ -8,9 +8,9 @@ const testimonials = [
     name: "Sarah Johnson",
     role: "CEO, TechStart Inc.",
     company: "SaaS Startup",
-    content: "Bajio Web Solutions completely transformed our online presence. Before working with them, we were getting maybe 2-3 leads per month from our website. Now we're consistently getting 15-20 qualified leads monthly. Their SEO work helped us rank #1 for our main keywords, and our website conversion rate jumped from 1.2% to 4.8%.",
+    content: "Bajio Web Solutions completely transformed our online presence. Before working with them, we were getting maybe 1-2 leads per month from our website. Now we're consistently getting 8-10 qualified leads monthly. Their SEO work helped us rank in the top 3 for our main keywords, and our website conversion rate jumped from 0.8% to 2.4%.",
     image: "/lovable-uploads/2d155762-9090-45c9-bd91-9a55dffd4171.png",
-    results: "200% increase in organic traffic",
+    results: "80% increase in organic traffic",
     timeframe: "3 months",
     rating: 5
   },
@@ -18,20 +18,20 @@ const testimonials = [
     name: "Michael Chen",
     role: "Marketing Director, GrowthBox",
     company: "Digital Marketing Agency",
-    content: "The PPC campaigns managed by Bajio delivered exceptional ROI. They reduced our cost per lead by 35% while increasing lead volume by 150%. Their data-driven approach and transparent reporting made all the difference. We went from struggling to hit our monthly targets to exceeding them by 40%.",
+    content: "Working with Bajio on our website redesign was exactly what we needed. They reduced our bounce rate by 25% while increasing our contact form submissions by 60%. Their attention to detail and responsive communication made the entire process smooth and professional.",
     image: "/lovable-uploads/01c72101-9a53-47df-ac29-d65c4c40317b.png",
-    results: "3.2x return on ad spend",
-    timeframe: "6 months",
+    results: "1.8x return on investment",
+    timeframe: "4 months",
     rating: 5
   },
   {
     name: "Emily Rodriguez",
     role: "Founder, StyleHub Boutique",
     company: "E-commerce Fashion",
-    content: "Working with Bajio on our social media and website redesign was a game-changer. Our Instagram followers grew from 1,200 to over 12,000, but more importantly, our online sales increased by 280%. They helped us build a brand presence that actually converts followers into customers.",
+    content: "As a small business owner, I needed someone who would really understand my vision and budget. Bajio delivered beyond my expectations. Our new website looks professional, loads fast, and most importantly, our online sales have increased by 120% since launch.",
     image: "/lovable-uploads/15afb1ba-8f0e-4ac6-99d2-57697197c3fe.png",
-    results: "280% increase in online sales",
-    timeframe: "4 months",
+    results: "120% increase in online sales",
+    timeframe: "2 months",
     rating: 5
   }
 ];
@@ -54,7 +54,8 @@ export const Testimonials = () => {
             Real Results from <span className="text-primary">Real Clients</span>
           </h2>
           <p className="text-neutral text-lg max-w-3xl mx-auto mb-8">
-            Don't just take our word for it. See how we've helped businesses like yours achieve measurable growth and dominate their markets.
+            Don't just take our word for it. See how we've helped small businesses like yours achieve 
+            measurable growth and establish a strong online presence.
           </p>
           
           {/* Overall stats */}
@@ -62,22 +63,22 @@ export const Testimonials = () => {
             <div className="bg-primary/10 border border-primary/20 rounded-lg px-6 py-3 backdrop-blur-sm">
               <div className="flex items-center gap-2">
                 <TrendingUp className="h-5 w-5 text-primary" />
-                <span className="text-primary font-bold">2.5x</span>
+                <span className="text-primary font-bold">1.8x</span>
                 <span className="text-white text-sm">Average ROI</span>
               </div>
             </div>
             <div className="bg-primary/10 border border-primary/20 rounded-lg px-6 py-3 backdrop-blur-sm">
               <div className="flex items-center gap-2">
                 <Users className="h-5 w-5 text-primary" />
-                <span className="text-primary font-bold">150+</span>
+                <span className="text-primary font-bold">3+</span>
                 <span className="text-white text-sm">Happy Clients</span>
               </div>
             </div>
             <div className="bg-primary/10 border border-primary/20 rounded-lg px-6 py-3 backdrop-blur-sm">
               <div className="flex items-center gap-2">
                 <Award className="h-5 w-5 text-primary" />
-                <span className="text-primary font-bold">94%</span>
-                <span className="text-white text-sm">Retention Rate</span>
+                <span className="text-primary font-bold">100%</span>
+                <span className="text-white text-sm">Client Satisfaction</span>
               </div>
             </div>
           </div>
@@ -148,19 +149,19 @@ export const Testimonials = () => {
           className="text-center mt-16 p-8 glass-card rounded-2xl border border-white/10"
         >
           <h3 className="text-2xl font-bold text-white mb-4">
-            Join 150+ Businesses Already Growing with Us
+            Join Our Growing List of Successful Clients
           </h3>
           <p className="text-neutral mb-6 max-w-2xl mx-auto">
-            Every month, we help businesses increase their online visibility, generate more qualified leads, 
-            and grow their revenue. Your success story could be next.
+            We're building a reputation for delivering results that matter. Our focused approach 
+            means every client gets personalized attention and measurable outcomes.
           </p>
           
           {/* Trust indicators */}
           <div className="flex flex-wrap justify-center gap-4 mb-6 text-sm text-white/80">
             <span>✅ No long-term contracts</span>
-            <span>✅ Transparent reporting</span>
-            <span>✅ Dedicated account manager</span>
-            <span>✅ 30-day money-back guarantee</span>
+            <span>✅ Transparent communication</span>
+            <span>✅ Personal attention</span>
+            <span>✅ Results-focused approach</span>
           </div>
           
           <motion.a

@@ -4,27 +4,27 @@ import { ChartBarIcon, UsersIcon, CheckCircleIcon, TrophyIcon } from "lucide-rea
 
 const impactMetrics = [
   {
-    value: "2.5x",
+    value: "1.8x",
     label: "Average ROI",
     description: "Return on investment for our clients",
     icon: ChartBarIcon,
   },
   {
-    value: "150+",
+    value: "3+",
     label: "Happy Clients",
     description: "Businesses trusting our services",
     icon: UsersIcon,
   },
   {
-    value: "94%",
-    label: "Client Retention",
-    description: "Clients who continue working with us",
+    value: "100%",
+    label: "Client Satisfaction",
+    description: "Clients who are satisfied with our work",
     icon: CheckCircleIcon,
   },
   {
-    value: "40+",
-    label: "Awards Won",
-    description: "Industry recognitions for excellence",
+    value: "6",
+    label: "Months Active",
+    description: "Building digital solutions since launch",
     icon: TrophyIcon,
   },
 ];
@@ -45,11 +45,11 @@ export const Impact = () => {
           className="text-center mb-16 fade-in-up"
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-foreground-dark">
-            Our <span className="text-primary">Impact</span>
+            Our <span className="text-primary">Growing Impact</span>
           </h2>
           <p className="text-neutral text-lg max-w-3xl mx-auto leading-relaxed">
-            We're proud of the results we've achieved and the relationships we've built with our clients.
-            Here's the impact we've made through our strategic digital solutions.
+            As a focused digital solutions agency, we're building strong relationships and delivering 
+            measurable results for our clients. Here's our progress so far.
           </p>
         </motion.div>
 

@@ -30,13 +30,14 @@ const AboutPage = () => {
             >
               <h2 className="text-2xl font-bold text-foreground-dark">Who We Are</h2>
               <p className="text-neutral-light leading-relaxed">
-                Bajio Web Solutions is a leading web design and digital marketing agency based in Lebanon,
-                Connecticut. We specialize in creating stunning, high-performance websites tailored to our
-                clients' unique needs.
+                Bajio Web Solutions is a boutique web design and digital marketing agency based in Lebanon,
+                Connecticut. We specialize in creating high-impact, conversion-focused websites for small to 
+                medium-sized businesses who want to grow their online presence.
               </p>
               <p className="text-neutral-light leading-relaxed">
-                Our team of expert web developers and designers leverage the latest technologies and best
-                practices to deliver responsive, user-friendly websites that drive conversions and growth.
+                As a focused agency, we work closely with each client to understand their unique challenges
+                and deliver personalized solutions that drive real results. Our hands-on approach ensures
+                every project gets the attention it deserves.
               </p>
             </motion.div>
             
@@ -48,9 +49,13 @@ const AboutPage = () => {
             >
               <h2 className="text-2xl font-bold text-foreground-dark">Our Mission</h2>
               <p className="text-neutral-light leading-relaxed">
-                Our mission is to empower businesses with cutting-edge digital solutions that drive growth
-                and success. We believe in creating lasting partnerships with our clients, understanding their
-                unique challenges, and delivering solutions that exceed expectations.
+                Our mission is to help small businesses compete online by creating professional websites
+                that attract customers and drive growth. We believe every business deserves a strong 
+                digital presence, regardless of size or budget.
+              </p>
+              <p className="text-neutral-light leading-relaxed">
+                We're committed to building long-term partnerships with our clients, providing ongoing
+                support and strategic guidance as their businesses grow.
               </p>
             </motion.div>
           </div>
@@ -62,7 +67,7 @@ const AboutPage = () => {
               transition={{ duration: 0.5, delay: 0.6 }}
             >
               <Card className="p-6 text-center bg-neutral-dark/20 backdrop-blur-sm border-primary/10">
-                <div className="text-4xl font-bold text-primary mb-2">10+</div>
+                <div className="text-4xl font-bold text-primary mb-2">3+</div>
                 <div className="text-neutral-light">Happy Clients</div>
               </Card>
             </motion.div>
@@ -92,8 +97,8 @@ const AboutPage = () => {
               transition={{ duration: 0.5, delay: 0.9 }}
             >
               <Card className="p-6 text-center bg-neutral-dark/20 backdrop-blur-sm border-primary/10">
-                <div className="text-4xl font-bold text-primary mb-2">1+</div>
-                <div className="text-neutral-light">Years Experience</div>
+                <div className="text-4xl font-bold text-primary mb-2">6</div>
+                <div className="text-neutral-light">Months Active</div>
               </Card>
             </motion.div>
           </div>
