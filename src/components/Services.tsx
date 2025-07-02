@@ -202,7 +202,7 @@ export const Services = () => {
       </div>
 
       <Dialog open={!!selectedService} onOpenChange={handleCloseDialog}>
-        <DialogContent className="max-w-3xl glass-card border-primary/20 backdrop-blur-xl">
+        <DialogContent className="max-w-3xl bg-background-dark/95 border-primary/20 backdrop-blur-xl shadow-2xl">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold flex items-center gap-3 text-foreground-dark">
               {selectedService?.icon && <selectedService.icon className="h-6 w-6 text-primary" />}
