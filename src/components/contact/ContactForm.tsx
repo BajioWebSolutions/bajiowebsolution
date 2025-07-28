@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { toast } from "sonner";
 import { useState } from "react";
 import { CheckCircle, Clock, Award, Shield } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 export const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -37,64 +38,37 @@ export const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      // Create a hidden form to submit to Netlify
-      const form = document.createElement('form');
-      form.setAttribute('method', 'POST');
-      form.setAttribute('name', 'strategy-session');
-      form.setAttribute('data-netlify', 'true');
-      form.style.display = 'none';
-
-      // Add form fields
-      const fields = [
-        { name: 'form-name', value: 'strategy-session' },
-        { name: 'fullName', value: formData.fullName },
-        { name: 'email', value: formData.email },
-        { name: 'phone', value: formData.phone },
-        { name: 'company', value: formData.company },
-        { name: 'projectType', value: formData.projectType },
-        { name: 'currentWebsite', value: formData.currentWebsite },
-        { name: 'monthlyLeads', value: formData.monthlyLeads },
-        { name: 'message', value: formData.message }
-      ];
-
-      fields.forEach(field => {
-        const input = document.createElement('input');
-        input.setAttribute('type', 'hidden');
-        input.setAttribute('name', field.name);
-        input.setAttribute('value', field.value);
-        form.appendChild(input);
-      });
-
-      document.body.appendChild(form);
-      
-      // Submit the form
-      const formData2 = new FormData(form);
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData2 as any).toString()
-      });
-
-      if (response.ok) {
-        toast.success("Strategy session request sent! We'll contact you within 24 hours to schedule your free consultation.");
-        setFormData({
-          fullName: '',
-          email: '',
-          phone: '',
-          company: '',
-          projectType: '',
-          currentWebsite: '',
-          monthlyLeads: '',
-          message: ''
+      const { error } = await supabase
+        .from('contact_submissions')
+        .insert({
+          full_name: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          project_type: formData.projectType,
+          current_website: formData.currentWebsite,
+          monthly_leads: formData.monthlyLeads,
+          message: formData.message
         });
-      } else {
-        throw new Error('Failed to submit form');
+
+      if (error) {
+        throw error;
       }
 
-      document.body.removeChild(form);
+      toast.success("Strategy session request sent! We'll contact you within 24 hours to schedule your free consultation.");
+      setFormData({
+        fullName: '',
+        email: '',
+        phone: '',
+        company: '',
+        projectType: '',
+        currentWebsite: '',
+        monthlyLeads: '',
+        message: ''
+      });
     } catch (error) {
       console.error('Form submission error:', error);
-      toast.error("Failed to send request. Please try again or call us directly at (860) 123-4567.");
+      toast.error("Failed to send request. Please try again or call us directly at (860) 468-9221.");
     } finally {
       setIsSubmitting(false);
     }
@@ -109,18 +83,6 @@ export const ContactForm = () => {
   };
 
   return (
-    <>
-      {/* Hidden form for Netlify */}
-      <form name="strategy-session" data-netlify="true" data-netlify-honeypot="bot-field" style={{ display: 'none' }}>
-        <input type="text" name="fullName" />
-        <input type="email" name="email" />
-        <input type="tel" name="phone" />
-        <input type="text" name="company" />
-        <input type="text" name="projectType" />
-        <input type="text" name="currentWebsite" />
-        <input type="text" name="monthlyLeads" />
-        <textarea name="message"></textarea>
-      </form>
 
       <motion.div 
         id="start-project" 
@@ -315,6 +277,5 @@ export const ContactForm = () => {
           </div>
         </form>
       </motion.div>
-    </>
   );
 };
