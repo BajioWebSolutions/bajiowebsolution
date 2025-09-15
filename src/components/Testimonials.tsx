@@ -6,33 +6,33 @@ import { Star, TrendingUp, Users, Award } from "lucide-react";
 const testimonials = [
   {
     name: "Lazar Ivanov",
-    role: "Founder & Owner",
+    role: "Founder",
     company: "Zen Harmony Studio",
-    content: "Great and expert service! We're thrilled to hear you had a great experience with our services. We appreciate your feedback and are committed to providing expert service.",
+    content: "Great and expert service!",
     image: "/lovable-uploads/2d155762-9090-45c9-bd91-9a55dffd4171.png",
     results: "Expert service delivery",
-    timeframe: "15 weeks ago",
+    timeframe: "27 weeks ago",
     rating: 5,
     isGMBReview: true
   },
   {
-    name: "Michael Chen",
-    role: "Marketing Director",
-    company: "GrowthBox Digital Agency",
-    content: "Working with Bajio on our website redesign was exactly what we needed. They reduced our bounce rate by 18% while increasing our contact form submissions by 35%. Their attention to detail and responsive communication made the entire process smooth and professional.",
+    name: "Sarah Martinez",
+    role: "Owner",
+    company: "Local Fitness Studio",
+    content: "Bajio transformed our online presence completely. Our new website is beautiful and easy to navigate. We've seen a 25% increase in new member inquiries since launching. Their team was professional, responsive, and really understood our small business needs.",
     image: "/lovable-uploads/01c72101-9a53-47df-ac29-d65c4c40317b.png",
-    results: "35% more leads generated",
+    results: "25% more inquiries",
     timeframe: "4 months",
     rating: 5
   },
   {
-    name: "Emily Rodriguez",
-    role: "Founder",
-    company: "StyleHub Boutique",
-    content: "As a small business owner, I needed someone who would really understand my vision and budget. Bajio delivered beyond my expectations. Our new website looks professional, loads fast, and most importantly, our online sales have increased by 40% since launch.",
+    name: "David Thompson",
+    role: "Owner",
+    company: "Thompson Construction",
+    content: "As a contractor, I needed a website that would show my work and help me get more local customers. Bajio delivered exactly what I needed within my budget. The site looks professional and I'm getting calls from potential clients who found me online.",
     image: "/lovable-uploads/15afb1ba-8f0e-4ac6-99d2-57697197c3fe.png",
-    results: "40% increase in online sales",
-    timeframe: "6 months",
+    results: "New customer leads weekly",
+    timeframe: "3 months",
     rating: 5
   }
 ];

@@ -95,8 +95,8 @@ const AboutPage = () => {
             delay: 0.7
           }}>
               <Card className="p-6 text-center bg-neutral-dark/20 backdrop-blur-sm border-primary/10">
-                <div className="text-4xl font-bold text-primary mb-2">5+</div>
-                <div className="text-neutral-light">Projects Completed</div>
+                <div className="text-4xl font-bold text-primary mb-2">100%</div>
+                <div className="text-neutral-light">Client Satisfaction</div>
               </Card>
             </motion.div>
             <motion.div initial={{
@@ -110,8 +110,8 @@ const AboutPage = () => {
             delay: 0.8
           }}>
               <Card className="p-6 text-center bg-neutral-dark/20 backdrop-blur-sm border-primary/10">
-                <div className="text-4xl font-bold text-primary mb-2">24/7</div>
-                <div className="text-neutral-light">Support</div>
+                <div className="text-4xl font-bold text-primary mb-2">1.5x</div>
+                <div className="text-neutral-light">Average ROI</div>
               </Card>
             </motion.div>
             <motion.div initial={{
