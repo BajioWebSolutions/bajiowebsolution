@@ -9,7 +9,7 @@ const testimonials = [
     role: "Founder",
     company: "Zen Harmony Studio",
     content: "Great and expert service!",
-    image: "/lovable-uploads/2d155762-9090-45c9-bd91-9a55dffd4171.png",
+    image: "/lovable-uploads/lazar-ivanov-profile.png",
     results: "Expert service delivery",
     timeframe: "27 weeks ago",
     rating: 5,
