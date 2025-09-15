@@ -20,7 +20,7 @@ const testimonials = [
     role: "Owner",
     company: "Local Fitness Studio",
     content: "Bajio transformed our online presence completely. Our new website is beautiful and easy to navigate. We've seen a 25% increase in new member inquiries since launching. Their team was professional, responsive, and really understood our small business needs.",
-    image: "/lovable-uploads/01c72101-9a53-47df-ac29-d65c4c40317b.png",
+    image: "/lovable-uploads/sarah-martinez-profile.png",
     results: "25% more inquiries",
     timeframe: "4 months",
     rating: 5
