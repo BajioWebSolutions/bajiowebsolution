@@ -30,7 +30,7 @@ const testimonials = [
     role: "Owner",
     company: "Thompson Construction",
     content: "As a contractor, I needed a website that would show my work and help me get more local customers. Bajio delivered exactly what I needed within my budget. The site looks professional and I'm getting calls from potential clients who found me online.",
-    image: "/lovable-uploads/15afb1ba-8f0e-4ac6-99d2-57697197c3fe.png",
+    image: "/lovable-uploads/david-thompson-profile.png",
     results: "New customer leads weekly",
     timeframe: "3 months",
     rating: 5
