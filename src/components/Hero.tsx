@@ -23,27 +23,26 @@ export const Hero = () => {
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 bg-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm">
                 <Award className="h-4 w-4" />
-                <span>Award-Winning Digital Agency</span>
+                <span>Digital Agency | Connecticut</span>
               </div>
               
               {/* WHO WE ARE */}
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
-                <span className="text-white">We're</span>{" "}
                 <span className="text-primary">Bajio Web Solutions</span>
                 <br />
-                <span className="text-white text-3xl sm:text-4xl lg:text-5xl">Your Growth Partner</span>
+                <span className="text-white text-3xl sm:text-4xl lg:text-5xl">Digital Agency in Connecticut</span>
               </h1>
               
               {/* WHO WE HELP & WHAT PROBLEM WE SOLVE */}
               <div className="space-y-4">
                 <p className="text-xl sm:text-2xl text-[#CCFBF1] font-medium leading-relaxed">
-                  We help <span className="text-primary font-bold">ambitious businesses</span> overcome their biggest digital challenge:
+                  We help <span className="text-primary font-bold">ambitious local businesses and solopreneurs</span> who are tired of being invisible online.
                 </p>
                 <p className="text-lg sm:text-xl text-white/90 leading-relaxed">
-                  <span className="text-red-400 font-semibold">Invisible online presence</span> that fails to attract qualified leads and convert visitors into paying customers.
+                  We turn your <span className="text-red-400 font-semibold">invisible online presence</span> into a <span className="text-primary font-semibold">lead-generating digital system</span> that actually brings you qualified customers.
                 </p>
                 <p className="text-lg text-[#CCFBF1]">
-                  We create high-performance websites and digital marketing strategies that turn your online presence into your most powerful sales tool.
+                  Stop losing potential customers to competitors who show up first online. Get a website and digital strategy that works as hard as you do.
                 </p>
               </div>
             </div>
