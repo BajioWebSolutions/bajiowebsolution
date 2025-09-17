@@ -1,5 +1,5 @@
 
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -57,9 +57,14 @@ export const Navigation = () => {
             ))}
             <Button 
               onClick={handleGetStarted}
-              className="bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white font-medium transition-all duration-300 hover:scale-105"
+              className="bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white font-semibold transition-all duration-300 hover:scale-105 group relative overflow-hidden"
             >
-              Book a Free Website Audit ➔
+              <span className="relative z-10 flex items-center">
+                <span className="mr-2">🚀</span>
+                Book Your FREE Website Audit
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </Button>
           </div>
 
@@ -94,9 +99,14 @@ export const Navigation = () => {
                     handleGetStarted();
                     setIsOpen(false);
                   }}
-                  className="w-full bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white font-medium transition-all duration-300 hover:scale-105"
+                  className="w-full bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white font-semibold transition-all duration-300 hover:scale-105 group relative overflow-hidden"
                 >
-                  Book a Free Website Audit ➔
+                  <span className="relative z-10 flex items-center justify-center">
+                    <span className="mr-2">🚀</span>
+                    Book Your FREE Website Audit
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </Button>
               </div>
             </div>

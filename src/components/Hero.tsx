@@ -63,18 +63,23 @@ export const Hero = () => {
               </div>
             </div>
 
-            {/* Enhanced CTAs */}
+            {/* Enhanced CTAs with clear hierarchy */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button asChild size="lg" className="group bg-gradient-to-r from-[#10B981] to-[#2DD4BF] hover:from-[#2DD4BF] hover:to-[#10B981] text-white font-bold text-lg px-8 py-4 h-auto transition-all duration-300 hover:scale-105 rounded-lg shadow-2xl hover:shadow-primary/50 relative overflow-hidden">
-                <Link to="/contact#start-project" className="flex items-center">
-                  Get Your Free Strategy Session
-                  <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+              {/* PRIMARY CTA - Most Dominant */}
+              <Button asChild size="lg" className="group relative overflow-hidden bg-gradient-to-r from-[#10B981] to-[#2DD4BF] hover:from-[#2DD4BF] hover:to-[#10B981] text-white font-bold text-xl px-10 py-6 h-auto transition-all duration-300 hover:scale-[1.02] rounded-xl shadow-2xl hover:shadow-primary/60 ring-4 ring-primary/20 hover:ring-primary/40 border-2 border-primary/30">
+                <Link to="/contact#start-project" className="flex items-center relative z-10">
+                  <span className="mr-3">🎯</span>
+                  Get Your FREE Strategy Session
+                  <ArrowRight className="ml-3 h-6 w-6 transition-transform duration-300 group-hover:translate-x-1" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </Link>
               </Button>
               
-              <Button asChild variant="outline" size="lg" className="group bg-white/10 hover:bg-white/20 text-white border-white/30 hover:border-primary font-bold text-lg px-8 py-4 h-auto transition-all duration-300 hover:scale-105 rounded-lg backdrop-blur-sm">
+              {/* Secondary CTA - Subtle but visible */}
+              <Button asChild variant="outline" size="lg" className="group bg-white/10 hover:bg-white/20 text-white border-white/30 hover:border-primary/60 font-semibold text-lg px-8 py-6 h-auto transition-all duration-300 hover:scale-[1.01] rounded-xl backdrop-blur-sm border-2">
                 <Link to="/services" className="flex items-center">
-                  View Our Results
+                  <span className="mr-2">📊</span>
+                  See Our Results
                   <TrendingUp className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
               </Button>

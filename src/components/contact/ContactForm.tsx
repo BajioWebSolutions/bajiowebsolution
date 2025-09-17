@@ -5,7 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
 import { useState } from "react";
-import { CheckCircle, Clock, Award, Shield } from "lucide-react";
+import { CheckCircle, Clock, Award, Shield, ArrowRight } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
 export const ContactForm = () => {
@@ -258,21 +258,49 @@ export const ContactForm = () => {
 
           <Button 
             type="submit"
-            className="w-full bg-gradient-to-r from-primary to-primary-light hover:from-primary-light hover:to-primary text-white font-bold text-lg py-4 h-auto transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/30 relative overflow-hidden"
+            className="w-full bg-gradient-to-r from-primary to-primary-light hover:from-primary-light hover:to-primary text-white font-bold text-xl py-6 h-auto transition-all duration-300 hover:scale-[1.02] rounded-xl shadow-2xl hover:shadow-primary/40 relative overflow-hidden group"
             disabled={isSubmitting}
           >
-            {isSubmitting ? "Requesting Your Session..." : "Get My FREE Strategy Session"}
+            <span className="relative z-10 flex items-center justify-center">
+              {isSubmitting ? (
+                <>
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                    className="w-5 h-5 border-2 border-white border-t-transparent rounded-full mr-3"
+                  />
+                  Securing Your Session...
+                </>
+              ) : (
+                <>
+                  <span className="mr-3">🎯</span>
+                  Get My FREE Strategy Session Now
+                  <ArrowRight className="ml-3 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                </>
+              )}
+            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </Button>
 
-          {/* Trust badges */}
-          <div className="flex justify-center items-center gap-6 pt-4 opacity-70">
-            <div className="flex items-center gap-1">
-              <Shield className="h-4 w-4 text-primary" />
-              <span className="text-xs text-white">SSL Secured</span>
+          {/* Enhanced trust badges */}
+          <div className="bg-gradient-to-r from-green-500/10 to-blue-500/10 border border-green-500/20 rounded-xl p-4 mt-4">
+            <div className="grid grid-cols-2 gap-4 text-center">
+              <div className="flex flex-col items-center gap-1">
+                <Shield className="h-5 w-5 text-green-400" />
+                <span className="text-xs text-white font-medium">Your Info Stays Private</span>
+                <span className="text-xs text-white/70">SSL Encrypted & Secure</span>
+              </div>
+              <div className="flex flex-col items-center gap-1">
+                <CheckCircle className="h-5 w-5 text-blue-400" />
+                <span className="text-xs text-white font-medium">No Long-Term Contracts</span>
+                <span className="text-xs text-white/70">Month-to-Month Flexibility</span>
+              </div>
             </div>
-            <div className="flex items-center gap-1">
-              <Award className="h-4 w-4 text-primary" />
-              <span className="text-xs text-white">CT Licensed</span>
+            <div className="flex justify-center mt-3">
+              <div className="flex items-center gap-2">
+                <Clock className="h-4 w-4 text-primary" />
+                <span className="text-xs text-white font-medium">⚡ Response within 2 hours during business days</span>
+              </div>
             </div>
           </div>
         </form>

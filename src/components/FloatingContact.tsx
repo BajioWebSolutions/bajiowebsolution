@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MessageCircle, X, Phone, Mail } from "lucide-react";
+import { MessageCircle, X, Phone, ArrowRight, Shield, Clock, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -16,10 +16,10 @@ export const FloatingContact = () => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
             transition={{ duration: 0.2 }}
-            className="mb-4 bg-white rounded-2xl shadow-2xl border border-primary/10 p-6 min-w-[280px]"
+            className="mb-4 bg-white rounded-2xl shadow-2xl border border-primary/10 p-6 min-w-[320px]"
           >
             <div className="flex items-center justify-between mb-4">
-              <h3 className="font-bold text-gray-900 text-lg">Get in Touch</h3>
+              <h3 className="font-bold text-gray-900 text-lg">Ready to Get Started?</h3>
               <Button
                 variant="ghost"
                 size="sm"
@@ -31,25 +31,42 @@ export const FloatingContact = () => {
             </div>
             
             <p className="text-gray-600 text-sm mb-4">
-              Ready to transform your online presence? Let's chat about your project!
+              📞 <strong>Free consultation in 24 hours.</strong> No sales pitch - just honest advice about your digital growth potential.
             </p>
             
+            {/* Trust indicators */}
+            <div className="flex items-center justify-between text-xs text-gray-500 mb-4 px-2">
+              <span className="flex items-center gap-1">
+                <CheckCircle className="h-3 w-3 text-green-600" />
+                No obligation
+              </span>
+              <span className="flex items-center gap-1">
+                <Shield className="h-3 w-3 text-blue-600" />
+                Info stays private
+              </span>
+              <span className="flex items-center gap-1">
+                <Clock className="h-3 w-3 text-orange-600" />
+                Quick response
+              </span>
+            </div>
+            
             <div className="space-y-3">
-              <Button asChild className="w-full bg-primary hover:bg-primary/90 text-white">
+              <Button asChild className="w-full bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 group">
                 <Link to="/contact" className="flex items-center justify-center">
-                  <Mail className="h-4 w-4 mr-2" />
-                  Start Free Consultation
+                  <span className="mr-2">🎯</span>
+                  Get My FREE Strategy Session
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
               </Button>
               
               <Button 
                 asChild 
                 variant="outline" 
-                className="w-full border-primary text-primary hover:bg-primary/5"
+                className="w-full border-primary/30 text-primary hover:bg-primary/5 font-semibold group"
               >
-                <a href="tel:+1-860-123-4567" className="flex items-center justify-center">
+                <a href="tel:+1-860-468-9221" className="flex items-center justify-center">
                   <Phone className="h-4 w-4 mr-2" />
-                  Call Now
+                  Call Now: (860) 468-9221
                 </a>
               </Button>
             </div>

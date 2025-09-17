@@ -5,7 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
 import { useState } from "react";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowRight, Shield, CheckCircle } from "lucide-react";
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -263,11 +263,46 @@ export const Contact = () => {
                 </div>
                 <Button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-primary to-primary-light dark:from-primary-dark dark:to-primary hover:from-primary-light hover:to-primary dark:hover:from-primary dark:hover:to-primary-light text-white font-medium transition-all duration-300 hover:scale-105 rounded-lg"
+                  className="w-full bg-gradient-to-r from-primary to-primary-light dark:from-primary-dark dark:to-primary hover:from-primary-light hover:to-primary dark:hover:from-primary dark:hover:to-primary-light text-white font-bold text-lg py-4 h-auto transition-all duration-300 hover:scale-[1.02] rounded-xl shadow-lg hover:shadow-xl group relative overflow-hidden"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? "Sending..." : "Submit"}
+                  <span className="relative z-10 flex items-center justify-center">
+                    {isSubmitting ? (
+                      <>
+                        <motion.div
+                          animate={{ rotate: 360 }}
+                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                          className="w-5 h-5 border-2 border-white border-t-transparent rounded-full mr-3"
+                        />
+                        Sending Your Message...
+                      </>
+                    ) : (
+                      <>
+                        <span className="mr-2">📧</span>
+                        Send My Message
+                        <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                      </>
+                    )}
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </Button>
+
+                {/* Trust guarantees */}
+                <div className="bg-gradient-to-r from-green-500/10 to-blue-500/10 border border-green-500/20 rounded-xl p-4 mt-4">
+                  <div className="grid grid-cols-2 gap-4 text-center">
+                    <div className="flex flex-col items-center gap-1">
+                      <Shield className="h-4 w-4 text-green-400" />
+                      <span className="text-xs text-foreground dark:text-white font-medium">Your Info Stays Private</span>
+                    </div>
+                    <div className="flex flex-col items-center gap-1">
+                      <CheckCircle className="h-4 w-4 text-blue-400" />
+                      <span className="text-xs text-foreground dark:text-white font-medium">No Spam Guarantee</span>
+                    </div>
+                  </div>
+                  <div className="flex justify-center mt-2">
+                    <span className="text-xs text-foreground/70 dark:text-white/70">⚡ We respond within 24 hours</span>
+                  </div>
+                </div>
               </div>
             </motion.form>
           </div>
