@@ -23,26 +23,26 @@ export const Hero = () => {
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 bg-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm">
                 <Award className="h-4 w-4" />
-                <span>Digital Agency | Connecticut</span>
+                <span>Connecticut's Premier Digital Agency</span>
               </div>
               
-              {/* WHO WE ARE */}
+              {/* WHO WE ARE - Crystal Clear Identity */}
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
                 <span className="text-primary">Bajio Web Solutions</span>
                 <br />
-                <span className="text-white text-3xl sm:text-4xl lg:text-5xl">Digital Agency in Connecticut</span>
+                <span className="text-white text-3xl sm:text-4xl lg:text-5xl">Connecticut Digital Agency</span>
               </h1>
               
-              {/* WHO WE HELP & WHAT PROBLEM WE SOLVE */}
+              {/* WHO WE HELP & WHAT PROBLEM WE SOLVE - Direct and Emotional */}
               <div className="space-y-4">
                 <p className="text-xl sm:text-2xl text-[#CCFBF1] font-medium leading-relaxed">
-                  We help <span className="text-primary font-bold">ambitious local businesses and solopreneurs</span> who are tired of being invisible online.
+                  For <span className="text-primary font-bold">ambitious local businesses and solopreneurs</span> who are frustrated with getting zero leads online
                 </p>
                 <p className="text-lg sm:text-xl text-white/90 leading-relaxed">
-                  We turn your <span className="text-red-400 font-semibold">invisible online presence</span> into a <span className="text-primary font-semibold">lead-generating digital system</span> that actually brings you qualified customers.
+                  We transform your <span className="text-red-400 font-semibold">invisible online presence</span> into a <span className="text-primary font-semibold">lead-generating digital system</span> that brings you paying customers on autopilot.
                 </p>
                 <p className="text-lg text-[#CCFBF1]">
-                  Stop losing potential customers to competitors who show up first online. Get a website and digital strategy that works as hard as you do.
+                  <strong>Stop watching competitors steal your customers.</strong> Finally get the online presence that actually works for your business — not against it.
                 </p>
               </div>
             </div>
