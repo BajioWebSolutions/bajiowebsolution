@@ -51,7 +51,7 @@ export const Hero = () => {
             <div className="flex flex-wrap gap-6 py-4">
               <div className="flex items-center gap-2 text-white">
                 <TrendingUp className="h-5 w-5 text-primary" />
-                <span className="font-semibold">2.5x Average ROI</span>
+                <span className="font-semibold">1.5x Average ROI</span>
               </div>
               <div className="flex items-center gap-2 text-white">
                 <Users className="h-5 w-5 text-primary" />
@@ -59,7 +59,7 @@ export const Hero = () => {
               </div>
               <div className="flex items-center gap-2 text-white">
                 <Award className="h-5 w-5 text-primary" />
-                <span className="font-semibold">94% Retention Rate</span>
+                <span className="font-semibold">100% Client Satisfaction</span>
               </div>
             </div>
 

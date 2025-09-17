@@ -8,6 +8,7 @@ import { Navigation } from "./components/Navigation";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { ExitIntentPopup } from "./components/ExitIntentPopup";
 import { ScrollAnimations } from "./components/ScrollAnimations";
+import { FloatingContact } from "./components/FloatingContact";
 import { Suspense, lazy, useEffect } from 'react';
 import { AnimatePresence, motion } from "framer-motion";
 import { HelmetProvider } from 'react-helmet-async';
@@ -95,6 +96,7 @@ const App = () => {
             <Navigation />
             <ExitIntentPopup />
             <ScrollAnimations />
+            <FloatingContact />
             <div className="pt-20">
               <Suspense fallback={
                 <motion.div 
