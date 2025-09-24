@@ -9,7 +9,7 @@ import { ScrollToTop } from "./components/ScrollToTop";
 import { ExitIntentPopup } from "./components/ExitIntentPopup";
 import { ScrollAnimations } from "./components/ScrollAnimations";
 import { FloatingContact } from "./components/FloatingContact";
-import { ErrorBoundary } from "./components/ErrorBoundary";
+import ErrorBoundary from "./components/ErrorBoundary";
 import { PageLoader } from "./components/LoadingSpinner";
 import PerformanceMonitor from "./components/PerformanceMonitor";
 import { Suspense, lazy, useEffect } from 'react';

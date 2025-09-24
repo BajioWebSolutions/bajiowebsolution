@@ -5,26 +5,25 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
-    },
-  },
   test: {
     globals: true,
     environment: 'jsdom',
     setupFiles: ['./src/test/setup.ts'],
+    css: true,
     coverage: {
-      provider: 'v8',
-      reporter: ['text', 'html', 'json-summary'],
+      reporter: ['text', 'json', 'html'],
       exclude: [
-        'node_modules/**',
-        'dist/**',
+        'node_modules/',
+        'src/test/',
         '**/*.d.ts',
-        'src/test/**',
-        'vite.config.ts',
-        'vitest.config.ts',
+        '**/*.config.ts',
+        'dist/',
       ],
+    },
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
     },
   },
 });

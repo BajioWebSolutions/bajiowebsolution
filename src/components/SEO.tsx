@@ -5,7 +5,7 @@ interface SEOProps {
   title: string;
   description: string;
   canonical?: string;
-  type?: 'website' | 'article' | 'blog';
+  type?: 'website' | 'article' | 'blog' | 'service' | 'organization';
   image?: string;
   schema?: object;
   keywords?: string;
@@ -13,6 +13,13 @@ interface SEOProps {
   publishedTime?: string;
   modifiedTime?: string;
   robots?: string;
+  noIndex?: boolean;
+  noFollow?: boolean;
+  breadcrumbs?: Array<{ name: string; url?: string }>;
+  alternateLanguages?: Array<{ lang: string; url: string }>;
+  category?: string;
+  tags?: string[];
+  estimatedReadTime?: number;
 }
 
 export const SEO = ({ 

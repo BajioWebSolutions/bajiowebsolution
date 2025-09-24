@@ -1,44 +1,127 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 // Hook for managing focus trap
-export const useFocusTrap = (isActive: boolean) => {
-  useEffect(() => {
-    if (!isActive) return;
+export function useFocusTrap(isActive: boolean) {
+  const containerRef = useRef<HTMLElement>(null);
 
-    const focusableElements = document.querySelectorAll(
-      'a[href], button, textarea, input, select, details, [tabindex]:not([tabindex="-1"])'
+  useEffect(() => {
+    if (!isActive || !containerRef.current) return;
+
+    const container = containerRef.current;
+    const focusableElements = container.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
     );
     
-    const firstElement = focusableElements[0] as HTMLElement;
-    const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+    const firstFocusableElement = focusableElements[0] as HTMLElement;
+    const lastFocusableElement = focusableElements[focusableElements.length - 1] as HTMLElement;
 
     const handleTabKey = (e: KeyboardEvent) => {
-      if (e.key === 'Tab') {
-        if (e.shiftKey) {
-          if (document.activeElement === firstElement) {
-            lastElement?.focus();
-            e.preventDefault();
-          }
-        } else {
-          if (document.activeElement === lastElement) {
-            firstElement?.focus();
-            e.preventDefault();
-          }
+      if (e.key !== 'Tab') return;
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstFocusableElement) {
+          lastFocusableElement?.focus();
+          e.preventDefault();
+        }
+      } else {
+        if (document.activeElement === lastFocusableElement) {
+          firstFocusableElement?.focus();
+          e.preventDefault();
         }
       }
     };
 
+    const handleEscapeKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        // Dispatch custom event for parent components to handle
+        container.dispatchEvent(new CustomEvent('closeFocusTrap'));
+      }
+    };
+
     document.addEventListener('keydown', handleTabKey);
-    firstElement?.focus();
+    document.addEventListener('keydown', handleEscapeKey);
+    
+    // Focus first element when trap becomes active
+    firstFocusableElement?.focus();
 
     return () => {
       document.removeEventListener('keydown', handleTabKey);
+      document.removeEventListener('keydown', handleEscapeKey);
     };
   }, [isActive]);
-};
 
-// Hook for managing reduced motion preference
-export const useReducedMotion = () => {
+  return containerRef;
+}
+
+// Hook for keyboard navigation
+export function useKeyboardNavigation() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const itemsRef = useRef<HTMLElement[]>([]);
+
+  const registerItem = (element: HTMLElement | null, index: number) => {
+    if (element) {
+      itemsRef.current[index] = element;
+    }
+  };
+
+  const handleKeyDown = (e: KeyboardEvent) => {
+    const items = itemsRef.current.filter(Boolean);
+    
+    switch (e.key) {
+      case 'ArrowDown':
+        e.preventDefault();
+        setCurrentIndex((prev) => Math.min(prev + 1, items.length - 1));
+        break;
+      case 'ArrowUp':
+        e.preventDefault();
+        setCurrentIndex((prev) => Math.max(prev - 1, 0));
+        break;
+      case 'Home':
+        e.preventDefault();
+        setCurrentIndex(0);
+        break;
+      case 'End':
+        e.preventDefault();
+        setCurrentIndex(items.length - 1);
+        break;
+      case 'Enter':
+      case ' ':
+        e.preventDefault();
+        items[currentIndex]?.click();
+        break;
+    }
+  };
+
+  useEffect(() => {
+    const currentItem = itemsRef.current[currentIndex];
+    currentItem?.focus();
+  }, [currentIndex]);
+
+  return {
+    currentIndex,
+    setCurrentIndex,
+    registerItem,
+    handleKeyDown,
+  };
+}
+
+// Hook for screen reader announcements
+export function useAnnouncer() {
+  const [announcement, setAnnouncement] = useState('');
+
+  const announce = (message: string, priority: 'polite' | 'assertive' = 'polite') => {
+    setAnnouncement(''); // Clear previous announcement
+    setTimeout(() => setAnnouncement(message), 100);
+  };
+
+  return {
+    announcement,
+    announce,
+  };
+}
+
+// Hook for reduced motion preferences
+export function useReducedMotion() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
@@ -54,10 +137,10 @@ export const useReducedMotion = () => {
   }, []);
 
   return prefersReducedMotion;
-};
+}
 
-// Hook for managing high contrast mode
-export const useHighContrast = () => {
+// Hook for high contrast mode
+export function useHighContrast() {
   const [prefersHighContrast, setPrefersHighContrast] = useState(false);
 
   useEffect(() => {
@@ -73,74 +156,76 @@ export const useHighContrast = () => {
   }, []);
 
   return prefersHighContrast;
-};
+}
 
-// Hook for managing screen reader announcements
-export const useAnnouncer = () => {
-  const [announcer, setAnnouncer] = useState<HTMLElement | null>(null);
+// Hook for managing ARIA live regions
+export function useAriaLive() {
+  const [liveElement, setLiveElement] = useState<HTMLElement | null>(null);
 
   useEffect(() => {
     const element = document.createElement('div');
+    element.className = 'sr-only';
     element.setAttribute('aria-live', 'polite');
     element.setAttribute('aria-atomic', 'true');
-    element.className = 'sr-only';
     document.body.appendChild(element);
-    setAnnouncer(element);
+    setLiveElement(element);
 
     return () => {
-      document.body.removeChild(element);
+      if (document.body.contains(element)) {
+        document.body.removeChild(element);
+      }
     };
   }, []);
 
-  const announce = (message: string, priority: 'polite' | 'assertive' = 'polite') => {
-    if (announcer) {
-      announcer.setAttribute('aria-live', priority);
-      announcer.textContent = message;
+  const announce = (
+    message: string, 
+    level: 'off' | 'polite' | 'assertive' = 'polite'
+  ) => {
+    if (liveElement) {
+      liveElement.setAttribute('aria-live', level);
+      liveElement.textContent = message;
+      
+      // Clear after announcement
+      setTimeout(() => {
+        if (liveElement) {
+          liveElement.textContent = '';
+        }
+      }, 1000);
     }
   };
 
   return { announce };
-};
+}
 
-// Hook for keyboard navigation
-export const useKeyboardNavigation = () => {
-  const [isKeyboardUser, setIsKeyboardUser] = useState(false);
+// Hook for skip links functionality
+export function useSkipLinks() {
+  const skipLinksRef = useRef<HTMLElement[]>([]);
 
-  useEffect(() => {
-    const handleKeyDown = () => setIsKeyboardUser(true);
-    const handleMouseDown = () => setIsKeyboardUser(false);
+  const registerSkipLink = (element: HTMLElement | null) => {
+    if (element) {
+      skipLinksRef.current.push(element);
+    }
+  };
 
-    document.addEventListener('keydown', handleKeyDown);
-    document.addEventListener('mousedown', handleMouseDown);
+  const focusMain = () => {
+    const mainElement = document.querySelector('main');
+    if (mainElement) {
+      mainElement.focus();
+      mainElement.scrollIntoView();
+    }
+  };
 
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-      document.removeEventListener('mousedown', handleMouseDown);
-    };
-  }, []);
+  const focusNavigation = () => {
+    const navElement = document.querySelector('nav');
+    if (navElement) {
+      navElement.focus();
+      navElement.scrollIntoView();
+    }
+  };
 
-  return { isKeyboardUser };
-};
-
-// Hook for skip links
-export const useSkipLinks = () => {
-  useEffect(() => {
-    const skipLinks = document.querySelectorAll('.skip-link');
-    
-    skipLinks.forEach(link => {
-      const handleClick = (e: Event) => {
-        e.preventDefault();
-        const target = (e.target as HTMLAnchorElement).getAttribute('href');
-        if (target) {
-          const element = document.querySelector(target);
-          if (element) {
-            (element as HTMLElement).focus();
-            element.scrollIntoView({ behavior: 'smooth' });
-          }
-        }
-      };
-      
-      link.addEventListener('click', handleClick);
-    });
-  }, []);
-};
+  return {
+    registerSkipLink,
+    focusMain,
+    focusNavigation,
+  };
+}

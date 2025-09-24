@@ -43,7 +43,7 @@
 @layer components {
   /* Skip links for screen readers */
   .skip-link {
-    @apply absolute top-0 left-0 bg-primary text-primary-foreground px-4 py-2 text-sm font-medium z-50 transform -translate-y-full opacity-0 transition-all duration-200;
+    @apply absolute top-0 left-0 bg-primary text-white px-4 py-2 text-sm font-medium z-50 transform -translate-y-full opacity-0 transition-all duration-200;
   }
   
   .skip-link:focus {
@@ -88,7 +88,7 @@
   
   /* Enhanced button styles with accessibility */
   .btn-primary {
-    @apply bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:ring-primary disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 font-medium px-4 py-2 rounded-md;
+    @apply bg-primary text-white hover:bg-primary/90 focus-visible:ring-primary disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 font-medium px-4 py-2 rounded-md;
   }
   
   /* Loading states */
