@@ -3,6 +3,106 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Enhanced accessibility and performance styles */
+@layer base {
+  /* Smooth scrolling with respect for reduced motion */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    :root {
+      --primary: 0 0% 0%;
+      --background: 0 0% 100%;
+      --foreground: 0 0% 0%;
+    }
+    
+    .dark {
+      --primary: 0 0% 100%;
+      --background: 0 0% 0%;
+      --foreground: 0 0% 100%;
+    }
+  }
+}
+
+@layer components {
+  /* Skip links for screen readers */
+  .skip-link {
+    @apply absolute top-0 left-0 bg-primary text-primary-foreground px-4 py-2 text-sm font-medium z-50 transform -translate-y-full opacity-0 transition-all duration-200;
+  }
+  
+  .skip-link:focus {
+    @apply translate-y-0 opacity-100;
+  }
+  
+  /* Screen reader only content */
+  .sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+    clip: rect(0, 0, 0, 0);
+  }
+  
+  /* Focus visible styles for keyboard navigation */
+  .focus-visible:focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
+  }
+  
+  /* Enhanced glass morphism with better performance */
+  .glass-card {
+    @apply backdrop-blur-xl bg-white/10 border border-white/20;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    will-change: transform, opacity;
+  }
+  
+  /* Optimized animations */
+  .animate-fade-in {
+    @apply opacity-0 animate-pulse;
+    animation: fadeIn 0.5s ease-in-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Performance optimized gradients */
+  .gradient-radial {
+    background: radial-gradient(circle, var(--tw-gradient-stops));
+  }
+  
+  /* Enhanced button styles with accessibility */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:ring-primary disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 font-medium px-4 py-2 rounded-md;
+  }
+  
+  /* Loading states */
+  .loading-shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shimmer 1.5s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

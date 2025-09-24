@@ -9,9 +9,13 @@ import { ScrollToTop } from "./components/ScrollToTop";
 import { ExitIntentPopup } from "./components/ExitIntentPopup";
 import { ScrollAnimations } from "./components/ScrollAnimations";
 import { FloatingContact } from "./components/FloatingContact";
+import { ErrorBoundary } from "./components/ErrorBoundary";
+import { PageLoader } from "./components/LoadingSpinner";
+import PerformanceMonitor from "./components/PerformanceMonitor";
 import { Suspense, lazy, useEffect } from 'react';
 import { AnimatePresence, motion } from "framer-motion";
 import { HelmetProvider } from 'react-helmet-async';
+import { useReducedMotion } from "./hooks/useAccessibility";
 
 // Lazy load pages
 const Index = lazy(() => import("./pages/Index"));
@@ -31,30 +35,42 @@ const queryClient = new QueryClient({
   },
 });
 
-// Enhanced page transition wrapper with glassmorphism
+// Enhanced page transition wrapper with accessibility support
 const PageWrapper = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
+  const prefersReducedMotion = useReducedMotion();
+  
+  const transitionProps = prefersReducedMotion 
+    ? {
+        initial: { opacity: 0 },
+        animate: { opacity: 1 },
+        exit: { opacity: 0 },
+        transition: { duration: 0.1 }
+      }
+    : {
+        initial: { opacity: 0, y: 20 },
+        animate: { 
+          opacity: 1, 
+          y: 0,
+          transition: {
+            duration: 0.6,
+            ease: [0.43, 0.13, 0.23, 0.96]
+          }
+        },
+        exit: { 
+          opacity: 0, 
+          y: 20,
+          transition: {
+            duration: 0.4,
+            ease: [0.43, 0.13, 0.23, 0.96]
+          }
+        }
+      };
   
   return (
     <motion.div
       key={location.pathname}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ 
-        opacity: 1, 
-        y: 0,
-        transition: {
-          duration: 0.6,
-          ease: [0.43, 0.13, 0.23, 0.96]
-        }
-      }}
-      exit={{ 
-        opacity: 0, 
-        y: 20,
-        transition: {
-          duration: 0.4,
-          ease: [0.43, 0.13, 0.23, 0.96]
-        }
-      }}
+      {...transitionProps}
       className="min-h-screen bg-gradient-to-br from-background-dark via-neutral-dark/40 to-primary/5"
     >
       {children}
@@ -87,45 +103,53 @@ const App = () => {
   }, []);
 
   return (
-    <HelmetProvider>
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter basename="/">
-            <Navigation />
-            <ExitIntentPopup />
-            <ScrollAnimations />
-            <FloatingContact />
-            <div className="pt-20">
-              <Suspense fallback={
-                <motion.div 
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="flex items-center justify-center min-h-[60vh] glass-card mx-4 mt-8 rounded-2xl"
-                >
-                  <div className="animate-pulse text-primary text-lg font-medium">Loading...</div>
-                </motion.div>
-              }>
-                <AnimatePresence mode="wait">
-                  <Routes>
-                    <Route path="/" element={<PageWrapper><Index /></PageWrapper>} />
-                    <Route path="/about" element={<PageWrapper><AboutPage /></PageWrapper>} />
-                    <Route path="/services" element={<PageWrapper><ServicePage /></PageWrapper>} />
-                    <Route path="/services/:serviceId" element={<PageWrapper><ServicePage /></PageWrapper>} />
-                    <Route path="/contact" element={<PageWrapper><ContactPage /></PageWrapper>} />
-                    <Route path="/blog" element={<PageWrapper><BlogPage /></PageWrapper>} />
-                    <Route path="/blog/:slug" element={<PageWrapper><BlogPage /></PageWrapper>} />
-                  </Routes>
-                </AnimatePresence>
-              </Suspense>
-            </div>
-            <ScrollToTop />
-          </BrowserRouter>
-        </TooltipProvider>
-      </QueryClientProvider>
-    </HelmetProvider>
+    <ErrorBoundary>
+      <HelmetProvider>
+        <QueryClientProvider client={queryClient}>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <BrowserRouter basename="/">
+              {/* Skip Links for Accessibility */}
+              <div className="sr-only">
+                <a href="#main-content" className="skip-link">
+                  Skip to main content
+                </a>
+                <a href="#navigation" className="skip-link">
+                  Skip to navigation
+                </a>
+              </div>
+              
+              <Navigation />
+              <ExitIntentPopup />
+              <ScrollAnimations />
+              <FloatingContact />
+              <PerformanceMonitor />
+              
+              <main id="main-content" className="pt-20">
+                <Suspense fallback={<PageLoader message="Loading page content..." />}>
+                  <ErrorBoundary>
+                    <AnimatePresence mode="wait">
+                      <Routes>
+                        <Route path="/" element={<PageWrapper><Index /></PageWrapper>} />
+                        <Route path="/about" element={<PageWrapper><AboutPage /></PageWrapper>} />
+                        <Route path="/services" element={<PageWrapper><ServicePage /></PageWrapper>} />
+                        <Route path="/services/:serviceId" element={<PageWrapper><ServicePage /></PageWrapper>} />
+                        <Route path="/contact" element={<PageWrapper><ContactPage /></PageWrapper>} />
+                        <Route path="/blog" element={<PageWrapper><BlogPage /></PageWrapper>} />
+                        <Route path="/blog/:slug" element={<PageWrapper><BlogPage /></PageWrapper>} />
+                      </Routes>
+                    </AnimatePresence>
+                  </ErrorBoundary>
+                </Suspense>
+              </main>
+              
+              <ScrollToTop />
+            </BrowserRouter>
+          </TooltipProvider>
+        </QueryClientProvider>
+      </HelmetProvider>
+    </ErrorBoundary>
   );
 };
 
