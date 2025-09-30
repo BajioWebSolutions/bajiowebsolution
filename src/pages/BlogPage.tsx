@@ -16,12 +16,12 @@ import { blogPostsData } from "@/data/blogPosts";
 
 const blogCards = [
   {
-    title: "Mastering Social Media Algorithms in 2025",
-    excerpt: "Learn how to navigate the ever-changing algorithms across major platforms to maximize your organic reach and engagement.",
-    date: "April 15, 2025",
-    category: "Social Media",
-    slug: "mastering-social-media-algorithms",
-    image: "https://readdy.ai/api/search-image?query=social%20media%20marketing%20analytics%20dashboard%20on%20computer%20screen%20with%20colorful%20graphs%20and%20data%20visualizations%2C%20professional%20setting&width=600&height=400&seq=3&orientation=landscape",
+    title: "Customer Spotlight: A New Digital Home for Tacos La Rosa in Willimantic",
+    excerpt: "Here at Bajio Web Solutions, nothing makes us happier than helping a fellow local business succeed. We were recently honored to work with Tacos La Rosa, a fantastic and authentic Mexican restaurant located right in Willimantic, CT.",
+    date: "April 20, 2025",
+    category: "Customer Spotlight",
+    slug: "tacos-la-rosa-spotlight",
+    image: "/src/assets/tacos-la-rosa-featured.jpg",
     author: "Rigoberto Lopez"
   },
   {

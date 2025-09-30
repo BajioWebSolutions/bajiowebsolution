@@ -170,7 +170,7 @@ const Index = () => {
               className="text-center mb-12"
             >
               <h2 className="text-3xl sm:text-4xl font-bold mb-5 text-foreground-dark leading-tight">
-                Latest <span className="text-primary">Insights</span>
+                Connecticut Business <span className="text-primary">Insights</span>
               </h2>
               <p className="text-neutral text-lg max-w-3xl mx-auto">
                 Stay updated with the latest trends, tips, and insights in web development,

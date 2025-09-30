@@ -54,7 +54,7 @@ export const BlogSection = () => {
           className="text-center mb-12"
         >
           <h2 className="text-4xl font-bold mb-5 text-foreground-dark leading-tight">
-            Latest <span className="text-primary">Insights</span>
+            Connecticut Business <span className="text-primary">Insights</span>
           </h2>
           <p className="text-neutral max-w-2xl mx-auto text-lg">
             Stay updated with the latest trends, tips, and insights in web development, design, and digital marketing.
