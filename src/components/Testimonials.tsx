@@ -14,26 +14,6 @@ const testimonials = [
     timeframe: "27 weeks ago",
     rating: 5,
     isGMBReview: true
-  },
-  {
-    name: "Sarah Martinez",
-    role: "Owner",
-    company: "Local Fitness Studio",
-    content: "Bajio transformed our online presence completely. Our new website is beautiful and easy to navigate. We've seen a 25% increase in new member inquiries since launching. Their team was professional, responsive, and really understood our small business needs.",
-    image: "/lovable-uploads/sarah-martinez-profile.png",
-    results: "25% more inquiries",
-    timeframe: "4 months",
-    rating: 5
-  },
-  {
-    name: "David Thompson",
-    role: "Owner",
-    company: "Thompson Construction",
-    content: "As a contractor, I needed a website that would show my work and help me get more local customers. Bajio delivered exactly what I needed within my budget. The site looks professional and I'm getting calls from potential clients who found me online.",
-    image: "/lovable-uploads/david-thompson-profile.png",
-    results: "New customer leads weekly",
-    timeframe: "3 months",
-    rating: 5
   }
 ];
 
@@ -52,7 +32,7 @@ export const Testimonials = () => {
           className="text-center mb-16 fade-in-up"
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-foreground-dark">
-            Real Results from <span className="text-primary">Real Clients</span>
+            What Our <span className="text-primary">Clients Say</span>
           </h2>
           <p className="text-neutral text-lg max-w-3xl mx-auto mb-8">
             Don't just take our word for it. See how we've helped small businesses like yours achieve 
@@ -85,7 +65,7 @@ export const Testimonials = () => {
           </div>
         </motion.div>
         
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-1 gap-8 max-w-2xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}

@@ -6,7 +6,7 @@ interface DebugInfo {
   viewport: { width: number; height: number };
   colorScheme: string;
   reducedMotion: boolean;
-  connection?: NetworkInformation;
+  connection?: any;
   memory?: any;
 }
 

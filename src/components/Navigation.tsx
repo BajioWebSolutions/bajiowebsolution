@@ -27,6 +27,7 @@ export const Navigation = () => {
   const menuItems = [
     { title: "Home", path: "/" },
     { title: "Services", path: "/services" },
+    { title: "Our Story", path: "/our-story" },
     { title: "About", path: "/about" },
     { title: "Blog", path: "/blog" },
     { title: "Contact", path: "/contact" },

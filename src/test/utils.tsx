@@ -71,14 +71,14 @@ export const mockTestimonial = {
 };
 
 // Mock functions
-export const mockScrollTo = vi.fn();
+export const mockScrollTo = () => {};
 Object.defineProperty(window, 'scrollTo', { value: mockScrollTo });
 
-export const mockIntersectionObserver = vi.fn().mockImplementation(() => ({
-  observe: vi.fn(),
-  unobserve: vi.fn(),
-  disconnect: vi.fn(),
-}));
+export const mockIntersectionObserver = () => ({
+  observe: () => {},
+  unobserve: () => {},
+  disconnect: () => {},
+});
 
 // Re-export everything from React Testing Library
 export * from '@testing-library/react';

@@ -23,6 +23,7 @@ const ServicePage = lazy(() => import("./pages/ServicePage"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const BlogPage = lazy(() => import("./pages/BlogPage"));
+const OurStoryPage = lazy(() => import("./pages/OurStoryPage"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -135,6 +136,7 @@ const App = () => {
                         <Route path="/about" element={<PageWrapper><AboutPage /></PageWrapper>} />
                         <Route path="/services" element={<PageWrapper><ServicePage /></PageWrapper>} />
                         <Route path="/services/:serviceId" element={<PageWrapper><ServicePage /></PageWrapper>} />
+                        <Route path="/our-story" element={<PageWrapper><OurStoryPage /></PageWrapper>} />
                         <Route path="/contact" element={<PageWrapper><ContactPage /></PageWrapper>} />
                         <Route path="/blog" element={<PageWrapper><BlogPage /></PageWrapper>} />
                         <Route path="/blog/:slug" element={<PageWrapper><BlogPage /></PageWrapper>} />

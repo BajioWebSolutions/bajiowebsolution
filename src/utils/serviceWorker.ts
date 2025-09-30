@@ -114,6 +114,8 @@ export function unregister() {
   }
 }
 
+import React from 'react';
+
 // Hook to show update available notification
 export function useServiceWorkerUpdate() {
   const [updateAvailable, setUpdateAvailable] = React.useState(false);
