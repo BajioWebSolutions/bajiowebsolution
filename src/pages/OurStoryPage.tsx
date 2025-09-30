@@ -58,9 +58,7 @@ const OurStoryPage = () => {
             duration: 0.6
           }} className="max-w-4xl mx-auto prose prose-lg prose-invert">
               <div className="space-y-8 text-white/90">
-                <p className="text-lg sm:text-xl leading-relaxed">
-                  Hello, I'm [Your Name], the founder of Bajio Web Solutions. I'm a digital marketing expert, a web designer, and a proud resident of Lebanon, Connecticut. But more than anything, I'm passionate about helping the local businesses that make our communities thrive.
-                </p>
+                <p className="text-lg sm:text-xl leading-relaxed">Hello, I'm Rigoberto Lopez, the founder of Bajio Web Solutions. I'm a digital marketing expert, a web designer, and a proud resident of Lebanon, Connecticut. But more than anything, I'm passionate about helping the local businesses that make our communities thrive.</p>
 
                 <p className="text-lg sm:text-xl leading-relaxed">
                   I started this agency for the ambitious local business owners who pour their hearts into their work but are frustrated with being invisible online. I know you don't have time to become an SEO expert—you're busy running your business. That's where I come in.
