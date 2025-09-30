@@ -30,7 +30,7 @@ const OurStoryPage = () => {
                       </svg>
                     </div>
                     <p className="text-sm text-primary font-medium">RIGOBERTO LOPEZ</p>
-                    <p className="text-xs text-white/70">Photo Placeholder</p>
+                    <p className="text-xs text-white/70">AGENCY'S FOUNDER</p>
                   </div>
                 </div>
               </div>
