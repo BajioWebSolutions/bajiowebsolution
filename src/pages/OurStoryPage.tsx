@@ -93,7 +93,7 @@ const OurStoryPage = () => {
 
                 {/* Call to Action */}
                 <div className="text-center pt-12">
-                  <motion.a href="/contact#start-project" className="inline-flex items-center justify-center px-10 py-4 bg-gradient-to-r from-primary to-primary-light hover:from-primary-light hover:to-primary text-white font-bold text-xl rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/30" whileHover={{
+                  <motion.a href="/contact#start-project" className="not-prose no-underline inline-flex items-center justify-center px-10 py-4 bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white font-bold text-xl rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-light focus-visible:ring-offset-2 focus-visible:ring-offset-background-dark" whileHover={{
                   scale: 1.05
                 }} whileTap={{
                   scale: 0.95
