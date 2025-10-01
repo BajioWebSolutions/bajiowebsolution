@@ -16,7 +16,7 @@ const features = [
   {
     icon: MapPin,
     title: "CT-Based Local Expertise",
-    description: "Deep understanding of Connecticut's business landscape"
+    description: "We're not a faceless national company. We are a Connecticut-based agency that understands the local market and the unique challenges facing businesses in our state."
   }
 ];
 

@@ -17,7 +17,7 @@ const faqData = [
   },
   {
     question: "Where is Bajio Web Solutions located?",
-    answer: "We are based in Lebanon, Connecticut, serving clients locally and remotely."
+    answer: "We are proudly located at 902 Trumbull Hwy, Lebanon, CT 06249. We work hands-on with local businesses in Windham, Hartford, and New London counties, and we serve clients throughout the entire state of Connecticut."
   },
   {
     question: "How experienced is your team?",

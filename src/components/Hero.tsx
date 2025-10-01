@@ -36,7 +36,7 @@ export const Hero = () => {
               {/* WHO WE HELP & WHAT PROBLEM WE SOLVE - Direct and Emotional */}
               <div className="space-y-4">
                 <p className="text-xl sm:text-2xl text-[#CCFBF1] font-medium leading-relaxed">
-                  For <span className="text-primary font-bold">ambitious local businesses and solopreneurs</span> who are frustrated with getting zero leads online
+                  For <span className="text-primary font-bold">ambitious Connecticut businesses and solopreneurs</span> who are frustrated with getting zero leads online
                 </p>
                 <p className="text-lg sm:text-xl text-white/90 leading-relaxed">
                   We transform your <span className="text-red-400 font-semibold">invisible online presence</span> into a <span className="text-primary font-semibold">lead-generating digital system</span> that brings you paying customers on autopilot.

@@ -109,7 +109,7 @@ export const ServicePage = () => {
                 Our <span className="text-[#2DD4BF]">Services</span>
               </h1>
               <p className="text-lg text-[#CCFBF1] font-medium max-w-3xl mx-auto mb-16">
-                We specialize in creating stunning, high-performance websites tailored to our clients' unique needs. 
+                Based in Lebanon, we specialize in creating stunning websites and implementing data-driven strategies for businesses across Connecticut. 
                 Transform your online presence with our comprehensive digital solutions.
               </p>
             </div>
