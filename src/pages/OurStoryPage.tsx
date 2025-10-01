@@ -1,5 +1,6 @@
 import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
+import rigobertoHeadshot from "@/assets/rigoberto-lopez-headshot.png";
 const OurStoryPage = () => {
   return <>
       <SEO title="Our Story - Bajio Web Solutions" description="Learn about the founder and mission behind Bajio Web Solutions, Connecticut's premier digital agency helping local businesses grow online." canonical="/our-story" />
@@ -20,18 +21,18 @@ const OurStoryPage = () => {
           }} transition={{
             duration: 0.6
           }} className="max-w-4xl mx-auto text-center">
-              {/* Photo Placeholder */}
+              {/* Photo */}
               <div className="mb-12">
-                <div className="w-48 h-48 mx-auto rounded-full bg-gradient-to-br from-primary/20 to-primary/10 border-4 border-primary/30 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-20 h-20 mx-auto mb-4 bg-primary/20 rounded-full flex items-center justify-center">
-                      <svg className="w-10 h-10 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <p className="text-sm text-primary font-medium">RIGOBERTO LOPEZ</p>
-                    <p className="text-xs text-white/70">AGENCY'S FOUNDER</p>
-                  </div>
+                <div className="w-48 h-48 mx-auto rounded-full border-4 border-primary/30 overflow-hidden">
+                  <img 
+                    src={rigobertoHeadshot} 
+                    alt="Rigoberto Lopez, Founder of Bajio Web Solutions" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="text-center mt-4">
+                  <p className="text-sm text-primary font-medium">RIGOBERTO LOPEZ</p>
+                  <p className="text-xs text-white/70">AGENCY'S FOUNDER</p>
                 </div>
               </div>
 
