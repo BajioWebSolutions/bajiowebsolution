@@ -13,6 +13,8 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import { blogPostsData } from "@/data/blogPosts";
+import lebanonCtBusinessImage from "@/assets/lebanon-ct-business-featured.jpg";
+import tacosLaRosaImage from "@/assets/tacos-la-rosa-featured.jpg";
 
 const blogCards = [
   {
@@ -21,7 +23,7 @@ const blogCards = [
     date: "April 27, 2025",
     category: "Local Business",
     slug: "lebanon-ct-business-challenges",
-    image: "/src/assets/lebanon-ct-business-featured.jpg",
+    image: lebanonCtBusinessImage,
     author: "Rigoberto Lopez"
   },
   {
@@ -30,7 +32,7 @@ const blogCards = [
     date: "April 20, 2025",
     category: "Customer Spotlight",
     slug: "tacos-la-rosa-spotlight",
-    image: "/src/assets/tacos-la-rosa-featured.jpg",
+    image: tacosLaRosaImage,
     author: "Rigoberto Lopez"
   },
   {
