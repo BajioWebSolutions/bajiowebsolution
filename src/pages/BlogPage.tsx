@@ -16,6 +16,15 @@ import { blogPostsData } from "@/data/blogPosts";
 
 const blogCards = [
   {
+    title: "Is It Getting Harder to Run a Business in Lebanon, CT? Here's How to Fight Back.",
+    excerpt: "Running a small business in a town like Lebanon is a balancing act. You have the high costs of doing business in Connecticut, the challenge of finding good help, and the constant feeling that you have to work twice as hard to get noticed. It's not just you—it's a real struggle. But being 'out of the way' doesn't mean you have to be out of mind.",
+    date: "April 27, 2025",
+    category: "Local Business",
+    slug: "lebanon-ct-business-challenges",
+    image: "/src/assets/lebanon-ct-business-featured.jpg",
+    author: "Rigoberto Lopez"
+  },
+  {
     title: "Customer Spotlight: A New Digital Home for Tacos La Rosa in Willimantic",
     excerpt: "Here at Bajio Web Solutions, nothing makes us happier than helping a fellow local business succeed. We were recently honored to work with Tacos La Rosa, a fantastic and authentic Mexican restaurant located right in Willimantic, CT.",
     date: "April 20, 2025",
