@@ -82,13 +82,13 @@ export const Navigation = () => {
 
         {/* Mobile menu */}
         {isOpen && (
-          <div className="md:hidden py-4 animate-fade-in bg-background-dark/95">
+          <div className="md:hidden py-4 animate-fade-in bg-background-dark border-t border-white/10">
             <div className="flex flex-col space-y-4">
               {menuItems.map((item) => (
                 <Link
                   key={item.title}
                   to={item.path}
-                  className="text-foreground-dark hover:text-primary transition-colors px-4 py-2"
+                  className="text-white hover:text-primary transition-colors px-4 py-2 text-base font-medium"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.title}
