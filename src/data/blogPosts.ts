@@ -1,12 +1,18 @@
 import { BlogPost } from "@/types/blog";
+import lebanonCtBusinessImage from "@/assets/lebanon-ct-business-featured.jpg";
+import tacosLaRosaImage from "@/assets/tacos-la-rosa-featured.jpg";
 
 export const blogPostsData: Record<string, BlogPost> = {
   "lebanon-ct-business-challenges": {
-    title: "Is It Getting Harder to Run a Business in Lebanon, CT? Here's How to Fight Back.",
+    title: "Digital Marketing for Lebanon CT Small Businesses",
+    slug: "lebanon-ct-business-challenges",
     date: "April 27, 2025",
     category: "Local Business",
     author: "Rigoberto Lopez",
     tags: ["Lebanon CT", "Small Business", "Digital Marketing", "Local SEO", "Social Media"],
+    excerpt: "Running a small business in a town like Lebanon is a balancing act. Learn how digital marketing can help you overcome the challenges.",
+    metaDescription: "Struggling to attract customers in Lebanon, CT? Discover proven digital marketing strategies including local SEO, social media, and website optimization to grow your small business.",
+    image: lebanonCtBusinessImage,
     content: `
       <p>Running a small business in a town like Lebanon is a balancing act. You have the high costs of doing business in Connecticut, the challenge of finding good help, and the constant feeling that you have to work twice as hard to get noticed.</p>
       
@@ -73,10 +79,14 @@ export const blogPostsData: Record<string, BlogPost> = {
   },
   "tacos-la-rosa-spotlight": {
     title: "Customer Spotlight: A New Digital Home for Tacos La Rosa in Willimantic",
+    slug: "tacos-la-rosa-spotlight",
     date: "April 20, 2025",
     category: "Customer Spotlight",
     author: "Rigoberto Lopez",
     tags: ["Customer Success", "Local Business", "Web Design", "Connecticut"],
+    excerpt: "How we helped Tacos La Rosa, a fantastic authentic Mexican restaurant in Willimantic, create a mobile-first website that matches their quality.",
+    metaDescription: "Case study: Learn how Bajio Web Solutions designed a professional, mobile-first website for Tacos La Rosa in Willimantic, CT to attract more customers.",
+    image: tacosLaRosaImage,
     content: `
       <div class="mb-8">
         <img src="/src/assets/tacos-la-rosa-featured.jpg" alt="Delicious authentic tacos at Tacos La Rosa" class="w-full h-auto rounded-lg shadow-lg mb-6" />

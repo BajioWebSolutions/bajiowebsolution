@@ -6,6 +6,10 @@ export interface BlogPost {
   content: string;
   author: string;
   tags: string[];
+  excerpt?: string;
+  metaDescription?: string;
+  image?: string;
+  slug?: string;
 }
 
 export interface BlogHeaderProps {
