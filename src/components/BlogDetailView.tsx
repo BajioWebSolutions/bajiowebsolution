@@ -9,13 +9,15 @@ import { SEO } from "./SEO";
 
 export const BlogDetailView = ({ slug = "" }: BlogDetailViewProps) => {
   const navigate = useNavigate();
-  const blogPost = blogPostsData[slug];
+  // Normalize slug to handle trailing slashes or encoded characters
+  const normalizedSlug = decodeURIComponent((slug || "").toString()).replace(/^\/+|\/+$/g, "");
+  const blogPost = blogPostsData[normalizedSlug];
   
   useEffect(() => {
-    if (!slug || !blogPost) {
+    if (!normalizedSlug || !blogPost) {
       navigate("/blog");
     }
-  }, [slug, blogPost, navigate]);
+  }, [normalizedSlug, blogPost, navigate]);
 
   if (!blogPost) {
     return null;

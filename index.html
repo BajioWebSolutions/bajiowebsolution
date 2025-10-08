@@ -52,6 +52,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+    <!-- SPA direct-link restore (supports hosts without history fallback) -->
+    <script>
+      (function () {
+        try {
+          var params = new URLSearchParams(window.location.search);
+          var redirect = params.get('redirect') || params.get('p');
+          if (redirect) {
+            var url = new URL(redirect, window.location.origin);
+            window.history.replaceState(null, '', url.pathname + url.search + url.hash);
+          }
+        } catch (e) { /* no-op */ }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
