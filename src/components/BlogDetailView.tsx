@@ -20,7 +20,16 @@ export const BlogDetailView = ({ slug = "" }: BlogDetailViewProps) => {
   }, [normalizedSlug, blogPost, navigate]);
 
   if (!blogPost) {
-    return null;
+    return (
+      <section className="py-16 bg-background-dark min-h-screen">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl mx-auto text-center text-foreground-dark">
+            <h1 className="text-2xl font-semibold mb-2">Article not found</h1>
+            <p>Redirecting to the blog...</p>
+          </div>
+        </div>
+      </section>
+    );
   }
 
   return (
