@@ -140,6 +140,7 @@ const App = () => {
                         <Route path="/contact" element={<PageWrapper><ContactPage /></PageWrapper>} />
                         <Route path="/blog" element={<PageWrapper><BlogPage /></PageWrapper>} />
                         <Route path="/blog/:slug" element={<PageWrapper><BlogPage /></PageWrapper>} />
+                        <Route path="*" element={<PageWrapper><Index /></PageWrapper>} />
                       </Routes>
                     </AnimatePresence>
                   </ErrorBoundary>
