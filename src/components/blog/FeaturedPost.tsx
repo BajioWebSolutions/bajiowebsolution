@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export const FeaturedPost = () => {
   // Define the featured post slug explicitly
-  const featuredPostSlug = "digital-marketing-trends-2025";
+  const featuredPostSlug = "lebanon-ct-business-challenges";
   
   console.log("FeaturedPost rendering with slug:", featuredPostSlug);
   
@@ -22,14 +22,14 @@ export const FeaturedPost = () => {
         </div>
         <div className="md:w-1/2 p-8 md:p-10 flex flex-col justify-center">
           <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary bg-opacity-20 text-primary mb-4">
-            Digital Strategy
+            Local Business
           </span>
           <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white">
             <Link to={`/blog/${featuredPostSlug}`}>
-              5 Digital Marketing Trends Reshaping the Industry in 2025
+              Is It Getting Harder to Run a Business in Lebanon, CT? Here's How to Fight Back.
             </Link>
           </h2>
-          <p className="text-gray-300 mb-6">Discover the cutting-edge strategies and technologies that are transforming how businesses connect with their audiences. From AI-powered personalization to immersive content experiences, we explore the innovations that will define success in the digital landscape.</p>
+          <p className="text-gray-300 mb-6">Running a small business in a town like Lebanon is a balancing act. You have the high costs of doing business in Connecticut, the challenge of finding good help, and the constant feeling that you have to work twice as hard to get noticed. It's not just you—it's a real struggle. But being "out of the way" doesn't mean you have to be out of mind.</p>
           <div className="flex items-center mb-6">
             <img 
               src="/lovable-uploads/c4fae138-32fa-4834-a235-e94f2007b1b4.png" 
@@ -38,7 +38,7 @@ export const FeaturedPost = () => {
             />
             <div>
               <p className="text-white font-medium">Rigoberto Lopez</p>
-              <p className="text-gray-400 text-sm">April 18, 2025 · 8 min read</p>
+              <p className="text-gray-400 text-sm">April 27, 2025 · 8 min read</p>
             </div>
           </div>
           <Link 

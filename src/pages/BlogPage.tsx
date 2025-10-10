@@ -34,51 +34,6 @@ const blogCards = [
     slug: "tacos-la-rosa-spotlight",
     image: tacosLaRosaImage,
     author: "Rigoberto Lopez"
-  },
-  {
-    title: "Local SEO Strategies for Connecticut Businesses",
-    excerpt: "Discover proven techniques to dominate local search results and attract more customers from your community.",
-    date: "April 10, 2025",
-    category: "SEO",
-    slug: "local-seo-strategies",
-    image: "https://readdy.ai/api/search-image?query=SEO%20optimization%20concept%20with%20keywords%20and%20search%20results%20on%20computer%20screen%2C%20professional%20digital%20marketing%20workspace&width=600&height=400&seq=4&orientation=landscape",
-    author: "Rigoberto Lopez"
-  },
-  {
-    title: "Creating Content That Converts: A Complete Guide",
-    excerpt: "Learn how to craft compelling content that not only engages your audience but also drives measurable business results.",
-    date: "April 5, 2025",
-    category: "Content Marketing",
-    slug: "creating-content-that-converts",
-    image: "https://readdy.ai/api/search-image?query=content%20marketing%20strategy%20planning%20session%20with%20creative%20team%20brainstorming%20ideas%20on%20whiteboard%2C%20professional%20office%20setting&width=600&height=400&seq=5&orientation=landscape",
-    author: "Rigoberto Lopez"
-  },
-  {
-    title: "Maximizing ROI with Multi-Channel PPC Campaigns",
-    excerpt: "Explore advanced strategies for optimizing your paid advertising across Google, Meta, and emerging platforms.",
-    date: "March 30, 2025",
-    category: "Paid Advertising",
-    slug: "maximizing-roi-with-ppc",
-    image: "https://readdy.ai/api/search-image?query=digital%20advertising%20campaign%20planning%20with%20professionals%20analyzing%20ad%20performance%20metrics%20on%20multiple%20screens%2C%20professional%20marketing%20setting&width=600&height=400&seq=6&orientation=landscape",
-    author: "Rigoberto Lopez"
-  },
-  {
-    title: "Email Automation Sequences That Drive Sales",
-    excerpt: "Discover how to build sophisticated email journeys that nurture leads and convert prospects into loyal customers.",
-    date: "March 25, 2025",
-    category: "Email Marketing",
-    slug: "email-automation-sequences",
-    image: "https://readdy.ai/api/search-image?query=email%20marketing%20campaign%20design%20with%20professional%20team%20reviewing%20newsletter%20templates%20on%20computer%20screens%2C%20modern%20office%20environment&width=600&height=400&seq=7&orientation=landscape",
-    author: "Rigoberto Lopez"
-  },
-  {
-    title: "Website Performance Optimization Techniques",
-    excerpt: "Learn how to dramatically improve your website's speed, user experience, and conversion rates with these proven methods.",
-    date: "March 20, 2025",
-    category: "Web Development",
-    slug: "website-performance-optimization",
-    image: "https://readdy.ai/api/search-image?query=website%20development%20team%20working%20on%20responsive%20design%20project%20with%20multiple%20devices%20showing%20website%20layouts%2C%20professional%20tech%20environment&width=600&height=400&seq=8&orientation=landscape",
-    author: "Rigoberto Lopez"
   }
 ];
 
