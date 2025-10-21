@@ -1,9 +1,8 @@
-
 import { Menu, X, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import bwsLogo from "@/assets/bws-logo.png";
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -39,7 +38,7 @@ export const Navigation = () => {
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center">
             <img 
-              src="/lovable-uploads/5a483482-d9db-4a40-8b9e-5b901a1d8fcc.png" 
+              src={bwsLogo} 
               alt="Bajio Web Solutions" 
               className="h-16 w-auto"
             />
